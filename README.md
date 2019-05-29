@@ -42,8 +42,10 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 + n.B. Zwiebeln (fein gehackt)
 + Salz
 
-> Zur einfachen Bindung alle Zutaten in ein Schraubglas füllen,  den Deckel verschließen und gut schütteln.\
-  Festen Honig möglichst vorher verflüssigen.
+Zur einfachen Bindung alle Zutaten in ein Schraubglas füllen,  den Deckel verschließen und gut schütteln.\
+Festen Honig möglichst vorher verflüssigen.
+
+---
 
 ### Big Mac Sauce <a name="bigMacSauce"></a>
 
