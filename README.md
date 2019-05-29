@@ -74,7 +74,7 @@ Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen
 + n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
 + Salz
 
-Karotte, Gewürzgurken und Apfel möglichst klein hacken und mit den restlichen Zutaten vermengen
+Karotte, Gewürzgurken und Apfel möglichst klein hacken und mit den restlichen Zutaten vermengen.
 
 ---
 
