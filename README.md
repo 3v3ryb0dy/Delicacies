@@ -1,5 +1,11 @@
 # Kochbuch der Delikatessen
 
+## Vorwort <a name="vorwort"></a>
+
+Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.\
+Bei den aufgeführten Anleitungen handelt es sich um über Jahre gesammelte Rezepte, die sich bewährt haben und somit ihren Platz in dieser Sammlung verdienen.\
+Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, senden Sie diese gerne ein.
+
 ## Inhaltsverzeichnis
 1. [Vorwort](#vorwort)
 1. [Vorspeisen](#vorspeisen)
@@ -14,12 +20,6 @@
 1. [Sonstiges](#sonstiges)
     + [Tempura Teig (knusprig)](#tempuraKnusprig)
 1. [Anmerkungen](#anmerkungen)
-
-## Vorwort <a name="vorwort"></a>
-
-Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.\
-Bei den aufgeführten Anleitungen handelt es sich um über Jahre gesammelte Rezepte, die sich bewährt haben und somit ihren Platz in dieser Sammlung verdienen.\
-Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, senden Sie diese gerne ein.
 
 ## Vorspeisen <a name="vorspeisen"></a>
 
