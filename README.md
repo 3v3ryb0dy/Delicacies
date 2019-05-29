@@ -13,7 +13,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 1. [Desserts](#desserts)
 1. [Kuchen](#kuchen)
 1. [Torten](#torten)
-1. [Saucen / Dips](#saucen)
+1. [Saucen / Dips / Dressings](#saucen)
     + [Big Mac Sauce](#bigMacSauce)
 1. [Vegetarisches](#vegetarisches)
     + [Vegetarische Bouletten](#vegetarischeBouletten)
@@ -31,7 +31,19 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 
 ## Torten <a name="torten"></a>
 
-## Saucen / Dips <a name="saucen"></a>
+## Saucen / Dips / Dressings <a name="saucen"></a>
+
+### Balsamico Honig Dressing
+
++ 40 ml Balsamico Essig
++ 25 ml Öl (neutral)
++ 3 TL Senf 
++ 2 EL Honig
++ n.B. Zwiebeln (fein gehackt)
++ Salz
+
+> Zur einfachen Bindung alle Zutaten in ein Schraubglas füllen,  den Deckel verschließen und gut schütteln.\
+  Festen Honig möglichst vorher verflüssigen.
 
 ### Big Mac Sauce <a name="bigMacSauce"></a>
 
