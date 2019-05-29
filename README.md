@@ -19,6 +19,8 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
     + [Remoulade](#remoulade)
 1. [Vegetarisches](#vegetarisches)
     + [Vegetarische Bouletten](#vegetarischeBouletten)
+1. [Salate](#salate)
+    + [Farfallesalat (italienisch)](#nudelsalatItalienisch)
 1. [Sonstiges](#sonstiges)
     + [Tempura Teig (knusprig)](#tempuraKnusprig)
 1. [Anmerkungen](#anmerkungen)
@@ -96,6 +98,26 @@ optional:
 
 Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.\
 Hervorragend auch als Burger.
+
+---
+
+## Salate <a name="salate"></a>
+
+### Farfallesalat (italienisch) <a name="nudelsalatItalienisch"></a>
+
++ 200 g Farfalle
++ 125 ml Gemüsebrühe (heiß)
++ 150 g Rucola
++ 500 g Cocktailtomaten
++ 50 g getrocknete Tomaten
++ 2 EL Pinienkerne
++ 4 EL grünes Pesto (verde)
++ 1 EL Balsamico Essig
++ 1 EL Olivenöl
++ 1/2 TL Chilipulver
++ Salz, Pfeffer
+
+> nach erstem Zubereiten ergänzen
 
 ---
 
