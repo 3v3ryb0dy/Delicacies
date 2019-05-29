@@ -16,6 +16,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 1. [Saucen / Dips / Dressings](#saucen)
     + [Balsamico Honig Dressing](#balsamicoDressing)
     + [Big Mac Sauce](#bigMacSauce)
+    + [Remoulade](#remoulade)
 1. [Vegetarisches](#vegetarisches)
     + [Vegetarische Bouletten](#vegetarischeBouletten)
 1. [Sonstiges](#sonstiges)
@@ -60,6 +61,20 @@ Festen Honig möglichst vorher verflüssigen.
 + Salz
 
 Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen lassen.
+
+---
+
+### Remoulade <a name="remoulade"></a>
+
++ 200 ml Mayonnaise
++ 1/4 Karotte (klein)
++ 20 g Gewürzgurken
++ 1/8 Apfel
++ 1 TL Senf
++ n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
++ Salz
+
+Karotte, Gewürzgurken und Apfel möglichst klein hacken und mit den restlichen Zutaten vermengen
 
 ---
 
