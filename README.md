@@ -1,8 +1,7 @@
 # Kochbuch der Delikatessen
 
-Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.
-
-## Inhaltverzeichnis
+## Inhaltsverzeichnis
+1. [Vorwort](#vorwort)
 1. [Vorspeisen](#vorspeisen)
 1. [Hauptgerichte](#hauptgerichte)
 1. [Desserts](#desserts)
@@ -14,6 +13,13 @@ Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen u
     + [Vegetarische Bouletten](#vegetarischeBouletten)
 1. [Sonstiges](#sonstiges)
     + [Tempura Teig (knusprig)](#tempuraKnusprig)
+1. [Anmerkungen](#anmerkungen)
+
+## Vorwort <a name="vorwort"></a>
+
+Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.\
+Bei den aufgeführten Anleitungen handelt es sich um über Jahre gesammelte Rezepte, die sich bewährt haben und somit ihren Platz in dieser Sammlung verdienen.\
+Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, senden Sie diese gerne ein.
 
 ## Vorspeisen <a name="vorspeisen"></a>
 
@@ -38,7 +44,7 @@ Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen u
 + 2 TL Senf
 + Salz
 
-Alle Zutaten vermengen und anschließend 3 Stunden ziehen lassen.
+Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen lassen.
 
 ---
 
@@ -74,7 +80,9 @@ Hervorragend auch als Burger.
 + n.B. Paprikapulver
 + Salz, Pfeffer
 
-Alle Zutaten vermengen und Frittiergut damit umhüllen.
+Alle Zutaten verrühren und Frittiergut damit umhüllen.
 
 ---
+
+## Anmerkungen <a name="anmerkungen"></a>
 
