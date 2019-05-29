@@ -12,6 +12,8 @@ Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen u
     + [Big Mac Sauce](#bigMacSauce)
 1. [Vegetarisches](#vegetarisches)
     + [Vegetarische Bouletten](#vegetarischeBouletten)
+1. [Sonstiges](#sonstiges)
+    + [Tempura Teig (knusprig)](#tempuraKnusprig)
 
 ## Vorspeisen <a name="vorspeisen"></a>
 
@@ -55,4 +57,24 @@ Alle Zutaten vermengen und anschließend 3 Stunden ziehen lassen.
 
 optional:
 + 2 TL Curry
+
+Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.\
+Hervorragend auch als Burger.
+
+---
+
+## Sonstiges <a name="sonstiges"></a>
+
+### Tempura Teig (knusprig) <a name="tempuraKnusprig"></a>
+
++ 50 g Speisestärke
++ 50 g Mehl
++ 130 ml Wasser (eiskalt)
++ 1 Pck. Backpulver
++ n.B. Paprikapulver
++ Salz, Pfeffer
+
+Alle Zutaten vermengen und Frittiergut damit umhüllen.
+
+---
 
