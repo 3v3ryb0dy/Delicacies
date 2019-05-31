@@ -1,6 +1,6 @@
 # Kochbuch der Delikatessen
 
-## Vorwort <a name="vorwort"></a>
+## Vorwort<a name="vorwort"></a>
 
 Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.\
 Bei den aufgeführten Anleitungen handelt es sich um über Jahre gesammelte Rezepte, die sich bewährt haben und somit ihren Platz in dieser Sammlung verdienen.\
@@ -29,11 +29,11 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
     + [Vegetarische Bouletten](#vegetarischeBouletten)
 1. [Anmerkungen](#anmerkungen)
 
-## Vorspeisen <a name="vorspeisen"></a>
+## Vorspeisen<a name="vorspeisen"></a>
 
-## Hauptgerichte <a name="hauptgerichte"></a>
+## Hauptgerichte<a name="hauptgerichte"></a>
 
-### Pizza (Basis) <a name="pizza"></a>
+### Pizza (Basis)<a name="pizza"></a>
 
 Teig:
 + 500 ml Wasser (lauwarm)
@@ -61,17 +61,17 @@ Sauce:
 
 ---
 
-## Desserts <a name="desserts"></a>
+## Desserts<a name="desserts"></a>
 
-## Kuchen <a name="kuchen"></a>
+## Kuchen<a name="kuchen"></a>
 
-## Torten <a name="torten"></a>
+## Torten<a name="torten"></a>
 
-## Gebäck <a name="gebaeck"></a>
+## Gebäck<a name="gebaeck"></a>
 
-## Brot / Brötchen <a name="brot"></a>
+## Brot / Brötchen<a name="brot"></a>
 
-### Burger Buns <a name="burgerBuns"></a>
+### Burger Buns<a name="burgerBuns"></a>
 
 + 200 ml Wasser (lauwarm)
 + 4 EL Milch
@@ -87,20 +87,19 @@ Sauce:
 + 2 EL Milch
 + Sesam
 
->Wasser mit Milch und Zucker in eine Schüssel geben, Hefe hineinbröseln.\
-Ca. 10 Minuten ruhen lassen.\
+>Wasser mit Milch und Zucker in eine Schüssel geben, Hefe hineinbröseln, ca. 10 Minuten ruhen lassen.\
 Anschließend Mehl, Salz, Ei und die geschmolzene Butter hinzufügen und zu einem glatten Teig kneten.\
 Den Teig 1 Stunde abgedeckt an einem warmen Ort gehen lassen.\
-Teig in 10 Teile aufteilen, zu Kugeln formen und auf Backblech mit Backpapier verteilen. Der Teig ist sehr klebrig, Mehl hilft.\
+In 10 Teile aufteilen, zu Kugeln formen und auf Backblech mit Backpapier verteilen. Der Teig ist sehr klebrig, Mehl hilft.\
 Erneut abdecken und 1 weitere Stunde gehen lassen.\
 Ei mit Milch und Wasser vermischen.\
 Brötchen mit der Mischung bepinseln und bei 200 °C bei Ober- und Unterhitze ca. 16 - 20 Minuten backen.
 
 ---
 
-## Saucen / Dips / Dressings <a name="saucen"></a>
+## Saucen / Dips / Dressings<a name="saucen"></a>
 
-### American Burger Sauce <a name="americanBurgerSauce"></a>
+### American Burger Sauce<a name="americanBurgerSauce"></a>
 
 + 1 Eigelb
 + 1 EL Essig
@@ -120,7 +119,7 @@ Ketchup, Zwiebel, Gewürzgurke, Zitronensaft, Petersilie und Knoblauch pürieren
 
 ---
 
-### Balsamico Honig Dressing <a name="balsamicoDressing"></a>
+### Balsamico Honig Dressing<a name="balsamicoDressing"></a>
 
 + 40 ml Balsamico Essig
 + 25 ml Öl (neutral)
@@ -134,7 +133,7 @@ Festen Honig möglichst vorher verflüssigen.
 
 ---
 
-### Big Mac Sauce <a name="bigMacSauce"></a>
+### Big Mac Sauce<a name="bigMacSauce"></a>
 
 + 120 ml Mayonnaise
 + 4 TL  Sauce (Dill-Gurken-Relish)
@@ -149,7 +148,7 @@ Festen Honig möglichst vorher verflüssigen.
 
 ---
 
-### Remoulade <a name="remoulade"></a>
+### Remoulade<a name="remoulade"></a>
 
 + 200 ml Mayonnaise
 + 1/4 Karotte (klein)
@@ -163,9 +162,9 @@ Festen Honig möglichst vorher verflüssigen.
 
 ---
 
-## Salate <a name="salate"></a>
+## Salate<a name="salate"></a>
 
-### Farfallesalat (italienisch) <a name="nudelsalatItalienisch"></a>
+### Farfallesalat (italienisch)<a name="nudelsalatItalienisch"></a>
 
 + 200 g Farfalle
 + 125 ml Gemüsebrühe (heiß)
@@ -183,9 +182,9 @@ Festen Honig möglichst vorher verflüssigen.
 
 ---
 
-## Sonstiges <a name="sonstiges"></a>
+## Sonstiges<a name="sonstiges"></a>
 
-### Tempura Teig (knusprig) <a name="tempuraKnusprig"></a>
+### Tempura Teig (knusprig)<a name="tempuraKnusprig"></a>
 
 + 50 g Speisestärke
 + 50 g Mehl
@@ -198,7 +197,7 @@ Festen Honig möglichst vorher verflüssigen.
 
 ---
 
-### Vegetarische Bouletten <a name="vegetarischeBouletten"></a>
+### Vegetarische Bouletten<a name="vegetarischeBouletten"></a>
 
 + 250 g Haferflocken (kernig)
 + 200 g Kräuterquark
@@ -217,5 +216,5 @@ Hervorragend auch als Burger.
 
 ---
 
-## Anmerkungen <a name="anmerkungen"></a>
+## Anmerkungen<a name="anmerkungen"></a>
 
