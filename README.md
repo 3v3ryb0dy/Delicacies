@@ -13,6 +13,9 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 1. [Desserts](#desserts)
 1. [Kuchen](#kuchen)
 1. [Torten](#torten)
+1. [Gebäck](#gebaeck)
+1. [Brot / Brötchen](#brot)
+    + [Burger Buns](#burgerBuns)
 1. [Saucen / Dips / Dressings](#saucen)
     + [Balsamico Honig Dressing](#balsamicoDressing)
     + [Big Mac Sauce](#bigMacSauce)
@@ -35,6 +38,37 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 
 ## Torten <a name="torten"></a>
 
+## Gebäck <a name="gebaeck"></a>
+
+## Brot / Brötchen <a name="brot"></a>
+
+### Burger Buns <a name="burgerBuns"></a>
+
++ 200 ml Wasser (lauwarm)
++ 4 EL Milch
++ 1 Würfel Hefe (frisch)
++ 35 g Zucker
++ 10 g Salz
++ 80 g Butter (geschmolzen)
++ 500g Mehl (Typ 550)
++ 1 Ei 
+<br></br>
++ 1 Ei
++ 2 EL Wasser
++ 2 EL Milch
++ Sesam
+
+>Wasser mit Milch und Zucker in eine Schüssel geben, Hefe hineinbröseln.\
+Ca. 10 Minuten ruhen lassen.\
+Anschließend Mehl, Salz, Ei und die geschmolzene Butter hinzufügen und zu einem glatten Teig kneten.\
+Den Teig 1 Stunde abgedeckt an einem warmen Ort gehen lassen.\
+Teig in 10 Teile aufteilen, zu Kugeln formen und auf Backblech mit Backpapier verteilen. Der Teig ist sehr klebrig, Mehl hilft.\
+Erneut abdecken und 1 weitere Stunde gehen lassen.\
+Ei mit Milch und Wasser vermischen.\
+Brötchen mit der Mischung bepinseln und bei 200 °C bei Ober- und Unterhitze ca. 16 - 20 Minuten backen.
+
+---
+
 ## Saucen / Dips / Dressings <a name="saucen"></a>
 
 ### Balsamico Honig Dressing <a name="balsamicoDressing"></a>
@@ -46,7 +80,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 + n.B. Zwiebeln (fein gehackt)
 + Salz
 
-Zur einfachen Bindung alle Zutaten in ein Schraubglas füllen,  den Deckel verschließen und gut schütteln.\
+>Zur einfachen Bindung alle Zutaten in ein Schraubglas füllen,  den Deckel verschließen und gut schütteln.\
 Festen Honig möglichst vorher verflüssigen.
 
 ---
@@ -62,7 +96,7 @@ Festen Honig möglichst vorher verflüssigen.
 + 2 TL Senf
 + Salz
 
-Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen lassen.
+>Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen lassen.
 
 ---
 
@@ -76,7 +110,7 @@ Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen
 + n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
 + Salz
 
-Karotte, Gewürzgurken und Apfel möglichst klein hacken und mit den restlichen Zutaten vermengen.
+>Karotte, Gewürzgurken und Apfel möglichst klein hacken und mit den restlichen Zutaten vermengen.
 
 ---
 
@@ -96,7 +130,7 @@ Karotte, Gewürzgurken und Apfel möglichst klein hacken und mit den restlichen 
 optional:
 + 2 TL Curry
 
-Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.\
+>Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.\
 Hervorragend auch als Burger.
 
 ---
@@ -132,7 +166,7 @@ Hervorragend auch als Burger.
 + n.B. Paprikapulver
 + Salz, Pfeffer
 
-Alle Zutaten verrühren und Frittiergut damit umhüllen.
+>Alle Zutaten verrühren und Frittiergut damit umhüllen.
 
 ---
 
