@@ -22,12 +22,11 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
     + [Balsamico Honig Dressing](#balsamicoDressing)
     + [Big Mac Sauce](#bigMacSauce)
     + [Remoulade](#remoulade)
-1. [Vegetarisches](#vegetarisches)
-    + [Vegetarische Bouletten](#vegetarischeBouletten)
 1. [Salate](#salate)
     + [Farfallesalat (italienisch)](#nudelsalatItalienisch)
 1. [Sonstiges](#sonstiges)
     + [Tempura Teig (knusprig)](#tempuraKnusprig)
+    + [Vegetarische Bouletten](#vegetarischeBouletten)
 1. [Anmerkungen](#anmerkungen)
 
 ## Vorspeisen <a name="vorspeisen"></a>
@@ -112,9 +111,9 @@ Brötchen mit der Mischung bepinseln und bei 200 °C bei Ober- und Unterhitze ca
 + 30 g Gemüsezwiebeln
 + 15 g Gewürzgurken
 + 1 EL Petersilie (gehackt)
-+ 1 TL Salz
 + 2 TL Zitronensaft
 + 1 Zehe Knoblauch
++ Salz
 
 >Eigelb, Essig, Senf und Zucker verquirlen, langsam tröpfelnd das Öl hinzufügen.\
 Ketchup, Zwiebel, Gewürzgurke, Zitronensaft, Petersilie und Knoblauch pürieren und mit der Mayonnaise verrühren.
@@ -164,27 +163,6 @@ Festen Honig möglichst vorher verflüssigen.
 
 ---
 
-## Vegetarisches <a name="vegetarisches"></a>
-
-### Vegetarische Bouletten <a name="vegetarischeBouletten"></a>
-
-+ 250 g Haferflocken (kernig)
-+ 200 g Kräuterquark
-+ 50 ml Milch
-+ 1 Zwiebel
-+ 3 Eier 
-+ 125 g Käse (mild, gerieben)
-+ n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
-+ Salz, Pfeffer
-
-optional:
-+ 2 TL Curry
-
->Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.\
-Hervorragend auch als Burger.
-
----
-
 ## Salate <a name="salate"></a>
 
 ### Farfallesalat (italienisch) <a name="nudelsalatItalienisch"></a>
@@ -217,6 +195,25 @@ Hervorragend auch als Burger.
 + Salz, Pfeffer
 
 >Alle Zutaten verrühren und Frittiergut damit umhüllen.
+
+---
+
+### Vegetarische Bouletten <a name="vegetarischeBouletten"></a>
+
++ 250 g Haferflocken (kernig)
++ 200 g Kräuterquark
++ 50 ml Milch
++ 1 Zwiebel
++ 3 Eier 
++ 125 g Käse (mild, gerieben)
++ n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
++ Salz, Pfeffer
+
+optional:
++ 2 TL Curry
+
+>Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.\
+Hervorragend auch als Burger.
 
 ---
 
