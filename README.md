@@ -10,6 +10,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 1. [Vorwort](#vorwort)
 1. [Vorspeisen](#vorspeisen)
 1. [Hauptgerichte](#hauptgerichte)
+    + [Pizza (Basis)](#pizza)
 1. [Desserts](#desserts)
 1. [Kuchen](#kuchen)
 1. [Torten](#torten)
@@ -17,6 +18,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 1. [Brot / Brötchen](#brot)
     + [Burger Buns](#burgerBuns)
 1. [Saucen / Dips / Dressings](#saucen)
+    + [American Burger Sauce](#americanBurgerSauce)
     + [Balsamico Honig Dressing](#balsamicoDressing)
     + [Big Mac Sauce](#bigMacSauce)
     + [Remoulade](#remoulade)
@@ -31,6 +33,34 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 ## Vorspeisen <a name="vorspeisen"></a>
 
 ## Hauptgerichte <a name="hauptgerichte"></a>
+
+### Pizza (Basis) <a name="pizza"></a>
+
+Teig:
++ 500 ml Wasser (lauwarm)
++ 925 g Mehl
++ 40 g Hefe (frisch)
++ 20 g Salz
++ 25 ml Olivenöl
++ 1 Prise Zucker
+
+>Hefe in Wasser mit Olivenöl, Salz und Zucker auflösen. Mehl hinzufügen, zu einem glatten Teig kneten.\
+1/2 Stunde abgedeckt an einem warmen Ort gehen lassen.\
+2 Tage abgedeckt kühl ruhen lassen.\
+
+Sauce:
++ 250 ml Tomaten (passiert)
++ 2 EL Tomatenmark
++ 1 Zwiebel
++ 1 Zehe Knoblauch
++ Basilikum, Oregano, Rosmarin
++ Olivenöl
++ Zucker
++ Salz, Pfeffer
+
+>Zwiebeln in Öl glasig braten, passierte Tomaten hinzugeben und aufkochen lassen. Restliche Zutaten hinzufügen und 20 - 25 Minuten köcheln lassen.
+
+---
 
 ## Desserts <a name="desserts"></a>
 
@@ -70,6 +100,26 @@ Brötchen mit der Mischung bepinseln und bei 200 °C bei Ober- und Unterhitze ca
 ---
 
 ## Saucen / Dips / Dressings <a name="saucen"></a>
+
+### American Burger Sauce <a name="americanBurgerSauce"></a>
+
++ 1 Eigelb
++ 1 EL Essig
++ 1 TL Zucker
++ 1 TL Senf
++ 125 ml Sonnenblumenöl
++ 50 g Tomatenketchup
++ 30 g Gemüsezwiebeln
++ 15 g Gewürzgurken
++ 1 EL Petersilie (gehackt)
++ 1 TL Salz
++ 2 TL Zitronensaft
++ 1 Zehe Knoblauch
+
+>Eigelb, Essig, Senf und Zucker verquirlen, langsam tröpfelnd das Öl hinzufügen.\
+Ketchup, Zwiebel, Gewürzgurke, Zitronensaft, Petersilie und Knoblauch pürieren und mit der Mayonnaise verrühren.
+
+---
 
 ### Balsamico Honig Dressing <a name="balsamicoDressing"></a>
 
