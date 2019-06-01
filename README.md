@@ -150,7 +150,6 @@ Festen Honig möglichst vorher verflüssigen.
 + 150 ml Öl (neutral)
 + 1 TL Senf
 + 4 TL Zitronensaft
-+ 1 TL Zucker
 + Salz, Pfeffer
 
 >Eigelb und Eiweiß in ein hohes, schmales Gefäß schlagen, Senf, Zitronensaft, Salz und Pfeffer hinzugeben.\
