@@ -21,6 +21,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
     + [American Burger Sauce](#americanBurgerSauce)
     + [Balsamico Honig Dressing](#balsamicoDressing)
     + [Big Mac Sauce](#bigMacSauce)
+    + [Mayonnaise](#mayonnaise)
     + [Remoulade](#remoulade)
 1. [Salate](#salate)
     + [Farfallesalat (italienisch)](#nudelsalatItalienisch)
@@ -45,7 +46,7 @@ Teig:
 
 >Hefe in Wasser mit Olivenöl, Salz und Zucker auflösen. Mehl hinzufügen, zu einem glatten Teig kneten.\
 1/2 Stunde abgedeckt an einem warmen Ort gehen lassen.\
-2 Tage abgedeckt kühl ruhen lassen.\
+2 Tage abgedeckt kühl ruhen lassen.
 
 Sauce:
 + 250 ml Tomaten (passiert)
@@ -101,11 +102,7 @@ Brötchen mit der Mischung bepinseln und bei 200 °C bei Ober- und Unterhitze ca
 
 ### American Burger Sauce<a name="americanBurgerSauce"></a>
 
-+ 1 Eigelb
-+ 1 EL Essig
-+ 1 TL Zucker
-+ 1 TL Senf
-+ 125 ml Sonnenblumenöl
++ 200 ml Mayonnaise
 + 50 g Tomatenketchup
 + 30 g Gemüsezwiebeln
 + 15 g Gewürzgurken
@@ -114,8 +111,7 @@ Brötchen mit der Mischung bepinseln und bei 200 °C bei Ober- und Unterhitze ca
 + 1 Zehe Knoblauch
 + Salz
 
->Eigelb, Essig, Senf und Zucker verquirlen, langsam tröpfelnd das Öl hinzufügen.\
-Ketchup, Zwiebel, Gewürzgurke, Zitronensaft, Petersilie und Knoblauch pürieren und mit der Mayonnaise verrühren.
+>Ketchup, Zwiebel, Gewürzgurke, Zitronensaft, Petersilie und Knoblauch mit der Mayonnaise pürieren.
 
 ---
 
@@ -145,6 +141,22 @@ Festen Honig möglichst vorher verflüssigen.
 + Salz
 
 >Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen lassen.
+
+---
+
+### Mayonnaise<a name="mayonnaise"></a>
+
++ 1 Ei
++ 150 ml Öl (neutral)
++ 1 TL Senf
++ 4 TL Zitronensaft
++ 1 TL Zucker
++ Salz, Pfeffer
+
+>Eigelb und Eiweiß in ein hohes, schmales Gefäß schlagen, Senf, Zitronensaft, Salz und Pfeffer hinzugeben.\
+Jetzt das gesamte Öl einfüllen.\
+Den Stabmixer auf den Boden des Gefäßes stellen. Das Gefäß leicht schräg stellen um die verbleibende Luft unter dem Mixer entweichen zu lassen und dann einschalten. Einige Zeit dort emulgieren lassen.\
+Wenn die Mayonnaise unten nicht mehr dicker wird, kann der Stabmixer sehr langsam nach oben gezogen werden, um das restliche Öl unterzumixen.
 
 ---
 
