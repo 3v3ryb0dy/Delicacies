@@ -250,10 +250,3 @@ Hervorragend auch als Burger.
 ---
 
 ## Anmerkungen<a name="anmerkungen"></a>
-
-<iframe width="560" height="315"
-src="https://www.youtube.com/watch?v=2P4uwoZq-B4" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen>
-</iframe>
