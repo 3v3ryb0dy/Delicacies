@@ -16,19 +16,20 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 1. [Torten](#torten)
 1. [Gebäck](#gebaeck)
 1. [Brot / Brötchen](#brot)
+    + [Bhatura (Indisches Ballonbrot)](#bhatura)
     + [Burger Buns](#burgerBuns)
-1. [Saucen / Dips / Dressings](#saucen)
+3. [Saucen / Dips / Dressings](#saucen)
     + [American Burger Sauce](#americanBurgerSauce)
     + [Balsamico Honig Dressing](#balsamicoDressing)
     + [Big Mac Sauce](#bigMacSauce)
     + [Mayonnaise](#mayonnaise)
     + [Remoulade](#remoulade)
-1. [Salate](#salate)
+4. [Salate](#salate)
     + [Farfallesalat (italienisch)](#nudelsalatItalienisch)
-1. [Sonstiges](#sonstiges)
+5. [Sonstiges](#sonstiges)
     + [Tempura Teig (knusprig)](#tempuraKnusprig)
     + [Vegetarische Bouletten](#vegetarischeBouletten)
-1. [Anmerkungen](#anmerkungen)
+6. [Anmerkungen](#anmerkungen)
 
 ## Vorspeisen<a name="vorspeisen"></a>
 
@@ -72,6 +73,24 @@ Sauce:
 
 ## Brot / Brötchen<a name="brot"></a>
 
+### Bhatura (Indisches Ballonbrot)<a name="bhatura"></a>
+
++ 200 g Mehl 
++ 1 EL Joghurt
++ 1 EL Olivenöl
++ 7 g Trockenhefe
++ 1 TL Salz
++ 1 TL Kreuzkümmel (gemahlen)
++ 80 ml Wasser (lauwarm)
++ Öl (zum Frittieren)
+
+>Mehl in eine Schüssel sieben. Salz, Kreuzkümmel, Hefe dazu und trocken mischen.\
+Wasser, Joghurt und Öl hinzugeben. Gut durchkneten und 15-20 min. warmstellen.\
+Teig nochmal kurz durchkneten und 8 kleine Fladen ausrollen. Kurz gehen lassen bis das Öl zum Frittieren heiß ist.\
+In heißem Öl ausbacken.
+
+---
+
 ### Burger Buns<a name="burgerBuns"></a>
 
 + 200 ml Wasser (lauwarm)
@@ -80,7 +99,7 @@ Sauce:
 + 35 g Zucker
 + 10 g Salz
 + 80 g Butter (geschmolzen)
-+ 500g Mehl (Typ 550)
++ 500 g Mehl (Typ 550)
 + 1 Ei 
 <br></br>
 + 1 Ei
