@@ -1,6 +1,6 @@
 # Kochbuch der Delikatessen
 
-## Vorwort<a name="vorwort"></a>
+## Vorwort
 
 Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.\
 Bei den aufgeführten Anleitungen handelt es sich um über Jahre gesammelte Rezepte, die sich bewährt haben und somit ihren Platz in dieser Sammlung verdienen.\
@@ -8,45 +8,49 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
 
 ## Inhaltsverzeichnis
 
-1. [Vorwort](#vorwort)
-1. [Vorspeisen](#vorspeisen)
-1. [Hauptgerichte](#hauptgerichte)
-    + [Pizza (Basis)](#pizza)
-1. [Desserts](#desserts)
-1. [Kuchen](#kuchen)
-1. [Torten](#torten)
-1. [Gebäck](#gebaeck)
-1. [Brot / Brötchen](#brot)
-    + [Bhatura (Indisches Ballonbrot)](#bhatura)
-    + [Burger Buns](#burgerBuns)
-1. [Saucen / Dips / Dressings](#saucen)
-    + [American Burger Sauce](#americanBurgerSauce)
-    + [Balsamico Honig Dressing](#balsamicoDressing)
-    + [Big Mac Sauce](#bigMacSauce)
-    + [Marinade (Grillfleisch)](#marinade)
-    + [Mayonnaise](#mayonnaise)
-    + [Remoulade](#remoulade)
-1. [Salate](#salate)
-    + [Farfallesalat (italienisch)](#nudelsalatItalienisch)
-1. [Sonstiges](#sonstiges)
-    + [Tempura Teig (knusprig)](#tempuraKnusprig)
-    + [Vegetarische Bouletten](#vegetarischeBouletten)
-1. [Anmerkungen](#anmerkungen)
+- [Kochbuch der Delikatessen](#kochbuch-der-delikatessen)
+  - [Vorwort](#vorwort)
+  - [Inhaltsverzeichnis](#inhaltsverzeichnis)
+  - [Vorspeisen](#vorspeisen)
+  - [Hauptgerichte](#hauptgerichte)
+    - [Pizza (Basis)](#pizza-basis)
+  - [Desserts](#desserts)
+  - [Kuchen](#kuchen)
+  - [Torten](#torten)
+  - [Gebäck](#geb%c3%a4ck)
+  - [Brot / Brötchen](#brot--br%c3%b6tchen)
+    - [Bhatura (Indisches Ballonbrot)](#bhatura-indisches-ballonbrot)
+    - [Burger Buns](#burger-buns)
+  - [Saucen / Dips / Dressings](#saucen--dips--dressings)
+    - [American Burger Sauce](#american-burger-sauce)
+    - [Balsamico Honig Dressing](#balsamico-honig-dressing)
+    - [Big Mac Sauce](#big-mac-sauce)
+    - [Marinade (Grillfleisch)](#marinade-grillfleisch)
+    - [Mayonnaise](#mayonnaise)
+    - [Remoulade](#remoulade)
+  - [Salate](#salate)
+    - [Farfallesalat (italienisch)](#farfallesalat-italienisch)
+  - [Suppen](#suppen)
+    - [Käse-Lauch-Suppe (italienisch)](#k%c3%a4se-lauch-suppe-italienisch)
+  - [Sonstiges](#sonstiges)
+    - [Tempura Teig (knusprig)](#tempura-teig-knusprig)
+    - [Vegetarische Bouletten](#vegetarische-bouletten)
+  - [Anmerkungen](#anmerkungen)
 
-## Vorspeisen<a name="vorspeisen"></a>
+## Vorspeisen
 
-## Hauptgerichte<a name="hauptgerichte"></a>
+## Hauptgerichte
 
-### Pizza (Basis)<a name="pizza"></a>
+### Pizza (Basis)
 
 Teig:
 
-+ 500 ml Wasser (lauwarm)
-+ 925 g Mehl
-+ 40 g Hefe (frisch)
-+ 20 g Salz
-+ 25 ml Olivenöl
-+ 1 Prise Zucker
+- 500 ml Wasser (lauwarm)
+- 925 g Mehl
+- 40 g Hefe (frisch)
+- 20 g Salz
+- 25 ml Olivenöl
+- 1 Prise Zucker
 
 >Hefe in Wasser mit Olivenöl, Salz und Zucker auflösen. Mehl hinzufügen, zu einem glatten Teig kneten.\
 1/2 Stunde abgedeckt an einem warmen Ort gehen lassen.\
@@ -54,39 +58,39 @@ Teig:
 
 Sauce:
 
-+ 250 ml Tomaten (passiert)
-+ 2 EL Tomatenmark
-+ 1 Zwiebel
-+ 1 Zehe Knoblauch
-+ Basilikum, Oregano, Rosmarin
-+ Olivenöl
-+ Zucker
-+ Salz, Pfeffer
+- 250 ml Tomaten (passiert)
+- 2 EL Tomatenmark
+- 1 Zwiebel
+- 1 Zehe Knoblauch
+- Basilikum, Oregano, Rosmarin
+- Olivenöl
+- Zucker
+- Salz, Pfeffer
 
 >Zwiebeln in Öl glasig braten, passierte Tomaten hinzugeben und aufkochen lassen. Restliche Zutaten hinzufügen und 20 - 25 Minuten köcheln lassen.
 
 ---
 
-## Desserts<a name="desserts"></a>
+## Desserts
 
-## Kuchen<a name="kuchen"></a>
+## Kuchen
 
-## Torten<a name="torten"></a>
+## Torten
 
-## Gebäck<a name="gebaeck"></a>
+## Gebäck
 
-## Brot / Brötchen<a name="brot"></a>
+## Brot / Brötchen
 
-### Bhatura (Indisches Ballonbrot)<a name="bhatura"></a>
+### Bhatura (Indisches Ballonbrot)
 
-+ 200 g Mehl
-+ 1 EL Joghurt
-+ 1 EL Olivenöl
-+ 7 g Trockenhefe
-+ 1 TL Salz
-+ 1 TL Kreuzkümmel (gemahlen)
-+ 80 ml Wasser (lauwarm)
-+ Öl (zum Frittieren)
+- 200 g Mehl
+- 1 EL Joghurt
+- 1 EL Olivenöl
+- 7 g Trockenhefe
+- 1 TL Salz
+- 1 TL Kreuzkümmel (gemahlen)
+- 80 ml Wasser (lauwarm)
+- Öl (zum Frittieren)
 
 >Mehl in eine Schüssel sieben. Salz, Kreuzkümmel, Hefe dazu und trocken mischen.\
 Wasser, Joghurt und Öl hinzugeben. Gut durchkneten und 15-20 min. warmstellen.\
@@ -95,21 +99,25 @@ In heißem Öl ausbacken.
 
 ---
 
-### Burger Buns<a name="burgerBuns"></a>
+### Burger Buns
 
-+ 200 ml Wasser (lauwarm)
-+ 4 EL Milch
-+ 1 Würfel Hefe (frisch)
-+ 35 g Zucker
-+ 10 g Salz
-+ 80 g Butter (geschmolzen)
-+ 500 g Mehl (Typ 550)
-+ 1 Ei
-<br></br>
-+ 1 Ei
-+ 2 EL Wasser
-+ 2 EL Milch
-+ Sesam
+Teig:
+
+- 200 ml Wasser (lauwarm)
+- 4 EL Milch
+- 1 Würfel Hefe (frisch)
+- 35 g Zucker
+- 10 g Salz
+- 80 g Butter (geschmolzen)
+- 500 g Mehl (Typ 550)
+- 1 Ei
+
+zusätlich:
+
+- 1 Ei
+- 2 EL Wasser
+- 2 EL Milch
+- Sesam
 
 >Wasser mit Milch und Zucker in eine Schüssel geben, Hefe hineinbröseln, ca. 10 Minuten ruhen lassen.\
 Anschließend Mehl, Salz, Ei und die geschmolzene Butter hinzufügen und zu einem glatten Teig kneten.\
@@ -121,80 +129,80 @@ Brötchen mit der Mischung bepinseln und bei 200 °C bei Ober- und Unterhitze ca
 
 ---
 
-## Saucen / Dips / Dressings<a name="saucen"></a>
+## Saucen / Dips / Dressings
 
-### American Burger Sauce<a name="americanBurgerSauce"></a>
+### American Burger Sauce
 
-+ 200 ml Mayonnaise
-+ 50 g Tomatenketchup
-+ 30 g Gemüsezwiebeln
-+ 15 g Gewürzgurken
-+ 1 EL Petersilie (gehackt)
-+ 2 TL Zitronensaft
-+ 1 Zehe Knoblauch
-+ Salz
+- 200 ml Mayonnaise
+- 50 g Tomatenketchup
+- 30 g Gemüsezwiebeln
+- 15 g Gewürzgurken
+- 1 EL Petersilie (gehackt)
+- 2 TL Zitronensaft
+- 1 Zehe Knoblauch
+- Salz
 
 >Ketchup, Zwiebel, Gewürzgurke, Zitronensaft, Petersilie und Knoblauch mit der Mayonnaise pürieren.
 
 ---
 
-### Balsamico Honig Dressing<a name="balsamicoDressing"></a>
+### Balsamico Honig Dressing
 
-+ 40 ml Balsamico Essig
-+ 25 ml Öl (neutral)
-+ 3 TL Senf 
-+ 2 EL Honig
-+ n.B. Zwiebeln (fein gehackt)
-+ Salz
+- 40 ml Balsamico Essig
+- 25 ml Öl (neutral)
+- 3 TL Senf
+- 2 EL Honig
+- n.B. Zwiebeln (fein gehackt)
+- Salz
 
 >Zur einfachen Bindung alle Zutaten in ein Schraubglas füllen,  den Deckel verschließen und gut schütteln.\
 Festen Honig möglichst vorher verflüssigen.
 
 ---
 
-### Big Mac Sauce<a name="bigMacSauce"></a>
+### Big Mac Sauce
 
-+ 120 ml Mayonnaise
-+ 4 TL  Sauce (Dill-Gurken-Relish)
-+ 2 TL Gewürzgurken (fein gehackt)
-+ 1/4 TL Weißweinessig
-+ 1/2 TL Knoblauchpulver
-+ 1/2 TL Paprikapulver
-+ 2 TL Senf
-+ Salz
+- 120 ml Mayonnaise
+- 4 TL  Sauce (Dill-Gurken-Relish)
+- 2 TL Gewürzgurken (fein gehackt)
+- 1/4 TL Weißweinessig
+- 1/2 TL Knoblauchpulver
+- 1/2 TL Paprikapulver
+- 2 TL Senf
+- Salz
 
 >Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen lassen.
 
 ---
 
-### Marinade (Grillfleisch)<a name="marinade"></a>
+### Marinade (Grillfleisch)
 
-+ 1 EL Honig (bzw. Agavendicksaft)
-+ 3 EL Rapsöl
-+ 2 EL Sojasauce
-+ 1 EL Balsamico (dunkel)
-+ 2 EL Zitronensaft
-+ 2 TL Senf (mittelscharf)
-+ 4 TL Tomatenmark
-+ 2 Zehen Knoblauch
-+ 2 Zweige Rosmarin
-+ 1/2 TL Zimt
-+ 1 TL Salz
-+ 1 TL Pfeffer
-+ 1 TL Paprikapulver
-+ 1 TL Sambal Olek
+- 1 EL Honig (bzw. Agavendicksaft)
+- 3 EL Rapsöl
+- 2 EL Sojasauce
+- 1 EL Balsamico (dunkel)
+- 2 EL Zitronensaft
+- 2 TL Senf (mittelscharf)
+- 4 TL Tomatenmark
+- 2 Zehen Knoblauch
+- 2 Zweige Rosmarin
+- 1/2 TL Zimt
+- 1 TL Salz
+- 1 TL Pfeffer
+- 1 TL Paprikapulver
+- 1 TL Sambal Olek
 
 >Alle Zutaten miteinander vermengen. Fleisch mindestens 2 Stunden darin marinieren.
 
 ---
 
-### Mayonnaise<a name="mayonnaise"></a>
+### Mayonnaise
 
-+ 1 Ei
-+ 150 ml Öl (neutral)
-+ 1 TL Senf
-+ 4 TL Zitronensaft
-+ Salz, Pfeffer
+- 1 Ei
+- 150 ml Öl (neutral)
+- 1 TL Senf
+- 4 TL Zitronensaft
+- Salz, Pfeffer
 
 >Eigelb und Eiweiß in ein hohes, schmales Gefäß schlagen, Senf, Zitronensaft, Salz und Pfeffer hinzugeben.\
 Jetzt das gesamte Öl einfüllen.\
@@ -203,72 +211,91 @@ Wenn die Mayonnaise unten nicht mehr dicker wird, kann der Stabmixer sehr langsa
 
 ---
 
-### Remoulade<a name="remoulade"></a>
+### Remoulade
 
-+ 200 ml Mayonnaise
-+ 1/4 Karotte (klein)
-+ 20 g Gewürzgurken
-+ 1/8 Apfel
-+ 1 TL Senf
-+ n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
-+ Salz
+- 200 ml Mayonnaise
+- 1/4 Karotte (klein)
+- 20 g Gewürzgurken
+- 1/8 Apfel
+- 1 TL Senf
+- n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
+- Salz
 
 >Karotte, Gewürzgurken und Apfel möglichst klein hacken und mit den restlichen Zutaten vermengen.
 
 ---
 
-## Salate<a name="salate"></a>
+## Salate
 
-### Farfallesalat (italienisch)<a name="nudelsalatItalienisch"></a>
+### Farfallesalat (italienisch)
 
-+ 200 g Farfalle
-+ 125 ml Gemüsebrühe (heiß)
-+ 150 g Rucola
-+ 500 g Cocktailtomaten
-+ 50 g getrocknete Tomaten
-+ 2 EL Pinienkerne
-+ 4 EL grünes Pesto (verde)
-+ 1 EL Balsamico Essig
-+ 1 EL Olivenöl
-+ 1/2 TL Chilipulver
-+ Salz, Pfeffer
+- 200 g Farfalle
+- 125 ml Gemüsebrühe (heiß)
+- 150 g Rucola
+- 500 g Cocktailtomaten
+- 50 g getrocknete Tomaten
+- 2 EL Pinienkerne
+- 4 EL grünes Pesto (verde)
+- 1 EL Balsamico Essig
+- 1 EL Olivenöl
+- 1/2 TL Chilipulver
+- Salz, Pfeffer
 
 > nach erstem Zubereiten ergänzen
 
 ---
 
-## Sonstiges<a name="sonstiges"></a>
+## Suppen
 
-### Tempura Teig (knusprig)<a name="tempuraKnusprig"></a>
+### Käse-Lauch-Suppe (italienisch)
 
-+ 50 g Speisestärke
-+ 50 g Mehl
-+ 130 ml Wasser (eiskalt)
-+ 1 Pck. Backpulver
-+ n.B. Paprikapulver
-+ Salz, Pfeffer
+- 1 kg Hackfleisch (gemischt)
+- 7 Stangen Lauch
+- 1,75 l Wasser
+- 800 g Schmelzkäse
+- 2 Becher Crème Fraîche
+- Gemüsebrühe
+- Öl
+- Salz, Pfeffer
+- n.B. Muskat
+
+> Das Hackfleisch im Öl anbraten. Anschließend den Lauch hinzugeben und mit Wasser ablöschen. Den Schmelzkäse einrühren und mit den Gewürzen abschmecken. Anschließend die Crème fraîche hinzugeben und erneut abschmecken.
+
+---
+
+## Sonstiges
+
+### Tempura Teig (knusprig)
+
+- 50 g Speisestärke
+- 50 g Mehl
+- 130 ml Wasser (eiskalt)
+- 1 Pck. Backpulver
+- n.B. Paprikapulver
+- Salz, Pfeffer
 
 >Alle Zutaten verrühren und Frittiergut damit umhüllen.
 
 ---
 
-### Vegetarische Bouletten<a name="vegetarischeBouletten"></a>
+### Vegetarische Bouletten
 
-+ 250 g Haferflocken (kernig)
-+ 200 g Kräuterquark
-+ 50 ml Milch
-+ 1 Zwiebel
-+ 3 Eier 
-+ 125 g Käse (mild, gerieben)
-+ n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
-+ Salz, Pfeffer
+- 250 g Haferflocken (kernig)
+- 200 g Kräuterquark
+- 50 ml Milch
+- 1 Zwiebel
+- 3 Eier
+- 125 g Käse (mild, gerieben)
+- n.B. Kräuter (gehackt) nach Wahl (z.B. Petersilie, Schnittlauch, Koriander)
+- Salz, Pfeffer
 
 optional:
-+ 2 TL Curry
+
+- 2 TL Curry
 
 >Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.\
 Hervorragend auch als Burger.
 
 ---
 
-## Anmerkungen<a name="anmerkungen"></a>
+## Anmerkungen
