@@ -32,6 +32,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
     - [American Burger Sauce](#american-burger-sauce)
     - [Balsamico Honig Dressing](#balsamico-honig-dressing)
     - [Big Mac Sauce](#big-mac-sauce)
+    - [Bohnen Hummus](#bohnen-hummus)
     - [Marinade (Grillfleisch)](#marinade-grillfleisch)
     - [Mayonnaise](#mayonnaise)
     - [Remoulade](#remoulade)
@@ -254,6 +255,19 @@ Festen Honig möglichst vorher verflüssigen.
 > Alle Zutaten in ein Gefäß geben, verrühren und anschließend 3 Stunden ziehen lassen.
 
 ---
+
+### Bohnen Hummus
+
+- 1 Dose Kidney-Bohnen (ca. 250 Gramm Abtropfgewicht)
+- 1 Dose weiße Bohnen (ca. 250 Gramm Abtropfgewicht)
+- 1 mittlere Süßkartoffel (ca. 300 Gramm)
+- 3 - 4 Zehen Knoblauch
+- Saft einer halben Zitrone
+- 3 EL Tahini
+- 3 - 4 EL Cumin (oder nach Geschmack)
+
+> Bohnen stampfen (oder Foodprozessor/ Mixer). Süßkartoffel kochen/dämpfen, den gestampften Bohnen hinzufügen.\
+> Nach Geschmack Knoblauch, Tahini, Zitrone, Cumin und Salz hinzufügen. Alles ordentlich mischen.
 
 ### Marinade (Grillfleisch)
 
