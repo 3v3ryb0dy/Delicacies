@@ -42,10 +42,10 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
   data-title={title}
   class:list={[
     'group relative flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper-raised transition duration-200',
-    'hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_18px_40px_-24px_rgba(36,29,24,0.45)]',
+    'hover:-translate-y-0.5 hover:border-ink/20',
     spotlight && 'sm:col-span-2 lg:col-span-1'
   ]}>
-  <a href={href} class='flex flex-1 flex-col focus-visible:outline-2'>
+  <a href={href} class='focus-ring flex flex-1 flex-col rounded-2xl'>
     <div class='relative aspect-4/3 w-full overflow-hidden bg-paper-sunken'>
       {
         image ? (
@@ -56,7 +56,7 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
             sizes='(min-width: 1280px) 22rem, (min-width: 600px) 45vw, 92vw'
             loading='lazy'
             decoding='async'
-            class='h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]'
+            class='h-full w-full object-cover transition duration-200 group-hover:scale-[1.04]'
           />
         ) : (
           <div class:list={['grid h-full w-full place-items-center bg-gradient-to-br text-accent/60', tint]}>
@@ -68,7 +68,7 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
       }
       {
         wip && (
-          <span class='absolute top-3 right-3 rounded-full border border-gold/30 bg-paper-raised/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-gold uppercase backdrop-blur'>
+          <span class='absolute top-3 right-3 rounded-full border border-accent/20 bg-accent-pale/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase backdrop-blur'>
             in Arbeit
           </span>
         )
@@ -76,16 +76,26 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
     </div>
 
     <div class='flex flex-1 flex-col gap-3 p-5'>
-      <div class='flex items-center gap-2 text-[0.7rem] font-semibold tracking-[0.12em] uppercase'>
-        <span class='text-accent'>{categoryTitle}</span>
-        {entry.data.subcategory && <span class='text-ink-soft/70'>· {entry.data.subcategory}</span>}
+      <div class='flex items-center justify-between gap-2 text-[0.7rem] font-semibold tracking-[0.12em] uppercase'>
+        <span class='flex items-center gap-2'>
+          <span class='text-accent'>{categoryTitle}</span>
+          {entry.data.subcategory && <span class='text-ink-soft/70'>· {entry.data.subcategory}</span>}
+        </span>
+        <span
+          aria-hidden='true'
+          class='-translate-x-1 text-accent opacity-0 transition duration-200 group-hover:translate-x-0 group-hover:opacity-100'>
+          ↗
+        </span>
       </div>
 
-      <h3 class='font-display text-xl leading-snug font-semibold tracking-tight text-ink'>{title}</h3>
+      <h3
+        class='font-display text-xl leading-snug font-semibold tracking-tight text-ink transition-colors duration-200 group-hover:text-accent'>
+        {title}
+      </h3>
 
       {
         tags.length > 0 && (
-          <ul class='mt-auto flex flex-wrap gap-x-2.5 gap-y-1 pt-1 text-xs text-ink-soft'>
+          <ul class='mt-auto flex flex-wrap gap-x-2.5 gap-y-1 pt-1 text-sm text-ink-soft'>
             {tags.map((tag) => (
               <li class="before:mr-2.5 before:text-rule before:content-['·'] first:before:hidden">{tag}</li>
             ))}

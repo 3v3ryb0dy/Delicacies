@@ -8,10 +8,17 @@ type Props = {
 }
 
 const { total } = Astro.props
+
+const scrollRowClass =
+  'no-scrollbar -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0'
+const chipClass =
+  'focus-ring cursor-pointer rounded-full border border-rule bg-paper-raised px-3.5 py-1.5 text-xs font-semibold tracking-wide text-ink-soft transition-colors hover:text-ink'
 ---
 
-<section id='rezepte' class='mx-auto max-w-6xl scroll-mt-24 px-5 sm:px-8'>
-  <div class='sticky top-16 z-20 -mx-5 border-b border-rule/80 bg-paper/95 px-5 py-4 backdrop-blur-md sm:-mx-8 sm:px-8'>
+<section id='rezepte' class='mx-auto max-w-[75rem] scroll-mt-24 px-5 sm:px-8'>
+  <div
+    data-sticky-bar
+    class='sticky top-18 z-20 -mx-5 border-b border-rule/80 bg-paper/95 px-5 py-3 backdrop-blur-md sm:-mx-8 sm:px-8'>
     <div class='flex flex-col gap-3'>
       <div class='flex flex-wrap items-center gap-3'>
         <label class='relative flex-1 sm:max-w-md'>
@@ -31,43 +38,25 @@ const { total } = Astro.props
             type='search'
             autocomplete='off'
             placeholder='Zutat oder Gericht suchen …'
-            class='w-full rounded-full border border-rule bg-paper-raised py-2.5 pr-4 pl-10 text-sm text-ink transition-colors outline-none placeholder:text-ink-soft/70 focus:border-accent'
+            class='focus-ring w-full rounded-full border border-rule bg-paper-raised py-2.5 pr-4 pl-10 text-sm text-ink transition-colors placeholder:text-ink-soft/70 focus:border-accent'
           />
         </label>
-        <p id='rezept-status' class='text-sm text-ink-soft' aria-live='polite'>
+        <p id='rezept-status' class='text-sm text-ink-soft tabular-nums' aria-live='polite'>
           {total} Rezepte
         </p>
       </div>
 
-      <div
-        class='no-scrollbar -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0'>
+      <div class={scrollRowClass}>
         <button
           type='button'
           data-filter-category=''
-          class='cursor-pointer rounded-full border border-rule bg-ink px-3.5 py-1.5 text-xs font-semibold tracking-wide text-paper'>
+          class='focus-ring cursor-pointer rounded-full border border-transparent bg-ink px-3.5 py-1.5 text-xs font-semibold tracking-wide text-paper'>
           Alle
         </button>
         {
           categories.map((category) => (
-            <button
-              type='button'
-              data-filter-category={category.id}
-              class='cursor-pointer rounded-full border border-rule bg-paper-raised px-3.5 py-1.5 text-xs font-semibold tracking-wide text-ink-soft transition-colors hover:text-ink'>
+            <button type='button' data-filter-category={category.id} class={chipClass}>
               {category.short}
-            </button>
-          ))
-        }
-      </div>
-
-      <div
-        class='no-scrollbar -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0'>
-        <span class='shrink-0 pr-1 text-[0.7rem] font-semibold tracking-[0.14em] text-ink-soft/80 uppercase'>
-          Schlagworte
-        </span>
-        {
-          tagVocabulary.map((tag) => (
-            <button type='button' data-filter-tag={tag} class='cursor-pointer'>
-              <TagChip label={tag} interactive />
             </button>
           ))
         }
@@ -75,17 +64,35 @@ const { total } = Astro.props
     </div>
   </div>
 
+  {
+    /* Deliberately outside the sticky area: the tag row scrolls away so the
+      pinned bar stays two rows tall. */
+  }
+  <div data-tag-row class='border-b border-rule/60 pt-4 pb-3'>
+    <div class={scrollRowClass}>
+      <span class='shrink-0 pr-1 text-[0.7rem] font-semibold tracking-[0.14em] text-ink-soft/80 uppercase'>
+        Schlagworte
+      </span>
+      {
+        tagVocabulary.map((tag) => (
+          <button type='button' data-filter-tag={tag} class='focus-ring cursor-pointer rounded-full'>
+            <TagChip label={tag} interactive />
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
   <div id='suche-bereich' class='mt-8' hidden>
-    <h2 class='font-display text-display'>Suchergebnisse</h2>
+    <h2 class='font-display text-section font-semibold'>Suchergebnisse</h2>
     <ul id='suche-liste' class='mt-5 flex flex-col gap-2'></ul>
     <p id='suche-leer' class='mt-6 text-sm text-ink-soft' hidden>Keine Rezepte gefunden.</p>
     <p id='suche-hinweis' class='mt-6 text-sm text-ink-soft' hidden>
-      Die Volltextsuche steht nur im gebauten Zustand zur Verfügung — lokal mit
-      <code class='font-mono text-[0.8rem] text-ink'>npm run build &amp;&amp; npm run preview</code>.
+      Die Suche ist gerade nicht verfügbar. Bitte später noch einmal versuchen.
     </p>
   </div>
 
-  <div id='rezept-liste' data-recipe-list>
+  <div id='rezept-liste' data-recipe-list class='mt-12'>
     <slot />
   </div>
 
@@ -105,12 +112,25 @@ const { total } = Astro.props
     const cards = Array.from(document.querySelectorAll('[data-recipe]'))
     const categoryButtons = Array.from(document.querySelectorAll('[data-filter-category]'))
     const tagButtons = Array.from(document.querySelectorAll('[data-filter-tag]'))
+    const emptyBlock = document.querySelector('[data-empty-block]')
+    const emptyEntries = Array.from(document.querySelectorAll('[data-empty-category]'))
+    const noResults = document.getElementById('keine-treffer')
+    const resetButton = document.querySelector('[data-reset-filters]')
 
     const total = cards.length
+    const emptyIds = emptyEntries.map((entry) => entry.dataset.emptyCategory)
     let activeCategory = ''
     const activeTags = new Set()
     let pagefind
     let searchToken = 0
+
+    const chipBase = 'focus-ring cursor-pointer rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide'
+    const chipActive = 'border-transparent bg-ink text-paper'
+    const chipIdle = 'border-rule bg-paper-raised text-ink-soft transition-colors hover:text-ink'
+    const tagBase =
+      'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold tracking-wide transition-colors'
+    const tagActive = 'bg-ink text-paper'
+    const tagIdle = 'bg-paper-sunken text-ink-soft'
 
     const activeFilters = () => {
       const filters = {}
@@ -122,17 +142,13 @@ const { total } = Astro.props
     const paintButtons = () => {
       categoryButtons.forEach((button) => {
         const isActive = (button.dataset.filterCategory || '') === activeCategory
-        button.className = isActive
-          ? 'border-rule bg-ink text-paper cursor-pointer rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide'
-          : 'border-rule bg-paper-raised text-ink-soft hover:text-ink cursor-pointer rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors'
+        button.className = chipBase + ' ' + (isActive ? chipActive : chipIdle)
       })
       tagButtons.forEach((button) => {
         const chip = button.querySelector('[data-chip-label]')
         if (!chip) return
         const isActive = activeTags.has(button.dataset.filterTag)
-        chip.className = isActive
-          ? 'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide transition-colors bg-ink text-paper cursor-pointer'
-          : 'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide transition-colors bg-paper-sunken text-ink-soft cursor-pointer'
+        chip.className = tagBase + ' ' + (isActive ? tagActive : tagIdle)
       })
     }
 
@@ -153,18 +169,27 @@ const { total } = Astro.props
         if (ok) visible += 1
       })
       sections.forEach((section) => {
-        if (section.hasAttribute('data-empty')) {
-          section.hidden = Boolean(activeCategory) || activeTags.size > 0
-          return
-        }
         const hasVisible = section.querySelector('[data-recipe]:not([hidden])')
         section.hidden = !hasVisible
       })
-      status.textContent = visible === total ? total + ' Rezepte' : visible + ' von ' + total + ' Rezepten'
-    }
 
-    const resetStatus = () => {
-      applyFilters()
+      const filtering = Boolean(activeCategory) || activeTags.size > 0
+      const selectedEmptyCategory = activeCategory !== '' && emptyIds.indexOf(activeCategory) !== -1
+
+      if (emptyBlock) {
+        emptyBlock.hidden = activeTags.size > 0 || (activeCategory !== '' && !selectedEmptyCategory)
+        emptyEntries.forEach((entry) => {
+          entry.hidden = activeCategory !== '' && entry.dataset.emptyCategory !== activeCategory
+        })
+      }
+
+      if (noResults) {
+        noResults.hidden = !(filtering && visible === 0 && !selectedEmptyCategory)
+      }
+
+      if (selectedEmptyCategory && visible === 0) status.textContent = 'Noch keine Rezepte'
+      else if (visible === total) status.textContent = total + ' Rezepte'
+      else status.textContent = visible + ' von ' + total + ' Rezepten'
     }
 
     const escapeHtml = (value) =>
@@ -185,7 +210,7 @@ const { total } = Astro.props
     const showSections = () => {
       cardList.hidden = false
       searchArea.hidden = true
-      resetStatus()
+      applyFilters()
     }
 
     const runSearch = async (query) => {
@@ -228,16 +253,16 @@ const { total } = Astro.props
         item.innerHTML =
           '<a href="' +
           url +
-          '" class="border-rule bg-paper-raised hover:border-ink/25 flex flex-col gap-1 rounded-xl border px-5 py-4 transition-colors">' +
+          '" class="focus-ring border-rule bg-paper-raised hover:border-ink/25 flex flex-col gap-1 rounded-2xl border px-5 py-4 transition-colors">' +
           '<span class="font-display text-lg font-semibold tracking-tight">' +
           escapeHtml(result.meta.title || 'Rezept') +
           '</span>' +
           (meta
-            ? '<span class="text-accent text-[0.7rem] font-semibold uppercase tracking-[0.12em]">' +
+            ? '<span class="text-accent text-xs font-semibold uppercase tracking-[0.12em]">' +
               escapeHtml(meta) +
               '</span>'
             : '') +
-          '<span class="text-ink-soft text-sm">' +
+          '<span class="text-ink-soft text-sm leading-relaxed">' +
           result.excerpt +
           '</span></a>'
         searchList.appendChild(item)
@@ -277,6 +302,13 @@ const { total } = Astro.props
         if (input.value.trim().length >= 2) runSearch(input.value.trim())
         else applyFilters()
       })
+    })
+
+    resetButton?.addEventListener('click', () => {
+      activeCategory = ''
+      activeTags.clear()
+      paintButtons()
+      applyFilters()
     })
   </script>
 </section>

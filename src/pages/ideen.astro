@@ -14,36 +14,52 @@ const total = (await getCollection('recipes')).length
   <div class='mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8'>
     <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Anmerkungen</p>
     <h1 class='mt-5 font-display text-display font-semibold'>Ideen</h1>
-    <p class='mt-5 text-lg leading-8 text-ink-soft'>
+    <p class='mt-5 max-w-[42rem] text-lg leading-8 text-ink-soft'>
       Rezepte, die noch ausprobiert werden wollen. Sobald eines davon funktioniert, zieht es als eigene Markdown-Datei
       ins Kochbuch.
     </p>
 
-    <h2 class='mt-14 font-display text-2xl font-semibold tracking-tight'>Später ausprobieren</h2>
-    <ul class='mt-5 flex flex-col gap-3'>
+    <h2 class='mt-14 font-display text-section font-semibold'>Später ausprobieren</h2>
+    <ul class='mt-5 flex flex-col gap-4'>
       {
         ideas.map((idea) => (
           <li>
             <a
               href={idea.url}
               rel='noreferrer'
-              class='flex items-center justify-between gap-4 rounded-xl border border-rule bg-paper-raised px-5 py-4 transition-colors hover:border-ink/25'>
-              <span class='font-display text-lg font-semibold tracking-tight'>{idea.title}</span>
-              <span class='text-[0.7rem] font-bold tracking-[0.14em] text-accent uppercase'>{idea.kind}</span>
+              class='focus-ring group flex items-center justify-between gap-4 rounded-2xl border border-rule bg-paper-raised px-6 py-5 transition duration-200 hover:-translate-y-0.5 hover:border-ink/20'>
+              <span class='flex flex-col gap-1'>
+                <span class='font-display text-xl font-semibold tracking-tight transition-colors group-hover:text-accent'>
+                  {idea.title}
+                </span>
+                <span class='text-sm text-ink-soft'>Noch nicht nachgekocht</span>
+              </span>
+              <span class='shrink-0 rounded-full border border-accent/20 bg-accent-pale px-3 py-1 text-xs font-bold tracking-[0.14em] text-accent uppercase'>
+                {idea.kind}
+              </span>
             </a>
           </li>
         ))
       }
     </ul>
 
-    <h2 class='mt-14 font-display text-2xl font-semibold tracking-tight'>Rezept hinzufügen</h2>
-    <div class='mt-5 flex flex-col gap-4 text-[1.02rem] leading-8 text-ink-soft'>
-      <p>
-        Jedes Rezept ist eine Markdown-Datei in <code class='font-mono text-sm text-ink'>recipes/</code>. Der Dateiname
-        bestimmt die Adresse, der Kopf die Kategorie.
-      </p>
-      <pre
-        class='overflow-x-auto rounded-2xl border border-rule bg-paper-raised p-5 text-[0.8rem] leading-6 text-ink'><code>{`---
+    <details class='group mt-16 rounded-2xl border border-rule bg-paper-raised/60 px-6 py-5 print:hidden'>
+      <summary
+        class='focus-ring cursor-pointer list-none rounded-full text-sm font-semibold text-ink-soft transition-colors marker:content-none hover:text-ink'>
+        <span class='inline-flex items-center gap-2'>
+          <span class='transition-transform duration-200 group-open:rotate-90' aria-hidden='true'>›</span>
+          Für Mitwirkende
+        </span>
+      </summary>
+
+      <div class='mt-5 flex flex-col gap-4 text-[1.02rem] leading-8 text-ink-soft'>
+        <h2 class='font-display text-xl font-semibold text-ink'>Rezept hinzufügen</h2>
+        <p>
+          Jedes Rezept ist eine Markdown-Datei in <code class='font-mono text-sm text-ink'>recipes/</code>. Der
+          Dateiname bestimmt die Adresse, der Kopf die Kategorie.
+        </p>
+        <pre
+          class='overflow-x-auto rounded-2xl border border-rule bg-paper p-5 text-[0.8rem] leading-6 text-ink'><code>{`---
 title: Flammkuchen
 category: hauptgerichte
 tags: [ofen, deutsch]
@@ -56,16 +72,22 @@ tags: [ofen, deutsch]
 ## Zubereitung
 
 > Aus Mehl, Wasser, Öl und Salz einen Teig herstellen.`}</code></pre>
-      <p>
-        Danach <code class='font-mono text-sm text-ink'>npm run build</code> — fertig. Die Übersicht auf der
-        <a href={withBase()} class='text-accent underline decoration-dotted underline-offset-4'>Startseite</a>
-        und das README entstehen automatisch aus den Dateien.
-      </p>
-      <p class='text-sm text-ink-soft/80'>
-        {total} Rezepte liegen aktuell im Kochbuch. Bilder gehören nach
-        <code class='font-mono text-[0.8rem] text-ink'>recipes/images/</code> und werden im Kopf als
-        <code class='font-mono text-[0.8rem] text-ink'>image: images/dateiname.jpg</code> eingetragen.
-      </p>
-    </div>
+        <p>
+          Danach <code class='font-mono text-sm text-ink'>npm run build</code> — fertig. Die Übersicht auf der
+          <a
+            href={withBase()}
+            class='focus-ring rounded-full text-accent underline decoration-dotted underline-offset-4'>Startseite</a
+          >
+          und das README entstehen automatisch aus den Dateien.
+        </p>
+        <p class='text-sm text-ink-soft/80'>
+          {total} Rezepte liegen aktuell im Kochbuch. Bilder gehören nach
+          <code class='font-mono text-[0.8rem] text-ink'>recipes/images/</code> und werden im Kopf als
+          <code class='font-mono text-[0.8rem] text-ink'>image: images/dateiname.jpg</code> eingetragen. Rezepte mit
+          <code class='font-mono text-[0.8rem] text-ink'>preparationPending: true</code> zeigen statt der Zubereitung einen
+          Hinweis.
+        </p>
+      </div>
+    </details>
   </div>
 </BaseLayout>

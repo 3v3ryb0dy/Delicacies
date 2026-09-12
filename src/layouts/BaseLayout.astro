@@ -28,8 +28,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
     <meta name='description' content={description} />
     <link rel='canonical' href={canonical} />
     <link rel='icon' type='image/svg+xml' href={withBase('favicon.svg')} />
-    <meta name='theme-color' content='#f7f2e8' media='(prefers-color-scheme: light)' />
-    <meta name='theme-color' content='#171310' media='(prefers-color-scheme: dark)' />
+    <meta name='theme-color' content='#fff9f3' media='(prefers-color-scheme: light)' />
+    <meta name='theme-color' content='#16120f' media='(prefers-color-scheme: dark)' />
     <meta property='og:title' content={pageTitle} />
     <meta property='og:description' content={description} />
     <meta property='og:type' content='website' />
@@ -38,7 +38,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
   <body class='flex min-h-dvh flex-col bg-paper text-ink'>
     <a
       href='#inhalt'
-      class='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-2 focus:text-sm focus:font-semibold focus:text-paper'>
+      class='focus-ring sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-2 focus:text-sm focus:font-semibold focus:text-paper'>
       Zum Inhalt springen
     </a>
     <Header />

@@ -3,6 +3,7 @@ title: Farfallesalat (italienisch)
 category: salate
 tags: [italienisch, vegetarisch]
 wip: true
+preparationPending: true
 ---
 
 ## Zutaten

@@ -17,27 +17,35 @@
   --color-*: initial;
   --color-transparent: transparent;
   --color-current: currentColor;
-  --color-white: #fffdf8;
-  --color-black: #16110d;
+  --color-white: #ffffff;
+  --color-black: #1c1613;
 
-  --color-paper: #f7f2e8;
-  --color-paper-raised: #fffdf9;
-  --color-paper-sunken: #efe6d6;
-  --color-ink: #241d18;
+  --color-paper: #fff9f3;
+  --color-paper-raised: #ffffff;
+  --color-paper-sunken: #f6ece3;
+  --color-ink: #2a211c;
   --color-ink-soft: #6f6053;
-  --color-rule: #ded1bd;
-  --color-accent: #b0431c;
-  --color-accent-soft: #f3dcd0;
+  --color-rule: #e9ded5;
+  /* --color-accent carries text and links and clears 5.6:1 on both the page
+     background and the card surface. --color-accent-display is the brighter
+     tone, only ever used at display size (>=3:1 large-text contrast). */
+  --color-accent: #ac411a;
+  --color-accent-display: #c94f00;
+  --color-accent-soft: #f6d4bc;
+  --color-accent-pale: #fff0e5;
   --color-herb: #4f6039;
-  --color-herb-soft: #dfe4d3;
+  --color-herb-soft: #e8ecdd;
   --color-gold: #a97a24;
 
-  --text-hero: clamp(2.75rem, 8vw, 5rem);
-  --text-hero--line-height: 0.98;
-  --text-hero--letter-spacing: -0.03em;
-  --text-display: clamp(1.85rem, 3.6vw, 2.9rem);
-  --text-display--line-height: 1.1;
-  --text-display--letter-spacing: -0.02em;
+  --text-hero: clamp(3rem, 7vw, 6.5rem);
+  --text-hero--line-height: 0.95;
+  --text-hero--letter-spacing: -0.035em;
+  --text-display: clamp(2.25rem, 4.5vw, 4rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.025em;
+  --text-section: clamp(1.625rem, 2.4vw, 2rem);
+  --text-section--line-height: 1.15;
+  --text-section--letter-spacing: -0.015em;
 }
 
 :root {
@@ -61,16 +69,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-paper: #171310;
-    --color-paper-raised: #201a16;
-    --color-paper-sunken: #100d0a;
-    --color-ink: #f4ece0;
-    --color-ink-soft: #b6a693;
-    --color-rule: #372d24;
-    --color-accent: #e8855c;
-    --color-accent-soft: #38241a;
+    --color-paper: #16120f;
+    --color-paper-raised: #1f1a16;
+    --color-paper-sunken: #0f0c0a;
+    --color-ink: #f5eee6;
+    --color-ink-soft: #b8a897;
+    --color-rule: #372c24;
+    --color-accent: #e8825a;
+    --color-accent-display: #f09a6d;
+    --color-accent-soft: #3a2418;
+    --color-accent-pale: #241a13;
     --color-herb: #a9bd91;
-    --color-herb-soft: #242b1d;
+    --color-herb-soft: #232a1d;
     --color-gold: #d9ab5e;
   }
 }
@@ -94,6 +104,14 @@
 }
 
 @layer components {
+  /* One consistent, visible keyboard focus treatment for every interactive
+     element: links, chips, cards, buttons and the search field. */
+  .focus-ring {
+    /* No `outline-none` here: it would set --tw-outline-style to none, which
+       the focus-visible rule below reads back and renders as no ring at all. */
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+
   /* Pagefind's default UI ships its own colours and spacing; strip it back to
      our tokens so search results sit inside the cookbook design. */
   .pagefind-ui {
@@ -135,7 +153,9 @@
     --color-ink-soft: #444444;
     --color-rule: #bbbbbb;
     --color-accent: #000000;
+    --color-accent-display: #000000;
     --color-accent-soft: #eeeeee;
+    --color-accent-pale: #ffffff;
     --color-herb: #000000;
     --color-herb-soft: #eeeeee;
     --color-gold: #000000;

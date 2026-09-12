@@ -15,7 +15,9 @@ const recipes = defineCollection({
       servings: z.string().optional(),
       source: z.string().url().optional(),
       note: z.string().optional(),
-      wip: z.boolean().default(false)
+      wip: z.boolean().default(false),
+      /** Marks a recipe whose preparation section is still a placeholder. */
+      preparationPending: z.boolean().default(false)
     })
 })
 
@@ -26,7 +28,9 @@ const recipes = defineCollection({
 const seiten = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './content' }),
   schema: z.object({
-    title: z.string().optional()
+    title: z.string().optional(),
+    /** One-line summary used in the home page hero. */
+    tagline: z.string().optional()
   })
 })
 

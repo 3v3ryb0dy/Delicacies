@@ -10,10 +10,10 @@ const onHome = Astro.url.pathname === withBase()
 ---
 
 <header class='sticky top-0 z-30 border-b border-rule/70 bg-paper/85 backdrop-blur-md print:hidden'>
-  <div class='mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8'>
-    <a href={withBase()} class='group flex items-center gap-3'>
+  <div class='mx-auto flex h-18 max-w-[75rem] items-center justify-between gap-4 px-5 sm:px-8'>
+    <a href={withBase()} class='focus-ring group flex items-center gap-3 rounded-full'>
       <span
-        class='grid size-9 shrink-0 place-items-center rounded-full bg-accent font-display text-lg leading-none font-semibold text-paper transition-transform group-hover:-rotate-6'
+        class='grid size-10 shrink-0 place-items-center rounded-full bg-accent font-display text-lg leading-none font-semibold text-paper ring-2 ring-accent-soft transition-transform duration-200 group-hover:-rotate-6'
         aria-hidden='true'>
         D
       </span>
@@ -33,7 +33,7 @@ const onHome = Astro.url.pathname === withBase()
         navItems.map((item) => (
           <a
             href={item.href}
-            class='rounded-full px-3.5 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink'>
+            class='focus-ring rounded-full px-3.5 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink'>
             {item.label}
           </a>
         ))
@@ -42,7 +42,7 @@ const onHome = Astro.url.pathname === withBase()
         !onHome && (
           <a
             href={withBase('#rezepte')}
-            class='hidden rounded-full border border-rule px-3.5 py-2 text-sm font-semibold text-ink transition-colors hover:border-ink sm:block'>
+            class='focus-ring hidden rounded-full border border-rule px-3.5 py-2 text-sm font-semibold text-ink transition-colors hover:border-ink sm:block'>
             Alle Rezepte
           </a>
         )
