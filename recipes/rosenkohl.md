@@ -1,0 +1,19 @@
+---
+title: Rosenkohl (gebacken)
+category: beilagen
+subcategory: gemuese
+tags: [ofen, vegetarisch]
+---
+
+## Zutaten
+
+- 300 g Rosenkohl
+- Butter
+- Salz, Pfeffer
+- Zucker
+
+## Zubereitung
+
+> Rosenkohl putzen und halbieren. Ein Backblech mit Backpapier auslegen, mit Butter bestreichen und Rosenkohlhälften platzieren. Mit Butter bestreichen und mit Salz und Pfeffer würzen. Eine Prise Zucker darüberstreuen.
+
+> Im vorgeheizten Ofen bei 150°C ca. 15 Minuten backen. Danach die Temperatur erhöhen und weitere 5 Minuten backen, damit der Rosenkohl etwas Bräunung annimmt.

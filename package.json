@@ -1,0 +1,35 @@
+{
+  "name": "delicacies",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "prebuild": "node scripts/generate-readme.mjs",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "readme": "node scripts/generate-readme.mjs",
+    "check": "node scripts/generate-readme.mjs --check && astro check && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.5",
+    "@fontsource-variable/nunito-sans": "^5.2.5",
+    "@tailwindcss/typography": "^0.5.16",
+    "astro": "^5.13.5",
+    "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@tailwindcss/postcss": "^4.1.13",
+    "pagefind": "^1.4.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,118 @@
+---
+import { getCollection, getEntry, render } from 'astro:content'
+import RecipeCard from '../components/RecipeCard.astro'
+import RecipeExplorer from '../components/RecipeExplorer.astro'
+import { categories } from '../config/taxonomy'
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const recipes = (await getCollection('recipes')).sort((a, b) => a.data.title.localeCompare(b.data.title, 'de'))
+
+const byCategory = new Map(
+  categories.map((category) => [category.id, recipes.filter((recipe) => recipe.data.category === category.id)])
+)
+
+const vorwort = await getEntry('seiten', 'vorwort')
+const { Content: Vorwort } = await render(vorwort!)
+
+const filledCategories = categories.filter((category) => (byCategory.get(category.id)?.length ?? 0) > 0).length
+---
+
+<BaseLayout>
+  <section class='relative overflow-hidden'>
+    <div
+      class='pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-accent-soft/60 via-transparent to-transparent'
+      aria-hidden='true'>
+    </div>
+    <div class='mx-auto max-w-6xl px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16'>
+      <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Seit Jahren bewährt</p>
+      <h1 class='mt-5 max-w-4xl font-display text-hero font-semibold text-balance'>
+        Kochbuch der <span class='text-accent italic'>Delikatessen</span>
+      </h1>
+
+      <div class='mt-8 grid gap-10 md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] md:gap-16'>
+        <div class='prose prose-lg max-w-none text-lg'>
+          <Vorwort />
+        </div>
+        <dl class='self-start border-t border-rule/80 pt-5 text-sm'>
+          <div class='flex items-baseline justify-between gap-4 py-1.5'>
+            <dt class='text-ink-soft'>Rezepte</dt>
+            <dd class='font-display text-2xl font-semibold'>{recipes.length}</dd>
+          </div>
+          <div class='flex items-baseline justify-between gap-4 border-t border-rule/60 py-1.5'>
+            <dt class='text-ink-soft'>Kategorien</dt>
+            <dd class='font-display text-2xl font-semibold'>{filledCategories}</dd>
+          </div>
+          <div class='flex items-baseline justify-between gap-4 border-t border-rule/60 py-1.5'>
+            <dt class='text-ink-soft'>Grundlage</dt>
+            <dd class='font-display text-2xl font-semibold'>Markdown</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <RecipeExplorer total={recipes.length}>
+    <div class='flex flex-col gap-16 pb-10'>
+      {
+        categories.map((category) => {
+          const categoryRecipes = byCategory.get(category.id) ?? []
+          const isEmpty = categoryRecipes.length === 0
+
+          return (
+            <section id={category.id} data-category-section data-empty={isEmpty ? '' : undefined} class='scroll-mt-40'>
+              <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-ink/15 pb-4'>
+                <div>
+                  <h2 class='font-display text-display font-semibold tracking-tight'>{category.title}</h2>
+                  {category.description && <p class='mt-1.5 text-sm text-ink-soft'>{category.description}</p>}
+                </div>
+                <p class='text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase'>
+                  {categoryRecipes.length === 1 ? '1 Rezept' : `${categoryRecipes.length} Rezepte`}
+                </p>
+              </header>
+
+              {isEmpty ? (
+                <p class='mt-6 rounded-2xl border border-dashed border-rule px-6 py-10 text-center text-sm text-ink-soft/80'>
+                  Noch keine Rezepte — hier ist Platz für Neues.
+                </p>
+              ) : category.subcategories ? (
+                <div class='mt-8 flex flex-col gap-10'>
+                  {category.subcategories.map((subcategory) => {
+                    const subRecipes = categoryRecipes.filter((recipe) => recipe.data.subcategory === subcategory.id)
+                    return (
+                      <div>
+                        <h3 class='mb-4 text-[0.7rem] font-bold tracking-[0.18em] text-ink-soft uppercase'>
+                          {subcategory.title}
+                        </h3>
+                        {subRecipes.length === 0 ? (
+                          <p class='rounded-2xl border border-dashed border-rule px-6 py-8 text-center text-sm text-ink-soft/80'>
+                            Noch keine Rezepte — hier ist Platz für Neues.
+                          </p>
+                        ) : (
+                          <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                            {subRecipes.map((entry) => (
+                              <li>
+                                <RecipeCard entry={entry} />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                <ul class='mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                  {categoryRecipes.map((entry) => (
+                    <li>
+                      <RecipeCard entry={entry} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          )
+        })
+      }
+    </div>
+  </RecipeExplorer>
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import { withBase } from '../lib/url'
+
+const navItems = [
+  { href: withBase('#rezepte'), label: 'Rezepte' },
+  { href: withBase('ideen/'), label: 'Ideen' }
+]
+
+const onHome = Astro.url.pathname === withBase()
+---
+
+<header class='sticky top-0 z-30 border-b border-rule/70 bg-paper/85 backdrop-blur-md print:hidden'>
+  <div class='mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8'>
+    <a href={withBase()} class='group flex items-center gap-3'>
+      <span
+        class='grid size-9 shrink-0 place-items-center rounded-full bg-accent font-display text-lg leading-none font-semibold text-paper transition-transform group-hover:-rotate-6'
+        aria-hidden='true'>
+        D
+      </span>
+      <span class='flex flex-col justify-center leading-tight'>
+        <span class='font-display text-[1.05rem] font-semibold tracking-tight whitespace-nowrap text-ink'>
+          <span class='sm:hidden'>Delikatessen</span>
+          <span class='hidden sm:inline'>Kochbuch der Delikatessen</span>
+        </span>
+        <span class='hidden text-[0.7rem] tracking-[0.14em] text-ink-soft uppercase sm:block'
+          >Rezepte &amp; Grundlagen</span
+        >
+      </span>
+    </a>
+
+    <nav aria-label='Hauptnavigation' class='flex items-center gap-1'>
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class='rounded-full px-3.5 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink'>
+            {item.label}
+          </a>
+        ))
+      }
+      {
+        !onHome && (
+          <a
+            href={withBase('#rezepte')}
+            class='hidden rounded-full border border-rule px-3.5 py-2 text-sm font-semibold text-ink transition-colors hover:border-ink sm:block'>
+            Alle Rezepte
+          </a>
+        )
+      }
+    </nav>
+  </div>
+</header>

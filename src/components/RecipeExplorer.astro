@@ -1,0 +1,273 @@
+---
+import { categories, tagVocabulary } from '../config/taxonomy'
+import { withBase } from '../lib/url'
+import TagChip from './TagChip.astro'
+
+type Props = {
+  total: number
+}
+
+const { total } = Astro.props
+---
+
+<section id='rezepte' class='mx-auto max-w-6xl scroll-mt-24 px-5 sm:px-8'>
+  <div class='sticky top-16 z-20 -mx-5 border-b border-rule/80 bg-paper/95 px-5 py-4 backdrop-blur-md sm:-mx-8 sm:px-8'>
+    <div class='flex flex-col gap-3'>
+      <div class='flex flex-wrap items-center gap-3'>
+        <label class='relative flex-1 sm:max-w-md'>
+          <span class='sr-only'>Rezepte durchsuchen</span>
+          <svg
+            class='pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-ink-soft'
+            viewBox='0 0 20 20'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='1.8'
+            aria-hidden='true'>
+            <circle cx='9' cy='9' r='5.5'></circle>
+            <path d='M13 13l4 4' stroke-linecap='round'></path>
+          </svg>
+          <input
+            id='rezept-suche'
+            type='search'
+            autocomplete='off'
+            placeholder='Zutat oder Gericht suchen …'
+            class='w-full rounded-full border border-rule bg-paper-raised py-2.5 pr-4 pl-10 text-sm text-ink transition-colors outline-none placeholder:text-ink-soft/70 focus:border-accent'
+          />
+        </label>
+        <p id='rezept-status' class='text-sm text-ink-soft' aria-live='polite'>
+          {total} Rezepte
+        </p>
+      </div>
+
+      <div
+        class='no-scrollbar -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0'>
+        <button
+          type='button'
+          data-filter-category=''
+          class='cursor-pointer rounded-full border border-rule bg-ink px-3.5 py-1.5 text-xs font-semibold tracking-wide text-paper'>
+          Alle
+        </button>
+        {
+          categories.map((category) => (
+            <button
+              type='button'
+              data-filter-category={category.id}
+              class='cursor-pointer rounded-full border border-rule bg-paper-raised px-3.5 py-1.5 text-xs font-semibold tracking-wide text-ink-soft transition-colors hover:text-ink'>
+              {category.short}
+            </button>
+          ))
+        }
+      </div>
+
+      <div
+        class='no-scrollbar -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0'>
+        <span class='shrink-0 pr-1 text-[0.7rem] font-semibold tracking-[0.14em] text-ink-soft/80 uppercase'>
+          Schlagworte
+        </span>
+        {
+          tagVocabulary.map((tag) => (
+            <button type='button' data-filter-tag={tag} class='cursor-pointer'>
+              <TagChip label={tag} interactive />
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div id='suche-bereich' class='mt-8' hidden>
+    <h2 class='font-display text-display'>Suchergebnisse</h2>
+    <ul id='suche-liste' class='mt-5 flex flex-col gap-2'></ul>
+    <p id='suche-leer' class='mt-6 text-sm text-ink-soft' hidden>Keine Rezepte gefunden.</p>
+    <p id='suche-hinweis' class='mt-6 text-sm text-ink-soft' hidden>
+      Die Volltextsuche steht nur im gebauten Zustand zur Verfügung — lokal mit
+      <code class='font-mono text-[0.8rem] text-ink'>npm run build &amp;&amp; npm run preview</code>.
+    </p>
+  </div>
+
+  <div id='rezept-liste' data-recipe-list>
+    <slot />
+  </div>
+
+  <script is:inline data-pagefind-url={withBase('pagefind/pagefind.js')} data-base-path={withBase()}>
+    const scriptElement = document.currentScript
+    const pagefindUrl = scriptElement?.dataset.pagefindUrl
+    const basePath = scriptElement?.dataset.basePath ?? '/'
+
+    const cardList = document.getElementById('rezept-liste')
+    const searchArea = document.getElementById('suche-bereich')
+    const searchList = document.getElementById('suche-liste')
+    const searchEmpty = document.getElementById('suche-leer')
+    const searchHint = document.getElementById('suche-hinweis')
+    const status = document.getElementById('rezept-status')
+    const input = document.getElementById('rezept-suche')
+    const sections = Array.from(document.querySelectorAll('[data-category-section]'))
+    const cards = Array.from(document.querySelectorAll('[data-recipe]'))
+    const categoryButtons = Array.from(document.querySelectorAll('[data-filter-category]'))
+    const tagButtons = Array.from(document.querySelectorAll('[data-filter-tag]'))
+
+    const total = cards.length
+    let activeCategory = ''
+    const activeTags = new Set()
+    let pagefind
+    let searchToken = 0
+
+    const activeFilters = () => {
+      const filters = {}
+      if (activeCategory) filters.category = [activeCategory]
+      if (activeTags.size) filters.tag = Array.from(activeTags)
+      return filters
+    }
+
+    const paintButtons = () => {
+      categoryButtons.forEach((button) => {
+        const isActive = (button.dataset.filterCategory || '') === activeCategory
+        button.className = isActive
+          ? 'border-rule bg-ink text-paper cursor-pointer rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide'
+          : 'border-rule bg-paper-raised text-ink-soft hover:text-ink cursor-pointer rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors'
+      })
+      tagButtons.forEach((button) => {
+        const chip = button.querySelector('[data-chip-label]')
+        if (!chip) return
+        const isActive = activeTags.has(button.dataset.filterTag)
+        chip.className = isActive
+          ? 'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide transition-colors bg-ink text-paper cursor-pointer'
+          : 'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide transition-colors bg-paper-sunken text-ink-soft cursor-pointer'
+      })
+    }
+
+    const matches = (card) => {
+      if (activeCategory && card.dataset.category !== activeCategory) return false
+      if (activeTags.size) {
+        const cardTags = (card.dataset.tags || '').split(/\s+/).filter(Boolean)
+        if (!cardTags.some((tag) => activeTags.has(tag))) return false
+      }
+      return true
+    }
+
+    const applyFilters = () => {
+      let visible = 0
+      cards.forEach((card) => {
+        const ok = matches(card)
+        card.hidden = !ok
+        if (ok) visible += 1
+      })
+      sections.forEach((section) => {
+        if (section.hasAttribute('data-empty')) {
+          section.hidden = Boolean(activeCategory) || activeTags.size > 0
+          return
+        }
+        const hasVisible = section.querySelector('[data-recipe]:not([hidden])')
+        section.hidden = !hasVisible
+      })
+      status.textContent = visible === total ? total + ' Rezepte' : visible + ' von ' + total + ' Rezepten'
+    }
+
+    const resetStatus = () => {
+      applyFilters()
+    }
+
+    const escapeHtml = (value) =>
+      value.replace(
+        /[&<>"']/g,
+        (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]
+      )
+
+    const showSections = () => {
+      cardList.hidden = false
+      searchArea.hidden = true
+      resetStatus()
+    }
+
+    const runSearch = async (query) => {
+      const token = ++searchToken
+      cardList.hidden = true
+      searchArea.hidden = false
+      searchHint.hidden = true
+      searchEmpty.hidden = true
+      searchList.innerHTML = ''
+
+      if (!pagefind) {
+        try {
+          pagefind = await import(pagefindUrl)
+          await pagefind.init()
+        } catch {
+          pagefind = null
+          searchHint.hidden = false
+          status.textContent = 'Suche nicht verfügbar'
+          return
+        }
+      }
+
+      const filters = activeFilters()
+      const search = await pagefind.search(query, Object.keys(filters).length ? { filters } : undefined)
+      if (token !== searchToken) return
+
+      const results = await Promise.all(search.results.slice(0, 40).map((result) => result.data()))
+      if (token !== searchToken) return
+
+      if (results.length === 0) {
+        searchEmpty.hidden = false
+        status.textContent = 'Keine Treffer'
+        return
+      }
+
+      results.forEach((result) => {
+        const item = document.createElement('li')
+        const url = result.url.startsWith('/') ? basePath.replace(/\/$/, '') + result.url : result.url
+        const meta = result.meta && result.meta.category ? result.meta.category : ''
+        item.innerHTML =
+          '<a href="' +
+          url +
+          '" class="border-rule bg-paper-raised hover:border-ink/25 flex flex-col gap-1 rounded-xl border px-5 py-4 transition-colors">' +
+          '<span class="font-display text-lg font-semibold tracking-tight">' +
+          escapeHtml(result.meta.title || 'Rezept') +
+          '</span>' +
+          (meta
+            ? '<span class="text-accent text-[0.7rem] font-semibold uppercase tracking-[0.12em]">' +
+              escapeHtml(meta) +
+              '</span>'
+            : '') +
+          '<span class="text-ink-soft text-sm">' +
+          result.excerpt +
+          '</span></a>'
+        searchList.appendChild(item)
+      })
+
+      status.textContent = results.length === 1 ? '1 Treffer' : results.length + ' Treffer'
+    }
+
+    let debounce
+    const onQueryChange = () => {
+      const query = input.value.trim()
+      clearTimeout(debounce)
+      if (query.length < 2) {
+        showSections()
+        return
+      }
+      debounce = setTimeout(() => runSearch(query), 180)
+    }
+
+    input.addEventListener('input', onQueryChange)
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeCategory = button.dataset.filterCategory || ''
+        paintButtons()
+        if (input.value.trim().length >= 2) runSearch(input.value.trim())
+        else applyFilters()
+      })
+    })
+
+    tagButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const tag = button.dataset.filterTag
+        if (activeTags.has(tag)) activeTags.delete(tag)
+        else activeTags.add(tag)
+        paintButtons()
+        if (input.value.trim().length >= 2) runSearch(input.value.trim())
+        else applyFilters()
+      })
+    })
+  </script>
+</section>

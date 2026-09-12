@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { withBase } from '../lib/url'
+
+const ideas = [{ title: 'Brötchen', url: 'https://youtu.be/k6K196GrqG0', kind: 'Video' }]
+
+const total = (await getCollection('recipes')).length
+---
+
+<BaseLayout
+  title='Ideen'
+  description='Später ausprobieren — und wie aus einer Markdown-Datei ein Rezept im Kochbuch wird.'>
+  <div class='mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8'>
+    <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Anmerkungen</p>
+    <h1 class='mt-5 font-display text-display font-semibold'>Ideen</h1>
+    <p class='mt-5 text-lg leading-8 text-ink-soft'>
+      Rezepte, die noch ausprobiert werden wollen. Sobald eines davon funktioniert, zieht es als eigene Markdown-Datei
+      ins Kochbuch.
+    </p>
+
+    <h2 class='mt-14 font-display text-2xl font-semibold tracking-tight'>Später ausprobieren</h2>
+    <ul class='mt-5 flex flex-col gap-3'>
+      {
+        ideas.map((idea) => (
+          <li>
+            <a
+              href={idea.url}
+              rel='noreferrer'
+              class='flex items-center justify-between gap-4 rounded-xl border border-rule bg-paper-raised px-5 py-4 transition-colors hover:border-ink/25'>
+              <span class='font-display text-lg font-semibold tracking-tight'>{idea.title}</span>
+              <span class='text-[0.7rem] font-bold tracking-[0.14em] text-accent uppercase'>{idea.kind}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class='mt-14 font-display text-2xl font-semibold tracking-tight'>Rezept hinzufügen</h2>
+    <div class='mt-5 flex flex-col gap-4 text-[1.02rem] leading-8 text-ink-soft'>
+      <p>
+        Jedes Rezept ist eine Markdown-Datei in <code class='font-mono text-sm text-ink'>recipes/</code>. Der Dateiname
+        bestimmt die Adresse, der Kopf die Kategorie.
+      </p>
+      <pre
+        class='overflow-x-auto rounded-2xl border border-rule bg-paper-raised p-5 text-[0.8rem] leading-6 text-ink'><code>{`---
+title: Flammkuchen
+category: hauptgerichte
+tags: [ofen, deutsch]
+---
+
+## Zutaten
+
+- 200 g Mehl
+
+## Zubereitung
+
+> Aus Mehl, Wasser, Öl und Salz einen Teig herstellen.`}</code></pre>
+      <p>
+        Danach <code class='font-mono text-sm text-ink'>npm run build</code> — fertig. Die Übersicht auf der
+        <a href={withBase()} class='text-accent underline decoration-dotted underline-offset-4'>Startseite</a>
+        und das README entstehen automatisch aus den Dateien.
+      </p>
+      <p class='text-sm text-ink-soft/80'>
+        {total} Rezepte liegen aktuell im Kochbuch. Bilder gehören nach
+        <code class='font-mono text-[0.8rem] text-ink'>recipes/images/</code> und werden im Kopf als
+        <code class='font-mono text-[0.8rem] text-ink'>image: images/dateiname.jpg</code> eingetragen.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

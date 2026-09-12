@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@source './**/*.{astro,ts,tsx,css}';
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 960px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1536px;
+
+  --font-*: initial;
+  --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #fffdf8;
+  --color-black: #16110d;
+
+  --color-paper: #f7f2e8;
+  --color-paper-raised: #fffdf9;
+  --color-paper-sunken: #efe6d6;
+  --color-ink: #241d18;
+  --color-ink-soft: #6f6053;
+  --color-rule: #ded1bd;
+  --color-accent: #b0431c;
+  --color-accent-soft: #f3dcd0;
+  --color-herb: #4f6039;
+  --color-herb-soft: #dfe4d3;
+  --color-gold: #a97a24;
+
+  --text-hero: clamp(2.75rem, 8vw, 5rem);
+  --text-hero--line-height: 0.98;
+  --text-hero--letter-spacing: -0.03em;
+  --text-display: clamp(1.85rem, 3.6vw, 2.9rem);
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.02em;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-ink-soft);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-accent);
+  --tw-prose-bullets: var(--color-accent);
+  --tw-prose-hr: var(--color-rule);
+  --tw-prose-quotes: var(--color-ink-soft);
+  --tw-prose-quote-borders: var(--color-accent);
+  --tw-prose-captions: var(--color-ink-soft);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-th-borders: var(--color-rule);
+  --tw-prose-td-borders: var(--color-rule);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #171310;
+    --color-paper-raised: #201a16;
+    --color-paper-sunken: #100d0a;
+    --color-ink: #f4ece0;
+    --color-ink-soft: #b6a693;
+    --color-rule: #372d24;
+    --color-accent: #e8855c;
+    --color-accent-soft: #38241a;
+    --color-herb: #a9bd91;
+    --color-herb-soft: #242b1d;
+    --color-gold: #d9ab5e;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+  }
+}
+
+@layer components {
+  /* Pagefind's default UI ships its own colours and spacing; strip it back to
+     our tokens so search results sit inside the cookbook design. */
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.9;
+    --pagefind-ui-primary: var(--color-ink);
+    --pagefind-ui-text: var(--color-ink);
+    --pagefind-ui-background: transparent;
+    --pagefind-ui-border: var(--color-rule);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.75rem;
+    --pagefind-ui-font: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  /* The filter chips scroll horizontally on small screens instead of stacking
+     into four tall rows inside the sticky bar. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  /* Force the light tokens so a dark-mode browser still prints black on white. */
+  :root {
+    --color-paper: #ffffff;
+    --color-paper-raised: #ffffff;
+    --color-paper-sunken: #ffffff;
+    --color-ink: #000000;
+    --color-ink-soft: #444444;
+    --color-rule: #bbbbbb;
+    --color-accent: #000000;
+    --color-accent-soft: #eeeeee;
+    --color-herb: #000000;
+    --color-herb-soft: #eeeeee;
+    --color-gold: #000000;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}

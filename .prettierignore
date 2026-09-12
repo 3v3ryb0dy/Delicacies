@@ -1,0 +1,6 @@
+# Generated from recipes/ + content/ by scripts/generate-readme.mjs
+README.md
+dist
+node_modules
+.astro
+package-lock.json

@@ -1,0 +1,34 @@
+---
+type Props = {
+  label: string
+  href?: string
+  active?: boolean
+  interactive?: boolean
+  tone?: 'neutral' | 'herb'
+}
+
+const { label, href, active = false, interactive = false, tone = 'neutral' } = Astro.props
+
+const base =
+  'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide transition-colors'
+const tones = {
+  neutral: 'bg-paper-sunken text-ink-soft',
+  herb: 'bg-herb-soft text-herb'
+}
+
+const classes = [base, active ? 'bg-ink text-paper' : tones[tone], interactive ? 'cursor-pointer' : '']
+  .filter(Boolean)
+  .join(' ')
+---
+
+{
+  href ? (
+    <a href={href} class={classes}>
+      {label}
+    </a>
+  ) : (
+    <span class={classes} data-chip-label={label}>
+      {label}
+    </span>
+  )
+}

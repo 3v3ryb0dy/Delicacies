@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import { categoryById } from '../config/taxonomy'
+import { withBase } from '../lib/url'
+
+type Props = {
+  entry: CollectionEntry<'recipes'>
+  position?: 'default' | 'spotlight'
+}
+
+const { entry, position = 'default' } = Astro.props
+const { title, category, tags, image, imageAlt, wip } = entry.data
+
+const categoryTitle = categoryById.get(category)?.short ?? category
+const href = withBase(`rezept/${entry.id}/`)
+const alt = imageAlt ?? title
+
+const spotlight = position === 'spotlight'
+
+/** Keeps the no-photo cards from looking like a wall of identical blocks. */
+const placeholderTints: Record<string, string> = {
+  hauptgerichte: 'from-accent-soft to-paper-sunken',
+  beilagen: 'from-herb-soft to-paper-sunken',
+  brot: 'from-gold/25 to-accent-soft',
+  kuchen: 'from-gold/25 to-accent-soft',
+  desserts: 'from-gold/25 to-accent-soft',
+  gebaeck: 'from-gold/25 to-accent-soft',
+  torten: 'from-gold/25 to-accent-soft',
+  saucen: 'from-paper-sunken to-herb-soft',
+  salate: 'from-herb-soft to-paper-sunken',
+  suppen: 'from-accent-soft to-herb-soft',
+  sonstiges: 'from-paper-sunken to-accent-soft'
+}
+const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
+---
+
+<article
+  data-recipe
+  data-category={category}
+  data-tags={tags.join(' ')}
+  data-title={title}
+  class:list={[
+    'group relative flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper-raised transition duration-200',
+    'hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_18px_40px_-24px_rgba(36,29,24,0.45)]',
+    spotlight && 'sm:col-span-2 lg:col-span-1'
+  ]}>
+  <a href={href} class='flex flex-1 flex-col focus-visible:outline-2'>
+    <div class='relative aspect-4/3 w-full overflow-hidden bg-paper-sunken'>
+      {
+        image ? (
+          <Image
+            src={image}
+            alt={alt}
+            widths={[400, 800, 1200]}
+            sizes='(min-width: 1280px) 22rem, (min-width: 600px) 45vw, 92vw'
+            loading='lazy'
+            decoding='async'
+            class='h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]'
+          />
+        ) : (
+          <div class:list={['grid h-full w-full place-items-center bg-gradient-to-br text-accent/60', tint]}>
+            <span class='font-display text-5xl font-semibold' aria-hidden='true'>
+              {title.slice(0, 1)}
+            </span>
+          </div>
+        )
+      }
+      {
+        wip && (
+          <span class='absolute top-3 right-3 rounded-full border border-gold/30 bg-paper-raised/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-gold uppercase backdrop-blur'>
+            in Arbeit
+          </span>
+        )
+      }
+    </div>
+
+    <div class='flex flex-1 flex-col gap-3 p-5'>
+      <div class='flex items-center gap-2 text-[0.7rem] font-semibold tracking-[0.12em] uppercase'>
+        <span class='text-accent'>{categoryTitle}</span>
+        {entry.data.subcategory && <span class='text-ink-soft/70'>· {entry.data.subcategory}</span>}
+      </div>
+
+      <h3 class='font-display text-xl leading-snug font-semibold tracking-tight text-ink'>{title}</h3>
+
+      {
+        tags.length > 0 && (
+          <ul class='mt-auto flex flex-wrap gap-x-2.5 gap-y-1 pt-1 text-xs text-ink-soft'>
+            {tags.map((tag) => (
+              <li class="before:mr-2.5 before:text-rule before:content-['·'] first:before:hidden">{tag}</li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </a>
+</article>

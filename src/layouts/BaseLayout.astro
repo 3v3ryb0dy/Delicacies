@@ -1,0 +1,50 @@
+---
+import '@fontsource-variable/fraunces/opsz.css'
+import '@fontsource-variable/nunito-sans'
+import '../tailwind.css'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import { withBase } from '../lib/url'
+
+type Props = {
+  title?: string
+  description?: string
+}
+
+const { title, description = 'Kochbuch der Delikatessen — über Jahre gesammelte Rezepte, die sich bewährt haben.' } =
+  Astro.props
+
+const pageTitle = title ? `${title} — Kochbuch der Delikatessen` : 'Kochbuch der Delikatessen'
+const canonical = new URL(Astro.url.pathname, Astro.site)
+---
+
+<!doctype html>
+<html lang='de' class='bg-paper'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name='description' content={description} />
+    <link rel='canonical' href={canonical} />
+    <link rel='icon' type='image/svg+xml' href={withBase('favicon.svg')} />
+    <meta name='theme-color' content='#f7f2e8' media='(prefers-color-scheme: light)' />
+    <meta name='theme-color' content='#171310' media='(prefers-color-scheme: dark)' />
+    <meta property='og:title' content={pageTitle} />
+    <meta property='og:description' content={description} />
+    <meta property='og:type' content='website' />
+    <meta property='og:locale' content='de_DE' />
+  </head>
+  <body class='flex min-h-dvh flex-col bg-paper text-ink'>
+    <a
+      href='#inhalt'
+      class='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-2 focus:text-sm focus:font-semibold focus:text-paper'>
+      Zum Inhalt springen
+    </a>
+    <Header />
+    <main id='inhalt' class='flex-1'>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
