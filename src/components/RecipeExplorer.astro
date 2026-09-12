@@ -173,6 +173,15 @@ const { total } = Astro.props
         (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]
       )
 
+    // Pagefind already prefixes result URLs with the site base (it derives it
+    // from where its bundle is served), so only add the base when it is absent.
+    const resolveResultUrl = (url) => {
+      if (/^[a-z][a-z0-9+.-]*:/i.test(url) || url.startsWith('//')) return url
+      const base = basePath.replace(/\/$/, '')
+      if (!base || url === base || url.startsWith(base + '/')) return url
+      return base + (url.startsWith('/') ? url : '/' + url)
+    }
+
     const showSections = () => {
       cardList.hidden = false
       searchArea.hidden = true
@@ -214,7 +223,7 @@ const { total } = Astro.props
 
       results.forEach((result) => {
         const item = document.createElement('li')
-        const url = result.url.startsWith('/') ? basePath.replace(/\/$/, '') + result.url : result.url
+        const url = resolveResultUrl(result.url)
         const meta = result.meta && result.meta.category ? result.meta.category : ''
         item.innerHTML =
           '<a href="' +
