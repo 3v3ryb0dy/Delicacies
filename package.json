@@ -12,7 +12,8 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "readme": "node scripts/generate-readme.mjs",
-    "check": "node scripts/generate-readme.mjs --check && astro check && prettier --check .",
+    "test": "node --test src/lib/*.test.mjs",
+    "check": "npm test && node scripts/generate-readme.mjs --check && astro check && prettier --check .",
     "format": "prettier --write ."
   },
   "dependencies": {

@@ -50,7 +50,11 @@
 
 :root {
   color-scheme: light dark;
+}
 
+/* Override the typography plugin on the element that defines its variables;
+   root-level values are otherwise shadowed by the plugin's .prose defaults. */
+.prose {
   --tw-prose-body: var(--color-ink);
   --tw-prose-headings: var(--color-ink);
   --tw-prose-lead: var(--color-ink-soft);

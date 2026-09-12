@@ -66,7 +66,8 @@ ${sections.join('\n\n')}
 
 1. Neue Datei \`recipes/mein-rezept.md\` anlegen, Dateiname bestimmt die Adresse.
 2. Kopf ausfüllen: \`title\`, \`category\` (siehe oben), \`tags\` und optional \`image\`.
-3. \`## Zutaten\` und \`## Zubereitung\` schreiben, Bilder nach \`recipes/images/\`.
+3. \`## Zutaten\` und \`## Zubereitung\` schreiben, Bilder nach \`recipes/images/\` (Prompt-Vorlage: [Image Generation](docs/image-generation.md)).
+   PNG, JPG und JPEG sind möglich. \`image: images/mein-rezept\` funktioniert ohne Dateiendung; beim Formatwechsel wird eine passende Datei automatisch gesucht.
 4. \`npm run build\` ausführen. Übersicht und README entstehen automatisch.
 
 ## Ideen

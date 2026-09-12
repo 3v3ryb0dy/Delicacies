@@ -51,72 +51,74 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
       </a>
     </nav>
 
-    <header class='mt-7'>
-      <div class='flex flex-wrap items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] uppercase'>
-        <a
-          href={withBase(`#${entry.data.category}`)}
-          class='focus-ring rounded-full text-accent transition-colors hover:text-ink'
-          data-pagefind-filter={`category:${entry.data.category}`}>
-          <span data-pagefind-ignore>{categoryShort}</span>
-        </a>
-        {subcategoryTitle && <span class='text-ink-soft/70'>· {subcategoryTitle}</span>}
+    <header class:list={['mt-7 grid items-start gap-8', image && 'md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]']}>
+      <div class='min-w-0'>
+        <div class='flex flex-wrap items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] uppercase'>
+          <a
+            href={withBase(`#${entry.data.category}`)}
+            class='focus-ring rounded-full text-accent transition-colors hover:text-ink'
+            data-pagefind-filter={`category:${entry.data.category}`}>
+            <span data-pagefind-ignore>{categoryShort}</span>
+          </a>
+          {subcategoryTitle && <span class='text-ink-soft/70'>· {subcategoryTitle}</span>}
+          {
+            wip && (
+              <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent'>
+                in Arbeit
+              </span>
+            )
+          }
+        </div>
+
+        <h1 class='mt-5 max-w-4xl font-display text-display font-semibold text-balance'>{title}</h1>
+
+        <div class='mt-6 flex flex-wrap items-center gap-2 print:hidden'>
+          <TagChip label={categoryTitle} href={withBase(`#${entry.data.category}`)} tone='herb' />
+          {
+            tags.map((tag) => (
+              <a href={withBase(`#${entry.data.category}`)} data-pagefind-filter={`tag:${tag}`} class='contents'>
+                <TagChip label={tag} href={withBase(`#${entry.data.category}`)} />
+              </a>
+            ))
+          }
+          {servings && <span class='text-xs font-semibold text-ink-soft'>für {servings}</span>}
+        </div>
+
         {
-          wip && (
-            <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent'>
-              in Arbeit
-            </span>
+          (note || source) && (
+            <p class='mt-4 text-sm text-ink-soft'>
+              {note}
+              {source && (
+                <>
+                  {' '}
+                  <a href={source} class='text-accent underline decoration-dotted underline-offset-4' rel='noreferrer'>
+                    Quelle
+                  </a>
+                </>
+              )}
+            </p>
           )
         }
       </div>
 
-      <h1 class='mt-5 max-w-4xl font-display text-display font-semibold text-balance'>{title}</h1>
-
-      <div class='mt-6 flex flex-wrap items-center gap-2 print:hidden'>
-        <TagChip label={categoryTitle} href={withBase(`#${entry.data.category}`)} tone='herb' />
-        {
-          tags.map((tag) => (
-            <a href={withBase(`#${entry.data.category}`)} data-pagefind-filter={`tag:${tag}`} class='contents'>
-              <TagChip label={tag} href={withBase(`#${entry.data.category}`)} />
-            </a>
-          ))
-        }
-        {servings && <span class='text-xs font-semibold text-ink-soft'>für {servings}</span>}
-      </div>
-
       {
-        (note || source) && (
-          <p class='mt-4 text-sm text-ink-soft'>
-            {note}
-            {source && (
-              <>
-                {' '}
-                <a href={source} class='text-accent underline decoration-dotted underline-offset-4' rel='noreferrer'>
-                  Quelle
-                </a>
-              </>
-            )}
-          </p>
+        image && (
+          <div class='mx-auto w-full max-w-80 overflow-hidden rounded-2xl md:max-w-none'>
+            <Image
+              src={image}
+              alt={alt}
+              widths={[320, 400, 640, 800]}
+              sizes='(min-width: 1200px) 368px, (min-width: 960px) calc((100vw - 96px) / 3), (min-width: 360px) 320px, calc(100vw - 40px)'
+              loading='eager'
+              decoding='async'
+              class='aspect-4/3 w-full object-cover'
+            />
+          </div>
         )
       }
     </header>
 
-    {
-      image && (
-        <div class='mt-9 overflow-hidden rounded-3xl'>
-          <Image
-            src={image}
-            alt={alt}
-            widths={[600, 1200, 1800]}
-            sizes='(min-width: 1280px) 72rem, 100vw'
-            loading='eager'
-            decoding='async'
-            class='aspect-16/9 w-full object-cover'
-          />
-        </div>
-      )
-    }
-
-    <div class='mt-14 grid gap-12 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)] lg:gap-16'>
+    <div class='mt-10 grid gap-12 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)] lg:gap-16'>
       <section class='lg:sticky lg:top-28 lg:self-start' aria-labelledby='zutaten'>
         <h2 id='zutaten' class='font-display text-section font-semibold'>Zutaten</h2>
         <div class='mt-5 flex flex-col gap-7'>

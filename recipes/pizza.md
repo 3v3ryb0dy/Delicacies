@@ -1,6 +1,8 @@
 ---
 title: Pizza (Basis)
 category: hauptgerichte
+image: images/pizza.jpg
+imageAlt: Rustikaler Pizzaboden mit Tomaten-Kräuter-Sauce
 tags: [ofen, italienisch, grundrezept, vegetarisch]
 ---
 

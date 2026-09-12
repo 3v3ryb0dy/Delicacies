@@ -1,6 +1,8 @@
 ---
 title: Rotkohl
 category: beilagen
+image: images/rotkohl.jpg
+imageAlt: Weich geschmorter Rotkohl mit kleinen Apfelstückchen
 subcategory: gemuese
 tags: [deutsch, vegetarisch]
 ---

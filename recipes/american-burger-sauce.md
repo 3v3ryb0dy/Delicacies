@@ -1,6 +1,8 @@
 ---
 title: American Burger Sauce
 category: saucen
+image: images/american-burger-sauce.png
+imageAlt: Cremige rosa Burgersauce mit feinen Kräuter- und Gurkenstückchen
 tags: [grundrezept, vegetarisch]
 ---
 

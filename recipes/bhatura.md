@@ -1,6 +1,8 @@
 ---
 title: Bhatura (Indisches Ballonbrot)
 category: brot
+image: images/bhatura.jpg
+imageAlt: Goldbraune, aufgeblähte Bhatura auf einem Keramikteller
 tags: [asiatisch, frittiert, vegetarisch]
 ---
 

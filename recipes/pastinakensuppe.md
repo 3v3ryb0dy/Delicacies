@@ -1,6 +1,8 @@
 ---
 title: Pastinakensuppe
 category: suppen
+image: images/pastinakensuppe.jpg
+imageAlt: Fein pürierte Pastinakensuppe mit etwas Petersilie
 tags: [deutsch, vegetarisch]
 ---
 

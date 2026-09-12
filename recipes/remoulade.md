@@ -1,6 +1,8 @@
 ---
 title: Remoulade
 category: saucen
+image: images/remoulade.jpg
+imageAlt: Remoulade mit fein gehackten Gurken, Karotte, Apfel und Kräutern
 tags: [grundrezept, vegetarisch]
 ---
 

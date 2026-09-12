@@ -1,6 +1,8 @@
 ---
 title: Bohnen Hummus
 category: saucen
+image: images/bohnen-hummus.jpg
+imageAlt: Rustikaler Hummus aus Bohnen und Süßkartoffel
 tags: [vegan, vegetarisch]
 ---
 

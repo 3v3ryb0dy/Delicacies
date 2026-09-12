@@ -1,6 +1,8 @@
 ---
 title: Balsamico Honig Dressing
 category: saucen
+image: images/balsamico-honig-dressing.png
+imageAlt: Dunkles Balsamico-Honig-Dressing in einer kleinen Keramikschale
 tags: [grundrezept, vegetarisch]
 ---
 

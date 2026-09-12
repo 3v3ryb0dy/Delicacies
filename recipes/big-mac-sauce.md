@@ -1,6 +1,8 @@
 ---
 title: Big Mac Sauce
 category: saucen
+image: images/big-mac-sauce.jpg
+imageAlt: Helle Burgersauce mit fein gehackten Gewürzgurken
 tags: [grundrezept, vegetarisch]
 ---
 

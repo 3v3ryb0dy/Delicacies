@@ -1,6 +1,8 @@
 ---
 title: Flammkuchen
 category: hauptgerichte
+image: images/flammkuchen.jpg
+imageAlt: Dünner Flammkuchen mit Schmand, Zwiebeln und Schinkenwürfeln
 tags: [ofen, deutsch]
 ---
 
