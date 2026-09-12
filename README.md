@@ -1,6 +1,6 @@
 # Kochbuch der Delikatessen
 
-> Gestaltete Fassung: **[https://3v3ryb0dy.github.io/Delicacies/](https://3v3ryb0dy.github.io/Delicacies/)** — Rezepte, Suche und Filter.
+> Gestaltete Fassung mit Suche, Filtern und Druckansicht: **[https://3v3ryb0dy.github.io/Delicacies/](https://3v3ryb0dy.github.io/Delicacies/)**
 
 Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.
 
@@ -12,11 +12,11 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 ## Rezepte
 
 21 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
-Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt — nicht von Hand bearbeiten.
+Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
 
-_Noch keine Rezepte — hier ist Platz für Neues._
+_Noch keine Rezepte. Hier ist Platz für Neues._
 
 ### Hauptgerichte (4)
 
@@ -27,7 +27,7 @@ _Noch keine Rezepte — hier ist Platz für Neues._
 
 ### Desserts (0)
 
-_Noch keine Rezepte — hier ist Platz für Neues._
+_Noch keine Rezepte. Hier ist Platz für Neues._
 
 ### Beilagen (2)
 
@@ -46,11 +46,11 @@ _Noch keine Rezepte._
 
 ### Torten (0)
 
-_Noch keine Rezepte — hier ist Platz für Neues._
+_Noch keine Rezepte. Hier ist Platz für Neues._
 
 ### Gebäck (0)
 
-_Noch keine Rezepte — hier ist Platz für Neues._
+_Noch keine Rezepte. Hier ist Platz für Neues._
 
 ### Brot / Brötchen (2)
 
@@ -86,7 +86,7 @@ _Noch keine Rezepte — hier ist Platz für Neues._
 1. Neue Datei `recipes/mein-rezept.md` anlegen, Dateiname bestimmt die Adresse.
 2. Kopf ausfüllen: `title`, `category` (siehe oben), `tags` und optional `image`.
 3. `## Zutaten` und `## Zubereitung` schreiben, Bilder nach `recipes/images/`.
-4. `npm run build` — Übersicht und README entstehen automatisch.
+4. `npm run build` ausführen. Übersicht und README entstehen automatisch.
 
 ## Ideen
 

@@ -11,10 +11,10 @@ type Props = {
   description?: string
 }
 
-const { title, description = 'Kochbuch der Delikatessen — über Jahre gesammelte Rezepte, die sich bewährt haben.' } =
+const { title, description = 'Kochbuch der Delikatessen. Über Jahre gesammelte Rezepte, die sich bewährt haben.' } =
   Astro.props
 
-const pageTitle = title ? `${title} — Kochbuch der Delikatessen` : 'Kochbuch der Delikatessen'
+const pageTitle = title ? `${title} | Kochbuch der Delikatessen` : 'Kochbuch der Delikatessen'
 const canonical = new URL(Astro.url.pathname, Astro.site)
 ---
 

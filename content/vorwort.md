@@ -1,5 +1,5 @@
 ---
-tagline: Rezepte, die sich über die Jahre bewährt haben — gesammelt, gekocht und für gut befunden.
+tagline: Rezepte, die sich über die Jahre bewährt haben. Gesammelt, gekocht und für gut befunden.
 ---
 
 Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.

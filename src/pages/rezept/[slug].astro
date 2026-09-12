@@ -29,7 +29,7 @@ const showPendingCallout = preparationPending || body.preparation.length === 0
 /** Component sub-headings are numbered when a recipe has more than one part,
     in both columns, so ingredients and steps line up. */
 const groupLabel = (index: number, title: string, numbered: boolean) =>
-  numbered ? `${String(index + 1).padStart(2, '0')} — ${title}` : title
+  numbered ? `${String(index + 1).padStart(2, '0')} · ${title}` : title
 
 const siblings = (await getCollection('recipes'))
   .filter((other) => other.data.category === entry.data.category && other.id !== entry.id)
@@ -37,7 +37,7 @@ const siblings = (await getCollection('recipes'))
   .slice(0, 3)
 
 const alt = imageAlt ?? title
-const description = `${title} — Zutaten und Zubereitung aus dem Kochbuch der Delikatessen.`
+const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Delikatessen.`
 ---
 
 <BaseLayout title={title} description={description}>

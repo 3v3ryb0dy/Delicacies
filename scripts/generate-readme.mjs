@@ -33,7 +33,7 @@ const sections = categories.map((category) => {
   const lines = [`### ${category.title} (${list.length})`, '']
 
   if (list.length === 0) {
-    lines.push('_Noch keine Rezepte — hier ist Platz für Neues._')
+    lines.push('_Noch keine Rezepte. Hier ist Platz für Neues._')
   } else if (category.subcategories?.length) {
     for (const subcategory of category.subcategories) {
       const subList = list.filter((recipe) => recipe.subcategory === subcategory.id)
@@ -51,14 +51,14 @@ const sections = categories.map((category) => {
 
 const readme = `# Kochbuch der Delikatessen
 
-> Gestaltete Fassung: **[${siteUrl}](${siteUrl})** — Rezepte, Suche und Filter.
+> Gestaltete Fassung mit Suche, Filtern und Druckansicht: **[${siteUrl}](${siteUrl})**
 
 ${vorwort}
 
 ## Rezepte
 
 ${recipes.length} Rezepte, jedes als eigene Markdown-Datei in [\`recipes/\`](recipes).
-Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt — nicht von Hand bearbeiten.
+Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ${sections.join('\n\n')}
 
@@ -67,7 +67,7 @@ ${sections.join('\n\n')}
 1. Neue Datei \`recipes/mein-rezept.md\` anlegen, Dateiname bestimmt die Adresse.
 2. Kopf ausfüllen: \`title\`, \`category\` (siehe oben), \`tags\` und optional \`image\`.
 3. \`## Zutaten\` und \`## Zubereitung\` schreiben, Bilder nach \`recipes/images/\`.
-4. \`npm run build\` — Übersicht und README entstehen automatisch.
+4. \`npm run build\` ausführen. Übersicht und README entstehen automatisch.
 
 ## Ideen
 
@@ -85,5 +85,5 @@ if (checkOnly) {
   console.log('README.md ist aktuell.')
 } else {
   await writeFile(target, readme, 'utf8')
-  console.log(`README.md aktualisiert — ${recipes.length} Rezepte in ${categories.length} Kategorien.`)
+  console.log(`README.md aktualisiert: ${recipes.length} Rezepte in ${categories.length} Kategorien.`)
 }
