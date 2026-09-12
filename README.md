@@ -15,6 +15,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
   - [Hauptgerichte](#hauptgerichte)
     - [Flammkuchen](#flammkuchen)
     - [Ochsenbäckchen (geschmort)](#ochsenbäckchen-geschmort)
+    - [Pad Thai](#pad-thai)
     - [Pizza (Basis)](#pizza-basis)
   - [Desserts](#desserts)
   - [Beilagen](#beilagen)
@@ -23,6 +24,7 @@ Haben Sie Rezeptvorschlägen, die unbedingt hier aufgenommen werden sollten, sen
       - [Rotkohl](#rotkohl)
     - [Sättigungsbeilagen](#sättigungsbeilagen)
   - [Kuchen](#kuchen)
+    - [Hefekuchen (Bienenstich)](#hefekuchen-bienenstich)
   - [Torten](#torten)
   - [Gebäck](#gebäck)
   - [Brot / Brötchen](#brot--brötchen)
@@ -88,6 +90,28 @@ Den Bratenfond durch ein Sieb in einen Topf streichen und um ein Drittel reduzie
 \
 Passendes Gemüse: Rotkohl, Rosenkohl\
 Passende Beilagen: Kartoffelstampf, Herzoginkartoffeln, Kartoffelklöße
+
+### Pad Thai
+
+Sauce:
+
+- 20 g Tamarindenpaste (Suree)
+- 20 ml Wasser
+- 50 g Fischsauce (Red Boat)
+- 80 g brauner Zucker
+- 80 ml Wasser
+
+Außerdem:
+
+- Reisbandnudeln
+- 2 Eier
+- Sojasprossen
+- Thai Schnittlauch
+- Öl
+
+> Reisbandnudeln 30 - 60 Minuten in kaltem Wasser einweichen und abtropfen lassen.\
+> Öl in einer Pfanne oder einem Wok erhitzen und Eier darin anbraten. Nudeln hinzugeben, Sauce angießen und kochen, bis die Nudeln fast gar sind. Falls die Nudeln zu trocken werden, einen Schluck Wasser hinzugeben.\
+> Sojasprossen und Thai Schnittlauch kurz unterheben und servieren.
 
 ### Pizza (Basis)
 
@@ -155,6 +179,33 @@ Nach Belieben mit Rotwein abschmecken.
 ### Sättigungsbeilagen
 
 ## Kuchen
+
+### Hefekuchen (Bienenstich)
+
+Teig:
+
+- 250 ml Milch
+- 100 g Zucker
+- 100 g Butter
+- 1 Ei
+- 1 Prise Salz
+- 1 Würfel Hefe (42 g)
+- 500 g Mehl (Type 550)
+
+Belag:
+
+- 150 g Butter
+- 100 g Zucker
+- 200 g Mandelblättchen
+- 2 EL Honig
+
+> Ofen auf 50 °C vorwärmen.
+> Milch etwas mehr als lauwarm erwärmen. Butter darin auflösen und Zucker, Salz und Hefe einrühren.\
+> Mehl in eine Teigschüssel geben und eine Mulde formen. Milch-Hefe-Mischung hineingeben und 10 Minuten stehen lassen.
+> Ei hinzugeben und alles zu einem glatten Teig kneten.\
+> 30 Minuten gehen lassen, anschließend ausrollen und auf ein Blech geben. Weitere 20 Minuten gehen lassen.\
+> Ofen auf 250 °C Umluft vorheizen. Währenddessen den Kuchen belegen.
+> Anschließend ca. 25 Minuten bei 175 °C Ober-/Unterhitze backen.
 
 ## Torten
 
@@ -408,3 +459,7 @@ Hervorragend auch als Burger.
 ---
 
 ## Anmerkungen
+
+Später ausprobieren:
+
+- [Brötchen](https://youtu.be/k6K196GrqG0)
