@@ -19,4 +19,4 @@ tags: [deutsch]
 
 ## Zubereitung
 
-> Das Hackfleisch im Öl anbraten. Anschließend den Lauch hinzugeben und mit Wasser ablöschen. Den Schmelzkäse einrühren und mit den Gewürzen abschmecken. Anschließend abschmecken.
+> Das Hackfleisch im Öl anbraten. Anschließend den Lauch hinzugeben und mit Gemüsebrühe oder Wasser ablöschen. Den Schmelzkäse einrühren und mit den Gewürzen abschmecken.

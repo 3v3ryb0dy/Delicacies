@@ -28,15 +28,15 @@ tags: [ofen, deutsch, vegetarisch]
 ## Zubereitung
 
 > Ofen auf 50 °C vorwärmen.
-
+>
 > Milch etwas mehr als lauwarm erwärmen. Butter darin auflösen und Zucker, Salz und Hefe einrühren.
-
-> Mehl in eine Teigschüssel geben und eine Mulde formen. Milch-Hefe-Mischung hineingeben und 10 Minuten stehen lassen.
-
+>
+> Mehl in eine Teigschüssel geben und eine Mulde formen. Milch-Hefe-Mischung hineingeben und 10 Minuten im lauwarmen Ofen stehen lassen.
+>
 > Ei hinzugeben und alles zu einem glatten Teig kneten.
-
-> 30 Minuten gehen lassen, anschließend ausrollen und auf ein Blech geben. Weitere 20 Minuten gehen lassen.
-
-> Ofen auf 250 °C Umluft vorheizen. Währenddessen den Kuchen belegen.
-
+>
+> 30 Minuten im Ofen gehen lassen, anschließend ausrollen und auf ein Blech geben. Weitere 20 Minuten gehen lassen.
+>
+> Ofen auf 250 °C Umluft vorheizen. Währenddessen Zutaten für den Belag in einer Pfanne erhitzen, bis sich ein hellbraunes Butterkaramell bildet. Auf den Kuchen geben.
+>
 > Anschließend ca. 25 Minuten bei 175 °C Ober-/Unterhitze backen.

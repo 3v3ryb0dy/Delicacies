@@ -27,7 +27,9 @@ tags: [asiatisch]
 ## Zubereitung
 
 > Reisbandnudeln 30 - 60 Minuten in kaltem Wasser einweichen und abtropfen lassen.
-
-> Öl in einer Pfanne oder einem Wok erhitzen und Eier darin anbraten. Nudeln hinzugeben, Sauce angießen und kochen, bis die Nudeln fast gar sind. Falls die Nudeln zu trocken werden, einen Schluck Wasser hinzugeben.
-
-> Sojasprossen und Thai Schnittlauch kurz unterheben und servieren.
+>
+> Währenddessen alle Zutaten der Sauce verrühren, bis sich der Zucker aufgelöst hat.
+>
+> Öl in einer Pfanne oder einem Wok erhitzen und Eier darin als Omelette stocken lassen. Nudeln hinzugeben, Sauce angießen und kochen, bis die Nudeln fast gar sind. Falls die Nudeln zu trocken werden, einen Schluck Wasser hinzugeben.
+>
+> Sojasprossen und Thai Schnittlauch kurz mitgaren und servieren.
