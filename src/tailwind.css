@@ -11,8 +11,8 @@
   --breakpoint-xl: 1536px;
 
   --font-*: initial;
-  --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --font-sans: 'Nunito Sans Variable', 'Nunito Sans Fallback', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', 'Fraunces Fallback', ui-serif, Georgia, serif;
 
   --color-*: initial;
   --color-transparent: transparent;
@@ -46,6 +46,35 @@
   --text-section: clamp(1.625rem, 2.4vw, 2rem);
   --text-section--line-height: 1.15;
   --text-section--letter-spacing: -0.015em;
+}
+
+/* Both webfonts are self-hosted (see the @fontsource-variable imports in
+   BaseLayout) and use `font-display: swap`, so the system fallback is what the
+   browser paints first. The two faces below are metric-matched to the real
+   fonts: the widths are calibrated against Arial/Times New Roman and the
+   ascent/descent values come from the font tables of the woff2 files, so
+   swapping in the webfonts neither re-wraps nor moves text and no longer shows
+   up as layout shift while the page loads.
+
+   The `local()` sources stay inside one metric-compatible family per face
+   (Arial/Liberation Sans/Arimo, Times New Roman/Liberation Serif/Tinos), so the
+   calibration holds across macOS, Windows and Linux. */
+@font-face {
+  font-family: 'Nunito Sans Fallback';
+  src: local('Arial'), local('Liberation Sans'), local('Arimo'), local('Helvetica');
+  size-adjust: 100.55%;
+  ascent-override: 100.45%;
+  descent-override: 34.81%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Fraunces Fallback';
+  src: local('Times New Roman'), local('Liberation Serif'), local('Tinos'), local('Nimbus Roman');
+  size-adjust: 92.69%;
+  ascent-override: 105.73%;
+  descent-override: 28.05%;
+  line-gap-override: 0%;
 }
 
 :root {

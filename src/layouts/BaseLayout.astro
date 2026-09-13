@@ -1,6 +1,8 @@
 ---
 import '@fontsource-variable/fraunces/opsz.css'
 import '@fontsource-variable/nunito-sans'
+import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url'
+import nunitoSansLatin from '@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2?url'
 import '../tailwind.css'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
@@ -32,6 +34,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
     <link rel='apple-touch-icon' sizes='180x180' href={withBase('apple-touch-icon.png')} />
     <meta name='theme-color' content='#fff9f3' media='(prefers-color-scheme: light)' />
     <meta name='theme-color' content='#16120f' media='(prefers-color-scheme: dark)' />
+    <!-- The webfonts are bundled locally (see the @fontsource-variable imports),
+         never fetched from Google. Preloading the Latin cuts pulls them in with
+         the stylesheet instead of after it, so the swap into Nunito Sans and
+         Fraunces happens before the first paint. -->
+    <link rel='preload' href={nunitoSansLatin} as='font' type='font/woff2' crossorigin />
+    <link rel='preload' href={frauncesLatin} as='font' type='font/woff2' crossorigin />
     <meta property='og:title' content={pageTitle} />
     <meta property='og:description' content={description} />
     <meta property='og:type' content='website' />
