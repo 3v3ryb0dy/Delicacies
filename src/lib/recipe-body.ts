@@ -33,6 +33,31 @@ const sectionHeadings: Record<string, Section> = {
 
 const pairingPattern = /^(?:Passendes|Passende)\s+\S/
 
+export type PairingSegment = { text: string; recipeId?: string }
+
+/** Only explicit links to sibling recipe files are interpreted; other text stays literal. */
+export function parsePairingLinks(
+  text: string,
+  recipeIds: ReadonlySet<string>,
+  sourceRecipe: string
+): PairingSegment[] {
+  const segments: PairingSegment[] = []
+  let cursor = 0
+
+  for (const match of text.matchAll(/\[([^\[\]\n]+)\]\((?:\.\/)?([a-z0-9_-]+)\.md\)/g)) {
+    const [link, label, recipeId] = match
+    if (!recipeIds.has(recipeId)) {
+      throw new Error(`Recipe "${sourceRecipe}.md" links to missing recipe "${recipeId}.md" in "Passt dazu".`)
+    }
+    if (match.index > cursor) segments.push({ text: text.slice(cursor, match.index) })
+    segments.push({ text: label, recipeId })
+    cursor = match.index + link.length
+  }
+
+  if (cursor < text.length) segments.push({ text: text.slice(cursor) })
+  return segments
+}
+
 /**
  * Recipes are markdown with a fixed shape:
  *

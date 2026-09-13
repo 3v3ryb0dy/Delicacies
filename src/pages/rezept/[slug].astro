@@ -6,7 +6,7 @@ import TagChip from '../../components/TagChip.astro'
 import LogoWatermark from '../../components/LogoWatermark.astro'
 import { categoryById } from '../../config/taxonomy'
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import { parseRecipeBody } from '../../lib/recipe-body'
+import { parsePairingLinks, parseRecipeBody } from '../../lib/recipe-body'
 import { withBase } from '../../lib/url'
 
 export async function getStaticPaths() {
@@ -23,6 +23,9 @@ const categoryShort = categoryMeta?.short ?? entry.data.category
 const subcategoryTitle = categoryMeta?.subcategories?.find((item) => item.id === subcategory)?.title
 
 const body = parseRecipeBody(entry.body ?? '')
+const recipes = await getCollection('recipes')
+const recipeIds = new Set(recipes.map((recipe) => recipe.id))
+const pairings = body.pairings.map((line) => parsePairingLinks(line, recipeIds, entry.id))
 
 const preparationPending = entry.data.preparationPending
 const showPendingCallout = preparationPending || body.preparation.length === 0
@@ -32,7 +35,7 @@ const showPendingCallout = preparationPending || body.preparation.length === 0
 const groupLabel = (index: number, title: string, numbered: boolean) =>
   numbered ? `${String(index + 1).padStart(2, '0')} · ${title}` : title
 
-const siblings = (await getCollection('recipes'))
+const siblings = recipes
   .filter((other) => other.data.category === entry.data.category && other.id !== entry.id)
   .sort((a, b) => a.data.title.localeCompare(b.data.title, 'de'))
   .slice(0, 3)
@@ -203,12 +206,24 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
         </div>
 
         {
-          body.pairings.length > 0 && (
+          pairings.length > 0 && (
             <div class='mt-10 break-inside-avoid rounded-2xl bg-herb-soft/70 px-6 py-5 print:mt-6 print:rounded-lg print:px-4 print:py-3'>
               <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-herb uppercase'>Passt dazu</h3>
               <ul class='mt-2.5 flex flex-col gap-1.5 text-sm text-ink tabular-nums'>
-                {body.pairings.map((pairing) => (
-                  <li>{pairing}</li>
+                {pairings.map((pairing) => (
+                  <li>
+                    {pairing.map((segment) =>
+                      segment.recipeId ? (
+                        <a
+                          href={withBase(`rezept/${segment.recipeId}/`)}
+                          class='focus-ring rounded-full text-accent underline decoration-dotted underline-offset-4 hover:text-ink'
+                          set:text={segment.text}
+                        />
+                      ) : (
+                        segment.text
+                      )
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -232,7 +247,10 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
 
     {
       siblings.length > 0 && (
-        <section class='mt-20 border-t border-rule/80 pt-10 print:hidden' aria-labelledby='mehr'>
+        <section
+          data-pagefind-ignore='all'
+          class='mt-20 border-t border-rule/80 pt-10 print:hidden'
+          aria-labelledby='mehr'>
           <h2 id='mehr' class='font-display text-section font-semibold'>
             Mehr aus dieser Kategorie
           </h2>

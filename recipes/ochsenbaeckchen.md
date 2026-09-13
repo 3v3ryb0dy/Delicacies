@@ -27,6 +27,6 @@ tags: [ofen, deutsch]
 
 > Den Bratenfond durch ein Sieb in einen Topf streichen und um ein Drittel reduzieren. Die Bäckchen zurück in die Sauce legen.
 
-Passendes Gemüse: Rotkohl, Rosenkohl
+Passendes Gemüse: [Rotkohl](rotkohl.md), [Rosenkohl](rosenkohl.md)
 
 Passende Beilagen: Kartoffelstampf, Herzoginkartoffeln, Kartoffelklöße
