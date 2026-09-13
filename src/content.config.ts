@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
+import { z } from 'astro/zod'
 import { categoryIds, tagVocabulary } from './config/taxonomy'
 import { resolveContentImageReference } from './lib/recipe-image'
 
@@ -26,7 +27,7 @@ const recipes = defineCollection({
       ),
       imageAlt: z.string().optional(),
       servings: z.string().optional(),
-      source: z.string().url().optional(),
+      source: z.url().optional(),
       note: z.string().optional(),
       wip: z.boolean().default(false),
       /** Marks a recipe whose preparation section is still a placeholder. */

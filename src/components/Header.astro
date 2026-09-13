@@ -22,22 +22,20 @@ const navItems = [
           <span class='sm:hidden'>Delikatessen</span>
           <span class='hidden sm:inline'>Kochbuch der Delikatessen</span>
         </span>
-        <span class='hidden text-[0.7rem] tracking-[0.14em] text-ink-soft uppercase sm:block'
-          >Rezepte &amp; Grundlagen</span
-        >
+        <span class='hidden text-[0.7rem] tracking-[0.14em] text-ink-soft uppercase sm:block'>
+          Rezepte &amp; Grundlagen
+        </span>
       </span>
     </a>
 
     <nav aria-label='Hauptnavigation' class='flex shrink-0 items-center gap-1'>
-      {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            class='focus-ring rounded-full px-2 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink sm:px-3.5'>
-            {item.label}
-          </a>
-        ))
-      }
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class='focus-ring rounded-full px-2 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink sm:px-3.5'>
+          {item.label}
+        </a>
+      ))}
     </nav>
   </div>
 </header>

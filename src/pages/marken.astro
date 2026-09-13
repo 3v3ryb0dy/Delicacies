@@ -15,16 +15,14 @@ const recommendations = [...brandRecommendations].sort((a, b) => a.ingredient.lo
     </p>
 
     <dl class='mt-14 overflow-hidden rounded-2xl border border-rule bg-paper-raised'>
-      {
-        recommendations.map((recommendation) => (
-          <div
-            id={recommendation.id}
-            class='grid gap-1.5 border-b border-rule px-6 py-5 last:border-b-0 target:bg-accent-pale sm:grid-cols-2 sm:items-baseline sm:gap-6'>
-            <dt class='font-display text-xl font-semibold tracking-tight'>{recommendation.ingredient}</dt>
-            <dd class='text-base font-semibold text-accent'>{recommendation.brand}</dd>
-          </div>
-        ))
-      }
+      {recommendations.map((recommendation) => (
+        <div
+          id={recommendation.id}
+          class='grid gap-1.5 border-b border-rule px-6 py-5 last:border-b-0 target:bg-accent-pale sm:grid-cols-2 sm:items-baseline sm:gap-6'>
+          <dt class='font-display text-xl font-semibold tracking-tight'>{recommendation.ingredient}</dt>
+          <dd class='text-base font-semibold text-accent'>{recommendation.brand}</dd>
+        </div>
+      ))}
     </dl>
   </div>
 </BaseLayout>

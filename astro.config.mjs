@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 
 // Deployed to GitHub Pages with the custom domain https://cook.drng.me/.
@@ -8,5 +9,8 @@ export default defineConfig({
   },
   devToolbar: {
     enabled: false
+  },
+  vite: {
+    plugins: [tailwindcss()]
   }
 })

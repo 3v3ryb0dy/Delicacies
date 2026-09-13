@@ -21,14 +21,12 @@ const classes = [base, active ? 'bg-ink text-paper' : tones[tone], interactive ?
   .join(' ')
 ---
 
-{
-  href ? (
-    <a href={href} class={classes}>
-      {label}
-    </a>
-  ) : (
-    <span class={classes} data-chip-label={label}>
-      {label}
-    </span>
-  )
-}
+{href ? (
+  <a href={href} class={classes}>
+    {label}
+  </a>
+) : (
+  <span class={classes} data-chip-label={label}>
+    {label}
+  </span>
+)}

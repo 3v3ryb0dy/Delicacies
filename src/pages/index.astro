@@ -43,8 +43,7 @@ const anchorOffset = 'scroll-mt-[13rem]'
   <section class='relative isolate'>
     <div
       class='pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-accent-soft/50 via-transparent to-transparent'
-      aria-hidden='true'>
-    </div>
+      aria-hidden='true'></div>
     <LogoWatermark tone='hero' class='top-[-2.5rem] right-[-3.5rem] size-[calc(min(52vw,34rem)-56px)]' />
     <div class='mx-auto max-w-[75rem] px-5 pt-16 pb-10 sm:px-8 sm:pt-24 sm:pb-12'>
       <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Seit Jahren bewährt</p>
@@ -57,83 +56,79 @@ const anchorOffset = 'scroll-mt-[13rem]'
 
   <RecipeExplorer total={recipes.length}>
     <div class='flex flex-col gap-16 pb-10'>
-      {
-        filledCategories.map((category) => {
-          const categoryRecipes = byCategory.get(category.id) ?? []
+      {filledCategories.map((category) => {
+        const categoryRecipes = byCategory.get(category.id) ?? []
 
-          return (
-            <section id={category.id} data-category-section class={anchorOffset}>
-              <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
-                <div>
-                  <h2 class='font-display text-section font-semibold'>{category.title}</h2>
-                  {category.description && <p class='mt-1.5 text-sm text-ink-soft'>{category.description}</p>}
-                </div>
-                <p class='text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
-                  {categoryRecipes.length === 1 ? '1 Rezept' : `${categoryRecipes.length} Rezepte`}
-                </p>
-              </header>
-
-              {category.subcategories ? (
-                <div class='mt-8 flex flex-col gap-10'>
-                  {category.subcategories.map((subcategory) => {
-                    const subRecipes = categoryRecipes.filter((recipe) => recipe.data.subcategory === subcategory.id)
-                    if (subRecipes.length === 0) return null
-                    return (
-                      <div>
-                        <h3 class='mb-4 text-[0.7rem] font-bold tracking-[0.18em] text-ink-soft uppercase'>
-                          {subcategory.title}
-                        </h3>
-                        <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-                          {subRecipes.map((entry) => (
-                            <li>
-                              <RecipeCard entry={entry} />
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )
-                  })}
-                </div>
-              ) : (
-                <ul class='mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-                  {categoryRecipes.map((entry) => (
-                    <li>
-                      <RecipeCard entry={entry} />
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          )
-        })
-      }
-
-      {
-        emptyEntries.length > 0 && (
-          <section id='noch-leer' data-empty-block class={anchorOffset}>
+        return (
+          <section id={category.id} data-category-section class={anchorOffset}>
             <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
               <div>
-                <h2 class='font-display text-section font-semibold'>Noch leer</h2>
-                <p class='mt-1.5 text-sm text-ink-soft'>Kategorien, die auf ihr erstes Rezept warten.</p>
+                <h2 class='font-display text-section font-semibold'>{category.title}</h2>
+                {category.description && <p class='mt-1.5 text-sm text-ink-soft'>{category.description}</p>}
               </div>
+              <p class='text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
+                {categoryRecipes.length === 1 ? '1 Rezept' : `${categoryRecipes.length} Rezepte`}
+              </p>
             </header>
-            <ul class='mt-6 flex flex-wrap gap-3'>
-              {emptyEntries.map((entry) => (
-                <li
-                  id={entry.id}
-                  data-empty-category={entry.id}
-                  class='min-w-56 flex-1 rounded-2xl border border-dashed border-rule px-5 py-4 sm:flex-none'>
-                  <p class='font-display text-lg font-semibold'>{entry.title}</p>
-                  {entry.note && <p class='mt-1 text-sm text-ink-soft'>{entry.note}</p>}
-                  <p class='mt-2 text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
-                    0 Rezepte
-                  </p>
-                </li>
-              ))}
-            </ul>
+
+            {category.subcategories ? (
+              <div class='mt-8 flex flex-col gap-10'>
+                {category.subcategories.map((subcategory) => {
+                  const subRecipes = categoryRecipes.filter((recipe) => recipe.data.subcategory === subcategory.id)
+                  if (subRecipes.length === 0) return null
+                  return (
+                    <div>
+                      <h3 class='mb-4 text-[0.7rem] font-bold tracking-[0.18em] text-ink-soft uppercase'>
+                        {subcategory.title}
+                      </h3>
+                      <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                        {subRecipes.map((entry) => (
+                          <li>
+                            <RecipeCard entry={entry} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                })}
+              </div>
+            ) : (
+              <ul class='mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                {categoryRecipes.map((entry) => (
+                  <li>
+                    <RecipeCard entry={entry} />
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
         )
-      }
+      })}
+
+      {emptyEntries.length > 0 && (
+        <section id='noch-leer' data-empty-block class={anchorOffset}>
+          <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
+            <div>
+              <h2 class='font-display text-section font-semibold'>Noch leer</h2>
+              <p class='mt-1.5 text-sm text-ink-soft'>Kategorien, die auf ihr erstes Rezept warten.</p>
+            </div>
+          </header>
+          <ul class='mt-6 flex flex-wrap gap-3'>
+            {emptyEntries.map((entry) => (
+              <li
+                id={entry.id}
+                data-empty-category={entry.id}
+                class='min-w-56 flex-1 rounded-2xl border border-dashed border-rule px-5 py-4 sm:flex-none'>
+                <p class='font-display text-lg font-semibold'>{entry.title}</p>
+                {entry.note && <p class='mt-1 text-sm text-ink-soft'>{entry.note}</p>}
+                <p class='mt-2 text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
+                  0 Rezepte
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <div id='keine-treffer' class='rounded-2xl border border-dashed border-rule px-6 py-12 text-center' hidden>
         <p class='font-display text-xl font-semibold'>Für diese Auswahl gibt es noch kein Rezept.</p>
@@ -148,8 +143,7 @@ const anchorOffset = 'scroll-mt-[13rem]'
   </RecipeExplorer>
 
   <section id='ueber' class='mt-24 border-t border-rule/80 print:hidden'>
-    <div
-      class='mx-auto grid max-w-[75rem] gap-10 px-5 py-14 sm:px-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:gap-16'>
+    <div class='mx-auto grid max-w-[75rem] gap-10 px-5 py-14 sm:px-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:gap-16'>
       <div>
         <h2 class='font-display text-section font-semibold'>Über dieses Kochbuch</h2>
         <div class='prose prose-lg mt-5 max-w-[42rem]'>

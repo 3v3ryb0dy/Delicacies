@@ -22,8 +22,7 @@ const { tone = 'hero', side = 'right', class: className } = Astro.props
     `logo-watermark-${side}`,
     className
   ]}
-  style={`--watermark-image: url("${withBase('logo.svg')}")`}>
-</div>
+  style={`--watermark-image: url("${withBase('logo.svg')}")`}></div>
 
 <style>
   /* The logo file is used as a mask so a single flat asset can carry a soft

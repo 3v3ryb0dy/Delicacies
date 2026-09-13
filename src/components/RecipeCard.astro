@@ -59,32 +59,28 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
   ]}>
   <a href={href} class='focus-ring flex flex-1 flex-col rounded-2xl'>
     <div class='relative aspect-4/3 w-full overflow-hidden bg-paper-sunken'>
-      {
-        image ? (
-          <Image
-            src={image}
-            alt={alt}
-            widths={[400, 800, 1200]}
-            sizes='(min-width: 1280px) 22rem, (min-width: 600px) 45vw, 92vw'
-            loading='lazy'
-            decoding='async'
-            class='h-full w-full object-cover transition duration-200 group-hover:scale-[1.04]'
-          />
-        ) : (
-          <div class:list={['grid h-full w-full place-items-center bg-gradient-to-br text-accent/60', tint]}>
-            <span class='font-display text-5xl font-semibold' aria-hidden='true'>
-              {title.slice(0, 1)}
-            </span>
-          </div>
-        )
-      }
-      {
-        wip && (
-          <span class='absolute top-3 right-3 rounded-full border border-accent/20 bg-accent-pale/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase backdrop-blur'>
-            in Arbeit
+      {image ? (
+        <Image
+          src={image}
+          alt={alt}
+          widths={[400, 800, 1200]}
+          sizes='(min-width: 1280px) 22rem, (min-width: 600px) 45vw, 92vw'
+          loading='lazy'
+          decoding='async'
+          class='h-full w-full object-cover transition duration-200 group-hover:scale-[1.04]'
+        />
+      ) : (
+        <div class:list={['grid h-full w-full place-items-center bg-gradient-to-br text-accent/60', tint]}>
+          <span class='font-display text-5xl font-semibold' aria-hidden='true'>
+            {title.slice(0, 1)}
           </span>
-        )
-      }
+        </div>
+      )}
+      {wip && (
+        <span class='absolute top-3 right-3 rounded-full border border-accent/20 bg-accent-pale/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase backdrop-blur'>
+          in Arbeit
+        </span>
+      )}
     </div>
 
     <div class='flex flex-1 flex-col gap-3 p-5'>
@@ -100,20 +96,17 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
         </span>
       </div>
 
-      <h3
-        class='font-display text-xl leading-snug font-semibold tracking-tight text-ink transition-colors duration-200 group-hover:text-accent'>
+      <h3 class='font-display text-xl leading-snug font-semibold tracking-tight text-ink transition-colors duration-200 group-hover:text-accent'>
         {title}
       </h3>
 
-      {
-        tags.length > 0 && (
-          <ul class='mt-auto flex flex-wrap gap-x-2.5 gap-y-1 pt-1 text-sm text-ink-soft'>
-            {tags.map((tag) => (
-              <li class="before:mr-2.5 before:text-rule before:content-['·'] first:before:hidden">{tag}</li>
-            ))}
-          </ul>
-        )
-      }
+      {tags.length > 0 && (
+        <ul class='mt-auto flex flex-wrap gap-x-2.5 gap-y-1 pt-1 text-sm text-ink-soft'>
+          {tags.map((tag) => (
+            <li class="before:mr-2.5 before:text-rule before:content-['·'] first:before:hidden">{tag}</li>
+          ))}
+        </ul>
+      )}
     </div>
   </a>
 </article>

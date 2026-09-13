@@ -75,159 +75,79 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
             <span data-pagefind-ignore>{categoryShort}</span>
           </a>
           {subcategoryTitle && <span class='text-ink-soft/70'>· {subcategoryTitle}</span>}
-          {
-            wip && (
-              <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent'>
-                in Arbeit
-              </span>
-            )
-          }
+          {wip && (
+            <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent'>
+              in Arbeit
+            </span>
+          )}
         </div>
 
         <h1 class='mt-5 max-w-4xl font-display text-display font-semibold text-balance print:mt-2'>{title}</h1>
 
         <div class='mt-6 flex flex-wrap items-center gap-2 print:hidden'>
           <TagChip label={categoryTitle} href={withBase(`#${entry.data.category}`)} tone='herb' />
-          {
-            tags.map((tag) => (
-              <a href={withBase(`#${entry.data.category}`)} data-pagefind-filter={`tag:${tag}`} class='contents'>
-                <TagChip label={tag} href={withBase(`#${entry.data.category}`)} />
-              </a>
-            ))
-          }
+          {tags.map((tag) => (
+            <a href={withBase(`#${entry.data.category}`)} data-pagefind-filter={`tag:${tag}`} class='contents'>
+              <TagChip label={tag} href={withBase(`#${entry.data.category}`)} />
+            </a>
+          ))}
           {servings && <span class='text-xs font-semibold text-ink-soft'>für {servings}</span>}
         </div>
 
-        {
-          (note || source) && (
-            <p class='mt-4 text-sm text-ink-soft print:mt-2'>
-              {note}
-              {source && (
-                <>
-                  {' '}
-                  <a href={source} class='text-accent underline decoration-dotted underline-offset-4' rel='noreferrer'>
-                    Quelle
-                  </a>
-                </>
-              )}
-            </p>
-          )
-        }
+        {(note || source) && (
+          <p class='mt-4 text-sm text-ink-soft print:mt-2'>
+            {note}
+            {source && (
+              <>
+                {' '}
+                <a href={source} class='text-accent underline decoration-dotted underline-offset-4' rel='noreferrer'>
+                  Quelle
+                </a>
+              </>
+            )}
+          </p>
+        )}
       </div>
 
-      {
-        image && (
-          <div class='mx-auto w-full max-w-80 overflow-hidden rounded-2xl md:max-w-none print:mx-0 print:rounded-md'>
-            <Image
-              src={image}
-              alt={alt}
-              widths={[320, 400, 640, 800]}
-              sizes='(min-width: 1200px) 368px, (min-width: 960px) calc((100vw - 96px) / 3), (min-width: 360px) 320px, calc(100vw - 40px)'
-              loading='eager'
-              decoding='async'
-              class='aspect-4/3 w-full object-cover'
-            />
-          </div>
-        )
-      }
+      {image && (
+        <div class='mx-auto w-full max-w-80 overflow-hidden rounded-2xl md:max-w-none print:mx-0 print:rounded-md'>
+          <Image
+            src={image}
+            alt={alt}
+            widths={[320, 400, 640, 800]}
+            sizes='(min-width: 1200px) 368px, (min-width: 960px) calc((100vw - 96px) / 3), (min-width: 360px) 320px, calc(100vw - 40px)'
+            loading='eager'
+            decoding='async'
+            class='aspect-4/3 w-full object-cover'
+          />
+        </div>
+      )}
     </header>
 
     <div class='mt-10 grid gap-12 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)] lg:gap-16 print:mt-5 print:gap-6'>
       <section class='lg:sticky lg:top-28 lg:self-start' aria-labelledby='zutaten'>
-        <h2 id='zutaten' class='font-display text-section font-semibold print:break-after-avoid'>Zutaten</h2>
+        <h2 id='zutaten' class='font-display text-section font-semibold print:break-after-avoid'>
+          Zutaten
+        </h2>
         <div
           class:list={[
             'mt-5 grid grid-cols-1 gap-7 print:mt-3 print:gap-x-10 print:gap-y-5',
             body.ingredients.length > 1 && 'print:grid-cols-2'
           ]}>
-          {
-            body.ingredients.map((group, index) => (
-              <div class='break-inside-avoid'>
-                {group.title && (
-                  <h3 class='mb-2.5 text-xs font-bold tracking-[0.14em] text-ink-soft uppercase print:mb-1.5 print:break-after-avoid'>
-                    {groupLabel(index, group.title, body.ingredients.length > 1)}
-                  </h3>
-                )}
-                <ul class='border-t border-rule/70 tabular-nums'>
-                  {group.items.map((item) => (
-                    <li class='break-inside-avoid border-b border-rule/50 py-2.5 text-base leading-snug text-ink print:py-1 print:text-[0.9rem]'>
-                      {parseIngredientBrands(item, brandRecommendations).map((segment) =>
-                        segment.brandId ? (
-                          <a
-                            href={withBase(`marken/#${segment.brandId}`)}
-                            class='focus-ring rounded-full text-accent underline decoration-dotted underline-offset-4 hover:text-ink'
-                            set:text={segment.text}
-                          />
-                        ) : (
-                          segment.text
-                        )
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))
-          }
-          {
-            body.ingredients.length === 0 && (
-              <p class='rounded-2xl border border-dashed border-rule px-5 py-6 text-sm text-ink-soft'>
-                Zutaten werden noch ergänzt.
-              </p>
-            )
-          }
-        </div>
-      </section>
-
-      <section aria-labelledby='zubereitung'>
-        <div class='flex items-baseline justify-between gap-4'>
-          <h2 id='zubereitung' class='font-display text-section font-semibold print:break-after-avoid'>Zubereitung</h2>
-          <button
-            type='button'
-            id='rezept-drucken'
-            class='focus-ring cursor-pointer rounded-full border border-rule px-4 py-1.5 text-sm font-semibold text-ink-soft transition-colors hover:border-ink hover:text-ink print:hidden'>
-            Drucken
-          </button>
-        </div>
-
-        <div class='mt-5 flex flex-col gap-8 print:mt-3 print:gap-4'>
-          {
-            showPendingCallout && (
-              <div class='rounded-2xl border border-accent/25 bg-accent-pale px-6 py-5'>
-                <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-accent uppercase'>Noch nicht fertig</h3>
-                <p class='mt-2 leading-relaxed text-ink'>Dieses Rezept wird nach der ersten Zubereitung ergänzt.</p>
-              </div>
-            )
-          }
-          {
-            !preparationPending &&
-              body.preparation.map((group, index) => (
-                <div>
-                  {group.title && (
-                    <h3 class='mb-3 text-xs font-bold tracking-[0.14em] text-ink-soft uppercase print:mb-2 print:break-after-avoid'>
-                      {groupLabel(index, group.title, body.preparation.length > 1)}
-                    </h3>
-                  )}
-                  <div class='flex flex-col gap-5 print:gap-3'>
-                    {group.paragraphs.map((paragraph) => (
-                      <p class='text-lg leading-8 text-ink print:text-[0.95rem] print:leading-6'>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              ))
-          }
-        </div>
-
-        {
-          pairings.length > 0 && (
-            <div class='mt-10 break-inside-avoid rounded-2xl bg-herb-soft/70 px-6 py-5 print:mt-6 print:rounded-lg print:px-4 print:py-3'>
-              <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-herb uppercase'>Passt dazu</h3>
-              <ul class='mt-2.5 flex flex-col gap-1.5 text-sm text-ink tabular-nums'>
-                {pairings.map((pairing) => (
-                  <li>
-                    {pairing.map((segment) =>
-                      segment.recipeId ? (
+          {body.ingredients.map((group, index) => (
+            <div class='break-inside-avoid'>
+              {group.title && (
+                <h3 class='mb-2.5 text-xs font-bold tracking-[0.14em] text-ink-soft uppercase print:mb-1.5 print:break-after-avoid'>
+                  {groupLabel(index, group.title, body.ingredients.length > 1)}
+                </h3>
+              )}
+              <ul class='border-t border-rule/70 tabular-nums'>
+                {group.items.map((item) => (
+                  <li class='break-inside-avoid border-b border-rule/50 py-2.5 text-base leading-snug text-ink print:py-1 print:text-[0.9rem]'>
+                    {parseIngredientBrands(item, brandRecommendations).map((segment) =>
+                      segment.brandId ? (
                         <a
-                          href={withBase(`rezept/${segment.recipeId}/`)}
+                          href={withBase(`marken/#${segment.brandId}`)}
                           class='focus-ring rounded-full text-accent underline decoration-dotted underline-offset-4 hover:text-ink'
                           set:text={segment.text}
                         />
@@ -239,43 +159,105 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
                 ))}
               </ul>
             </div>
-          )
-        }
+          ))}
+          {body.ingredients.length === 0 && (
+            <p class='rounded-2xl border border-dashed border-rule px-5 py-6 text-sm text-ink-soft'>
+              Zutaten werden noch ergänzt.
+            </p>
+          )}
+        </div>
+      </section>
 
-        {
-          body.notes.length > 0 && (
-            <div class='mt-10 break-inside-avoid border-t border-rule/80 pt-5 print:mt-6 print:pt-4'>
-              <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-ink-soft uppercase'>Notizen</h3>
-              <ul class='mt-2.5 flex flex-col gap-1.5 text-sm text-ink-soft'>
-                {body.notes.map((line) => (
-                  <li>{line}</li>
-                ))}
-              </ul>
+      <section aria-labelledby='zubereitung'>
+        <div class='flex items-baseline justify-between gap-4'>
+          <h2 id='zubereitung' class='font-display text-section font-semibold print:break-after-avoid'>
+            Zubereitung
+          </h2>
+          <button
+            type='button'
+            id='rezept-drucken'
+            class='focus-ring cursor-pointer rounded-full border border-rule px-4 py-1.5 text-sm font-semibold text-ink-soft transition-colors hover:border-ink hover:text-ink print:hidden'>
+            Drucken
+          </button>
+        </div>
+
+        <div class='mt-5 flex flex-col gap-8 print:mt-3 print:gap-4'>
+          {showPendingCallout && (
+            <div class='rounded-2xl border border-accent/25 bg-accent-pale px-6 py-5'>
+              <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-accent uppercase'>Noch nicht fertig</h3>
+              <p class='mt-2 leading-relaxed text-ink'>Dieses Rezept wird nach der ersten Zubereitung ergänzt.</p>
             </div>
-          )
-        }
+          )}
+          {!preparationPending &&
+            body.preparation.map((group, index) => (
+              <div>
+                {group.title && (
+                  <h3 class='mb-3 text-xs font-bold tracking-[0.14em] text-ink-soft uppercase print:mb-2 print:break-after-avoid'>
+                    {groupLabel(index, group.title, body.preparation.length > 1)}
+                  </h3>
+                )}
+                <div class='flex flex-col gap-5 print:gap-3'>
+                  {group.paragraphs.map((paragraph) => (
+                    <p class='text-lg leading-8 text-ink print:text-[0.95rem] print:leading-6'>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+        </div>
+
+        {pairings.length > 0 && (
+          <div class='mt-10 break-inside-avoid rounded-2xl bg-herb-soft/70 px-6 py-5 print:mt-6 print:rounded-lg print:px-4 print:py-3'>
+            <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-herb uppercase'>Passt dazu</h3>
+            <ul class='mt-2.5 flex flex-col gap-1.5 text-sm text-ink tabular-nums'>
+              {pairings.map((pairing) => (
+                <li>
+                  {pairing.map((segment) =>
+                    segment.recipeId ? (
+                      <a
+                        href={withBase(`rezept/${segment.recipeId}/`)}
+                        class='focus-ring rounded-full text-accent underline decoration-dotted underline-offset-4 hover:text-ink'
+                        set:text={segment.text}
+                      />
+                    ) : (
+                      segment.text
+                    )
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {body.notes.length > 0 && (
+          <div class='mt-10 break-inside-avoid border-t border-rule/80 pt-5 print:mt-6 print:pt-4'>
+            <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-ink-soft uppercase'>Notizen</h3>
+            <ul class='mt-2.5 flex flex-col gap-1.5 text-sm text-ink-soft'>
+              {body.notes.map((line) => (
+                <li>{line}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
     </div>
 
-    {
-      siblings.length > 0 && (
-        <section
-          data-pagefind-ignore='all'
-          class='mt-20 border-t border-rule/80 pt-10 print:hidden'
-          aria-labelledby='mehr'>
-          <h2 id='mehr' class='font-display text-section font-semibold'>
-            Mehr aus dieser Kategorie
-          </h2>
-          <ul class='mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-            {siblings.map((sibling) => (
-              <li>
-                <RecipeCard entry={sibling} />
-              </li>
-            ))}
-          </ul>
-        </section>
-      )
-    }
+    {siblings.length > 0 && (
+      <section
+        data-pagefind-ignore='all'
+        class='mt-20 border-t border-rule/80 pt-10 print:hidden'
+        aria-labelledby='mehr'>
+        <h2 id='mehr' class='font-display text-section font-semibold'>
+          Mehr aus dieser Kategorie
+        </h2>
+        <ul class='mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+          {siblings.map((sibling) => (
+            <li>
+              <RecipeCard entry={sibling} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
   </article>
 
   <script>

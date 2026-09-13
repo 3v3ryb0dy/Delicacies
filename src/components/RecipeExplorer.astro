@@ -53,40 +53,36 @@ const chipClass =
           class='focus-ring cursor-pointer rounded-full border border-transparent bg-ink px-3.5 py-1.5 text-xs font-semibold tracking-wide text-paper'>
           Alle
         </button>
-        {
-          categories.map((category) => (
-            <button type='button' data-filter-category={category.id} class={chipClass}>
-              {category.short}
-            </button>
-          ))
-        }
+        {categories.map((category) => (
+          <button type='button' data-filter-category={category.id} class={chipClass}>
+            {category.short}
+          </button>
+        ))}
       </div>
     </div>
   </div>
 
-  {
-    /* Deliberately outside the sticky area: the tag row scrolls away so the
-      pinned bar stays two rows tall. */
-  }
+  {/* Deliberately outside the sticky area: the tag row scrolls away so the
+      pinned bar stays two rows tall. */}
   <div data-tag-row class='border-b border-rule/60 pt-4 pb-3'>
     <div class={scrollRowClass}>
       <span class='shrink-0 pr-1 text-[0.7rem] font-semibold tracking-[0.14em] text-ink-soft/80 uppercase'>
         Schlagworte
       </span>
-      {
-        tagVocabulary.map((tag) => (
-          <button type='button' data-filter-tag={tag} class='focus-ring cursor-pointer rounded-full'>
-            <TagChip label={tag} interactive />
-          </button>
-        ))
-      }
+      {tagVocabulary.map((tag) => (
+        <button type='button' data-filter-tag={tag} class='focus-ring cursor-pointer rounded-full'>
+          <TagChip label={tag} interactive />
+        </button>
+      ))}
     </div>
   </div>
 
   <div id='suche-bereich' class='mt-8' hidden>
     <h2 class='font-display text-section font-semibold'>Suchergebnisse</h2>
     <ul id='suche-liste' class='mt-5 flex flex-col gap-2'></ul>
-    <p id='suche-leer' class='mt-6 text-sm text-ink-soft' hidden>Keine Rezepte gefunden.</p>
+    <p id='suche-leer' class='mt-6 text-sm text-ink-soft' hidden>
+      Keine Rezepte gefunden.
+    </p>
   </div>
 
   <div id='rezept-liste' data-recipe-list class='mt-12'>
