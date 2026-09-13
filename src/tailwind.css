@@ -145,7 +145,7 @@
 
 @media print {
   @page {
-    margin: 14mm;
+    margin: 10mm;
   }
 
   /* Force the light tokens so a dark-mode browser still prints black on white. */
