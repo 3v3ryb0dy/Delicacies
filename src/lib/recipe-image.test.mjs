@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { resolveRecipeImage } from './recipe-image.ts'
+import { resolveContentImageReference, resolveRecipeImage } from './recipe-image.ts'
 
 test('explicit filenames win when multiple formats exist', () => {
   const images = { 'images/dish.webp': 'WEBP', 'images/dish.png': 'PNG', 'images/dish.jpg': 'JPG' }
@@ -29,4 +29,18 @@ test('extensionless references prefer WebP, then legacy formats', () => {
 
 test('missing photos never resolve to another recipe', () => {
   assert.equal(resolveRecipeImage('images/missing.jpg', { 'images/dish.jpg': 'JPG' }), undefined)
+})
+
+test('content image references are explicitly relative for Astro', () => {
+  assert.equal(resolveContentImageReference('images/dish.webp', {}), './images/dish.webp')
+  assert.equal(
+    resolveContentImageReference('images/dish.jpg', { 'images/dish.webp': 'images/dish.webp' }),
+    './images/dish.webp'
+  )
+  assert.equal(resolveContentImageReference('./images/dish.webp', {}), './images/dish.webp')
+})
+
+test('content image references preserve URLs and absolute paths', () => {
+  assert.equal(resolveContentImageReference('https://example.com/dish.webp', {}), 'https://example.com/dish.webp')
+  assert.equal(resolveContentImageReference('/images/dish.webp', {}), '/images/dish.webp')
 })

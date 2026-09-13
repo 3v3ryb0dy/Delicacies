@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-21 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+23 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
@@ -29,10 +29,12 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Beilagen (2)
+### Beilagen (4)
 
 #### Gemüse
 
+- [Brokkoli (gebraten)](recipes/brokkoli.md)
+- [Karotten](recipes/karotten.md)
 - [Rosenkohl (gebacken)](recipes/rosenkohl.md)
 - [Rotkohl](recipes/rotkohl.md)
 

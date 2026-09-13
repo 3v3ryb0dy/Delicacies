@@ -18,5 +18,5 @@ tags: [grundrezept, vegetarisch]
 ## Zubereitung
 
 > Zur einfachen Bindung alle Zutaten in ein Schraubglas füllen, den Deckel verschließen und gut schütteln.
-
+>
 > Festen Honig möglichst vorher verflüssigen.

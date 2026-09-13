@@ -20,9 +20,9 @@ tags: [asiatisch, frittiert, vegetarisch]
 ## Zubereitung
 
 > Mehl in eine Schüssel sieben. Salz, Kreuzkümmel, Hefe dazu und trocken mischen.
-
+>
 > Wasser, Joghurt und Öl hinzugeben. Gut durchkneten und 15-20 min. warmstellen.
-
+>
 > Teig nochmal kurz durchkneten und 8 kleine Fladen ausrollen. Kurz gehen lassen bis das Öl zum Frittieren heiß ist.
-
+>
 > In heißem Öl ausbacken.

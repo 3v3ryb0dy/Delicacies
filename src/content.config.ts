@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content'
 import { glob } from 'astro/loaders'
 import { categoryIds, tagVocabulary } from './config/taxonomy'
-import { resolveRecipeImage } from './lib/recipe-image'
+import { resolveContentImageReference } from './lib/recipe-image'
 
 // Track available filenames without importing image metadata into the content
 // store; Astro's image() helper handles asset optimization for dev and build.
@@ -21,8 +21,7 @@ const recipes = defineCollection({
       subcategory: z.string().optional(),
       tags: z.array(z.enum(tagVocabulary)).default([]),
       image: z.preprocess(
-        (reference) =>
-          typeof reference === 'string' ? (resolveRecipeImage(reference, photos) ?? reference) : reference,
+        (reference) => (typeof reference === 'string' ? resolveContentImageReference(reference, photos) : reference),
         image().optional()
       ),
       imageAlt: z.string().optional(),

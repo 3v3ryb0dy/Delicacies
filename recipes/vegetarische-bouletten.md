@@ -24,5 +24,5 @@ tags: [vegetarisch]
 ## Zubereitung
 
 > Alle Zutaten vermengen, 10 Minuten ziehen lassen und im Anschluss goldbraun braten.
-
+>
 > Hervorragend auch als Burger.

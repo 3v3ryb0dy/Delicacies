@@ -33,9 +33,9 @@ tags: [ofen, italienisch, grundrezept, vegetarisch]
 ### Teig
 
 > Hefe in Wasser mit Olivenöl, Salz und Zucker auflösen. Mehl hinzufügen, zu einem glatten Teig kneten.
-
+>
 > 1/2 Stunde abgedeckt an einem warmen Ort gehen lassen.
-
+>
 > Über nacht abgedeckt kühl ruhen lassen.
 
 ### Sauce

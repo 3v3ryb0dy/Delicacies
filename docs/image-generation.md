@@ -9,7 +9,9 @@ calm look across all recipes: warm, natural, homemade, and without commercial or
 2. Replace the placeholders: `[DISH NAME]` and `[KEY INGREDIENTS / APPEARANCE]`.
 3. Generate the image.
 4. Review the result: are all ingredients plausible and recognizable? Does the portion look realistic?
-5. Save the image as `recipes/images/<slug>.webp` and set `image` and `imageAlt` in the recipe frontmatter.
+5. Save the image under `recipes/images/`. If it is a PNG or JPEG, run `npm run images:webp`; this creates or updates
+   the same-name WebP and retains the source file. Use `npm run images:webp -- --force` to rebuild current WebPs.
+6. Set `image` and `imageAlt` in the recipe frontmatter.
 
 The `image` field accepts a filename or a path without an extension:
 

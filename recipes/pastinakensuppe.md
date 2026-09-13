@@ -22,5 +22,5 @@ tags: [deutsch, vegetarisch]
 ## Zubereitung
 
 > Zwiebeln, Pastinaken sowie Kartoffeln schälen und grob würfeln. Butter in einem Topf erhitzen, Pastinaken- und Kartoffelstücke kurz braten, Zwiebeln hinzufügen und dann mit Gemüsebrühe ablöschen.
-
+>
 > Aufkochen und bei mittlerer Hitze 20 Minuten köcheln lassen. Suppe mit einem Pürierstab fein pürieren. Sahne unter die Suppe mischen, dann mit Salz, Pfeffer, Muskatnuss sowie Zitronensaft abschmecken.
