@@ -3,18 +3,25 @@ import { test } from 'node:test'
 import { resolveRecipeImage } from './recipe-image.ts'
 
 test('explicit filenames win when multiple formats exist', () => {
-  const images = { 'images/dish.png': 'PNG', 'images/dish.jpg': 'JPG' }
+  const images = { 'images/dish.webp': 'WEBP', 'images/dish.png': 'PNG', 'images/dish.jpg': 'JPG' }
   assert.equal(resolveRecipeImage('images/dish.jpg', images), 'JPG')
   assert.equal(resolveRecipeImage('./images/dish.png', images), 'PNG')
+  assert.equal(resolveRecipeImage('images/dish.webp', images), 'WEBP')
 })
 
-test('replacing JPG with PNG or PNG with JPEG needs no frontmatter edit', () => {
+test('replacing another format with WebP needs no frontmatter edit', () => {
+  assert.equal(resolveRecipeImage('images/dish.jpg', { 'images/dish.webp': 'WEBP' }), 'WEBP')
+  assert.equal(resolveRecipeImage('images/dish.png', { 'images/dish.webp': 'WEBP' }), 'WEBP')
+})
+
+test('legacy PNG, JPG, and JPEG fallbacks remain supported', () => {
   assert.equal(resolveRecipeImage('images/dish.jpg', { 'images/dish.png': 'PNG' }), 'PNG')
   assert.equal(resolveRecipeImage('images/dish.png', { 'images/dish.jpg': 'JPG' }), 'JPG')
   assert.equal(resolveRecipeImage('images/dish.png', { 'images/dish.jpeg': 'JPEG' }), 'JPEG')
 })
 
-test('extensionless references use PNG, then JPG, then JPEG', () => {
+test('extensionless references prefer WebP, then legacy formats', () => {
+  assert.equal(resolveRecipeImage('images/dish', { 'images/dish.webp': 0, 'images/dish.png': 1 }), 0)
   assert.equal(resolveRecipeImage('images/dish', { 'images/dish.png': 1, 'images/dish.jpg': 2 }), 1)
   assert.equal(resolveRecipeImage('images/dish', { 'images/dish.jpg': 2, 'images/dish.jpeg': 3 }), 2)
   assert.equal(resolveRecipeImage('images/dish', { 'images/dish.jpeg': 3 }), 3)

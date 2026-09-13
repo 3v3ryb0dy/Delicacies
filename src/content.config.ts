@@ -6,7 +6,7 @@ import { resolveRecipeImage } from './lib/recipe-image'
 // Track available filenames without importing image metadata into the content
 // store; Astro's image() helper handles asset optimization for dev and build.
 const photos = Object.fromEntries(
-  Object.keys(import.meta.glob('../recipes/images/*.{png,jpg,jpeg}')).map((path) => {
+  Object.keys(import.meta.glob('../recipes/images/*.{webp,png,jpg,jpeg}')).map((path) => {
     const reference = path.replace('../recipes/', '')
     return [reference, reference]
   })

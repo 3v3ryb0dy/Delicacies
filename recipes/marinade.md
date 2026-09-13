@@ -1,7 +1,7 @@
 ---
 title: Marinade (Grillfleisch)
 category: saucen
-image: images/marinade.jpg
+image: images/marinade.webp
 imageAlt: Rötlich-braune Grillmarinade mit Knoblauch und Rosmarin
 tags: [grill, grundrezept]
 ---

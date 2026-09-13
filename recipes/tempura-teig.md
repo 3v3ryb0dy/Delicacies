@@ -1,7 +1,7 @@
 ---
 title: Tempura Teig (knusprig)
 category: sonstiges
-image: images/tempura-teig.jpg
+image: images/tempura-teig.webp
 imageAlt: Frisch angerührter heller Tempurateig mit feinen Bläschen
 tags: [asiatisch, frittiert, vegan, vegetarisch, grundrezept]
 ---

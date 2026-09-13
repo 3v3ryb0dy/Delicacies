@@ -1,7 +1,7 @@
 ---
 title: Burger Buns
 category: brot
-image: images/burger-buns.jpg
+image: images/burger-buns.webp
 imageAlt: Goldbraune Burgerbrötchen mit Sesam und lockerer Krume
 tags: [ofen, vegetarisch]
 ---

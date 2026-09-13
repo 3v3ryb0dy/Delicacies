@@ -1,7 +1,7 @@
 ---
 title: Mayonnaise
 category: saucen
-image: images/mayonnaise.jpg
+image: images/mayonnaise.webp
 imageAlt: Helle hausgemachte Mayonnaise mit weichen Löffelspuren
 tags: [grundrezept, vegetarisch]
 ---

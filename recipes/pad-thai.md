@@ -1,7 +1,7 @@
 ---
 title: Pad Thai
 category: hauptgerichte
-image: images/pad-thai.png
+image: images/pad-thai.webp
 imageAlt: Gebratene Reisbandnudeln mit Ei, Sojasprossen und Thai-Schnittlauch
 tags: [asiatisch]
 ---

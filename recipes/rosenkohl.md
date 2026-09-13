@@ -1,7 +1,7 @@
 ---
 title: Rosenkohl (gebacken)
 category: beilagen
-image: images/rosenkohl.png
+image: images/rosenkohl.webp
 imageAlt: In Butter gebackene Rosenkohlhälften mit gebräunten Schnittflächen
 subcategory: gemuese
 tags: [ofen, vegetarisch]

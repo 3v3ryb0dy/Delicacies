@@ -1,7 +1,7 @@
 ---
 title: Farfallesalat (italienisch)
 category: salate
-image: images/farfallesalat.jpg
+image: images/farfallesalat.webp
 imageAlt: Farfalle-Salat mit Rucola, Tomaten, Pesto und Pinienkernen
 tags: [italienisch, vegetarisch]
 wip: true

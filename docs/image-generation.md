@@ -9,7 +9,7 @@ calm look across all recipes: warm, natural, homemade, and without commercial or
 2. Replace the placeholders: `[DISH NAME]` and `[KEY INGREDIENTS / APPEARANCE]`.
 3. Generate the image.
 4. Review the result: are all ingredients plausible and recognizable? Does the portion look realistic?
-5. Save the image as `recipes/images/<slug>.png`, `.jpg`, or `.jpeg` and set `image` and `imageAlt` in the recipe frontmatter.
+5. Save the image as `recipes/images/<slug>.webp` and set `image` and `imageAlt` in the recipe frontmatter.
 
 The `image` field accepts a filename or a path without an extension:
 
@@ -18,10 +18,10 @@ image: images/pad-thai
 imageAlt: Pad Thai in einer Keramikschale
 ```
 
-An existing exact filename takes priority. Otherwise, the same name is tried with `.png`, `.jpg`,
-then `.jpeg`. This also works when replacing a JPG with a PNG while leaving the old extension in
-the recipe. Keep only the desired photo for each name to avoid ambiguity. If no matching file
-exists, the build reports a missing image; recipes without an `image` field keep their placeholder.
+An existing exact filename takes priority. Otherwise, the same name is tried with `.webp`, `.png`,
+`.jpg`, then `.jpeg`. This keeps older recipe references working after converting an image to WebP.
+Keep only the desired photo for each name to avoid ambiguity. If no matching file exists, the build
+reports a missing image; recipes without an `image` field keep their placeholder.
 
 The image must show the actual recipe. Do not invent ingredients, garnishes, or side dishes that are
 not part of the recipe file.

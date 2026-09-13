@@ -1,7 +1,7 @@
 ---
 title: Hefekuchen (Bienenstich)
 category: kuchen
-image: images/hefekuchen.jpg
+image: images/hefekuchen.webp
 imageAlt: Ungefüllter Hefekuchen mit goldbrauner Honig-Mandelkruste
 tags: [ofen, deutsch, vegetarisch]
 ---
