@@ -5,7 +5,9 @@ import RecipeCard from '../../components/RecipeCard.astro'
 import TagChip from '../../components/TagChip.astro'
 import LogoWatermark from '../../components/LogoWatermark.astro'
 import { categoryById } from '../../config/taxonomy'
+import { brandRecommendations } from '../../config/brands'
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import { parseIngredientBrands } from '../../lib/ingredient-brands'
 import { parsePairingLinks, parseRecipeBody } from '../../lib/recipe-body'
 import { withBase } from '../../lib/url'
 
@@ -149,7 +151,17 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
                 <ul class='border-t border-rule/70 tabular-nums'>
                   {group.items.map((item) => (
                     <li class='break-inside-avoid border-b border-rule/50 py-2.5 text-base leading-snug text-ink print:py-1 print:text-[0.9rem]'>
-                      {item}
+                      {parseIngredientBrands(item, brandRecommendations).map((segment) =>
+                        segment.brandId ? (
+                          <a
+                            href={withBase(`marken/#${segment.brandId}`)}
+                            class='focus-ring rounded-full text-accent underline decoration-dotted underline-offset-4 hover:text-ink'
+                            set:text={segment.text}
+                          />
+                        ) : (
+                          segment.text
+                        )
+                      )}
                     </li>
                   ))}
                 </ul>

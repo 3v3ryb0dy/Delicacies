@@ -2,16 +2,14 @@
 import { withBase } from '../lib/url'
 
 const navItems = [
-  { href: withBase('#rezepte'), label: 'Rezepte' },
-  { href: withBase('ideen/'), label: 'Ideen' }
+  { href: withBase('ideen/'), label: 'Ideen' },
+  { href: withBase('marken/'), label: 'Marken' }
 ]
-
-const onHome = Astro.url.pathname === withBase()
 ---
 
 <header class='sticky top-0 z-30 border-b border-rule/70 bg-paper/85 backdrop-blur-md print:hidden'>
-  <div class='mx-auto flex h-18 max-w-[75rem] items-center justify-between gap-4 px-5 sm:px-8'>
-    <a href={withBase()} class='focus-ring group flex items-center gap-3 rounded-full'>
+  <div class='mx-auto flex h-18 max-w-[75rem] items-center justify-between gap-2 px-5 sm:gap-4 sm:px-8'>
+    <a href={withBase()} class='focus-ring group flex items-center gap-2 rounded-full sm:gap-3'>
       <img
         src={withBase('logo.svg')}
         alt=''
@@ -30,24 +28,15 @@ const onHome = Astro.url.pathname === withBase()
       </span>
     </a>
 
-    <nav aria-label='Hauptnavigation' class='flex items-center gap-1'>
+    <nav aria-label='Hauptnavigation' class='flex shrink-0 items-center gap-1'>
       {
         navItems.map((item) => (
           <a
             href={item.href}
-            class='focus-ring rounded-full px-3.5 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink'>
+            class='focus-ring rounded-full px-2 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink sm:px-3.5'>
             {item.label}
           </a>
         ))
-      }
-      {
-        !onHome && (
-          <a
-            href={withBase('#rezepte')}
-            class='focus-ring hidden rounded-full border border-rule px-3.5 py-2 text-sm font-semibold text-ink transition-colors hover:border-ink sm:block'>
-            Alle Rezepte
-          </a>
-        )
       }
     </nav>
   </div>

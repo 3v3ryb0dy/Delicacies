@@ -1,0 +1,30 @@
+---
+import { brandRecommendations } from '../config/brands'
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const recommendations = [...brandRecommendations].sort((a, b) => a.ingredient.localeCompare(b.ingredient, 'de'))
+---
+
+<BaseLayout title='Zutaten & Marken' description='Bewährte Marken für die Zutaten in diesem Kochbuch.'>
+  <div class='mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8'>
+    <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Empfehlungen</p>
+    <h1 class='mt-5 font-display text-display font-semibold text-balance'>Zutaten &amp; Marken</h1>
+    <p class='mt-5 max-w-[42rem] text-lg leading-8 text-ink-soft'>
+      Bei manchen Zutaten macht die Marke einen Unterschied. Diese Marken haben sich für die Rezepte in diesem Kochbuch
+      bewährt.
+    </p>
+
+    <dl class='mt-14 overflow-hidden rounded-2xl border border-rule bg-paper-raised'>
+      {
+        recommendations.map((recommendation) => (
+          <div
+            id={recommendation.id}
+            class='grid gap-1.5 border-b border-rule px-6 py-5 last:border-b-0 target:bg-accent-pale sm:grid-cols-2 sm:items-baseline sm:gap-6'>
+            <dt class='font-display text-xl font-semibold tracking-tight'>{recommendation.ingredient}</dt>
+            <dd class='text-base font-semibold text-accent'>{recommendation.brand}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</BaseLayout>

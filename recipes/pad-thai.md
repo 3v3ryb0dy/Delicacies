@@ -10,9 +10,9 @@ tags: [asiatisch]
 
 ### Sauce
 
-- 20 g Tamarindenpaste (Suree)
+- 20 g Tamarindenpaste
 - 20 ml Wasser
-- 50 g Fischsauce (Red Boat)
+- 50 g Fischsauce
 - 80 g brauner Zucker
 - 80 ml Wasser
 
