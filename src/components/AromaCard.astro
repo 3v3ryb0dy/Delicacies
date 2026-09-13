@@ -1,0 +1,109 @@
+---
+import type { Aroma } from '../config/aromas'
+import { aromaCombinations } from '../config/aroma-combinations'
+import { aromaSearchFields } from '../lib/aroma-search'
+type Props = { aroma: Aroma }
+const { aroma } = Astro.props
+const combinations = aromaCombinations.filter((combination) =>
+  combination.steps.some((step) => step.ingredients.some((ingredient) => ingredient.aromaId === aroma.id))
+)
+---
+
+<details
+  id={aroma.id}
+  data-aroma-entry='aroma'
+  data-search-fields={JSON.stringify(aromaSearchFields(aroma))}
+  class='group scroll-mt-8 rounded-2xl border border-rule bg-paper-raised open:shadow-sm'>
+  <summary class='focus-ring grid cursor-pointer list-none grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-2 rounded-2xl px-4 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:gap-x-6 sm:px-5 sm:py-4'>
+    <span class='min-w-0 font-display text-xl font-semibold sm:text-2xl'>{aroma.name}</span>
+    <svg
+      aria-hidden='true'
+      width='20'
+      height='20'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      stroke-width='1.75'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+      class='col-start-2 row-start-1 text-accent transition-transform duration-150 group-open:rotate-180 motion-reduce:transition-none sm:col-start-3'>
+      <path d='m6 9 6 6 6-6' />
+    </svg>
+    <span class='col-span-2 min-w-0 sm:col-span-1 sm:col-start-2 sm:row-start-1'>
+      <span class='block text-sm font-semibold text-herb'>{aroma.tags.join(' · ')}</span>
+      <span class='mt-1 block text-sm text-ink-soft'>
+        {[...new Set(aroma.applications.map((application) => application.place))].join(' · ')}
+      </span>
+    </span>
+    <span data-match-reason hidden class='col-span-2 text-sm font-semibold text-accent sm:col-span-3'></span>
+  </summary>
+  <div class='space-y-5 border-t border-rule p-4 leading-7 sm:p-5'>
+    <p>
+      <span class='font-bold'>Charakter · </span>
+      {aroma.character}
+    </p>
+    <dl class='space-y-3'>
+      <div>
+        <dt class='text-sm font-bold text-ink-soft'>Passende Lebensmittel</dt>
+        <dd>{aroma.foods.join(' · ')}</dd>
+      </div>
+      <div>
+        <dt class='text-sm font-bold text-ink-soft'>Aromapartner</dt>
+        <dd>{aroma.partners.join(' · ')}</dd>
+      </div>
+    </dl>
+    <div>
+      <h3 class='font-display text-xl font-semibold'>So einsetzen</h3>
+      <ul class='mt-3 space-y-4'>
+        {aroma.applications.map((application) => (
+          <li class='border-l-2 border-accent-soft pl-4'>
+            <p class='font-bold'>
+              {application.form} <span class='font-normal text-ink-soft'>· {application.place}</span>
+            </p>
+            <p class='mt-1'>{application.method}</p>
+            {application.start && <p class='mt-2 text-sm text-ink-soft'>{application.start}</p>}
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p>
+      <span class='font-bold'>Darauf achten · </span>
+      {aroma.mistake}
+    </p>
+    {aroma.note && <p class='rounded-xl bg-paper-sunken p-3'>{aroma.note}</p>}
+    {aroma.sources && (
+      <ul class='space-y-1 text-sm'>
+        {aroma.sources.map((source) => (
+          <li>
+            <a class='focus-ring text-accent underline underline-offset-4' href={source.url}>
+              {source.title} ↗
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+    {combinations.length > 0 && (
+      <div>
+        <h3 class='text-sm font-bold text-ink-soft'>Kombinationen zum Ausprobieren</h3>
+        <ul class='mt-2 space-y-2'>
+          {combinations.map((combination) => (
+            <li>
+              <a class='focus-ring text-accent underline underline-offset-4' href={`#${combination.id}`}>
+                {combination.title} →
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</details>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::marker {
+    content: '';
+  }
+</style>

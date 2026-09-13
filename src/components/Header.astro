@@ -3,13 +3,17 @@ import { withBase } from '../lib/url'
 
 const navItems = [
   { href: withBase('ideen/'), label: 'Ideen' },
+  { href: withBase('aromen/'), label: 'Aromen' },
   { href: withBase('marken/'), label: 'Marken' }
 ]
 ---
 
 <header class='sticky top-0 z-30 border-b border-rule/70 bg-paper/85 backdrop-blur-md print:hidden'>
   <div class='mx-auto flex h-18 max-w-[75rem] items-center justify-between gap-2 px-5 sm:gap-4 sm:px-8'>
-    <a href={withBase()} class='focus-ring group flex items-center gap-2 rounded-full sm:gap-3'>
+    <a
+      href={withBase()}
+      aria-label='Kochbuch der Delikatessen – Startseite'
+      class='focus-ring group flex shrink-0 items-center gap-2 rounded-full sm:gap-3'>
       <img
         src={withBase('logo.svg')}
         alt=''
@@ -17,7 +21,7 @@ const navItems = [
         height='32'
         class='size-8 shrink-0 transition-transform duration-200 group-hover:-rotate-6'
       />
-      <span class='flex flex-col justify-center leading-tight'>
+      <span class='hidden flex-col justify-center leading-tight min-[400px]:flex'>
         <span class='font-display text-[1.05rem] font-semibold tracking-tight whitespace-nowrap text-ink'>
           <span class='sm:hidden'>Delikatessen</span>
           <span class='hidden sm:inline'>Kochbuch der Delikatessen</span>

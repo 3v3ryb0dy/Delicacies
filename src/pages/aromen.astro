@@ -1,0 +1,343 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import AromaCard from '../components/AromaCard.astro'
+import AromaCombinationCard from '../components/AromaCombinationCard.astro'
+import { aromas } from '../config/aromas'
+import { aromaCombinations } from '../config/aroma-combinations'
+const sortedAromas = [...aromas].sort((a, b) => a.name.localeCompare(b.name, 'de'))
+const sections = [
+  { id: 'nachschlagen', title: 'Nachschlagen' },
+  { id: 'kombinationen', title: 'Kombinationen' },
+  { id: 'grundlagen', title: 'Grundlagen' },
+  { id: 'ausprobieren', title: 'Ausprobieren' }
+]
+---
+
+<BaseLayout
+  title='Gewürze & Aromen'
+  description='Gewürze verstehen, Aromen kombinieren und wissen, was wann wohin gehört. Steckbriefe, Anwendungspläne und kleine Vergleichsübungen.'>
+  <div data-pagefind-ignore='all' class='mx-auto max-w-6xl px-5 pt-12 pb-20 sm:px-8 sm:pt-16'>
+    <header class='max-w-3xl'>
+      <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Grundlagen</p>
+      <h1 class='mt-5 font-display text-display font-semibold text-balance'>Gewürze &amp; Aromen</h1>
+      <p class='mt-5 max-w-2xl text-lg leading-8 text-ink-soft'>
+        Gewürze verstehen, Aromen kombinieren und wissen, was wann wohin gehört.
+      </p>
+      <form id='aroma-search' role='search' aria-label='Gewürze und Kombinationen' hidden class='mt-8'>
+        <label for='aroma-query' class='mb-2 block text-sm font-bold'>
+          Gewürz, Zutat oder Aroma suchen
+        </label>
+        <div class='flex flex-wrap gap-2'>
+          <input
+            id='aroma-query'
+            type='search'
+            autocomplete='off'
+            placeholder='Zum Beispiel Lachs, Cumin oder frisch Finish'
+            aria-describedby='aroma-search-hint'
+            class='focus-ring min-w-0 flex-[1_1_16rem] rounded-xl border border-rule bg-paper-raised px-4 py-3 text-base'
+          />
+          <button
+            type='reset'
+            class='focus-ring rounded-xl border border-rule px-4 py-3 text-sm font-bold hover:bg-paper-sunken'>
+            Zurücksetzen
+          </button>
+        </div>
+        <p id='aroma-search-hint' class='mt-2 text-sm text-ink-soft'>
+          Durchsucht Steckbriefe und Kombinationen. Bei mehreren Suchwörtern müssen alle zum Treffer passen.
+        </p>
+        <p
+          id='aroma-count'
+          role='status'
+          aria-live='polite'
+          aria-atomic='true'
+          class='mt-2 text-sm font-semibold text-accent'></p>
+      </form>
+      <nav aria-label='Auf dieser Seite' class='mt-8 flex flex-wrap gap-x-6 gap-y-3 border-y border-rule py-4'>
+        {sections.map((section) => (
+          <a
+            href={`#${section.id}`}
+            class='focus-ring py-1 font-semibold text-accent underline-offset-4 hover:underline'>
+            {section.title}
+          </a>
+        ))}
+      </nav>
+    </header>
+
+    <section id='nachschlagen' aria-labelledby='nachschlagen-title' class='mt-14 max-w-3xl scroll-mt-8'>
+      <div class='mb-6 flex flex-wrap items-baseline justify-between gap-3'>
+        <h2 id='nachschlagen-title' class='font-display text-section font-semibold'>
+          Nachschlagen
+        </h2>
+        <span class='text-sm text-ink-soft'>{aromas.length} Steckbriefe</span>
+      </div>
+      <p class='mb-6 max-w-3xl leading-7 text-ink-soft'>
+        Wie die Gewürze schmecken, wozu sie passen und wie du sie verwendest.
+      </p>
+      <p data-empty='aroma' hidden class='mb-6 rounded-xl bg-paper-sunken p-3'>
+        Dazu ist noch nichts hinterlegt.
+      </p>
+      <div class='space-y-3'>
+        {sortedAromas.map((aroma) => (
+          <AromaCard aroma={aroma} />
+        ))}
+      </div>
+    </section>
+
+    <section id='kombinationen' aria-labelledby='kombinationen-title' class='mt-16 scroll-mt-8'>
+      <h2 id='kombinationen-title' class='font-display text-section font-semibold'>
+        Kombinationen
+      </h2>
+      <p class='mt-4 mb-7 max-w-3xl leading-7 text-ink-soft'>
+        {aromaCombinations.length} Ideen für dein nächstes Essen. Dazu steht jeweils, wann und wie die Gewürze
+        dazukommen.
+      </p>
+      <p data-empty='combination' hidden class='mb-6 rounded-xl bg-paper-sunken p-3'>
+        Dazu ist noch nichts hinterlegt.
+      </p>
+      <div class='grid items-start gap-6 md:grid-cols-2'>
+        {aromaCombinations.map((combination) => (
+          <AromaCombinationCard combination={combination} />
+        ))}
+      </div>
+    </section>
+
+    <section id='grundlagen' aria-labelledby='grundlagen-title' class='mt-16 max-w-3xl scroll-mt-8'>
+      <h2 id='grundlagen-title' class='font-display text-section font-semibold'>
+        Grundlagen
+      </h2>
+      <blockquote class='my-7 border-l-2 border-accent pl-5 font-display text-2xl leading-snug'>
+        Was kommt ans Gemüse, was in die Sauce und was erst zum Schluss dazu?
+      </blockquote>
+      <div class='space-y-3'>
+        <details class='rounded-2xl border border-rule bg-paper-raised p-4'>
+          <summary class='focus-ring cursor-pointer font-bold'>Welche Aufgabe hat ein Aroma?</summary>
+          <div class='mt-4 space-y-3 leading-7 text-ink-soft'>
+            <p>
+              Überlege zuerst, was du besonders herausschmecken möchtest. Bei Karotten kann das zum Beispiel Kreuzkümmel
+              sein. Etwas Zitrone bringt Säure dazu, Butter macht das Gericht runder.
+            </p>
+            <p>
+              Warm und erdig, frisch und sauer, fettig und süß: Solche Gegensätze helfen beim Kombinieren. Nicht jedes
+              Gericht braucht alles davon. Und süßlicher Duft ist nicht dasselbe wie Süße. Vanille duftet süßlich, Honig
+              süßt tatsächlich.
+            </p>
+            <p>Beginne mit wenigen Gewürzen. Dann merkst du beim Abschmecken leichter, was noch fehlt.</p>
+          </div>
+        </details>
+        <details class='rounded-2xl border border-rule bg-paper-raised p-4'>
+          <summary class='focus-ring cursor-pointer font-bold'>Was kommt wohin?</summary>
+          <div class='mt-4 space-y-5 leading-7 text-ink-soft'>
+            <dl class='space-y-4'>
+              <div>
+                <dt class='font-bold text-ink'>Am Produkt</dt>
+                <dd>Gewürze sitzen unmittelbar an Fleisch oder Gemüse.</dd>
+              </div>
+              <div>
+                <dt class='font-bold text-ink'>In der Garflüssigkeit</dt>
+                <dd>Lorbeer oder Piment können mitziehen und später entfernt werden.</dd>
+              </div>
+              <div>
+                <dt class='font-bold text-ink'>In Fett</dt>
+                <dd>Sanftes Erwärmen kann Aromen lösen und verteilen.</dd>
+              </div>
+              <div>
+                <dt class='font-bold text-ink'>In Sauce oder Dressing</dt>
+                <dd>Eine Sauce lässt sich separat abschmecken und zu Fleisch, Fisch oder Gemüse reichen.</dd>
+              </div>
+              <div>
+                <dt class='font-bold text-ink'>Als Glasur</dt>
+                <dd>
+                  Eine Glasur überzieht das Essen mit einer dünnen Schicht. Süße Glasuren erst gegen Ende auftragen und
+                  nicht zu heiß werden lassen.
+                </dd>
+              </div>
+              <div>
+                <dt class='font-bold text-ink'>Als Finish</dt>
+                <dd>Frische Kräuter, geriebene Zitronenschale oder Sumach kurz vor dem Servieren darübergeben.</dd>
+              </div>
+            </dl>
+            <p>
+              In einer Marinade kommen Gewürze schon vor dem Garen ans Essen. Du kannst sie aber auch beim Braten, in
+              einer Sauce oder erst beim Servieren zugeben.
+            </p>
+          </div>
+        </details>
+        <details class='rounded-2xl border border-rule bg-paper-raised p-4'>
+          <summary class='focus-ring cursor-pointer font-bold'>Was kommt wann dazu?</summary>
+          <div class='mt-4 space-y-3 leading-7 text-ink-soft'>
+            <p>
+              Ganze Samen, gemahlene Gewürze und frische Kräuter brauchen unterschiedliche Behandlung. Kreuzkümmelsamen
+              können vor dem Gemüse ins Öl. Frischer Dill kommt für seinen frischen Duft erst beim Anrichten dazu.
+            </p>
+            <p>
+              Gewürze müssen nicht immer geröstet werden. Pulver lässt sich auch in feuchte Zwiebeln oder direkt in eine
+              Sauce rühren. Beim Rösten auf Duft und Farbe achten und Flüssigkeit zugeben, bevor die Gewürze verbrennen.
+            </p>
+            <p>
+              Kräuter schmecken je nach Zeitpunkt anders. Frische Petersilienblätter passen über das fertige Essen, ihre
+              Stiele können in einer Brühe mitkochen.
+            </p>
+            <p>
+              Zitronen- oder Maracujasaft macht rohen Fisch fester, gart ihn aber nicht. Auch nach dem Marinieren können
+              Krankheitserreger und Parasiten enthalten sein.
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id='ausprobieren' aria-labelledby='ausprobieren-title' class='mt-16 scroll-mt-8'>
+      <h2 id='ausprobieren-title' class='font-display text-section font-semibold'>
+        Ausprobieren
+      </h2>
+      <p class='mt-4 max-w-3xl leading-7 text-ink-soft'>
+        Mit diesen drei Vergleichen kannst du herausfinden, wie du am liebsten würzt. Bereite die Portionen jeweils
+        gleich zu und ändere nur die angegebene Würzung.
+      </p>
+      <div class='mt-7 grid items-start gap-5 md:grid-cols-3'>
+        <article class='rounded-2xl border border-rule bg-paper-raised p-4'>
+          <p class='text-sm font-bold text-accent'>01 · Kontrast</p>
+          <h3 class='mt-3 font-display text-2xl font-semibold'>Karotten im Vergleich</h3>
+          <p class='mt-4 leading-7'>
+            600 g Karotten mit insgesamt 20 g Öl und 3 g Salz vermengen. In vier gleich große Portionen teilen und
+            getrennt auf demselben Blech bei 190 °C Umluft weich rösten. Gleich große Stücke verwenden.
+          </p>
+          <ul class='mt-4 space-y-3 leading-7'>
+            <li>
+              <strong>A:</strong> Grundwürzung.
+            </li>
+            <li>
+              <strong>B:</strong> Vor dem Rösten ⅛ TL gemahlenen Kreuzkümmel ergänzen.
+            </li>
+            <li>
+              <strong>C:</strong> Wie B. Nach dem Rösten ¼ TL ungesalzenen Sumach ergänzen.
+            </li>
+            <li>
+              <strong>D:</strong> Wie B. Vor dem Rösten zusätzlich die Hälfte eines gestrichenen ⅛-TL-Messlöffels
+              gemahlenen Ceylonzimt ergänzen.
+            </li>
+          </ul>
+          <p class='mt-4 font-semibold'>Was verändert C gegenüber B? Was verändert D gegenüber B?</p>
+        </article>
+        <article class='rounded-2xl border border-rule bg-paper-raised p-4'>
+          <p class='text-sm font-bold text-accent'>02 · Menge</p>
+          <h3 class='mt-3 font-display text-2xl font-semibold'>Wie viel Kreuzkümmel?</h3>
+          <p class='mt-4 leading-7'>
+            300 g Naturjoghurt mit 1,5 g Salz verrühren und in drei Portionen zu je 100 g teilen. Gemahlenen Kreuzkümmel
+            derselben Packung verwenden.
+          </p>
+          <ul class='mt-4 space-y-3 leading-7'>
+            <li>
+              <strong>A:</strong> Ohne Kreuzkümmel.
+            </li>
+            <li>
+              <strong>B:</strong> ⅛ TL gemahlenen Kreuzkümmel einrühren.
+            </li>
+            <li>
+              <strong>C:</strong> ¼ TL gemahlenen Kreuzkümmel einrühren.
+            </li>
+          </ul>
+          <p class='mt-4 leading-7'>
+            Alle drei Portionen abgedeckt 10 Minuten im Kühlschrank ziehen lassen und bei gleicher Temperatur probieren.
+          </p>
+          <p class='mt-4 font-semibold'>Welche Menge schmeckt dir am besten? Wann wird es zu viel?</p>
+        </article>
+        <article class='rounded-2xl border border-rule bg-paper-raised p-4'>
+          <p class='text-sm font-bold text-accent'>03 · Verteilung</p>
+          <h3 class='mt-3 font-display text-2xl font-semibold'>Dill: darin oder darauf?</h3>
+          <p class='mt-4 leading-7'>
+            200 g Naturjoghurt mit 1 g Salz verrühren. 200 g Gurke gleichmäßig schneiden. Joghurt und Gurke jeweils
+            halbieren. Zwei Portionen zu je 2 g frischen gehackten Dill abwiegen.
+          </p>
+          <ul class='mt-4 space-y-3 leading-7'>
+            <li>
+              <strong>A:</strong> 2 g Dill direkt vor dem Servieren in 100 g Joghurt rühren und auf 100 g Gurke geben.
+            </li>
+            <li>
+              <strong>B:</strong> 100 g Joghurt auf 100 g Gurke geben und 2 g Dill obenauf streuen.
+            </li>
+          </ul>
+          <p class='mt-4 leading-7'>
+            Gleichzeitig und bei gleicher Temperatur servieren. Jeweils einen Bissen mit allen Bestandteilen nehmen.
+          </p>
+          <p class='mt-4 font-semibold'>Wo schmeckst du den Dill deutlicher? Schmeckt jeder Bissen gleich?</p>
+        </article>
+      </div>
+      <div class='mt-7 max-w-3xl rounded-2xl bg-herb-soft p-4'>
+        <h3 class='font-display text-xl font-semibold'>Drei Fragen für deine Notizen</h3>
+        <ul class='mt-3 space-y-2 leading-7'>
+          <li>Was nehme ich zuerst wahr?</li>
+          <li>Was ist zu kräftig? Was fehlt?</li>
+          <li>Was würde ich beim nächsten Mal verändern?</li>
+        </ul>
+        <p class='mt-4 text-sm text-ink-soft'>Halte fest, was dir geschmeckt hat und was du anders machen würdest.</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  import { matchAromaSearch, type AromaSearchField } from '../lib/aroma-search'
+  const form = document.querySelector<HTMLFormElement>('#aroma-search')!
+  const input = document.querySelector<HTMLInputElement>('#aroma-query')!
+  const count = document.querySelector<HTMLElement>('#aroma-count')!
+  const entries = Array.from(document.querySelectorAll<HTMLElement>('[data-aroma-entry]')).map((element) => ({
+    element,
+    group: element.dataset.aromaEntry!,
+    fields: JSON.parse(element.dataset.searchFields!) as AromaSearchField[],
+    reason: element.querySelector<HTMLElement>('[data-match-reason]')!
+  }))
+  function filter() {
+    const counts: Record<string, number> = { aroma: 0, combination: 0 }
+    for (const entry of entries) {
+      const result = matchAromaSearch(entry.fields, input.value)
+      entry.element.hidden = !result.matches
+      entry.reason.textContent = result.reason
+      entry.reason.hidden = !result.matches || !result.reason
+      if (result.matches) counts[entry.group]++
+    }
+    document.querySelectorAll<HTMLElement>('[data-empty]').forEach((element) => {
+      element.hidden = counts[element.dataset.empty!] !== 0
+    })
+    count.textContent = `${counts.aroma} Steckbriefe · ${counts.combination} Kombinationen`
+  }
+  function revealHash() {
+    let id: string
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1))
+    } catch {
+      return
+    }
+    const target = document.getElementById(id)
+    if (!target) return
+    const entry = target.closest<HTMLElement>('[data-aroma-entry]')
+    if (entry?.hidden) {
+      input.value = ''
+      filter()
+    }
+    if (target instanceof HTMLDetailsElement) target.open = true
+    requestAnimationFrame(() => target.scrollIntoView({ block: 'start', behavior: 'instant' }))
+  }
+  form.addEventListener('submit', (event) => event.preventDefault())
+  form.addEventListener('reset', () => {
+    input.value = ''
+    filter()
+    input.focus()
+  })
+  input.addEventListener('input', filter)
+  window.addEventListener('hashchange', revealHash)
+  // Clicking the current fragment again does not emit hashchange.
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href^="#"]') : null
+    if (link && link.hash === window.location.hash) revealHash()
+  })
+  filter()
+  form.hidden = false
+  if (window.location.hash) revealHash()
+</script>
+
+<style>
+  [hidden] {
+    display: none !important;
+  }
+</style>
