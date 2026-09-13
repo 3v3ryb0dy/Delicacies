@@ -1,6 +1,6 @@
 # Kochbuch der Delikatessen
 
-> Gestaltete Fassung mit Suche, Filtern und Druckansicht: **[https://3v3ryb0dy.github.io/Delicacies/](https://3v3ryb0dy.github.io/Delicacies/)**
+> Gestaltete Fassung mit Suche, Filtern und Druckansicht: **[https://cook.drng.me/](https://cook.drng.me/)**
 
 Dieses Kochbuch enthält eine bunte Sammlung einzigartig leckerer Delikatessen und Speisen.
 
@@ -91,4 +91,4 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 ## Ideen
 
-Rezepte, die noch ausprobiert werden wollen: [Ideen](https://3v3ryb0dy.github.io/Delicacies/ideen/)
+Rezepte, die noch ausprobiert werden wollen: [Ideen](https://cook.drng.me/ideen/)

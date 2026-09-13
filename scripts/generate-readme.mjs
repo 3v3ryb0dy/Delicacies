@@ -6,7 +6,7 @@ import { categories } from '../src/config/taxonomy.ts'
 import { readProse, readRecipes } from './lib/recipes.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const siteUrl = 'https://3v3ryb0dy.github.io/Delicacies/'
+const siteUrl = 'https://cook.drng.me/'
 const checkOnly = process.argv.includes('--check')
 
 const [recipes, vorwort] = await Promise.all([

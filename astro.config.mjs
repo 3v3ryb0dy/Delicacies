@@ -1,10 +1,8 @@
 import { defineConfig } from 'astro/config'
 
-// Deployed to GitHub Pages at https://3v3ryb0dy.github.io/Delicacies/
-// For a custom domain: set `site` to the domain and delete `base`.
+// Deployed to GitHub Pages with the custom domain https://cook.drng.me/.
 export default defineConfig({
-  site: 'https://3v3ryb0dy.github.io',
-  base: '/Delicacies',
+  site: 'https://cook.drng.me',
   build: {
     format: 'directory'
   },

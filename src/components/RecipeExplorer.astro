@@ -18,7 +18,7 @@ const chipClass =
 <section id='rezepte' class='mx-auto max-w-[75rem] scroll-mt-24 px-5 sm:px-8'>
   <div
     data-sticky-bar
-    class='sticky top-18 z-20 -mx-5 border-b border-rule/80 bg-paper/95 px-5 py-3 backdrop-blur-md sm:-mx-8 sm:px-8'>
+    class='sticky top-18 z-20 -mx-5 border-b border-rule/80 bg-paper/85 px-5 py-3 backdrop-blur-md sm:-mx-8 sm:px-8'>
     <div class='flex flex-col gap-3'>
       <div class='flex flex-wrap items-center gap-3'>
         <label class='relative flex-1 sm:max-w-md'>
@@ -87,9 +87,6 @@ const chipClass =
     <h2 class='font-display text-section font-semibold'>Suchergebnisse</h2>
     <ul id='suche-liste' class='mt-5 flex flex-col gap-2'></ul>
     <p id='suche-leer' class='mt-6 text-sm text-ink-soft' hidden>Keine Rezepte gefunden.</p>
-    <p id='suche-hinweis' class='mt-6 text-sm text-ink-soft' hidden>
-      Die Suche ist gerade nicht verfügbar. Bitte später noch einmal versuchen.
-    </p>
   </div>
 
   <div id='rezept-liste' data-recipe-list class='mt-12'>
@@ -105,7 +102,6 @@ const chipClass =
     const searchArea = document.getElementById('suche-bereich')
     const searchList = document.getElementById('suche-liste')
     const searchEmpty = document.getElementById('suche-leer')
-    const searchHint = document.getElementById('suche-hinweis')
     const status = document.getElementById('rezept-status')
     const input = document.getElementById('rezept-suche')
     const sections = Array.from(document.querySelectorAll('[data-category-section]'))
@@ -122,6 +118,7 @@ const chipClass =
     let activeCategory = ''
     const activeTags = new Set()
     let pagefind
+    let pagefindFailed = false
     let searchToken = 0
 
     const chipBase = 'focus-ring cursor-pointer rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide'
@@ -198,6 +195,33 @@ const chipClass =
         (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]
       )
 
+    /**
+     * Pagefind only exists in a built site, so `astro dev` has no bundle to
+     * import. The explorer then falls back to matching the rendered recipe
+     * cards by title, tags and ingredients.
+     */
+    const fold = (value) => (value || '').toLowerCase()
+
+    const fallbackCards = cards.map((card) => ({
+      title: card.dataset.title || 'Rezept',
+      category: card.dataset.categoryLabel || '',
+      url: card.querySelector('a')?.getAttribute('href') || '#',
+      detail: card.dataset.search || '',
+      card: card,
+      haystack: fold(
+        [card.dataset.title, card.dataset.categoryLabel, card.dataset.category, card.dataset.tags, card.dataset.search]
+          .filter(Boolean)
+          .join(' · ')
+      )
+    }))
+
+    const excerpt = (text, token) => {
+      const index = fold(text).indexOf(token)
+      const start = index === -1 ? 0 : Math.max(0, index - 60)
+      const end = index === -1 ? 140 : Math.min(text.length, index + 90)
+      return (start > 0 ? '…' : '') + text.slice(start, end).trim() + (end < text.length ? '…' : '')
+    }
+
     // Pagefind already prefixes result URLs with the site base (it derives it
     // from where its bundle is served), so only add the base when it is absent.
     const resolveResultUrl = (url) => {
@@ -213,24 +237,69 @@ const chipClass =
       applyFilters()
     }
 
+    const appendResult = (url, title, meta, excerptHtml) => {
+      const item = document.createElement('li')
+      item.innerHTML =
+        '<a href="' +
+        escapeHtml(url) +
+        '" class="focus-ring border-rule bg-paper-raised hover:border-ink/25 flex flex-col gap-1 rounded-2xl border px-5 py-4 transition-colors">' +
+        '<span class="font-display text-lg font-semibold tracking-tight">' +
+        escapeHtml(title) +
+        '</span>' +
+        (meta
+          ? '<span class="text-accent text-xs font-semibold uppercase tracking-[0.12em]">' +
+            escapeHtml(meta) +
+            '</span>'
+          : '') +
+        (excerptHtml ? '<span class="text-ink-soft text-sm leading-relaxed">' + excerptHtml + '</span>' : '') +
+        '</a>'
+      searchList.appendChild(item)
+    }
+
+    const runLocalSearch = (query) => {
+      const tokens = fold(query).split(/\s+/).filter(Boolean)
+      const hits = fallbackCards
+        .filter((entry) => matches(entry.card) && tokens.every((token) => entry.haystack.indexOf(token) !== -1))
+        .sort((a, b) => {
+          const aTitle = fold(a.title).indexOf(tokens[0]) !== -1 ? 0 : 1
+          const bTitle = fold(b.title).indexOf(tokens[0]) !== -1 ? 0 : 1
+          return aTitle - bTitle || a.title.localeCompare(b.title, 'de')
+        })
+
+      if (hits.length === 0) {
+        searchEmpty.hidden = false
+        status.textContent = 'Keine Treffer'
+        return
+      }
+
+      hits.slice(0, 40).forEach((entry) => {
+        appendResult(entry.url, entry.title, entry.category, escapeHtml(excerpt(entry.detail, tokens[0])))
+      })
+
+      status.textContent = hits.length === 1 ? '1 Treffer' : hits.length + ' Treffer'
+    }
+
     const runSearch = async (query) => {
       const token = ++searchToken
       cardList.hidden = true
       searchArea.hidden = false
-      searchHint.hidden = true
       searchEmpty.hidden = true
       searchList.innerHTML = ''
 
-      if (!pagefind) {
+      if (!pagefind && !pagefindFailed) {
         try {
           pagefind = await import(pagefindUrl)
           await pagefind.init()
         } catch {
           pagefind = null
-          searchHint.hidden = false
-          status.textContent = 'Suche nicht verfügbar'
-          return
+          pagefindFailed = true
         }
+        if (token !== searchToken) return
+      }
+
+      if (!pagefind) {
+        runLocalSearch(query)
+        return
       }
 
       const filters = activeFilters()
@@ -247,25 +316,10 @@ const chipClass =
       }
 
       results.forEach((result) => {
-        const item = document.createElement('li')
         const url = resolveResultUrl(result.url)
         const meta = result.meta && result.meta.category ? result.meta.category : ''
-        item.innerHTML =
-          '<a href="' +
-          url +
-          '" class="focus-ring border-rule bg-paper-raised hover:border-ink/25 flex flex-col gap-1 rounded-2xl border px-5 py-4 transition-colors">' +
-          '<span class="font-display text-lg font-semibold tracking-tight">' +
-          escapeHtml(result.meta.title || 'Rezept') +
-          '</span>' +
-          (meta
-            ? '<span class="text-accent text-xs font-semibold uppercase tracking-[0.12em]">' +
-              escapeHtml(meta) +
-              '</span>'
-            : '') +
-          '<span class="text-ink-soft text-sm leading-relaxed">' +
-          result.excerpt +
-          '</span></a>'
-        searchList.appendChild(item)
+        // Pagefind highlights matches, so its excerpt markup is inserted as is.
+        appendResult(url, result.meta.title || 'Rezept', meta, result.excerpt)
       })
 
       status.textContent = results.length === 1 ? '1 Treffer' : results.length + ' Treffer'

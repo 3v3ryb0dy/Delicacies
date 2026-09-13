@@ -44,7 +44,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
       Zum Inhalt springen
     </a>
     <Header />
-    <main id='inhalt' class='flex-1'>
+    <!-- `overflow-x-clip` (not `hidden`) lets the oversized watermarks bleed
+         past the page edges without adding a horizontal scrollbar, while
+         keeping `position: sticky` working for descendants. -->
+    <main id='inhalt' class='flex-1 overflow-x-clip'>
       <slot />
     </main>
     <Footer />

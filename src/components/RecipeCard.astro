@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import { categoryById } from '../config/taxonomy'
 import { withBase } from '../lib/url'
+import { parseRecipeBody } from '../lib/recipe-body'
 
 type Props = {
   entry: CollectionEntry<'recipes'>
@@ -17,6 +18,15 @@ const href = withBase(`rezept/${entry.id}/`)
 const alt = imageAlt ?? title
 
 const spotlight = position === 'spotlight'
+
+/**
+ * Pagefind only exists in the built site, so the explorer falls back to
+ * searching the rendered cards by title, tags and ingredients.
+ */
+const searchText = parseRecipeBody(entry.body ?? '')
+  .ingredients.flatMap((group) => [group.title, ...group.items])
+  .filter(Boolean)
+  .join(' · ')
 
 /** Keeps the no-photo cards from looking like a wall of identical blocks. */
 const placeholderTints: Record<string, string> = {
@@ -38,8 +48,10 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
 <article
   data-recipe
   data-category={category}
+  data-category-label={categoryTitle}
   data-tags={tags.join(' ')}
   data-title={title}
+  data-search={searchText || undefined}
   class:list={[
     'group relative flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper-raised transition duration-200',
     'hover:-translate-y-0.5 hover:border-ink/20',

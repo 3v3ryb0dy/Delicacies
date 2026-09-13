@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import RecipeCard from '../../components/RecipeCard.astro'
 import TagChip from '../../components/TagChip.astro'
+import LogoWatermark from '../../components/LogoWatermark.astro'
 import { categoryById } from '../../config/taxonomy'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { parseRecipeBody } from '../../lib/recipe-body'
@@ -41,7 +42,8 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
 ---
 
 <BaseLayout title={title} description={description}>
-  <article data-pagefind-body class='mx-auto max-w-[75rem] px-5 pt-8 pb-16 sm:px-8'>
+  <article data-pagefind-body class='relative isolate mx-auto max-w-[75rem] px-5 pt-8 pb-16 sm:px-8'>
+    <LogoWatermark tone='page' side='left' class='top-[3rem] left-[-124px] size-[min(46vw,22rem)]' />
     <nav class='print:hidden' aria-label='Brotkrümel'>
       <a
         href={withBase(`#${entry.data.category}`)}
