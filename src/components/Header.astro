@@ -12,11 +12,13 @@ const onHome = Astro.url.pathname === withBase()
 <header class='sticky top-0 z-30 border-b border-rule/70 bg-paper/85 backdrop-blur-md print:hidden'>
   <div class='mx-auto flex h-18 max-w-[75rem] items-center justify-between gap-4 px-5 sm:px-8'>
     <a href={withBase()} class='focus-ring group flex items-center gap-3 rounded-full'>
-      <span
-        class='grid size-10 shrink-0 place-items-center rounded-full bg-accent font-display text-lg leading-none font-semibold text-paper ring-2 ring-accent-soft transition-transform duration-200 group-hover:-rotate-6'
-        aria-hidden='true'>
-        D
-      </span>
+      <img
+        src={withBase('logo.svg')}
+        alt=''
+        width='32'
+        height='32'
+        class='size-8 shrink-0 transition-transform duration-200 group-hover:-rotate-6'
+      />
       <span class='flex flex-col justify-center leading-tight'>
         <span class='font-display text-[1.05rem] font-semibold tracking-tight whitespace-nowrap text-ink'>
           <span class='sm:hidden'>Delikatessen</span>
