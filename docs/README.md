@@ -51,3 +51,18 @@ Instructions:
 - Use short, direct sentences: “Schalotte fein würfeln. Öl erhitzen.” No semicolons, rhetorical flourishes, promotional wording or chatty commentary.
 - Give actions in cooking order. Keep useful times, temperatures and doneness cues. Avoid unnecessary explanations or invented details.
 - Use `>` prose, not numbered steps or bold step labels. Join closely related instructions with a trailing `\`. Use a blank `>` line for a new stage.
+
+Optional tip:
+
+- Add `## Tipp` before `## Zutaten` when a recipe benefits from a short cooking tip or optional variation.
+- Use short blockquoted paragraphs, with a blank `>` line between paragraphs. Keep the text plain, as in preparation instructions.
+- The page displays these paragraphs together in a “Tipp” box beneath the title and metadata, beside the photo on desktop. Tips are searchable and included in print.
+- Omit the section when there is no tip. An empty section produces no box.
+
+```md
+## Tipp
+
+> Das Öl auf 175–180 °C erhitzen.
+>
+> Nur kleine Portionen auf einmal frittieren.
+```

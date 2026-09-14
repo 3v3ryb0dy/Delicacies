@@ -6,6 +6,10 @@ imageAlt: Gebratene Reisbandnudeln mit Ei, Sojasprossen und Thai-Schnittlauch
 tags: [asiatisch]
 ---
 
+## Tipp
+
+> Süß, salzig und sauer sollen ausgewogen sein. Reichlich Sprossen untermischen. Schalotten, Knoblauch, getrocknete Garnelen, Erdnüsse und Thai-Schnittlauch sorgen für Geschmack und Biss.
+
 ## Zutaten
 
 ### Sauce

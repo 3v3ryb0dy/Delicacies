@@ -107,6 +107,20 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
             )}
           </p>
         )}
+        {body.tips.length > 0 && (
+          <aside
+            aria-labelledby='rezept-tipp'
+            class='mt-5 break-inside-avoid rounded-xl border-1 border-accent/20 bg-accent-pale px-4 py-3 print:mt-3 print:rounded-md print:border print:border-1 print:px-3 print:py-2'>
+            <h2 id='rezept-tipp' class='text-[0.7rem] font-bold tracking-[0.16em] text-accent uppercase'>
+              Tipp
+            </h2>
+            <div class='mt-2 flex flex-col gap-2 text-sm leading-relaxed text-ink'>
+              {body.tips.map((tip) => (
+                <p class='whitespace-pre-line'>{tip}</p>
+              ))}
+            </div>
+          </aside>
+        )}
       </div>
 
       {image && (

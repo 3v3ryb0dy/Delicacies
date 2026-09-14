@@ -8,5 +8,6 @@ export type BrandRecommendation = {
 export const brandRecommendations: readonly BrandRecommendation[] = [
   { id: 'austernsauce', ingredient: 'Austernsauce', brand: 'Lee Kum Kee' },
   { id: 'fischsauce', ingredient: 'Fischsauce', brand: 'Red Boat' },
+  { id: 'tahini', ingredient: 'Tahini', brand: 'Pepperwood Organics' },
   { id: 'tamarindenpaste', ingredient: 'Tamarindenpaste', brand: 'Suree' }
 ]

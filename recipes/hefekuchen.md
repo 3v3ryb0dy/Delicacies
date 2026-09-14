@@ -6,6 +6,10 @@ imageAlt: Ungefüllter Hefekuchen mit goldbrauner Honig-Mandelkruste
 tags: [ofen, deutsch, vegetarisch]
 ---
 
+## Tipp
+
+> Für eine Variante mit Puddingfüllung den ausgekühlten Kuchen waagerecht teilen, mit abgekühltem Vanillepudding füllen und bis zum Servieren kalt stellen.
+
 ## Zutaten
 
 ### Teig

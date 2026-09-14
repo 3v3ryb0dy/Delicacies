@@ -69,3 +69,39 @@ test('an escaped trailing backslash does not force a line break', () => {
   const body = parseRecipeBody('## Zubereitung\n> Text\\\\\n> Fortsetzung.')
   assert.deepEqual(body.preparation, [{ paragraphs: ['Text\\\\ Fortsetzung.'] }])
 })
+
+test('missing and empty tips default to an empty array without affecting recipe sections', () => {
+  for (const prefix of ['', '## Tipp\n\n', '## Tipp\n>\n>   \n']) {
+    const body = parseRecipeBody(`${prefix}## Zutaten\n- 200 g Mehl\n## Zubereitung\n> Verrühren.`)
+    assert.deepEqual(body, {
+      tips: [],
+      ingredients: [{ items: ['200 g Mehl'] }],
+      preparation: [{ paragraphs: ['Verrühren.'] }],
+      pairings: [],
+      notes: []
+    })
+  }
+})
+
+test('a tip stays separate from subsequent grouped ingredients and preparation', () => {
+  const body = parseRecipeBody(
+    '## Tipp\n\n> Kalt halten.\n\n## Zutaten\n### Teig\n- 200 g Mehl\n\n## Zubereitung\n### Teig\n> Verrühren.'
+  )
+  assert.deepEqual(body, {
+    tips: ['Kalt halten.'],
+    ingredients: [{ title: 'Teig', items: ['200 g Mehl'] }],
+    preparation: [{ title: 'Teig', paragraphs: ['Verrühren.'] }],
+    pairings: [],
+    notes: []
+  })
+})
+
+test('tips preserve paragraphs and line breaks without becoming pairings or notes', () => {
+  const body = parseRecipeBody(
+    ['## Tipp', '> Kalt', '> halten.\\', '> Kurz rühren.', '>', '> Passende Beilagen: Gemüse.'].join('\r\n')
+  )
+  assert.deepEqual(body.tips, ['Kalt halten.\nKurz rühren.', 'Passende Beilagen: Gemüse.'])
+  assert.deepEqual(body.pairings, [])
+  assert.deepEqual(body.notes, [])
+  assert.deepEqual(body.preparation, [])
+})

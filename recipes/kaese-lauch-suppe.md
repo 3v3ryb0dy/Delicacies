@@ -6,6 +6,10 @@ imageAlt: Cremige Käse-Lauch-Suppe mit Hackfleisch
 tags: [deutsch]
 ---
 
+## Tipp
+
+> Für mehr Geschmack nach dem Anbraten des Hackfleischs etwas fein gehackten Knoblauch kurz mitbraten. Anschließend den Lauch hinzugeben.
+
 ## Zutaten
 
 - 1 kg Hackfleisch (gemischt)

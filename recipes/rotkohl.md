@@ -7,6 +7,10 @@ subcategory: gemuese
 tags: [deutsch, vegetarisch]
 ---
 
+## Tipp
+
+> Nach Belieben Lorbeerblätter und Gewürznelken mitschmoren. Vor dem Servieren entfernen.
+
 ## Zutaten
 
 - 1 kg Rotkohl

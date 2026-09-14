@@ -9,6 +9,7 @@ export type PreparationGroup = {
 }
 
 export type ParsedRecipeBody = {
+  tips: string[]
   ingredients: IngredientGroup[]
   preparation: PreparationGroup[]
   /** Lines such as "Passende Beilagen: ..." that pair the dish with other recipes. */
@@ -18,15 +19,17 @@ export type ParsedRecipeBody = {
 }
 
 export const EMPTY_RECIPE_BODY: ParsedRecipeBody = {
+  tips: [],
   ingredients: [],
   preparation: [],
   pairings: [],
   notes: []
 }
 
-type Section = 'ingredients' | 'preparation' | 'unknown'
+type Section = 'tips' | 'ingredients' | 'preparation' | 'unknown'
 
 const sectionHeadings: Record<string, Section> = {
+  tipp: 'tips',
   zutaten: 'ingredients',
   zubereitung: 'preparation'
 }
@@ -74,6 +77,7 @@ export function parsePairingLinks(
  * hard breaks become newlines within a preparation paragraph.
  */
 export function parseRecipeBody(markdown: string): ParsedRecipeBody {
+  const tips: string[] = []
   const ingredients: IngredientGroup[] = []
   const preparation: PreparationGroup[] = []
   const pairings: string[] = []
@@ -114,6 +118,11 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
       .trim()
     buffer = []
     if (!text) return
+
+    if (section === 'tips') {
+      tips.push(text)
+      return
+    }
 
     if (pairingPattern.test(text)) {
       pairings.push(text)
@@ -185,6 +194,7 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
   flushParagraph()
 
   return {
+    tips,
     ingredients: ingredients.filter((group) => group.items.length > 0),
     preparation: preparation.filter((group) => group.paragraphs.length > 0),
     pairings,
