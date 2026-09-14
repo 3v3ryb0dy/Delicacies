@@ -11,12 +11,12 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-38 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+42 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
-### Vorspeisen (0)
+### Vorspeisen (1)
 
-_Noch keine Rezepte. Hier ist Platz für Neues._
+- [Mauritius-Krabbencocktail](recipes/mauritius-krabbencocktail.md) _(in Arbeit)_
 
 ### Hauptgerichte (10)
 
@@ -35,7 +35,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 - [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(in Arbeit)_
 
-### Beilagen (7)
+### Beilagen (8)
 
 #### Gemüse
 
@@ -43,6 +43,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Karotten](recipes/karotten.md)
 - [Rosenkohl (gebacken)](recipes/rosenkohl.md)
 - [Rotkohl](recipes/rotkohl.md)
+- [Spitzkohl mit Senfrahm und Butterbröseln](recipes/spitzkohl-mit-senfrahm.md) _(in Arbeit)_
 
 #### Sättigungsbeilagen
 
@@ -86,10 +87,12 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(in Arbeit)_
 
-### Suppen (2)
+### Suppen (4)
 
+- [Karottensüppchen](recipes/karottensueppchen.md) _(in Arbeit)_
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
+- [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(in Arbeit)_
 
 ### Getränke (1)
 
