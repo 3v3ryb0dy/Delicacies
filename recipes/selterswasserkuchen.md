@@ -3,7 +3,7 @@ title: Selterswasserkuchen
 category: kuchen
 image: images/selterswasserkuchen.webp
 imageAlt: Selterswasserkuchen mit hellem und dunklem Kakaoteig, angeschnitten und mit Puderzucker bestäubt
-tags: [ofen, deutsch, vegetarisch]
+tags: [ofen, deutsch, vegetarisch, familienrezept]
 ---
 
 ## Zutaten

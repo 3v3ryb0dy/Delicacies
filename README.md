@@ -11,17 +11,18 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-28 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+32 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Hauptgerichte (6)
+### Hauptgerichte (7)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
+- [Dicker Eierkuchen](recipes/dicker-eierkuchen.md)
 - [Flammkuchen](recipes/flammkuchen.md)
 - [Ochsenbäckchen (geschmort)](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
@@ -31,7 +32,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 - [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(in Arbeit)_
 
-### Beilagen (4)
+### Beilagen (7)
 
 #### Gemüse
 
@@ -42,7 +43,9 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 #### Sättigungsbeilagen
 
-_Noch keine Rezepte._
+- [Kartoffelgratin](recipes/kartoffelgratin.md) _(in Arbeit)_
+- [Kretanische Kartoffeln](recipes/kretanische-kartoffeln.md) _(in Arbeit)_
+- [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
 ### Kuchen (2)
 

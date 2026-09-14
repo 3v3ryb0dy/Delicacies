@@ -123,7 +123,8 @@ export const tagVocabulary = [
   'asiatisch',
   'italienisch',
   'deutsch',
-  'grundrezept'
+  'grundrezept',
+  'familienrezept'
 ] as const
 
 export type Tag = (typeof tagVocabulary)[number]
