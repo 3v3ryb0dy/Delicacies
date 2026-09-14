@@ -114,6 +114,7 @@ export const categoryById = new Map(categories.map((category) => [category.id, c
  * `vegetarisch` and `vegan` are only set when the ingredient list supports it.
  */
 export const tagVocabulary = [
+  'fleisch',
   'vegetarisch',
   'vegan',
   'ofen',

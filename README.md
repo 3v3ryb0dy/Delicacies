@@ -11,15 +11,16 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-26 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+27 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Hauptgerichte (4)
+### Hauptgerichte (5)
 
+- [Bouletten](recipes/bouletten.md)
 - [Flammkuchen](recipes/flammkuchen.md)
 - [Ochsenbäckchen (geschmort)](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)

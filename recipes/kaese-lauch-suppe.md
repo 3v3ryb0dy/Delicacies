@@ -3,7 +3,7 @@ title: Käse-Lauch-Suppe
 category: suppen
 image: images/kaese-lauch-suppe.webp
 imageAlt: Cremige Käse-Lauch-Suppe mit Hackfleisch
-tags: [deutsch]
+tags: [fleisch, deutsch]
 ---
 
 ## Tipp

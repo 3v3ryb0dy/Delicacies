@@ -3,7 +3,7 @@ title: Ochsenbäckchen (geschmort)
 category: hauptgerichte
 image: images/ochsenbaeckchen.webp
 imageAlt: Geschmorte Ochsenbäckchen in dunkler Rotweinsauce
-tags: [ofen, deutsch]
+tags: [fleisch, ofen, deutsch]
 ---
 
 ## Zutaten
