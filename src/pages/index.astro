@@ -1,4 +1,5 @@
 ---
+import { RotateCcw } from '@lucide/astro'
 import { getCollection, getEntry, render } from 'astro:content'
 import RecipeCard from '../components/RecipeCard.astro'
 import RecipeExplorer from '../components/RecipeExplorer.astro'
@@ -136,7 +137,8 @@ const emptyEntries = [
         <button
           type='button'
           data-reset-filters
-          class='focus-ring mt-4 cursor-pointer rounded-full border border-rule px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-ink'>
+          class='focus-ring mt-4 inline-flex cursor-pointer items-center gap-2 rounded-full border border-rule px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-ink'>
+          <RotateCcw size={16} class='shrink-0' aria-hidden='true' focusable='false' />
           Filter zurücksetzen
         </button>
       </div>

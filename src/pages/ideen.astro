@@ -1,4 +1,5 @@
 ---
+import { ChevronRight } from '@lucide/astro'
 import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { withBase } from '../lib/url'
@@ -47,9 +48,12 @@ const total = (await getCollection('recipes')).length
     <details class='group mt-16 rounded-2xl border border-rule bg-paper-raised/60 px-6 py-5 print:hidden'>
       <summary class='focus-ring cursor-pointer list-none rounded-full text-sm font-semibold text-ink-soft transition-colors marker:content-none hover:text-ink'>
         <span class='inline-flex items-center gap-2'>
-          <span class='transition-transform duration-200 group-open:rotate-90' aria-hidden='true'>
-            ›
-          </span>
+          <ChevronRight
+            size={16}
+            class='shrink-0 transition-transform duration-200 group-open:rotate-90 motion-reduce:transition-none'
+            aria-hidden='true'
+            focusable='false'
+          />
           Für Mitwirkende
         </span>
       </summary>

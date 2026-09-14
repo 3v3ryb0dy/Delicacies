@@ -1,4 +1,5 @@
 ---
+import { RotateCcw, Search } from '@lucide/astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import AromaCard from '../components/AromaCard.astro'
 import AromaCombinationCard from '../components/AromaCombinationCard.astro'
@@ -28,17 +29,26 @@ const sections = [
           Gewürz, Zutat oder Aroma suchen
         </label>
         <div class='flex flex-wrap gap-2'>
-          <input
-            id='aroma-query'
-            type='search'
-            autocomplete='off'
-            placeholder='Zum Beispiel Lachs, Cumin oder frisch Finish'
-            aria-describedby='aroma-search-hint'
-            class='focus-ring min-w-0 flex-[1_1_16rem] rounded-xl border border-rule bg-paper-raised px-4 py-3 text-base'
-          />
+          <div class='relative min-w-0 flex-[1_1_16rem]'>
+            <Search
+              size={16}
+              class='pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-ink-soft'
+              aria-hidden='true'
+              focusable='false'
+            />
+            <input
+              id='aroma-query'
+              type='search'
+              autocomplete='off'
+              placeholder='Zum Beispiel Lachs, Cumin oder frisch Finish'
+              aria-describedby='aroma-search-hint'
+              class='focus-ring w-full min-w-0 rounded-xl border border-rule bg-paper-raised py-3 pr-4 pl-10 text-base'
+            />
+          </div>
           <button
             type='reset'
-            class='focus-ring rounded-xl border border-rule px-4 py-3 text-sm font-bold hover:bg-paper-sunken'>
+            class='focus-ring inline-flex items-center gap-2 rounded-xl border border-rule px-4 py-3 text-sm font-bold hover:bg-paper-sunken'>
+            <RotateCcw size={16} class='shrink-0' aria-hidden='true' focusable='false' />
             Zurücksetzen
           </button>
         </div>

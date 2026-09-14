@@ -1,4 +1,5 @@
 ---
+import { Search } from '@lucide/astro'
 import { categories, tagVocabulary } from '../config/taxonomy'
 import { withBase } from '../lib/url'
 import TagChip from './TagChip.astro'
@@ -23,16 +24,12 @@ const chipClass =
       <div class='flex flex-wrap items-center gap-3'>
         <label class='relative flex-1 sm:max-w-md'>
           <span class='sr-only'>Rezepte durchsuchen</span>
-          <svg
+          <Search
+            size={16}
             class='pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-ink-soft'
-            viewBox='0 0 20 20'
-            fill='none'
-            stroke='currentColor'
-            stroke-width='1.8'
-            aria-hidden='true'>
-            <circle cx='9' cy='9' r='5.5'></circle>
-            <path d='M13 13l4 4' stroke-linecap='round'></path>
-          </svg>
+            aria-hidden='true'
+            focusable='false'
+          />
           <input
             id='rezept-suche'
             type='search'
