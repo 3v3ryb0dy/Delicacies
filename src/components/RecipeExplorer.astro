@@ -436,6 +436,37 @@ const chipClass =
     // Restore the preference without scrolling or changing an incoming category anchor.
     applyFilters()
 
+    // The native fragment jump may precede filtering, font loading and the
+    // sticky bar measurement. Align once after layout settles on a fresh load
+    // or reload; leave browser Back/Forward restoration and user scrolling alone.
+    const initialHash = window.location.hash
+    if (initialHash && performance.getEntriesByType('navigation')[0]?.type !== 'back_forward') {
+      const cancellation = new AbortController()
+      let interrupted = false
+      const cancel = () => {
+        interrupted = true
+      }
+      for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
+        window.addEventListener(event, cancel, { passive: true, signal: cancellation.signal })
+      }
+      const alignInitialAnchor = async () => {
+        await document.fonts.ready
+        requestAnimationFrame(() => {
+          cancellation.abort()
+          if (interrupted || window.location.hash !== initialHash) return
+          const target = document.getElementById(initialHash.slice(1))
+          if (!target?.matches('[data-category-section], [data-empty-category], #noch-leer') || target.hidden) return
+          updateAnchorOffset()
+          window.scrollTo({
+            top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - resultsOffset()),
+            behavior: 'instant'
+          })
+        })
+      }
+      if (document.readyState === 'complete') alignInitialAnchor()
+      else window.addEventListener('load', alignInitialAnchor, { once: true })
+    }
+
     resetButton?.addEventListener('click', () => {
       beginResultsChange()
       activeCategory = ''
@@ -446,7 +477,7 @@ const chipClass =
 </section>
 
 <style is:global>
-  html:has(#rezepte [data-category-section]:target, #rezepte [data-empty-category]:target, #rezepte #noch-leer:target) {
+  html:has(#rezepte) {
     scroll-behavior: auto;
   }
 

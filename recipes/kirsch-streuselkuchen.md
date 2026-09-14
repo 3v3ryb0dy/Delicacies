@@ -37,4 +37,6 @@ servings: 12 Stücke (Springform Ø 26 cm)
 >
 > Zwei Drittel des Teiges in die Form geben und am Boden und Rand leicht festdrücken. Kirschen darauf verteilen und den restlichen Teig darüberbröseln.
 >
-> Auf mittlerer Schiene 60–70 Minuten backen. Auf einem Kuchengitter abkühlen lassen, mit Puderzucker bestäuben und in 12 Stücke schneiden.
+> Auf mittlerer Schiene 60–70 Minuten backen.
+>
+> Auf einem Kuchengitter abkühlen lassen, mit Puderzucker bestäuben und in 12 Stücke schneiden.

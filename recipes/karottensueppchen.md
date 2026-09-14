@@ -31,4 +31,5 @@ wip: true
 >
 > Restliche Brühe angießen und etwa 15–20 Minuten sanft köcheln lassen. Die Karotten sollen sich mit einem Löffel leicht zerdrücken lassen.
 >
-> Sahne zugeben und erwärmen. Topf vom Herd nehmen. Die restlichen 30 g kalte Butter zugeben und alles sehr fein pürieren. Bei Bedarf mit zusätzlicher Brühe verdünnen. Mit Salz, weißem Pfeffer und Zitronensaft abschmecken.
+> Sahne zugeben und erwärmen. Topf vom Herd nehmen.\
+> Die restlichen 30 g kalte Butter zugeben und alles sehr fein pürieren. Bei Bedarf mit zusätzlicher Brühe verdünnen. Mit Salz, weißem Pfeffer und Zitronensaft abschmecken.

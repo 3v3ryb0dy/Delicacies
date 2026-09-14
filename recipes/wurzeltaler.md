@@ -39,7 +39,10 @@ wip: true
 >
 > Mit Eiern, Gouda, Petersilie, Muskat, Salz und Pfeffer vermengen. Semmelbrösel einarbeiten. Die Masse soll feucht sein und zusammenhalten. Mehrere Stunden im Kühlschrank ziehen lassen.
 >
-> Am nächsten Tag kleine Taler formen und in Semmelbröseln wenden. In reichlich Öl von beiden Seiten bräunen. Anschließend bei 150 °C etwa 30 Minuten im Ofen fertig garen.
+> Am nächsten Tag kleine Taler formen und in Semmelbröseln wenden.
+>
+> In reichlich Öl von beiden Seiten bräunen.\
+> Anschließend bei 150 °C etwa 30 Minuten im Ofen fertig garen.
 
 ### Dip
 

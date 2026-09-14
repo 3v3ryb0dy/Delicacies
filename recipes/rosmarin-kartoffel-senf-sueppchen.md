@@ -10,8 +10,7 @@ wip: true
 
 ## Tipp
 
-> Nur kurz pürieren, damit die Kartoffeln nicht klebrig werden. Eine Kartoffelpresse oder Passiermühle ist eine schonende Alternative. Rosmarin frühzeitig herausnehmen und Senf erst abseits der Hitze einrühren.
->
+> Nur kurz pürieren, damit die Kartoffeln nicht klebrig werden. Eine Kartoffelpresse oder Passiermühle ist eine schonende Alternative. Rosmarin frühzeitig herausnehmen und Senf erst abseits der Hitze einrühren.\
 > Nach Belieben mit kleinen Roggenbrotcroutons oder etwas Schnittlauch garnieren.
 
 ## Zutaten
@@ -33,7 +32,8 @@ wip: true
 
 > Zwiebel fein würfeln. Kartoffeln in etwa 1 cm große Würfel schneiden. Zwiebel in 15 g Butter bei mittlerer bis niedriger Hitze glasig dünsten, ohne sie zu bräunen. Kartoffeln kurz mitdünsten.
 >
-> Brühe und den ganzen Rosmarinzweig zugeben. Etwa 15–20 Minuten sanft köcheln lassen, bis die Kartoffeln weich sind. Nach etwa 8 Minuten probieren. Rosmarin herausnehmen, sobald er deutlich, aber nicht dominant schmeckt.
+> Brühe und den ganzen Rosmarinzweig zugeben. Etwa 15–20 Minuten sanft köcheln lassen, bis die Kartoffeln weich sind.\
+> Nach etwa 8 Minuten probieren. Rosmarin herausnehmen, sobald er deutlich, aber nicht dominant schmeckt.
 >
 > Rosmarinzweig spätestens jetzt entfernen. Sahne zugeben und kurz erwärmen. Nur so lange wie nötig glatt pürieren. Bei Bedarf mit zusätzlicher heißer Brühe verdünnen.
 >

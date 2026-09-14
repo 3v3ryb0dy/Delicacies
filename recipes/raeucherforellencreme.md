@@ -26,4 +26,5 @@ wip: true
 >
 > Mit Pfeffer und bei Bedarf wenig Salz abschmecken. Nach Geschmack bis zu einem weiteren TL Meerrettich und Zitronensaft zugeben. Bis zum Servieren abgedeckt kalt stellen.
 >
-> Roggenbrotscheiben rösten. Apfel fein würfeln und Schnittlauch in feine Röllchen schneiden. Creme auf das Brot geben und mit Apfel und Schnittlauch bestreuen.
+> Roggenbrotscheiben rösten. Apfel fein würfeln und Schnittlauch in feine Röllchen schneiden.\
+> Creme auf das Brot geben und mit Apfel und Schnittlauch bestreuen.

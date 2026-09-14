@@ -19,6 +19,5 @@ wip: true
 
 > Petersilie fein hacken. Knoblauch schälen und fein hacken oder pressen.
 >
-> Weiche Butter mit Senf, Petersilie und Knoblauch gründlich verrühren. Mit Salz und Pfeffer abschmecken.
->
+> Weiche Butter mit Senf, Petersilie und Knoblauch gründlich verrühren. Mit Salz und Pfeffer abschmecken.\
 > Bis zum Servieren kalt stellen.

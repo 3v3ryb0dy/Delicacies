@@ -117,11 +117,17 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
               <Lightbulb size={16} class='shrink-0' aria-hidden='true' focusable='false' />
               Tipp
             </h2>
-            <div class='mt-2 flex flex-col gap-2 text-sm leading-relaxed text-ink'>
-              {body.tips.map((tip) => (
-                <p class='whitespace-pre-line'>{tip}</p>
-              ))}
-            </div>
+            <p class='mt-2 text-sm leading-relaxed text-ink'>
+              {body.tips
+                .join('\n')
+                .split('\n')
+                .map((line, index) => (
+                  <>
+                    {index > 0 && <br />}
+                    {line}
+                  </>
+                ))}
+            </p>
           </aside>
         )}
       </div>

@@ -44,8 +44,7 @@ tags: [fleisch, hähnchen, griechisch]
 >
 > Mit Metaxa ablöschen. Kurz einkochen lassen.
 >
-> Gemüsefond und Schlagsahne zugießen. Oregano, Paprikapulver und Zucker einrühren. Mit Salz und Pfeffer würzen.
->
+> Gemüsefond und Schlagsahne zugießen. Oregano, Paprikapulver und Zucker einrühren. Mit Salz und Pfeffer würzen.\
 > Sauce einige Minuten offen köcheln lassen, bis sie leicht eindickt.
 >
 > Hähnchen zurück in die Sauce geben. Bei niedriger Hitze einige Minuten ziehen lassen, bis das Fleisch vollständig gegart und noch saftig ist.

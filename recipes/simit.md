@@ -33,9 +33,11 @@ servings: 5 Stück
 >
 > Sesam in einer trockenen Pfanne goldgelb rösten und abkühlen lassen. Sirup mit 35 ml Wasser verrühren.
 >
-> Teig in 5 Stücke teilen und 10 Minuten ruhen lassen. Jedes Stück zu einem etwa 50–55 cm langen Strang rollen. Mittig zusammenlegen, die beiden Hälften miteinander verdrehen und die Enden zu einem Ring zusammendrücken.
+> Teig in 5 Stücke teilen und 10 Minuten ruhen lassen.\
+> Jedes Stück zu einem etwa 50–55 cm langen Strang rollen. Mittig zusammenlegen, die beiden Hälften miteinander verdrehen und die Enden zu einem Ring zusammendrücken.
 >
-> Ringe zuerst im Sirupwasser wenden, anschließend großzügig im Sesam wälzen. Auf ein Backblech legen und nochmals 15–20 Minuten gehen lassen.
+> Ringe zuerst im Sirupwasser wenden, anschließend großzügig im Sesam wälzen.\
+> Auf ein Backblech legen und nochmals 15–20 Minuten gehen lassen.
 >
 > Ofen auf 210 °C Ober-/Unterhitze vorheizen. Simit etwa 18–20 Minuten kräftig goldbraun backen.
 >

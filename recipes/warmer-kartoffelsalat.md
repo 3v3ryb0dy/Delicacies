@@ -25,8 +25,7 @@ tags: [familienrezept]
 
 > Kartoffeln kochen und pellen. In Scheiben schneiden.
 >
-> Brühe kräftig mit Essig, Salz, wenig Zucker und Pfeffer oder Paprikapulver abschmecken.
->
+> Brühe kräftig mit Essig, Salz, wenig Zucker und Pfeffer oder Paprikapulver abschmecken.\
 > Kartoffelscheiben mit der Brühe marinieren.
 >
 > Zwiebel fein schneiden. Erst anschließend Zwiebel und Öl unter den Kartoffelsalat geben.

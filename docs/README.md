@@ -64,21 +64,21 @@ Instructions:
 - Use short, direct sentences: “Schalotte fein würfeln. Öl erhitzen.” No semicolons, rhetorical flourishes, promotional wording or chatty commentary.
 - Give actions in cooking order. Keep useful times, temperatures and doneness cues. Avoid unnecessary explanations or invented details.
 - Use `>` prose, not numbered steps or bold step labels. Join closely related instructions with a trailing `\`. Use a blank `>` line for a new stage.
+- Consecutive quoted text lines do not create separate paragraphs. End the preceding line with `\` for a deliberate line break within the same stage; insert a line containing only `>` for a separate paragraph. Keep doneness cues and corrections with the action they explain. Do not force a break after every sentence or leave a trailing `\` before a blank line, heading or the end of a section.
 
 Optional tip:
 
 - Add `## Tipp` before `## Zutaten` only when it adds concrete value: a specific correction when something goes wrong, a non-obvious reason that prevents a mistake, or an optional variation not already explained in preparation.
 - Do not repeat preparation steps, ingredient lists, generic serving advice or vague flavour descriptions. Put required actions in preparation. Preparation-ahead advice belongs in a tip only when it adds a concrete timing or storage distinction.
 - Prefer one or two short sentences. Do not invent a tip to fill the box; most recipes do not need one.
-- Use short blockquoted paragraphs, with a blank `>` line between paragraphs. Keep the text plain, as in preparation instructions.
-- The page displays these paragraphs together in a “Tipp” box beneath the title and metadata, beside the photo on desktop. Tips are searchable and included in print.
+- Use one blockquoted paragraph. For separate lines, end the preceding line with `\` and start the next with `>`. Do not insert blank `>` lines within tips. Keep the text plain, as in preparation instructions.
+- The page displays the tip as one paragraph with `<br />` line breaks in a “Tipp” box beneath the title and metadata, beside the photo on desktop. Tips are searchable and included in print.
 - Omit the section when there is no tip. An empty section produces no box.
 
 ```md
 ## Tipp
 
-> Das Öl auf 175–180 °C erhitzen.
->
+> Das Öl auf 175–180 °C erhitzen.\
 > Nur kleine Portionen auf einmal frittieren.
 ```
 

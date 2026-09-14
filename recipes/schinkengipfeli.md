@@ -31,4 +31,5 @@ servings: ca. 24 Stück
 >
 > Füllung auf den Dreiecken verteilen. Die seitlichen Ecken etwas einschlagen, von der breiten Seite her aufrollen und zu Hörnchen biegen. Mit der Spitze nach unten auf ein vorbereitetes Backblech legen.
 >
-> Ofen auf 220 °C vorheizen. Das zurückbehaltene Eigelb verquirlen und die Gipfeli damit bestreichen. Auf mittlerer Schiene etwa 15 Minuten backen.
+> Ofen auf 220 °C vorheizen. Das zurückbehaltene Eigelb verquirlen und die Gipfeli damit bestreichen.\
+> Auf mittlerer Schiene etwa 15 Minuten backen.

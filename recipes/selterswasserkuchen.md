@@ -38,7 +38,9 @@ tags: [ofen, deutsch, vegetarisch, familienrezept]
 >
 > Für einen Schwarz-Weiß-Kuchen die Hälfte des Teiges in die Form geben. Die andere Hälfte in der Schüssel lassen und mit Kakaopulver verrühren. Den dunklen Teig zum hellen Teig in die Form geben.
 >
-> Ohne Kakao-Variante den gesamten Teig in die Form geben. Im vorgeheizten Ofen bei 180° ca. 25 Minuten backen. Mit der Stäbchenprobe prüfen, ob der Kuchen durchgebacken ist.
+> Ohne Kakao-Variante den gesamten Teig in die Form geben.
+>
+> Im vorgeheizten Ofen bei 180° ca. 25 Minuten backen. Mit der Stäbchenprobe prüfen, ob der Kuchen durchgebacken ist.
 
 ### Glasur
 

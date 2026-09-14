@@ -10,8 +10,7 @@ wip: true
 
 ## Tipp
 
-> Den Keksboden nur locker ins Glas drücken. Milch nach und nach zugeben, damit die Creme nicht zu flüssig wird.
->
+> Den Keksboden nur locker ins Glas drücken. Milch nach und nach zugeben, damit die Creme nicht zu flüssig wird.\
 > Auch Erdbeerpüree oder Maracuja passen sehr gut als fruchtige Schicht.
 
 ## Zutaten
