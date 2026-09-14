@@ -77,9 +77,9 @@ const GroupHeading = hasAlternatives ? 'h4' : 'h3'
                     {method.groups.length > 1 ? `${String(index + 1).padStart(2, '0')} · ${group.title}` : group.title}
                   </GroupHeading>
                 )}
-                <div class='flex flex-col gap-5 print:gap-3'>
+                <div class='flex flex-col gap-5 print:gap-2.5'>
                   {group.paragraphs.map((paragraph) => (
-                    <p class='text-lg leading-8 text-ink print:text-[0.95rem] print:leading-6'>
+                    <p class='text-lg leading-8 text-ink print:text-[0.95rem] print:leading-[1.4rem]'>
                       {paragraph.split('\n').map((line, index) => (
                         <>
                           {index > 0 && <br />}

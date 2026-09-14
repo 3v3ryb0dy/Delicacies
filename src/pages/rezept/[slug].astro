@@ -141,8 +141,8 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
       )}
     </header>
 
-    <div class='mt-10 grid gap-12 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)] lg:gap-16 print:mt-5 print:gap-6'>
-      <section class='lg:sticky lg:top-28 lg:self-start' aria-labelledby='zutaten'>
+    <div class='mt-10 grid gap-12 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)] lg:gap-16 print:mt-5 print:grid-cols-1 print:gap-6'>
+      <section class='lg:sticky lg:top-28 lg:self-start print:static' aria-labelledby='zutaten'>
         <h2 id='zutaten' class='font-display text-section font-semibold print:break-after-avoid'>
           Zutaten
         </h2>
@@ -158,7 +158,11 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
                   {groupLabel(index, group.title, body.ingredients.length > 1)}
                 </h3>
               )}
-              <ul class='border-t border-rule/70 tabular-nums'>
+              <ul
+                class:list={[
+                  'border-t border-rule/70 tabular-nums',
+                  body.ingredients.length === 1 && 'print:columns-2 print:gap-10 print:border-t-0'
+                ]}>
                 {group.items.map((item) => (
                   <li class='break-inside-avoid border-b border-rule/50 py-2.5 text-base leading-snug text-ink print:py-1 print:text-[0.9rem]'>
                     {parseIngredientBrands(item, brandRecommendations).map((segment) =>
