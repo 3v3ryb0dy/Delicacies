@@ -13,7 +13,7 @@ tags: [grundrezept, vegetarisch]
 - 2 TL Gewürzgurken (fein gehackt)
 - 1/4 TL Weißweinessig
 - 1/2 TL Knoblauchpulver
-- 1/2 TL Paprikapulver
+- 1/2 TL Paprikapulver (edelsüß)
 - 2 TL Senf
 - Salz
 

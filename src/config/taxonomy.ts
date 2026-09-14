@@ -115,6 +115,7 @@ export const categoryById = new Map(categories.map((category) => [category.id, c
  */
 export const tagVocabulary = [
   'fleisch',
+  'hähnchen',
   'vegetarisch',
   'vegan',
   'ofen',
@@ -123,6 +124,7 @@ export const tagVocabulary = [
   'asiatisch',
   'italienisch',
   'deutsch',
+  'griechisch',
   'grundrezept',
   'familienrezept'
 ] as const

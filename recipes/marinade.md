@@ -20,7 +20,7 @@ tags: [grill, grundrezept]
 - 1/2 TL Zimt
 - 1 TL Salz
 - 1 TL Pfeffer
-- 1 TL Paprikapulver
+- 1 TL Paprikapulver (edelsüß)
 - 1 TL Sambal Olek
 
 ## Zubereitung
