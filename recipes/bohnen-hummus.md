@@ -1,5 +1,5 @@
 ---
-title: Bohnen-Hummus
+title: Bohnen-Hummus mit Süßkartoffel
 category: saucen
 image: images/bohnen-hummus.webp
 imageAlt: Rustikaler Hummus aus Bohnen und Süßkartoffel

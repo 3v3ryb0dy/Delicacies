@@ -28,8 +28,8 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Dicker Eierkuchen](recipes/dicker-eierkuchen.md)
 - [Flammkuchen](recipes/flammkuchen.md)
 - [Hähnchen in Metaxasauce](recipes/haehnchen-in-metaxasauce.md)
-- [Halloumi auf Ofengemüse](recipes/halloumi-auf-ofengemuese.md)
-- [Ochsenbäckchen (geschmort)](recipes/ochsenbaeckchen.md)
+- [Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat](recipes/halloumi-auf-ofengemuese.md)
+- [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md) _(in Arbeit)_
 - [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(in Arbeit)_
@@ -42,10 +42,10 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 #### Gemüse
 
+- [Apfelrotkohl](recipes/rotkohl.md)
 - [Brokkoli (gebraten)](recipes/brokkoli.md)
 - [Karotten](recipes/karotten.md)
 - [Rosenkohl (gebacken)](recipes/rosenkohl.md)
-- [Rotkohl](recipes/rotkohl.md)
 - [Spitzkohl mit Senfrahm und Butterbröseln](recipes/spitzkohl-mit-senfrahm.md) _(in Arbeit)_
 
 #### Sättigungsbeilagen
@@ -80,7 +80,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico-Honig-Dressing](recipes/balsamico-honig-dressing.md)
 - [Big-Mac-Sauce](recipes/big-mac-sauce.md)
-- [Bohnen-Hummus](recipes/bohnen-hummus.md)
+- [Bohnen-Hummus mit Süßkartoffel](recipes/bohnen-hummus.md)
 - [Maracuja-Limetten-Dressing](recipes/maracuja-limetten-dressing.md)
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)

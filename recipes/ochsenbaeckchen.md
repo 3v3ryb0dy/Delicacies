@@ -1,5 +1,5 @@
 ---
-title: Ochsenbäckchen (geschmort)
+title: Ochsenbäckchen in Rotweinsauce
 category: hauptgerichte
 image: images/ochsenbaeckchen.webp
 imageAlt: Geschmorte Ochsenbäckchen in dunkler Rotweinsauce
@@ -27,6 +27,6 @@ tags: [fleisch, ofen, deutsch]
 >
 > Den Bratenfond durch ein Sieb in einen Topf streichen und um ein Drittel reduzieren. Die Bäckchen zurück in die Sauce legen.
 
-Passendes Gemüse: [Rotkohl](rotkohl.md), [Rosenkohl](rosenkohl.md)
+Passendes Gemüse: [Apfelrotkohl](rotkohl.md), [Rosenkohl](rosenkohl.md)
 
 Passende Beilagen: Kartoffelstampf, Herzoginkartoffeln, Kartoffelklöße

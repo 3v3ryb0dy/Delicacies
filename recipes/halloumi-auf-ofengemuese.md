@@ -1,5 +1,5 @@
 ---
-title: Halloumi auf Ofengemüse
+title: Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat
 category: hauptgerichte
 image: images/halloumi-auf-ofengemuese.webp
 imageAlt: Goldbrauner Halloumi auf Süßkartoffeln und roten Zwiebeln mit Avocado, Tomate und Petersilien-Chimichurri

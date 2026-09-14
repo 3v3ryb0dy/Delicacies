@@ -1,5 +1,5 @@
 ---
-title: Rotkohl
+title: Apfelrotkohl
 category: beilagen
 image: images/rotkohl.webp
 imageAlt: Weich geschmorter Rotkohl mit kleinen Apfelstückchen
@@ -32,4 +32,4 @@ tags: [deutsch, vegetarisch]
 > Zugedeckt ca. 30 - 45 Minuten weich dünsten. Bei Bedarf heißes Wasser aufgießen.\
 > Nach Belieben mit Rotwein abschmecken.
 
-Passende Hauptgerichte: [Ochsenbäckchen](ochsenbaeckchen.md).
+Passende Hauptgerichte: [Ochsenbäckchen in Rotweinsauce](ochsenbaeckchen.md).

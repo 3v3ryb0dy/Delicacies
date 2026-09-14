@@ -41,4 +41,4 @@ servings: 5 Stück
 >
 > Auf einem Gitter kurz abkühlen lassen und am besten lauwarm servieren.
 
-Passende Dips: [Bohnen-Hummus](bohnen-hummus.md).
+Passende Dips: [Bohnen-Hummus mit Süßkartoffel](bohnen-hummus.md).

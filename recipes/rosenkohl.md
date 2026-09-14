@@ -20,4 +20,4 @@ tags: [ofen, vegetarisch]
 >
 > Im vorgeheizten Ofen bei 150°C ca. 15 Minuten backen. Danach bei 200 °C Grillfunktion bräunen, bis die gewünschte Farbe erreicht ist.
 
-Passende Hauptgerichte: [Ochsenbäckchen](ochsenbaeckchen.md).
+Passende Hauptgerichte: [Ochsenbäckchen in Rotweinsauce](ochsenbaeckchen.md).
