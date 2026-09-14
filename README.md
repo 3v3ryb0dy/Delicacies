@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-23 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+24 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
@@ -42,9 +42,10 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 _Noch keine Rezepte._
 
-### Kuchen (1)
+### Kuchen (2)
 
 - [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
+- [Selterswasserkuchen](recipes/selterswasserkuchen.md)
 
 ### Torten (0)
 
