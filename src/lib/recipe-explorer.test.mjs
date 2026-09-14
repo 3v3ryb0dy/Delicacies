@@ -80,6 +80,7 @@ function explorer({ saved = null, blocked = false } = {}) {
     '[data-subcategory-section]': [subgroup]
   }
   const storage = new Map([['delicacies.showWip', saved]])
+  const scrollCalls = []
   const context = {
     document: {
       currentScript: { dataset: {} },
@@ -99,7 +100,7 @@ function explorer({ saved = null, blocked = false } = {}) {
         storage.set(key, value)
       }
     },
-    window: { location: { hash: '' }, scrollY: 0, scrollTo() {} },
+    window: { location: { hash: '' }, scrollY: 800, scrollTo: (options) => scrollCalls.push(options) },
     getComputedStyle: () => ({ top: '0', scrollPaddingTop: '0' }),
     ResizeObserver: class {
       observe() {}
@@ -118,11 +119,12 @@ function explorer({ saved = null, blocked = false } = {}) {
     sections,
     subgroup,
     storage,
+    scrollCalls,
     visible: () => cards.filter((card) => !card.item.hidden).map((card) => card.dataset.title),
     toggle(value) {
       ids['show-wip'].checked = value
       singles['[data-wip-control]'].hidden = false
-      ids['show-wip'].listeners.change()
+      return ids['show-wip'].listeners.change()
     },
     category(value) {
       categoryButtons.find((button) => button.dataset.filterCategory === value).listeners.click()
@@ -173,6 +175,47 @@ test('blocked persistence does not prevent toggling', () => {
   assert.equal(ui.visible().length, 4)
   ui.toggle(false)
   assert.equal(ui.visible().length, 2)
+})
+
+test('WIP toggles do not scroll the recipe list, while category filters still do', async () => {
+  const ui = explorer()
+  await ui.toggle(true)
+  await ui.toggle(false)
+  assert.equal(ui.scrollCalls.length, 0)
+  ui.category('brot')
+  assert.equal(ui.scrollCalls.length, 1)
+})
+
+test('WIP toggles refresh fallback search without scrolling', async () => {
+  const ui = explorer()
+  ui.ids['rezept-suche'].value = 'Cloud'
+  await ui.local('Cloud')
+  assert.equal(ui.scrollCalls.length, 1)
+  ui.scrollCalls.length = 0
+  await ui.toggle(true)
+  assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
+  await ui.toggle(false)
+  assert.equal(ui.ids['suche-leer'].hidden, false)
+  assert.equal(ui.scrollCalls.length, 0)
+})
+
+test('WIP toggles refresh Pagefind matches and empty results without scrolling', async () => {
+  const ui = explorer()
+  ui.ids['rezept-suche'].value = 'Cloud'
+  ui.setPagefind({
+    search: async (_query, options) => ({
+      results: options?.filters?.wip
+        ? []
+        : [{ data: async () => ({ url: '/rezept/cloud-burger-buns/', meta: { title: 'Cloud Burger Buns' } }) }]
+    })
+  })
+  await ui.toggle(true)
+  assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
+  await ui.toggle(false)
+  assert.equal(ui.ids['rezept-status'].textContent, 'Keine Treffer')
+  assert.equal(ui.scrollCalls.length, 0)
+  await ui.search('Cloud')
+  assert.equal(ui.scrollCalls.length, 1)
 })
 
 test('fallback search hides untested recipes until enabled', async () => {

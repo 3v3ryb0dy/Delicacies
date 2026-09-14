@@ -332,7 +332,7 @@ const chipClass =
       status.textContent = hits.length === 1 ? '1 Treffer' : hits.length + ' Treffer'
     }
 
-    const runSearch = async (query) => {
+    const runSearch = async (query, { scroll = true } = {}) => {
       const token = ++searchToken
       cardList.hidden = true
       searchArea.hidden = false
@@ -352,7 +352,7 @@ const chipClass =
 
       if (!pagefind) {
         runLocalSearch(query)
-        scrollToResults()
+        if (scroll) scrollToResults()
         return
       }
 
@@ -366,7 +366,7 @@ const chipClass =
       if (results.length === 0) {
         searchEmpty.hidden = false
         status.textContent = 'Keine Treffer'
-        scrollToResults()
+        if (scroll) scrollToResults()
         return
       }
 
@@ -378,7 +378,7 @@ const chipClass =
       })
 
       status.textContent = results.length === 1 ? '1 Treffer' : results.length + ' Treffer'
-      scrollToResults()
+      if (scroll) scrollToResults()
     }
 
     const onQueryChange = () => {
@@ -394,12 +394,12 @@ const chipClass =
 
     input.addEventListener('input', onQueryChange)
 
-    const updateFilteredResults = () => {
+    const updateFilteredResults = ({ scroll = true } = {}) => {
       paintButtons()
-      if (input.value.trim().length >= 2) runSearch(input.value.trim())
+      if (input.value.trim().length >= 2) return runSearch(input.value.trim(), { scroll })
       else {
         showSections()
-        scrollToResults()
+        if (scroll) scrollToResults()
       }
     }
 
@@ -429,7 +429,8 @@ const chipClass =
       } catch {
         // Keep the in-memory preference even when persistence is blocked.
       }
-      updateFilteredResults()
+      // This preference updates the current view without jumping back to its start.
+      return updateFilteredResults({ scroll: false })
     })
 
     // Restore the preference without scrolling or changing an incoming category anchor.
