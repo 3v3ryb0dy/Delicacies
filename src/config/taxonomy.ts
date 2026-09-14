@@ -74,7 +74,7 @@ export const categories: Category[] = [
     id: 'gebaeck',
     title: 'Gebäck',
     short: 'Gebäck',
-    description: 'Klein, süß, ofenfrisch.'
+    description: 'Kleines aus dem Ofen, süß und herzhaft.'
   },
   {
     id: 'brot',

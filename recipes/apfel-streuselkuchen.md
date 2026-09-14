@@ -4,6 +4,7 @@ category: kuchen
 image: images/apfel-streuselkuchen.webp
 imageAlt: Apfel-Streuselkuchen mit goldbraunen Streuseln
 tags: [ofen, vegetarisch]
+servings: 12 Stücke (Springform Ø 26 cm)
 wip: true
 ---
 

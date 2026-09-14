@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-46 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+50 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (4)
@@ -54,25 +54,28 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Kretische Kartoffeln](recipes/kretanische-kartoffeln.md) _(in Arbeit)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Kuchen (3)
+### Kuchen (4)
 
 - [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(in Arbeit)_
 - [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
+- [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
 
 ### Torten (0)
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Gebäck (0)
+### Gebäck (2)
 
-_Noch keine Rezepte. Hier ist Platz für Neues._
+- [Schinkengipfeli](recipes/schinkengipfeli.md)
+- [Vanillekipferl](recipes/vanillekipferl.md)
 
-### Brot / Brötchen (4)
+### Brot / Brötchen (5)
 
 - [Bhatura (indisches Ballonbrot)](recipes/bhatura.md)
 - [Burger Buns](recipes/burger-buns.md)
 - [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(in Arbeit)_
+- [Kürbisbrot](recipes/kuerbisbrot.md)
 - [Simit](recipes/simit.md)
 
 ### Saucen / Dips / Dressings (9)
