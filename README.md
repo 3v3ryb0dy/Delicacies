@@ -11,12 +11,15 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-42 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+45 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
-### Vorspeisen (1)
+### Vorspeisen (4)
 
 - [Mauritius-Krabbencocktail](recipes/mauritius-krabbencocktail.md) _(in Arbeit)_
+- [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(in Arbeit)_
+- [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(in Arbeit)_
+- [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(in Arbeit)_
 
 ### Hauptgerichte (10)
 

@@ -49,5 +49,3 @@ tags: [fleisch, hähnchen, griechisch]
 > Sauce einige Minuten offen köcheln lassen, bis sie leicht eindickt.
 >
 > Hähnchen zurück in die Sauce geben. Bei niedriger Hitze einige Minuten ziehen lassen, bis das Fleisch vollständig gegart und noch saftig ist.
->
-> Nach Wunsch Hähnchen und Sauce in eine Auflaufform geben. Mit geriebenem Käse bestreuen und unter dem Backofengrill kurz goldbraun gratinieren.

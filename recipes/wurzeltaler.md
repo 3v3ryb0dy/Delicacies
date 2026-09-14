@@ -9,10 +9,6 @@ note: Nach Markus Gaißl, SWR.
 wip: true
 ---
 
-## Tipp
-
-> Die Masse am Vortag vorbereiten und bis zum Braten im Kühlschrank aufbewahren.
-
 ## Zutaten
 
 ### Wurzeltaler

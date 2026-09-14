@@ -9,7 +9,7 @@ servings: etwa 4 Personen
 
 ## Tipp
 
-> Auch die vegetarische Variante schmeckt lecker. Dafür Schinkenspeck und Wurst weglassen.
+> Für eine vegetarische Variante Schinken und Wurst weglassen.
 
 ## Zutaten
 

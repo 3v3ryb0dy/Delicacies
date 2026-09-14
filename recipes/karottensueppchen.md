@@ -10,9 +10,7 @@ wip: true
 
 ## Tipp
 
-> Beim ersten Versuch pur servieren. Milde Brühe verwenden, damit Karotte und Butter im Vordergrund bleiben.
->
-> Als Variante 20 g der 30 g Butter für den Abschluss separat bräunen und beim Servieren darübergeben. Nur die übrigen 10 g kalt in die Suppe pürieren. Die Gesamtmenge bleibt bei 70 g Butter.
+> Für eine Variante mit brauner Butter 20 g der 30 g Butter für den Abschluss separat bräunen und beim Servieren darübergeben. Nur die übrigen 10 g kalt in die Suppe pürieren. Die Gesamtmenge bleibt bei 70 g Butter.
 
 ## Zutaten
 

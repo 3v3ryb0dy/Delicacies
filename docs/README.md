@@ -54,7 +54,9 @@ Instructions:
 
 Optional tip:
 
-- Add `## Tipp` before `## Zutaten` when a recipe benefits from a short cooking tip or optional variation.
+- Add `## Tipp` before `## Zutaten` only when it adds concrete value: a specific correction when something goes wrong, a non-obvious reason that prevents a mistake, or an optional variation not already explained in preparation.
+- Do not repeat preparation steps, ingredient lists, generic serving advice or vague flavour descriptions. Put required actions in preparation. Preparation-ahead advice belongs in a tip only when it adds a concrete timing or storage distinction.
+- Prefer one or two short sentences. Do not invent a tip to fill the box; most recipes do not need one.
 - Use short blockquoted paragraphs, with a blank `>` line between paragraphs. Keep the text plain, as in preparation instructions.
 - The page displays these paragraphs together in a “Tipp” box beneath the title and metadata, beside the photo on desktop. Tips are searchable and included in print.
 - Omit the section when there is no tip. An empty section produces no box.

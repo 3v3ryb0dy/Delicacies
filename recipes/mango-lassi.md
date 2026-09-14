@@ -22,10 +22,10 @@ servings: etwa 4 Gläser
 
 > Mango, Joghurt, Wasser und Zucker in einen Mixer geben. Fein pürieren, bis der Lassi glatt und cremig ist.
 >
-> In Gläser füllen oder bis zum Servieren kaltstellen. Kalt servieren.
+> In Gläser füllen oder bis zum Servieren kaltstellen.
 
 ## Zubereitung (Thermomix)
 
 > Mango, Joghurt, Wasser und Zucker in den Mixtopf geben. 1 Min. / Stufe 10 pürieren.
 >
-> In Gläser füllen oder bis zum Servieren kaltstellen. Kalt servieren.
+> In Gläser füllen oder bis zum Servieren kaltstellen.
