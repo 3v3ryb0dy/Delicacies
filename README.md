@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-34 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+35 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
@@ -87,6 +87,10 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
+
+### Getränke (1)
+
+- [Mango Lassi](recipes/mango-lassi.md)
 
 ### Sonstiges (1)
 

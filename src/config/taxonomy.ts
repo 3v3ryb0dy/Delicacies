@@ -10,6 +10,7 @@ export const categoryIds = [
   'saucen',
   'salate',
   'suppen',
+  'getraenke',
   'sonstiges'
 ] as const
 
@@ -98,6 +99,12 @@ export const categories: Category[] = [
     title: 'Suppen',
     short: 'Suppen',
     description: 'Wärmend, in der Regel in einem Topf.'
+  },
+  {
+    id: 'getraenke',
+    title: 'Getränke',
+    short: 'Getränke',
+    description: 'Erfrischend oder wärmend, im Glas oder in der Tasse.'
   },
   {
     id: 'sonstiges',
