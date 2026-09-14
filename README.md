@@ -29,7 +29,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Ochsenbäckchen (geschmort)](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md) _(in Arbeit)_
-- [Wurzeltaler mit Dip](recipes/wurzeltaler.md)
+- [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(in Arbeit)_
 
 ### Desserts (1)
 
