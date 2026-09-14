@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-45 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+46 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (4)
@@ -68,11 +68,12 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Brot / Brötchen (3)
+### Brot / Brötchen (4)
 
 - [Bhatura (Indisches Ballonbrot)](recipes/bhatura.md)
 - [Burger Buns](recipes/burger-buns.md)
 - [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(in Arbeit)_
+- [Simit](recipes/simit.md)
 
 ### Saucen / Dips / Dressings (9)
 
