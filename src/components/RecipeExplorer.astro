@@ -108,6 +108,7 @@ const chipClass =
     const emptyEntries = Array.from(document.querySelectorAll('[data-empty-category]'))
     const noResults = document.getElementById('keine-treffer')
     const resetButton = document.querySelector('[data-reset-filters]')
+    const stickyBar = document.querySelector('[data-sticky-bar]')
 
     const total = cards.length
     const emptyIds = emptyEntries.map((entry) => entry.dataset.emptyCategory)
@@ -116,6 +117,38 @@ const chipClass =
     let pagefind
     let pagefindFailed = false
     let searchToken = 0
+    let debounce
+
+    const beginResultsChange = () => {
+      clearTimeout(debounce)
+      ++searchToken
+      if (window.location.hash) {
+        history.replaceState(history.state, '', window.location.pathname + window.location.search)
+      }
+    }
+
+    const resultsOffset = () => {
+      const stickyTop = parseFloat(getComputedStyle(stickyBar).top) || 0
+      return stickyTop + stickyBar.getBoundingClientRect().height + 16
+    }
+
+    // Native category links use the same measured clearance as filtering.
+    // Scroll padding and scroll margin add together, so subtract the global padding.
+    const updateAnchorOffset = () => {
+      const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0
+      document.getElementById('rezepte').style.setProperty('--recipe-anchor-margin', resultsOffset() - padding + 'px')
+    }
+    updateAnchorOffset()
+    new ResizeObserver(updateAnchorOffset).observe(stickyBar)
+
+    const scrollToResults = () => {
+      const target = searchArea.hidden ? cardList : searchArea
+      const offset = resultsOffset()
+      window.scrollTo({
+        top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - offset),
+        behavior: 'instant'
+      })
+    }
 
     const chipBase = 'focus-ring cursor-pointer rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide'
     const chipActive = 'border-transparent bg-ink text-paper'
@@ -295,6 +328,7 @@ const chipClass =
 
       if (!pagefind) {
         runLocalSearch(query)
+        scrollToResults()
         return
       }
 
@@ -308,6 +342,7 @@ const chipClass =
       if (results.length === 0) {
         searchEmpty.hidden = false
         status.textContent = 'Keine Treffer'
+        scrollToResults()
         return
       }
 
@@ -319,14 +354,15 @@ const chipClass =
       })
 
       status.textContent = results.length === 1 ? '1 Treffer' : results.length + ' Treffer'
+      scrollToResults()
     }
 
-    let debounce
     const onQueryChange = () => {
+      beginResultsChange()
       const query = input.value.trim()
-      clearTimeout(debounce)
       if (query.length < 2) {
         showSections()
+        scrollToResults()
         return
       }
       debounce = setTimeout(() => runSearch(query), 180)
@@ -334,31 +370,50 @@ const chipClass =
 
     input.addEventListener('input', onQueryChange)
 
+    const updateFilteredResults = () => {
+      paintButtons()
+      if (input.value.trim().length >= 2) runSearch(input.value.trim())
+      else {
+        showSections()
+        scrollToResults()
+      }
+    }
+
     categoryButtons.forEach((button) => {
       button.addEventListener('click', () => {
+        beginResultsChange()
         activeCategory = button.dataset.filterCategory || ''
-        paintButtons()
-        if (input.value.trim().length >= 2) runSearch(input.value.trim())
-        else applyFilters()
+        updateFilteredResults()
       })
     })
 
     tagButtons.forEach((button) => {
       button.addEventListener('click', () => {
+        beginResultsChange()
         const tag = button.dataset.filterTag
         if (activeTags.has(tag)) activeTags.delete(tag)
         else activeTags.add(tag)
-        paintButtons()
-        if (input.value.trim().length >= 2) runSearch(input.value.trim())
-        else applyFilters()
+        updateFilteredResults()
       })
     })
 
     resetButton?.addEventListener('click', () => {
+      beginResultsChange()
       activeCategory = ''
       activeTags.clear()
-      paintButtons()
-      applyFilters()
+      updateFilteredResults()
     })
   </script>
 </section>
+
+<style is:global>
+  html:has(#rezepte [data-category-section]:target, #rezepte [data-empty-category]:target, #rezepte #noch-leer:target) {
+    scroll-behavior: auto;
+  }
+
+  #rezepte [data-category-section],
+  #rezepte [data-empty-category],
+  #rezepte #noch-leer {
+    scroll-margin-top: var(--recipe-anchor-margin, 7rem);
+  }
+</style>

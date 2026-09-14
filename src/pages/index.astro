@@ -35,8 +35,6 @@ const emptyEntries = [
   ...emptyCategories.map((category) => ({ id: category.id, title: category.title, note: category.description })),
   ...emptySubcategories
 ]
-
-const anchorOffset = 'scroll-mt-[13rem]'
 ---
 
 <BaseLayout>
@@ -60,7 +58,7 @@ const anchorOffset = 'scroll-mt-[13rem]'
         const categoryRecipes = byCategory.get(category.id) ?? []
 
         return (
-          <section id={category.id} data-category-section class={anchorOffset}>
+          <section id={category.id} data-category-section>
             <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
               <div>
                 <h2 class='font-display text-section font-semibold'>{category.title}</h2>
@@ -106,7 +104,7 @@ const anchorOffset = 'scroll-mt-[13rem]'
       })}
 
       {emptyEntries.length > 0 && (
-        <section id='noch-leer' data-empty-block class={anchorOffset}>
+        <section id='noch-leer' data-empty-block>
           <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
             <div>
               <h2 class='font-display text-section font-semibold'>Noch leer</h2>
