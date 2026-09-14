@@ -13,22 +13,33 @@ tags: [asiatisch]
 - 20 g Tamarindenpaste
 - 20 ml Wasser
 - 50 g Fischsauce
-- 80 g brauner Zucker
+- 80 g Palmzucker (alt. brauner Zucker)
 - 80 ml Wasser
 
 ### Außerdem
 
-- Reisbandnudeln
+- 200 g Reisbandnudeln
 - 2 Eier
+- 1 kleine Schalotte
+- 2 Knoblauchzehen
 - Sojasprossen
-- Thai Schnittlauch
-- Öl
+- Thai-Schnittlauch
+- 2–3 EL Erdnüsse (geröstet, grob gehackt)
+
+### Optional
+
+- 1 EL getrocknete Garnelen (grob gehackt)
+- Limettenspalten zum Servieren
 
 ## Zubereitung
 
-> Reisbandnudeln 30 - 60 Minuten in kaltem Wasser einweichen und abtropfen lassen.
->
+> Reisbandnudeln 30–60 Minuten in kaltem Wasser einweichen und gut abtropfen lassen.\
 > Währenddessen alle Zutaten der Sauce verrühren, bis sich der Zucker aufgelöst hat.
 >
-> Öl in einer Pfanne oder einem Wok erhitzen und Eier darin als Omelette stocken lassen. Nudeln hinzugeben, Sauce angießen und kochen, bis die Nudeln fast gar sind. Falls die Nudeln zu trocken werden, einen Schluck Wasser hinzugeben.\
-> Sojasprossen und Thai Schnittlauch kurz mitgaren und servieren.
+> Schalotte fein würfeln und Knoblauch hacken. Öl in einer großen Pfanne oder einem Wok erhitzen und beides kurz anbraten, bis die Schalotte weich ist und der Knoblauch duftet. Nach Belieben getrocknete Garnelen kurz mitbraten.\
+> Alles zur Seite schieben, Eier darin auf niedriger Hitze als Omelette stocken lassen und grob zerteilen.
+>
+> Nudeln hinzugeben, Sauce angießen und unter regelmäßigem Wenden kochen, bis die Nudeln fast gar sind. Die Sauce nicht vollständig einkochen lassen. Die Nudeln sollen glänzend und saftig bleiben. Falls sie zu trocken werden, schluckweise Wasser hinzugeben.\
+> Sojasprossen und Thai-Schnittlauch kurz mitgaren, sodass sie knackig bleiben.
+>
+> Mit Erdnüssen bestreuen und nach Belieben mit Limettenspalten servieren.

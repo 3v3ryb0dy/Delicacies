@@ -4,7 +4,7 @@ When asked to add a recipe, complete the whole workflow:
 
 1. Create `recipes/<slug>.md` using the structure below. Use only categories and tags defined in
    [`src/config/taxonomy.ts`](../src/config/taxonomy.ts); follow an existing recipe for optional fields.
-2. Keep the supplied recipe accurate. Use ingredient bullets, preparation blockquotes, and `###` headings for
+2. Follow the [writing guide](#recipe-writing-style) and keep the supplied recipe accurate. Use ingredient bullets, preparation blockquotes, and `###` headings for
    components such as dough or sauce. Inside a blockquote, prefix blank lines with `>` so markdownlint remains happy.
 3. Create the photo with the canonical prompt template in
    [`image-generation.md`](image-generation.md): copy that template, replace its placeholders, and add only necessary
@@ -36,17 +36,18 @@ tags: [vegetarisch]
 > Nächster Zubereitungsschritt.
 ```
 
-## Line breaks in preparation
+## Recipe writing style
 
-Use a single trailing backslash (`\`) for a line break within the same paragraph:
+Write in German, like a short personal cooking note.
 
-```md
-> Eier, Zucker und Öl schaumig schlagen.\
-> Mehl sieben und hinzugeben.
->
-> Nächster Zubereitungsschritt als eigener Absatz.
-```
+Ingredients:
 
-A blank quote line (`>`) starts a new paragraph with spacing. Ordinary source line wraps
-are joined with a space. Two trailing spaces also create a line break, but prefer the
-visible backslash so editors do not accidentally remove it.
+- One bullet per ingredient, quantity first: `- 70 g Butter (weich)`. Use `g`, `ml`, `EL` and `TL`.
+- Put short details in parentheses. Use `n.B.` for optional additions, or `### Optional` for a group.
+- Group components under `### Teig`, `### Sauce`, etc. Keep supplied amounts and include ingredients used in the instructions.
+
+Instructions:
+
+- Use short, direct sentences: “Schalotte fein würfeln. Öl erhitzen.” No semicolons, rhetorical flourishes, promotional wording or chatty commentary.
+- Give actions in cooking order. Keep useful times, temperatures and doneness cues. Avoid unnecessary explanations or invented details.
+- Use `>` prose, not numbered steps or bold step labels. Join closely related instructions with a trailing `\`. Use a blank `>` line for a new stage.
