@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-25 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+26 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
@@ -61,12 +61,13 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Burger Buns](recipes/burger-buns.md)
 - [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(in Arbeit)_
 
-### Saucen / Dips / Dressings (7)
+### Saucen / Dips / Dressings (8)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico Honig Dressing](recipes/balsamico-honig-dressing.md)
 - [Big Mac Sauce](recipes/big-mac-sauce.md)
 - [Bohnen Hummus](recipes/bohnen-hummus.md)
+- [Maracuja-Limetten-Dressing](recipes/maracuja-limetten-dressing.md)
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)
 - [Remoulade](recipes/remoulade.md)

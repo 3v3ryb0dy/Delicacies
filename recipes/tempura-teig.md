@@ -8,13 +8,19 @@ tags: [asiatisch, frittiert, vegan, vegetarisch, grundrezept]
 
 ## Zutaten
 
-- 50 g Speisestärke
-- 50 g Mehl
-- 130 ml Wasser (eiskalt)
-- 1 Pck. Backpulver
-- n.B. Paprikapulver
-- Salz, Pfeffer
+- 80 g Weizenmehl (Type 405)
+- 20 g Speisestärke
+- 150–160 g Mineralwasser (eiskalt)
+- 1 Prise Salz
+- Speisestärke zum Bestäuben
 
 ## Zubereitung
 
-> Alle Zutaten verrühren und Frittiergut damit umhüllen.
+> Mehl, Stärke und Salz mischen. Eiskaltes Mineralwasser hinzugeben.\
+> Mit Stäbchen oder einer Gabel nur kurz vermischen. Klümpchen sind okay.
+>
+> Frittiergut trocken tupfen und leicht mit Stärke bestäuben. Durch den Teig ziehen und sofort frittieren. Nicht zu viel gleichzeitig ins Öl geben.
+>
+> Den Teig kalt halten und möglichst wenig rühren.
+>
+> Am besten frittiert es sich bei 175–180 °C.

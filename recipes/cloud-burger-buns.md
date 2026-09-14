@@ -28,7 +28,7 @@ wip: true
 ### Zusätzlich
 
 - 1 Ei
-- Milch
+- 2 EL Milch
 - n.B. Sesam
 
 ## Zubereitung
