@@ -20,3 +20,5 @@ tags: [vegetarisch]
 
 > Brokkoliröschen kurz blanchieren. Anschließend die Butter in einer Pfanne erhitzen und den Brokkoli bei mittlerer Temperatur anbraten.\
 > Zitronensaft und gepressten Knoblauch hinzugeben. Mit einer Prise Zucker, Salz und Pfeffer abschmecken.
+
+Passende Hauptgerichte: [Bouletten](bouletten.md).

@@ -1,5 +1,5 @@
 ---
-title: Tempura Teig (knusprig)
+title: Tempura-Teig (knusprig)
 category: sonstiges
 image: images/tempura-teig.webp
 imageAlt: Frisch angerührter heller Tempurateig mit feinen Bläschen

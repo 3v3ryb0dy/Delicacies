@@ -1,5 +1,5 @@
 ---
-title: Mango Lassi
+title: Mango-Lassi
 category: getraenke
 image: images/mango-lassi.webp
 imageAlt: Cremiger Mango Lassi im Glas

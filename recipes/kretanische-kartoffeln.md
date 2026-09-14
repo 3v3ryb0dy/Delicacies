@@ -1,5 +1,5 @@
 ---
-title: Kretanische Kartoffeln
+title: Kretische Kartoffeln
 category: beilagen
 subcategory: saettigungsbeilagen
 image: images/kretanische-kartoffeln.webp

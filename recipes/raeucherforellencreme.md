@@ -4,7 +4,7 @@ category: vorspeisen
 image: images/raeucherforellencreme.webp
 imageAlt: Stückige Räucherforellencreme auf Roggenbrot mit Apfelwürfeln und Schnittlauch
 servings: 4 Vorspeisenportionen
-tags: []
+tags: [fisch]
 wip: true
 ---
 

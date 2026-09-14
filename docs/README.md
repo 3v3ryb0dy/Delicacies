@@ -40,6 +40,19 @@ tags: [vegetarisch]
 
 Write in German, like a short personal cooking note.
 
+Names, categories and tags:
+
+- Use consistent German spelling for compound names, e.g. `Bohnen-Hummus` and `Maracuja-Limetten-Dressing`. Keep existing slugs stable when correcting a display title.
+- Choose the category by the recipe's main use. Vegetable sides belong under `beilagen` / `gemuese`, even when they could also be served as a small main course.
+- Tag the actual recipe, not every optional variation. Use `fisch` or `meeresfrüchte` when fish or seafood defines the dish, not merely for a little fish sauce. Use `ofen` for baking and `frittiert` for deep-frying, not ordinary pan-frying.
+- Set dietary tags only when the ingredients support them. Keep `vegetarisch` alongside `vegan` so both filters find vegan dishes.
+
+Pairings:
+
+- Add a short line after preparation, e.g. `Passende Dips: [Bohnen-Hummus](bohnen-hummus.md).` Link existing recipes with their Markdown filename; use plain text when no recipe exists.
+- Choose a few useful combinations. For dishes served together, a reverse link makes the combination discoverable from either recipe. Not every recipe needs pairings.
+- Keep serving combinations out of the tip box and preserve personal serving traditions.
+
 Ingredients:
 
 - One bullet per ingredient, quantity first: `- 70 g Butter (weich)`. Use `g`, `ml`, `EL` and `TL`.

@@ -31,3 +31,5 @@ tags: [deutsch, vegetarisch]
 >
 > Zugedeckt ca. 30 - 45 Minuten weich dünsten. Bei Bedarf heißes Wasser aufgießen.\
 > Nach Belieben mit Rotwein abschmecken.
+
+Passende Hauptgerichte: [Ochsenbäckchen](ochsenbaeckchen.md).

@@ -1,5 +1,5 @@
 ---
-title: Balsamico Honig Dressing
+title: Balsamico-Honig-Dressing
 category: saucen
 image: images/balsamico-honig-dressing.webp
 imageAlt: Dunkles Balsamico-Honig-Dressing in einer kleinen Keramikschale

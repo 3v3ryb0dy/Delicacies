@@ -22,3 +22,5 @@ tags: [vegetarisch]
 > Mit Salz, Pfeffer und großzügig Zucker würzen. Nach Belieben Sternanis oder Vanille hinzugeben. Mit Wasser auffüllen, bis die Karotten fast bedeckt sind.
 >
 > Aus dem kalten Zustand bei mittlerer Hitze erwärmen und 10 Minuten mit Backpapier oder einem Deckel abgedeckt garen.
+
+Passende Hauptgerichte: [Bouletten](bouletten.md).

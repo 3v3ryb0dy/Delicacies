@@ -3,7 +3,7 @@ title: Apfel-Streuselkuchen
 category: kuchen
 image: images/apfel-streuselkuchen.webp
 imageAlt: Apfel-Streuselkuchen mit goldbraunen Streuseln
-tags: [vegetarisch]
+tags: [ofen, vegetarisch]
 wip: true
 ---
 

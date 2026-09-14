@@ -51,7 +51,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 #### Sättigungsbeilagen
 
 - [Kartoffelgratin](recipes/kartoffelgratin.md) _(in Arbeit)_
-- [Kretanische Kartoffeln](recipes/kretanische-kartoffeln.md) _(in Arbeit)_
+- [Kretische Kartoffeln](recipes/kretanische-kartoffeln.md) _(in Arbeit)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
 ### Kuchen (3)
@@ -70,7 +70,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 ### Brot / Brötchen (4)
 
-- [Bhatura (Indisches Ballonbrot)](recipes/bhatura.md)
+- [Bhatura (indisches Ballonbrot)](recipes/bhatura.md)
 - [Burger Buns](recipes/burger-buns.md)
 - [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(in Arbeit)_
 - [Simit](recipes/simit.md)
@@ -78,9 +78,9 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 ### Saucen / Dips / Dressings (9)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
-- [Balsamico Honig Dressing](recipes/balsamico-honig-dressing.md)
-- [Big Mac Sauce](recipes/big-mac-sauce.md)
-- [Bohnen Hummus](recipes/bohnen-hummus.md)
+- [Balsamico-Honig-Dressing](recipes/balsamico-honig-dressing.md)
+- [Big-Mac-Sauce](recipes/big-mac-sauce.md)
+- [Bohnen-Hummus](recipes/bohnen-hummus.md)
 - [Maracuja-Limetten-Dressing](recipes/maracuja-limetten-dressing.md)
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)
@@ -100,11 +100,11 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 ### Getränke (1)
 
-- [Mango Lassi](recipes/mango-lassi.md)
+- [Mango-Lassi](recipes/mango-lassi.md)
 
 ### Sonstiges (1)
 
-- [Tempura Teig (knusprig)](recipes/tempura-teig.md)
+- [Tempura-Teig (knusprig)](recipes/tempura-teig.md)
 
 ## Rezept hinzufügen
 
