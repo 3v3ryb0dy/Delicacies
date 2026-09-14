@@ -4,7 +4,7 @@ category: hauptgerichte
 image: images/halloumi-auf-ofengemuese.webp
 imageAlt: Goldbrauner Halloumi auf Süßkartoffeln und roten Zwiebeln mit Avocado, Tomate und Petersilien-Chimichurri
 tags: [vegetarisch]
-servings: 2 Personen
+servings: 3 Personen
 note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
 ---
 
@@ -12,7 +12,7 @@ note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
 
 - 1 Süßkartoffel
 - 1 rote Zwiebel
-- 1 Tomate
+- 2-3 Tomaten
 - 1 Avocado
 - 250 g Halloumi
 - 10 g Petersilie
@@ -20,7 +20,7 @@ note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
 - ½ Zitrone (Saft)
 - 1 rote Chilischote
 - 1 TL Kreuzkümmel (gemahlen)
-- 2 EL Olivenöl
+- 5 EL Olivenöl
 - Salz, Pfeffer
 
 ## Zubereitung
@@ -30,7 +30,7 @@ note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
 >
 > Währenddessen Tomate in Spalten und Avocado in Würfel schneiden. Petersilie hacken. 1 TL davon mit Tomate und Avocado mischen.
 >
-> Für das Chimichurri Knoblauch und entkernte Chili fein hacken. Mit übriger Petersilie, Kreuzkümmel, Zitronensaft und 1 EL Olivenöl verrühren. Salzen und pfeffern.
+> Für das Chimichurri Knoblauch und entkernte Chili fein hacken. Mit übriger Petersilie, Kreuzkümmel, Zitronensaft und 4 EL Olivenöl verrühren. Salzen und pfeffern.
 >
 > Halloumi etwa 3 cm groß würfeln. In 1 EL Olivenöl bei mittlerer Hitze rundum 3–4 Minuten goldbraun braten.
 >

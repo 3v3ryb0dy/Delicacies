@@ -11,14 +11,14 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-36 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+38 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Hauptgerichte (9)
+### Hauptgerichte (10)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -28,7 +28,8 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Halloumi auf Ofengemüse](recipes/halloumi-auf-ofengemuese.md)
 - [Ochsenbäckchen (geschmort)](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
-- [Pizza (Basis)](recipes/pizza.md)
+- [Pizza (Basis)](recipes/pizza.md) _(in Arbeit)_
+- [Wurzeltaler mit Dip](recipes/wurzeltaler.md)
 
 ### Desserts (1)
 
@@ -69,7 +70,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Burger Buns](recipes/burger-buns.md)
 - [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(in Arbeit)_
 
-### Saucen / Dips / Dressings (8)
+### Saucen / Dips / Dressings (9)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico Honig Dressing](recipes/balsamico-honig-dressing.md)
@@ -79,6 +80,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)
 - [Remoulade](recipes/remoulade.md)
+- [Senfbutter](recipes/senfbutter.md) _(in Arbeit)_
 
 ### Salate (1)
 

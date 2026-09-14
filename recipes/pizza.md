@@ -5,6 +5,7 @@ image: images/pizza.webp
 imageAlt: Rustikaler Pizzaboden mit Tomaten-Kräuter-Sauce
 tags: [ofen, italienisch, grundrezept, vegetarisch]
 servings: 6 große Pizzen
+wip: true
 ---
 
 ## Zutaten
