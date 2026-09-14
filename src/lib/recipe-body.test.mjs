@@ -77,6 +77,7 @@ test('missing and empty tips default to an empty array without affecting recipe 
       tips: [],
       ingredients: [{ items: ['200 g Mehl'] }],
       preparation: [{ paragraphs: ['Verrühren.'] }],
+      thermomixPreparation: [],
       pairings: [],
       notes: []
     })
@@ -91,6 +92,7 @@ test('a tip stays separate from subsequent grouped ingredients and preparation',
     tips: ['Kalt halten.'],
     ingredients: [{ title: 'Teig', items: ['200 g Mehl'] }],
     preparation: [{ title: 'Teig', paragraphs: ['Verrühren.'] }],
+    thermomixPreparation: [],
     pairings: [],
     notes: []
   })
@@ -104,4 +106,51 @@ test('tips preserve paragraphs and line breaks without becoming pairings or note
   assert.deepEqual(body.pairings, [])
   assert.deepEqual(body.notes, [])
   assert.deepEqual(body.preparation, [])
+})
+
+test('alternative methods keep their groups and hard breaks separate with shared tips and pairings', () => {
+  const body = parseRecipeBody(
+    [
+      '## Tipp',
+      '> Kalt halten.',
+      '## Zutaten',
+      '### Creme',
+      '- 150 g Sahne',
+      '## Zubereitung',
+      '### Creme',
+      '> Sahne schlagen.\\',
+      '> Von Hand unterheben.',
+      '## Zubereitung (Thermomix)',
+      '### Creme',
+      '> Stufe 3.',
+      '>',
+      '> Umfüllen.',
+      '### Schichten',
+      '> Kühlen.',
+      '',
+      'Passende Beilagen: Obst',
+      '## Notizen',
+      '> Noch ungetestet.'
+    ].join('\n')
+  )
+  assert.deepEqual(body.preparation, [{ title: 'Creme', paragraphs: ['Sahne schlagen.\nVon Hand unterheben.'] }])
+  assert.deepEqual(body.thermomixPreparation, [
+    { title: 'Creme', paragraphs: ['Stufe 3.', 'Umfüllen.'] },
+    { title: 'Schichten', paragraphs: ['Kühlen.'] }
+  ])
+  assert.deepEqual(body.ingredients, [{ title: 'Creme', items: ['150 g Sahne'] }])
+  assert.deepEqual(body.tips, ['Kalt halten.'])
+  assert.deepEqual(body.pairings, ['Passende Beilagen: Obst'])
+  assert.deepEqual(body.notes, ['Notizen', 'Noch ungetestet.'])
+})
+
+test('absent and empty alternatives stay empty and ungrouped alternatives do not leak', () => {
+  for (const suffix of ['', '\n## Zubereitung (Thermomix)', '\n## Zubereitung (Thermomix)\n### Leer\n>']) {
+    const body = parseRecipeBody('## Zubereitung\n> Rühren.' + suffix)
+    assert.deepEqual(body.thermomixPreparation, [])
+    assert.deepEqual(body.preparation, [{ paragraphs: ['Rühren.'] }])
+  }
+  const body = parseRecipeBody('## Zubereitung (Thermomix)\n> Mixen.\n## Zubereitung\n> Rühren.')
+  assert.deepEqual(body.thermomixPreparation, [{ paragraphs: ['Mixen.'] }])
+  assert.deepEqual(body.preparation, [{ paragraphs: ['Rühren.'] }])
 })

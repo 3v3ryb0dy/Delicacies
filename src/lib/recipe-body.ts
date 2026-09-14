@@ -12,6 +12,7 @@ export type ParsedRecipeBody = {
   tips: string[]
   ingredients: IngredientGroup[]
   preparation: PreparationGroup[]
+  thermomixPreparation: PreparationGroup[]
   /** Lines such as "Passende Beilagen: ..." that pair the dish with other recipes. */
   pairings: string[]
   /** Anything the parser could not place, kept so no text is ever lost. */
@@ -22,16 +23,18 @@ export const EMPTY_RECIPE_BODY: ParsedRecipeBody = {
   tips: [],
   ingredients: [],
   preparation: [],
+  thermomixPreparation: [],
   pairings: [],
   notes: []
 }
 
-type Section = 'tips' | 'ingredients' | 'preparation' | 'unknown'
+type Section = 'tips' | 'ingredients' | 'preparation' | 'thermomixPreparation' | 'unknown'
 
 const sectionHeadings: Record<string, Section> = {
   tipp: 'tips',
   zutaten: 'ingredients',
-  zubereitung: 'preparation'
+  zubereitung: 'preparation',
+  'zubereitung (thermomix)': 'thermomixPreparation'
 }
 
 const pairingPattern = /^(?:Passendes|Passende)\s+\S/
@@ -80,6 +83,7 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
   const tips: string[] = []
   const ingredients: IngredientGroup[] = []
   const preparation: PreparationGroup[] = []
+  const thermomixPreparation: PreparationGroup[] = []
   const pairings: string[] = []
   const notes: string[] = []
 
@@ -99,7 +103,7 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
   const currentPreparationGroup = () => {
     if (!preparationGroup) {
       preparationGroup = { paragraphs: [] }
-      preparation.push(preparationGroup)
+      ;(section === 'thermomixPreparation' ? thermomixPreparation : preparation).push(preparationGroup)
     }
     return preparationGroup
   }
@@ -129,7 +133,7 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
       return
     }
 
-    if (section === 'preparation') {
+    if (section === 'preparation' || section === 'thermomixPreparation') {
       currentPreparationGroup().paragraphs.push(text)
       return
     }
@@ -164,9 +168,9 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
       if (section === 'ingredients') {
         ingredientGroup = { title: text, items: [] }
         ingredients.push(ingredientGroup)
-      } else if (section === 'preparation') {
+      } else if (section === 'preparation' || section === 'thermomixPreparation') {
         preparationGroup = { title: text, paragraphs: [] }
-        preparation.push(preparationGroup)
+        ;(section === 'thermomixPreparation' ? thermomixPreparation : preparation).push(preparationGroup)
       } else {
         notes.push(text)
       }
@@ -197,6 +201,7 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
     tips,
     ingredients: ingredients.filter((group) => group.items.length > 0),
     preparation: preparation.filter((group) => group.paragraphs.length > 0),
+    thermomixPreparation: thermomixPreparation.filter((group) => group.paragraphs.length > 0),
     pairings,
     notes
   }

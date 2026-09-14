@@ -44,6 +44,16 @@ const chipClass =
         <p id='rezept-status' class='text-sm text-ink-soft tabular-nums' aria-live='polite'>
           {total} Rezepte
         </p>
+        <label
+          data-wip-control
+          class='flex min-h-9 cursor-pointer items-center gap-2 text-xs font-semibold text-ink-soft'
+          hidden>
+          <input id='show-wip' type='checkbox' role='switch' class='peer sr-only' />
+          <span
+            aria-hidden='true'
+            class='relative h-5 w-9 shrink-0 rounded-full bg-rule transition-colors peer-checked:bg-accent peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-accent after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-paper after:transition-transform peer-checked:after:translate-x-4'></span>
+          Ungetestete Rezepte anzeigen
+        </label>
       </div>
 
       <div class={scrollRowClass}>
@@ -110,7 +120,17 @@ const chipClass =
     const resetButton = document.querySelector('[data-reset-filters]')
     const stickyBar = document.querySelector('[data-sticky-bar]')
 
-    const total = cards.length
+    const wipToggle = document.getElementById('show-wip')
+    const preferenceKey = 'delicacies.showWip'
+    let showWip = false
+    try {
+      showWip = localStorage.getItem(preferenceKey) === 'true'
+    } catch {
+      // Browsing still works when storage is unavailable.
+    }
+    wipToggle.checked = showWip
+    document.querySelector('[data-wip-control]').hidden = false
+    const availableTotal = () => cards.filter((card) => showWip || card.dataset.wip !== 'true').length
     const emptyIds = emptyEntries.map((entry) => entry.dataset.emptyCategory)
     let activeCategory = ''
     const activeTags = new Set()
@@ -160,6 +180,7 @@ const chipClass =
 
     const activeFilters = () => {
       const filters = {}
+      if (!showWip) filters.wip = ['false']
       if (activeCategory) filters.category = [activeCategory]
       if (activeTags.size) filters.tag = Array.from(activeTags)
       return filters
@@ -179,6 +200,7 @@ const chipClass =
     }
 
     const matches = (card) => {
+      if (!showWip && card.dataset.wip === 'true') return false
       if (activeCategory && card.dataset.category !== activeCategory) return false
       if (activeTags.size) {
         const cardTags = (card.dataset.tags || '').split(/\s+/).filter(Boolean)
@@ -191,15 +213,20 @@ const chipClass =
       let visible = 0
       cards.forEach((card) => {
         const ok = matches(card)
-        card.hidden = !ok
+        card.closest('[data-recipe-item]').hidden = !ok
         if (ok) visible += 1
       })
-      sections.forEach((section) => {
-        const hasVisible = section.querySelector('[data-recipe]:not([hidden])')
-        section.hidden = !hasVisible
+      document.querySelectorAll('[data-subcategory-section]').forEach((section) => {
+        section.hidden = !section.querySelector('[data-recipe-item]:not([hidden])')
       })
+      sections.forEach((section) => {
+        const count = section.querySelectorAll('[data-recipe-item]:not([hidden])').length
+        section.hidden = count === 0
+        section.querySelector('[data-category-count]').textContent = count === 1 ? '1 Rezept' : count + ' Rezepte'
+      })
+      const total = availableTotal()
 
-      const filtering = Boolean(activeCategory) || activeTags.size > 0
+      const filtering = !showWip || Boolean(activeCategory) || activeTags.size > 0
       const selectedEmptyCategory = activeCategory !== '' && emptyIds.indexOf(activeCategory) !== -1
 
       if (emptyBlock) {
@@ -214,7 +241,7 @@ const chipClass =
       }
 
       if (selectedEmptyCategory && visible === 0) status.textContent = 'Noch keine Rezepte'
-      else if (visible === total) status.textContent = total + ' Rezepte'
+      else if (visible === total) status.textContent = total === 1 ? '1 Rezept' : total + ' Rezepte'
       else status.textContent = visible + ' von ' + total + ' Rezepten'
     }
 
@@ -227,7 +254,7 @@ const chipClass =
     /**
      * Pagefind only exists in a built site, so `astro dev` has no bundle to
      * import. The explorer then falls back to matching the rendered recipe
-     * cards by title, tags and ingredients.
+     * cards by title, tags, ingredients and preparation.
      */
     const fold = (value) => (value || '').toLowerCase()
 
@@ -396,6 +423,20 @@ const chipClass =
         updateFilteredResults()
       })
     })
+
+    wipToggle.addEventListener('change', () => {
+      beginResultsChange()
+      showWip = wipToggle.checked
+      try {
+        localStorage.setItem(preferenceKey, String(showWip))
+      } catch {
+        // Keep the in-memory preference even when persistence is blocked.
+      }
+      updateFilteredResults()
+    })
+
+    // Restore the preference without scrolling or changing an incoming category anchor.
+    applyFilters()
 
     resetButton?.addEventListener('click', () => {
       beginResultsChange()

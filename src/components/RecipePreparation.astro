@@ -1,0 +1,120 @@
+---
+import { Printer } from '@lucide/astro'
+import type { PreparationGroup } from '../lib/recipe-body'
+
+type Props = { normal: PreparationGroup[]; thermomix: PreparationGroup[]; preparationPending?: boolean }
+const { normal, thermomix, preparationPending = false } = Astro.props
+const methods = [
+  { id: 'normal', label: 'Normal', groups: normal },
+  { id: 'thermomix', label: 'Thermomix', groups: thermomix }
+].filter((method) => method.groups.length > 0)
+const hasAlternatives = !preparationPending && methods.length === 2
+const showPendingCallout = preparationPending || methods.length === 0
+const GroupHeading = hasAlternatives ? 'h4' : 'h3'
+---
+
+<div data-preparation-methods>
+  <div class='flex flex-wrap items-center justify-between gap-x-4 gap-y-3'>
+    <h2 id='zubereitung' class='font-display text-section font-semibold print:break-after-avoid'>
+      Zubereitung
+    </h2>
+    <div class='flex shrink-0 items-center gap-2 print:hidden'>
+      {hasAlternatives && (
+        <div data-method-selector data-pagefind-ignore hidden>
+          <div
+            role='group'
+            aria-label='Zubereitungsart'
+            class='inline-flex h-9 items-stretch gap-0.5 rounded-full border border-rule p-0.5'>
+            {methods.map((method) => (
+              <button
+                type='button'
+                data-method-button={method.id}
+                aria-pressed={method.id === 'normal' ? 'true' : 'false'}
+                aria-controls={`zubereitung-${method.id}`}
+                class='focus-ring cursor-pointer rounded-full px-3 text-sm font-semibold text-ink-soft transition-colors hover:text-ink aria-pressed:bg-ink aria-pressed:text-paper'>
+                {method.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+      <button
+        type='button'
+        id='rezept-drucken'
+        aria-label='Rezept drucken'
+        title='Drucken'
+        class='focus-ring flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-rule text-ink-soft transition-colors hover:border-ink hover:text-ink'>
+        <Printer size={18} aria-hidden='true' focusable='false' />
+      </button>
+    </div>
+  </div>
+  <div class='mt-5 flex flex-col gap-8 print:mt-3 print:gap-4'>
+    {showPendingCallout && (
+      <div class='rounded-2xl border border-accent/25 bg-accent-pale px-6 py-5'>
+        <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-accent uppercase'>Noch nicht fertig</h3>
+        <p class='mt-2 leading-relaxed text-ink'>Dieses Rezept wird nach der ersten Zubereitung ergänzt.</p>
+      </div>
+    )}
+    {!preparationPending &&
+      methods.map((method) => (
+        <div
+          id={`zubereitung-${method.id}`}
+          data-method-panel={method.id}
+          aria-labelledby={hasAlternatives ? `methode-${method.id}` : undefined}>
+          {hasAlternatives && (
+            <h3
+              data-method-heading
+              id={`methode-${method.id}`}
+              class='mb-4 font-display text-xl font-semibold print:break-after-avoid'>
+              {method.label}
+            </h3>
+          )}
+          <div class='flex flex-col gap-8 print:gap-4'>
+            {method.groups.map((group, index) => (
+              <div>
+                {group.title && (
+                  <GroupHeading class='mb-3 text-xs font-bold tracking-[0.14em] text-ink-soft uppercase print:mb-2 print:break-after-avoid'>
+                    {method.groups.length > 1 ? `${String(index + 1).padStart(2, '0')} · ${group.title}` : group.title}
+                  </GroupHeading>
+                )}
+                <div class='flex flex-col gap-5 print:gap-3'>
+                  {group.paragraphs.map((paragraph) => (
+                    <p class='text-lg leading-8 text-ink print:text-[0.95rem] print:leading-6'>
+                      {paragraph.split('\n').map((line, index) => (
+                        <>
+                          {index > 0 && <br />}
+                          {line}
+                        </>
+                      ))}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+  </div>
+</div>
+
+<script>
+  import { initPreparationMethods } from '../lib/preparation-method'
+  document.querySelectorAll('[data-preparation-methods]').forEach((root) => {
+    const reset = initPreparationMethods(root)
+    // Back/forward restoration also opens the recipe in Normal mode.
+    window.addEventListener('pageshow', reset)
+  })
+</script>
+
+<style>
+  @media screen {
+    [data-method-panel][data-method-enhanced] [data-method-heading] {
+      display: none;
+    }
+  }
+
+  /* Hidden panels must stay hidden in the print layout too. */
+  [data-method-panel][hidden] {
+    display: none !important;
+  }
+</style>

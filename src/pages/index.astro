@@ -52,20 +52,23 @@ const emptyEntries = [
     </div>
   </section>
 
-  <RecipeExplorer total={recipes.length}>
+  <RecipeExplorer total={recipes.filter((recipe) => !recipe.data.wip).length}>
     <div class='flex flex-col gap-16 pb-10'>
       {filledCategories.map((category) => {
         const categoryRecipes = byCategory.get(category.id) ?? []
+        const testedCount = categoryRecipes.filter((recipe) => !recipe.data.wip).length
 
         return (
-          <section id={category.id} data-category-section>
+          <section id={category.id} data-category-section hidden={categoryRecipes.every((recipe) => recipe.data.wip)}>
             <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
               <div>
                 <h2 class='font-display text-section font-semibold'>{category.title}</h2>
                 {category.description && <p class='mt-1.5 text-sm text-ink-soft'>{category.description}</p>}
               </div>
-              <p class='text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
-                {categoryRecipes.length === 1 ? '1 Rezept' : `${categoryRecipes.length} Rezepte`}
+              <p
+                data-category-count
+                class='text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
+                {testedCount === 1 ? '1 Rezept' : `${testedCount} Rezepte`}
               </p>
             </header>
 
@@ -75,13 +78,13 @@ const emptyEntries = [
                   const subRecipes = categoryRecipes.filter((recipe) => recipe.data.subcategory === subcategory.id)
                   if (subRecipes.length === 0) return null
                   return (
-                    <div>
+                    <div data-subcategory-section hidden={subRecipes.every((recipe) => recipe.data.wip)}>
                       <h3 class='mb-4 text-[0.7rem] font-bold tracking-[0.18em] text-ink-soft uppercase'>
                         {subcategory.title}
                       </h3>
                       <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {subRecipes.map((entry) => (
-                          <li>
+                          <li data-recipe-item hidden={entry.data.wip}>
                             <RecipeCard entry={entry} />
                           </li>
                         ))}
@@ -93,7 +96,7 @@ const emptyEntries = [
             ) : (
               <ul class='mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                 {categoryRecipes.map((entry) => (
-                  <li>
+                  <li data-recipe-item hidden={entry.data.wip}>
                     <RecipeCard entry={entry} />
                   </li>
                 ))}

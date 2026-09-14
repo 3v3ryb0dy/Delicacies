@@ -1,7 +1,9 @@
 ---
 import { Image } from 'astro:assets'
+import { Lightbulb, UtensilsCrossed } from '@lucide/astro'
 import { getCollection } from 'astro:content'
 import RecipeCard from '../../components/RecipeCard.astro'
+import RecipePreparation from '../../components/RecipePreparation.astro'
 import TagChip from '../../components/TagChip.astro'
 import LogoWatermark from '../../components/LogoWatermark.astro'
 import { categoryById } from '../../config/taxonomy'
@@ -29,9 +31,6 @@ const recipes = await getCollection('recipes')
 const recipeIds = new Set(recipes.map((recipe) => recipe.id))
 const pairings = body.pairings.map((line) => parsePairingLinks(line, recipeIds, entry.id))
 
-const preparationPending = entry.data.preparationPending
-const showPendingCallout = preparationPending || body.preparation.length === 0
-
 /** Component sub-headings are numbered when a recipe has more than one part,
     in both columns, so ingredients and steps line up. */
 const groupLabel = (index: number, title: string, numbered: boolean) =>
@@ -49,6 +48,7 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
 <BaseLayout title={title} description={description}>
   <article
     data-pagefind-body
+    data-pagefind-filter={`wip:${wip}`}
     class='relative isolate mx-auto max-w-[75rem] px-5 pt-8 pb-16 sm:px-8 print:max-w-none print:px-0 print:py-0'>
     <LogoWatermark tone='page' side='left' class='top-[3rem] left-[-124px] size-[min(46vw,22rem)]' />
     <nav class='print:hidden' aria-label='Brotkrümel'>
@@ -111,7 +111,10 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
           <aside
             aria-labelledby='rezept-tipp'
             class='mt-5 break-inside-avoid rounded-xl border-1 border-accent/20 bg-accent-pale px-4 py-3 print:mt-3 print:rounded-md print:border print:border-1 print:px-3 print:py-2'>
-            <h2 id='rezept-tipp' class='text-[0.7rem] font-bold tracking-[0.16em] text-accent uppercase'>
+            <h2
+              id='rezept-tipp'
+              class='flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-accent uppercase'>
+              <Lightbulb size={16} class='shrink-0' aria-hidden='true' focusable='false' />
               Tipp
             </h2>
             <div class='mt-2 flex flex-col gap-2 text-sm leading-relaxed text-ink'>
@@ -124,7 +127,7 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
       </div>
 
       {image && (
-        <div class='mx-auto w-full max-w-80 overflow-hidden rounded-2xl md:max-w-none print:mx-0 print:rounded-md'>
+        <div class='mx-auto w-full max-w-80 overflow-hidden rounded-xl md:max-w-none print:mx-0 print:rounded-md'>
           <Image
             src={image}
             alt={alt}
@@ -183,53 +186,19 @@ const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Deli
       </section>
 
       <section aria-labelledby='zubereitung'>
-        <div class='flex items-baseline justify-between gap-4'>
-          <h2 id='zubereitung' class='font-display text-section font-semibold print:break-after-avoid'>
-            Zubereitung
-          </h2>
-          <button
-            type='button'
-            id='rezept-drucken'
-            class='focus-ring cursor-pointer rounded-full border border-rule px-4 py-1.5 text-sm font-semibold text-ink-soft transition-colors hover:border-ink hover:text-ink print:hidden'>
-            Drucken
-          </button>
-        </div>
-
-        <div class='mt-5 flex flex-col gap-8 print:mt-3 print:gap-4'>
-          {showPendingCallout && (
-            <div class='rounded-2xl border border-accent/25 bg-accent-pale px-6 py-5'>
-              <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-accent uppercase'>Noch nicht fertig</h3>
-              <p class='mt-2 leading-relaxed text-ink'>Dieses Rezept wird nach der ersten Zubereitung ergänzt.</p>
-            </div>
-          )}
-          {!preparationPending &&
-            body.preparation.map((group, index) => (
-              <div>
-                {group.title && (
-                  <h3 class='mb-3 text-xs font-bold tracking-[0.14em] text-ink-soft uppercase print:mb-2 print:break-after-avoid'>
-                    {groupLabel(index, group.title, body.preparation.length > 1)}
-                  </h3>
-                )}
-                <div class='flex flex-col gap-5 print:gap-3'>
-                  {group.paragraphs.map((paragraph) => (
-                    <p class='text-lg leading-8 text-ink print:text-[0.95rem] print:leading-6'>
-                      {paragraph.split('\n').map((line, index) => (
-                        <>
-                          {index > 0 && <br />}
-                          {line}
-                        </>
-                      ))}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
-        </div>
+        <RecipePreparation
+          normal={body.preparation}
+          thermomix={body.thermomixPreparation}
+          preparationPending={entry.data.preparationPending}
+        />
 
         {pairings.length > 0 && (
-          <div class='mt-10 break-inside-avoid rounded-2xl bg-herb-soft/70 px-6 py-5 print:mt-6 print:rounded-lg print:px-4 print:py-3'>
-            <h3 class='text-[0.7rem] font-bold tracking-[0.18em] text-herb uppercase'>Passt dazu</h3>
-            <ul class='mt-2.5 flex flex-col gap-1.5 text-sm text-ink tabular-nums'>
+          <div class='mt-10 break-inside-avoid rounded-xl border-1 border-herb/20 bg-herb-soft/70 px-4 py-3 print:mt-6 print:rounded-md print:border print:border-1 print:px-3 print:py-2'>
+            <h3 class='flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] text-herb uppercase'>
+              <UtensilsCrossed size={16} class='shrink-0' aria-hidden='true' focusable='false' />
+              Passt dazu
+            </h3>
+            <ul class='mt-2 flex flex-col gap-2 text-sm leading-relaxed text-ink'>
               {pairings.map((pairing) => (
                 <li>
                   {pairing.map((segment) =>

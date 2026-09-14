@@ -1,6 +1,6 @@
 ---
-title: Vegetarische Bouletten
-category: sonstiges
+title: Bouletten (vegetarisch)
+category: hauptgerichte
 image: images/vegetarische-bouletten.webp
 imageAlt: Goldbraun gebratene vegetarische Bouletten aus Haferflocken und Käse
 tags: [vegetarisch]

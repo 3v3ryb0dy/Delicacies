@@ -68,6 +68,7 @@ ${sections.join('\n\n')}
 2. Kopf ausfüllen: \`title\`, \`category\` (siehe oben), \`tags\` und optional \`image\`.
 3. \`## Zutaten\` und \`## Zubereitung\` schreiben, Bilder nach \`recipes/images/\` (Prompt-Vorlage: [Image Generation](docs/image-generation.md)).
    PNG, JPG und JPEG sind möglich. \`image: images/mein-rezept\` funktioniert ohne Dateiendung; beim Formatwechsel wird eine passende Datei automatisch gesucht.
+   Ungetestete Rezepte mit \`wip: true\` markieren: Sie sind standardmäßig ausgeblendet und lassen sich über „Ungetestete Rezepte anzeigen“ einblenden. Die Auswahl wird im Browser gespeichert. Nach dem Testen \`wip\` entfernen oder auf \`false\` setzen.
 4. \`npm run build\` ausführen. Übersicht und README entstehen automatisch.
 
 ## Ideen

@@ -66,3 +66,34 @@ Optional tip:
 >
 > Nur kleine Portionen auf einmal frittieren.
 ```
+
+## Alternative preparation methods
+
+Keep one shared ingredient list and a complete normal method under `## Zubereitung`.
+Add an optional `## Zubereitung (Thermomix)` section for a complete alternative procedure.
+Within each method, use `###` component headings and blockquoted paragraphs as usual:
+
+```md
+## Zubereitung
+
+### Creme
+
+> Mit dem Handrührgerät verrühren.
+
+## Zubereitung (Thermomix)
+
+### Creme
+
+> 20 Sek. / Stufe 4 verrühren.
+```
+
+The Normal / Thermomix selector appears only when both methods contain instructions.
+Each visit starts in Normal mode; the method selection is not saved. Ingredients, tips,
+pairings and notes are shared. Printing includes the selected method and its name.
+Without JavaScript, both methods are shown with explicit labels. Search indexes both
+methods as one recipe. Existing recipes require no changes.
+
+Each method must include all steps, including assembly, cooling and serving; do not refer
+readers to steps hidden in the other method. `preparationPending: true` continues to hide
+preparation instructions until they are ready. Use `wip: true` for a complete but untested
+recipe, such as the TM5/TM6 instructions in `cheesecake-im-glas.md`.

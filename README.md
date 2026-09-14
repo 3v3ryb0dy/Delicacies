@@ -11,24 +11,25 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-27 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+28 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Hauptgerichte (5)
+### Hauptgerichte (6)
 
 - [Bouletten](recipes/bouletten.md)
+- [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
 - [Flammkuchen](recipes/flammkuchen.md)
 - [Ochsenbäckchen (geschmort)](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md)
 
-### Desserts (0)
+### Desserts (1)
 
-_Noch keine Rezepte. Hier ist Platz für Neues._
+- [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(in Arbeit)_
 
 ### Beilagen (4)
 
@@ -82,10 +83,9 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
 
-### Sonstiges (2)
+### Sonstiges (1)
 
 - [Tempura Teig (knusprig)](recipes/tempura-teig.md)
-- [Vegetarische Bouletten](recipes/vegetarische-bouletten.md)
 
 ## Rezept hinzufügen
 
@@ -93,6 +93,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 2. Kopf ausfüllen: `title`, `category` (siehe oben), `tags` und optional `image`.
 3. `## Zutaten` und `## Zubereitung` schreiben, Bilder nach `recipes/images/` (Prompt-Vorlage: [Image Generation](docs/image-generation.md)).
    PNG, JPG und JPEG sind möglich. `image: images/mein-rezept` funktioniert ohne Dateiendung; beim Formatwechsel wird eine passende Datei automatisch gesucht.
+   Ungetestete Rezepte mit `wip: true` markieren: Sie sind standardmäßig ausgeblendet und lassen sich über „Ungetestete Rezepte anzeigen“ einblenden. Die Auswahl wird im Browser gespeichert. Nach dem Testen `wip` entfernen oder auf `false` setzen.
 4. `npm run build` ausführen. Übersicht und README entstehen automatisch.
 
 ## Ideen

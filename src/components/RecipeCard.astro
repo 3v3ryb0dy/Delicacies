@@ -21,10 +21,16 @@ const spotlight = position === 'spotlight'
 
 /**
  * Pagefind only exists in the built site, so the explorer falls back to
- * searching the rendered cards by title, tags and ingredients.
+ * searching the rendered cards by title, tags, ingredients and preparation.
  */
-const searchText = parseRecipeBody(entry.body ?? '')
-  .ingredients.flatMap((group) => [group.title, ...group.items])
+const parsedBody = parseRecipeBody(entry.body ?? '')
+const searchText = [
+  ...parsedBody.ingredients.flatMap((group) => [group.title, ...group.items]),
+  ...[...parsedBody.preparation, ...parsedBody.thermomixPreparation].flatMap((group) => [
+    group.title,
+    ...group.paragraphs
+  ])
+]
   .filter(Boolean)
   .join(' · ')
 
@@ -47,6 +53,7 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
 
 <article
   data-recipe
+  data-wip={String(wip)}
   data-category={category}
   data-category-label={categoryTitle}
   data-tags={tags.join(' ')}
