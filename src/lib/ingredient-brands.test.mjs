@@ -21,9 +21,19 @@ test('multiple and repeated ingredients link independently without changing the 
   )
 })
 
+test('Tahini links to its registered brand while surrounding text stays literal', () => {
+  const text = '3 EL Tahini und etwas Sojasauce'
+  assert.deepEqual(parseIngredientBrands(text, brandRecommendations), [
+    { text: '3 EL ' },
+    { text: 'Tahini', brandId: 'tahini' },
+    { text: ' und etwas Sojasauce' }
+  ])
+})
+
 test('unregistered ingredients remain plain text', () => {
   const text = '3 EL Tahini und etwas Sojasauce'
-  assert.deepEqual(parseIngredientBrands(text, brandRecommendations), [{ text }])
+  const recommendations = [{ id: 'fischsauce', ingredient: 'Fischsauce', brand: 'Red Boat' }]
+  assert.deepEqual(parseIngredientBrands(text, recommendations), [{ text }])
   assert.deepEqual(parseIngredientBrands('Fischsauce', []), [{ text: 'Fischsauce' }])
 })
 
