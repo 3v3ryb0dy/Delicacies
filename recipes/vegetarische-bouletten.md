@@ -41,5 +41,3 @@ tags: [vegetarisch]
 > Mit feuchten Händen Bouletten formen und leicht flach drücken.
 >
 > In etwas Öl bei mittlerer Hitze langsam von beiden Seiten kräftig goldbraun braten, etwa 4–5 Minuten pro Seite.
->
-> Vor dem Servieren 2–3 Minuten ruhen lassen.
