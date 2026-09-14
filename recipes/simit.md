@@ -40,3 +40,5 @@ servings: 5 Stück
 > Ofen auf 210 °C Ober-/Unterhitze vorheizen. Simit etwa 18–20 Minuten kräftig goldbraun backen.
 >
 > Auf einem Gitter kurz abkühlen lassen und am besten lauwarm servieren.
+
+Passende Dips: [Bohnen Hummus](bohnen-hummus.md).
