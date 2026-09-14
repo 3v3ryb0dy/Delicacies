@@ -11,13 +11,27 @@ import { withBase } from '../lib/url'
 type Props = {
   title?: string
   description?: string
+  previewTitle?: string
+  previewImage?: {
+    src: string
+    width: number
+    height: number
+    alt: string
+    type: string
+  }
 }
 
-const { title, description = 'Kochbuch der Delikatessen. Über Jahre gesammelte Rezepte, die sich bewährt haben.' } =
-  Astro.props
+const {
+  title,
+  description = 'Kochbuch der Delikatessen. Über Jahre gesammelte Rezepte, die sich bewährt haben.',
+  previewTitle,
+  previewImage
+} = Astro.props
 
 const pageTitle = title ? `${title} | Kochbuch der Delikatessen` : 'Kochbuch der Delikatessen'
 const canonical = new URL(Astro.url.pathname, Astro.site)
+const socialTitle = previewTitle ?? pageTitle
+const imageUrl = previewImage ? new URL(previewImage.src, Astro.site).href : undefined
 ---
 
 <!doctype html>
@@ -40,10 +54,30 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
          Fraunces happens before the first paint. -->
     <link rel='preload' href={nunitoSansLatin} as='font' type='font/woff2' crossorigin />
     <link rel='preload' href={frauncesLatin} as='font' type='font/woff2' crossorigin />
-    <meta property='og:title' content={pageTitle} />
+    <meta property='og:title' content={socialTitle} />
     <meta property='og:description' content={description} />
     <meta property='og:type' content='website' />
     <meta property='og:locale' content='de_DE' />
+    <meta property='og:url' content={canonical.href} />
+    <meta property='og:site_name' content='Kochbuch der Delikatessen' />
+    {previewImage && (
+      <>
+        <meta property='og:image' content={imageUrl} />
+        <meta property='og:image:type' content={previewImage.type} />
+        <meta property='og:image:width' content={String(previewImage.width)} />
+        <meta property='og:image:height' content={String(previewImage.height)} />
+        <meta property='og:image:alt' content={previewImage.alt} />
+      </>
+    )}
+    <meta name='twitter:card' content={previewImage ? 'summary_large_image' : 'summary'} />
+    <meta name='twitter:title' content={socialTitle} />
+    <meta name='twitter:description' content={description} />
+    {previewImage && (
+      <>
+        <meta name='twitter:image' content={imageUrl} />
+        <meta name='twitter:image:alt' content={previewImage.alt} />
+      </>
+    )}
   </head>
   <body class='flex min-h-dvh flex-col bg-paper text-ink'>
     <a

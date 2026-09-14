@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { getImage, Image } from 'astro:assets'
 import { ArrowLeft, Lightbulb, UtensilsCrossed } from '@lucide/astro'
 import { getCollection } from 'astro:content'
 import RecipeCard from '../../components/RecipeCard.astro'
@@ -41,11 +41,23 @@ const siblings = recipes
   .sort((a, b) => a.data.title.localeCompare(b.data.title, 'de'))
   .slice(0, 3)
 
-const alt = imageAlt ?? title
-const description = `${title}: Zutaten und Zubereitung aus dem Kochbuch der Delikatessen.`
+const alt = imageAlt?.trim() || title
+const description = imageAlt?.trim() || `${title}: Zutaten und Zubereitung aus dem Kochbuch der Delikatessen.`
+const socialImage = image
+  ? await getImage({ src: image, width: Math.min(image.width, 1200), format: 'jpeg', quality: 80 })
+  : undefined
+const previewImage = socialImage
+  ? {
+      src: socialImage.src,
+      width: Number(socialImage.attributes.width),
+      height: Number(socialImage.attributes.height),
+      alt,
+      type: 'image/jpeg'
+    }
+  : undefined
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} previewTitle={title} previewImage={previewImage}>
   <article
     data-pagefind-body
     data-pagefind-filter={`wip:${wip}`}
