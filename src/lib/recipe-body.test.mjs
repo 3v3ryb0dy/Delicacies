@@ -43,3 +43,29 @@ test('unsupported markup stays literal and link labels remain text for Astro to 
     { text: '<b>Rotkohl</b>', recipeId: 'rotkohl' }
   ])
 })
+
+test('preparation hard breaks stay inside one paragraph while soft wraps join with spaces', () => {
+  for (const marker of ['\\', '  ']) {
+    const body = parseRecipeBody(
+      ['## Zubereitung', `> Eier schlagen.${marker}`, '>Mehl sieben', '> und einarbeiten.', '>', '> Backen.'].join(
+        '\r\n'
+      )
+    )
+    assert.deepEqual(body.preparation, [{ paragraphs: ['Eier schlagen.\nMehl sieben und einarbeiten.', 'Backen.'] }])
+  }
+})
+
+test('hard breaks do not cross paragraph or group boundaries and final backslashes stay literal', () => {
+  const body = parseRecipeBody(
+    ['## Zubereitung', '> Rühren.\\', '>', '> Backen.\\', '### Glasur', '> Bestreichen.\\'].join('\n')
+  )
+  assert.deepEqual(body.preparation, [
+    { paragraphs: ['Rühren.\\', 'Backen.\\'] },
+    { title: 'Glasur', paragraphs: ['Bestreichen.\\'] }
+  ])
+})
+
+test('an escaped trailing backslash does not force a line break', () => {
+  const body = parseRecipeBody('## Zubereitung\n> Text\\\\\n> Fortsetzung.')
+  assert.deepEqual(body.preparation, [{ paragraphs: ['Text\\\\ Fortsetzung.'] }])
+})

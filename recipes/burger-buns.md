@@ -30,14 +30,11 @@ tags: [ofen, vegetarisch]
 
 > Wasser mit Milch und Zucker in eine Schüssel geben, Hefe hineinbröseln, ca. 10 Minuten ruhen lassen.
 >
-> Anschließend Mehl, Salz, Ei und die geschmolzene Butter hinzufügen und zu einem glatten Teig kneten.
->
+> Anschließend Mehl, Salz, Ei und die geschmolzene Butter hinzufügen und zu einem glatten Teig kneten.\
 > Den Teig 1 Stunde abgedeckt an einem warmen Ort gehen lassen.
 >
-> In 10 Teile aufteilen, zu Kugeln formen und auf Backblech mit Backpapier verteilen. Der Teig ist sehr klebrig, Mehl hilft.
->
+> In 10 Teile aufteilen, zu Kugeln formen und auf Backblech mit Backpapier verteilen. Der Teig ist sehr klebrig, Mehl hilft.\
 > Erneut abdecken und 1 weitere Stunde gehen lassen.
 >
-> Ei mit Milch und Wasser vermischen.
->
+> Ei mit Milch und Wasser vermischen.\
 > Brötchen mit der Mischung bepinseln und bei 200°C bei Ober- und Unterhitze ca. 16 - 20 Minuten backen.

@@ -70,7 +70,8 @@ export function parsePairingLinks(
  *   > Aus Mehl, Wasser, Öl und Salz einen Teig herstellen.
  *
  * Preparation deliberately stays prose rather than a numbered list, so each
- * blockquote (or hard-wrapped line) becomes one paragraph on the page.
+ * blank line ends a paragraph. Soft wraps become spaces; explicit Markdown
+ * hard breaks become newlines within a preparation paragraph.
  */
 export function parseRecipeBody(markdown: string): ParsedRecipeBody {
   const ingredients: IngredientGroup[] = []
@@ -81,7 +82,7 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
   let section: Section = 'unknown'
   let ingredientGroup: IngredientGroup | undefined
   let preparationGroup: PreparationGroup | undefined
-  let buffer = ''
+  let buffer: string[] = []
 
   const currentIngredientGroup = () => {
     if (!ingredientGroup) {
@@ -100,8 +101,18 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
   }
 
   const flushParagraph = () => {
-    const text = buffer.replace(/\s+/g, ' ').trim()
-    buffer = ''
+    const text = buffer
+      .map((line, index) => {
+        const continues = index < buffer.length - 1
+        const backslashes = /\\+$/.exec(line)?.[0].length ?? 0
+        const backslashBreak = backslashes % 2 === 1
+        const hardBreak = continues && (backslashBreak || / {2,}$/.test(line))
+        const content = hardBreak && backslashBreak ? line.slice(0, -1) : line
+        return content.replace(/\s+/g, ' ').trim() + (continues ? (hardBreak ? '\n' : ' ') : '')
+      })
+      .join('')
+      .trim()
+    buffer = []
     if (!text) return
 
     if (pairingPattern.test(text)) {
@@ -160,19 +171,15 @@ export function parseRecipeBody(markdown: string): ParsedRecipeBody {
       continue
     }
 
-    const quote = /^>\s?(.*)$/.exec(line)
-    const text = quote ? quote[1].trim() : line
+    const quote = /^>\s?(.*)$/.exec(rawLine.trimStart())
+    const text = quote ? quote[1] : rawLine.trimStart()
 
-    if (!text) {
+    if (!text.trim()) {
       flushParagraph()
       continue
     }
 
-    buffer = buffer ? `${buffer} ${text}` : text
-    if (buffer.endsWith('\\')) {
-      buffer = buffer.slice(0, -1)
-      flushParagraph()
-    }
+    buffer.push(text)
   }
 
   flushParagraph()

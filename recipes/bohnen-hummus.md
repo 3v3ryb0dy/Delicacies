@@ -18,6 +18,5 @@ tags: [vegan, vegetarisch]
 
 ## Zubereitung
 
-> Bohnen stampfen (oder Foodprozessor/ Mixer). Süßkartoffel kochen/dämpfen, den gestampften Bohnen hinzufügen.
->
+> Bohnen stampfen (oder Foodprozessor/Mixer). Süßkartoffel kochen/dämpfen, den gestampften Bohnen hinzufügen.\
 > Nach Geschmack Knoblauch, Tahini, Zitrone, Cumin und Salz hinzufügen. Alles ordentlich mischen.

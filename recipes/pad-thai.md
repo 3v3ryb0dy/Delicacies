@@ -30,6 +30,5 @@ tags: [asiatisch]
 >
 > Währenddessen alle Zutaten der Sauce verrühren, bis sich der Zucker aufgelöst hat.
 >
-> Öl in einer Pfanne oder einem Wok erhitzen und Eier darin als Omelette stocken lassen. Nudeln hinzugeben, Sauce angießen und kochen, bis die Nudeln fast gar sind. Falls die Nudeln zu trocken werden, einen Schluck Wasser hinzugeben.
->
+> Öl in einer Pfanne oder einem Wok erhitzen und Eier darin als Omelette stocken lassen. Nudeln hinzugeben, Sauce angießen und kochen, bis die Nudeln fast gar sind. Falls die Nudeln zu trocken werden, einen Schluck Wasser hinzugeben.\
 > Sojasprossen und Thai Schnittlauch kurz mitgaren und servieren.

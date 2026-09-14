@@ -35,3 +35,18 @@ tags: [vegetarisch]
 >
 > Nächster Zubereitungsschritt.
 ```
+
+## Line breaks in preparation
+
+Use a single trailing backslash (`\`) for a line break within the same paragraph:
+
+```md
+> Eier, Zucker und Öl schaumig schlagen.\
+> Mehl sieben und hinzugeben.
+>
+> Nächster Zubereitungsschritt als eigener Absatz.
+```
+
+A blank quote line (`>`) starts a new paragraph with spacing. Ordinary source line wraps
+are joined with a space. Two trailing spaces also create a line break, but prefer the
+visible backslash so editors do not accidentally remove it.

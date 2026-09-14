@@ -25,6 +25,5 @@ tags: [deutsch, vegetarisch]
 >
 > In heißem Fett gewürfelte Zwiebel, Zucker und fein geschnittene Äpfel andünsten, Rotkohl zugeben und sofort Essig darüber gießen. 10 Minuten zugedeckt dünsten. Etwas Wasser aufgießen, Salz dazugeben.
 >
-> Zugedeckt ca. 30 - 45 Minuten weich dünsten. Bei Bedarf heißes Wasser aufgießen.
->
+> Zugedeckt ca. 30 - 45 Minuten weich dünsten. Bei Bedarf heißes Wasser aufgießen.\
 > Nach Belieben mit Rotwein abschmecken.

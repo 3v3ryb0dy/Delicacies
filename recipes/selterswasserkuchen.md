@@ -32,10 +32,8 @@ tags: [ofen, deutsch, vegetarisch]
 
 > Ofen auf 180° Ober-/Unterhitze vorheizen. Eine Backform gut einfetten und optional mit Semmelbröseln ausstreuen.
 >
-> Eier, Zucker und Öl schaumig schlagen.
->
-> Mehl sieben und mit Backpulver, Salz und abgeriebener Zitronenschale hinzugeben. Alles gut einarbeiten.
->
+> Eier, Zucker und Öl schaumig schlagen.\
+> Mehl sieben und mit Backpulver, Salz und abgeriebener Zitronenschale hinzugeben. Alles gut einarbeiten.\
 > Zum Schluss das Selterswasser unterrühren. Nach Belieben Rosinen hinzugeben.
 >
 > Für einen Schwarz-Weiß-Kuchen die Hälfte des Teiges in die Form geben. Die andere Hälfte in der Schüssel lassen und mit Kakaopulver verrühren. Den dunklen Teig zum hellen Teig in die Form geben.
