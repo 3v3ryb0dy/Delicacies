@@ -11,20 +11,21 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-35 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+36 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (0)
 
 _Noch keine Rezepte. Hier ist Platz für Neues._
 
-### Hauptgerichte (8)
+### Hauptgerichte (9)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
 - [Dicker Eierkuchen](recipes/dicker-eierkuchen.md)
 - [Flammkuchen](recipes/flammkuchen.md)
 - [Hähnchen in Metaxasauce](recipes/haehnchen-in-metaxasauce.md)
+- [Halloumi auf Ofengemüse](recipes/halloumi-auf-ofengemuese.md)
 - [Ochsenbäckchen (geschmort)](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md)
