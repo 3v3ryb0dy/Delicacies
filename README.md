@@ -17,7 +17,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 ### Vorspeisen (5)
 
 - [Kaltes Thunfisch-Tataki mit Grapefruit und rosa Beeren](recipes/thunfisch-tataki.md) _(Ungetestet)_
-- [Mauritius-Krabbencocktail](recipes/mauritius-krabbencocktail.md) _(Ungetestet)_
+- [Mauritius-Garnelencocktail](recipes/mauritius-garnelencocktail.md) _(Ungetestet)_
 - [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(Ungetestet)_
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
@@ -52,7 +52,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 #### Sättigungsbeilagen
 
 - [Kartoffelgratin](recipes/kartoffelgratin.md) _(Ungetestet)_
-- [Kretische Kartoffeln](recipes/kretanische-kartoffeln.md) _(Ungetestet)_
+- [Kretische Kartoffeln](recipes/kretische-kartoffeln.md) _(Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
 ### Kuchen (4)

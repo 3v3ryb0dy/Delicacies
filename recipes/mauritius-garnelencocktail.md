@@ -1,7 +1,7 @@
 ---
-title: Mauritius-Krabbencocktail
+title: Mauritius-Garnelencocktail
 category: vorspeisen
-image: images/mauritius-krabbencocktail.webp
+image: images/mauritius-garnelencocktail.webp
 imageAlt: Gebratene Garnelen auf buntem Salat mit Ananas, Apfel und Maracuja-Mango-Dressing
 servings: 4 Vorspeisenportionen
 tags: [meeresfrüchte]

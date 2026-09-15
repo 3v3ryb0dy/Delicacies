@@ -2,7 +2,7 @@
 title: Kretische Kartoffeln
 category: beilagen
 subcategory: saettigungsbeilagen
-image: images/kretanische-kartoffeln.webp
+image: images/kretische-kartoffeln.webp
 imageAlt: Goldbraun überbackene Kartoffelscheiben in cremiger Käsesauce
 tags: [vegetarisch, ofen]
 wip: true

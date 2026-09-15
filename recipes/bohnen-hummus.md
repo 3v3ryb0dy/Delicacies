@@ -14,7 +14,7 @@ tags: [vegan, vegetarisch]
 - 3 - 4 Zehen Knoblauch
 - Saft einer halben Zitrone
 - 3 EL Tahini
-- 3 - 4 EL Cumin (oder nach Geschmack)
+- 3 - 4 TL Cumin (oder nach Geschmack)
 
 ## Zubereitung
 

@@ -15,7 +15,7 @@ tags: [familienrezept]
 
 - 750 g Salatkartoffeln
 - 125 ml Brühe
-- Essig
+- 1 TL Essig
 - Salz, Pfeffer
 - 1 Prise Zucker
 - 1 kleine Zwiebel
@@ -25,7 +25,7 @@ tags: [familienrezept]
 
 > Kartoffeln kochen und pellen. In Scheiben schneiden.
 >
-> Brühe kräftig mit Essig, Salz, wenig Zucker und Pfeffer oder Paprikapulver abschmecken.\
+> Brühe kräftig mit 1 TL Essig, Salz, wenig Zucker und Pfeffer oder Paprikapulver abschmecken.\
 > Kartoffelscheiben mit der Brühe marinieren.
 >
 > Zwiebel fein schneiden. Erst anschließend Zwiebel und Öl unter den Kartoffelsalat geben.

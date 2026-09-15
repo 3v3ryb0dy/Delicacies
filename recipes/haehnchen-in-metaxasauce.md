@@ -13,7 +13,7 @@ tags: [fleisch, hähnchen, griechisch]
 
 ## Zutaten
 
-- 4 Hähnchenbrustfilets
+- 400 g Hähnchenbrustfilet
 - 1 rote Paprikaschote
 - 1 weiße Zwiebel
 - 1 Knoblauchzehe

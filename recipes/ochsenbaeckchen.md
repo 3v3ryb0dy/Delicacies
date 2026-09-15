@@ -12,7 +12,7 @@ tags: [fleisch, ofen, deutsch]
 - 1 Flasche Rotwein
 - 250 g Suppengemüse (Knollensellerie, Lauch, Möhren)
 - 1 Zwiebel
-- 2 EL Tomatenmark
+- 1 EL Tomatenmark
 - 1,2 l Kalbsfond
 - Öl
 - Salz, Pfeffer
