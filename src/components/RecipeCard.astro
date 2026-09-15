@@ -5,13 +5,15 @@ import type { CollectionEntry } from 'astro:content'
 import { categoryById, subcategoryById } from '../config/taxonomy'
 import { withBase } from '../lib/url'
 import { parseRecipeBody } from '../lib/recipe-body'
+import { resolveRecipePhoto } from '../lib/recipe-photo'
 
 type Props = {
   entry: CollectionEntry<'recipes'>
 }
 
 const { entry } = Astro.props
-const { title, category, tags, image, imageAlt, wip, preparationPending } = entry.data
+const { title, category, tags, imageAlt, wip, preparationPending } = entry.data
+const image = resolveRecipePhoto(entry.data.image)
 
 const categoryTitle = categoryById.get(category)?.short ?? category
 const href = withBase(`rezept/${entry.id}/`)

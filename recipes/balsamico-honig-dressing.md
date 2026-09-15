@@ -22,3 +22,5 @@ servings: eine Salatschüssel für ca. 2–3 Personen (55–60 g Dressing)
 > Balsamico, Honig, Senf, Wasser, Salz und Pfeffer verrühren. Öl langsam einrühren oder alles im Schraubglas kräftig schütteln. Nach Belieben wenig Knoblauch hinzugeben.
 >
 > Bei sehr süßem Balsamico den Honig reduzieren.
+
+Passende Begleitung: [Tarte mit karamellisiertem Knoblauch](tarte-mit-karamellisiertem-knoblauch.md).

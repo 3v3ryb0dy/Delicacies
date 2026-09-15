@@ -13,6 +13,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import { parseIngredientBrands } from '../../lib/ingredient-brands'
 import { parsePairingLinks, parseRecipeBody } from '../../lib/recipe-body'
 import { withBase } from '../../lib/url'
+import { resolveRecipePhoto } from '../../lib/recipe-photo'
 
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes')
@@ -20,7 +21,8 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title, tags, image, imageAlt, wip, preparationPending, servings, note, source } = entry.data
+const { title, tags, imageAlt, wip, preparationPending, servings, note, source } = entry.data
+const image = resolveRecipePhoto(entry.data.image)
 
 const categoryMeta = categoryById.get(entry.data.category)
 const categoryTitle = categoryMeta?.title ?? entry.data.category
@@ -46,7 +48,12 @@ const siblings = recipes
 const alt = imageAlt?.trim() || title
 const description = imageAlt?.trim() || `${title}: Zutaten und Zubereitung aus dem Kochbuch der Delikatessen.`
 const socialImage = image
-  ? await getImage({ src: image, width: Math.min(image.width, 1200), format: 'jpeg', quality: 72 })
+  ? await getImage({
+      src: image,
+      width: typeof image === 'string' ? 1200 : Math.min(image.width, 1200),
+      format: 'jpeg',
+      quality: 72
+    })
   : undefined
 const previewImage = socialImage
   ? {

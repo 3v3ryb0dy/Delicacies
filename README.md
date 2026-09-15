@@ -11,34 +11,41 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-53 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+66 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
-### Vorspeisen (5)
+### Vorspeisen (6)
 
+- [Auberginen mit Buttermilchsauce und Granatapfel](recipes/auberginen-mit-buttermilchsauce.md) _(Ungetestet)_
 - [Kaltes Thunfisch-Tataki mit Grapefruit und rosa Beeren](recipes/thunfisch-tataki.md) _(Ungetestet)_
 - [Mauritius-Garnelencocktail](recipes/mauritius-garnelencocktail.md) _(Ungetestet)_
 - [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(Ungetestet)_
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (11)
+### Hauptgerichte (16)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
 - [Dicker Eierkuchen](recipes/dicker-eierkuchen.md)
 - [Flammkuchen](recipes/flammkuchen.md)
 - [Hähnchen in Metaxasauce](recipes/haehnchen-in-metaxasauce.md)
+- [Hähnchen mit karamellisierten Zwiebeln, Kardamom und Reis](recipes/haehnchen-mit-kardamomreis.md) _(Ungetestet)_
 - [Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat](recipes/halloumi-auf-ofengemuese.md)
 - [Kurz gebeizter Lachs aus der Pfanne](recipes/kurz-gebeizter-lachs.md)
+- [Mejadra](recipes/mejadra.md) _(Ungetestet)_
 - [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md) _(Ungetestet)_
+- [Shakshuka](recipes/shakshuka.md) _(Ungetestet)_
+- [Tarte mit karamellisiertem Knoblauch](recipes/tarte-mit-karamellisiertem-knoblauch.md) _(Ungetestet)_
+- [Tofu mit schwarzem Pfeffer](recipes/tofu-mit-schwarzem-pfeffer.md) _(Ungetestet)_
 - [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(Ungetestet)_
 
-### Desserts (1)
+### Desserts (2)
 
 - [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(Ungetestet)_
+- [Pavlova-Roulade mit Pfirsichen und Brombeeren](recipes/pavlova-roulade.md) _(Ungetestet)_
 
 ### Suppen (5)
 
@@ -64,16 +71,18 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Kretische Kartoffeln](recipes/kretische-kartoffeln.md) _(Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Salate (1)
+### Salate (2)
 
+- [Blumenkohlsalat mit Granatapfel und Pistazien](recipes/blumenkohlsalat-mit-granatapfel.md) _(Ungetestet)_
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 
-### Saucen / Dips / Dressings (9)
+### Saucen / Dips / Dressings (10)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico-Honig-Dressing](recipes/balsamico-honig-dressing.md)
 - [Big-Mac-Sauce](recipes/big-mac-sauce.md)
 - [Bohnen-Hummus mit Süßkartoffel](recipes/bohnen-hummus.md)
+- [Hummus](recipes/hummus.md) _(Ungetestet)_
 - [Maracuja-Limetten-Dressing](recipes/maracuja-limetten-dressing.md)
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)
@@ -93,12 +102,16 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Schinkengipfeli](recipes/schinkengipfeli.md)
 - [Vanillekipferl](recipes/vanillekipferl.md)
 
-### Kuchen (4)
+### Kuchen (8)
 
 - [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(Ungetestet)_
 - [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
+- [Honig-Joghurt-Cheesecake](recipes/honig-joghurt-cheesecake.md) _(Ungetestet)_
 - [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
+- [Pistazien-Rosen-Grießkuchen](recipes/pistazien-rosen-griesskuchen.md) _(Ungetestet)_
+- [Schokoladenkuchen (Take-Home Chocolate Cake)](recipes/schokoladenkuchen.md) _(Ungetestet)_
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
+- [Zitronen-Mohn-Kuchen](recipes/zitronen-mohn-kuchen.md) _(Ungetestet)_
 
 ### Torten (0)
 

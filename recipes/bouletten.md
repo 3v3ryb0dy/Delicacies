@@ -35,4 +35,4 @@ tags: [fleisch, deutsch]
 
 Passendes Gemüse: [Karotten](karotten.md), [Brokkoli](brokkoli.md)
 
-Passende Beilagen: Kartoffelstampf
+> Dazu Kartoffelstampf servieren.

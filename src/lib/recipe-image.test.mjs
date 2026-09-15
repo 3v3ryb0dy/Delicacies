@@ -31,6 +31,13 @@ test('missing photos never resolve to another recipe', () => {
   assert.equal(resolveRecipeImage('images/missing.jpg', { 'images/dish.jpg': 'JPG' }), undefined)
 })
 
+test('stale extensionless content paths resolve to imported metadata after the photo is added', () => {
+  const reference = './images/honig-joghurt-cheesecake'
+  assert.equal(resolveRecipeImage(reference, {}), undefined)
+  const metadata = { src: '/_astro/cheesecake.webp', width: 1448, height: 1086, format: 'webp' }
+  assert.equal(resolveRecipeImage(reference, { 'images/honig-joghurt-cheesecake.webp': metadata }), metadata)
+})
+
 test('content image references are explicitly relative for Astro', () => {
   assert.equal(resolveContentImageReference('images/dish.webp', {}), './images/dish.webp')
   assert.equal(
