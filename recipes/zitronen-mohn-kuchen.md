@@ -13,7 +13,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 
 - 3 Eier (groß)
 - 225 g Zucker (fein)
-- 120 ml Double Cream
+- 120 ml Crème double
 - 75 g Butter (zzgl. etwas für die Form)
 - 10 g Mohn
 - 3 Zitronen (Schale fein abgerieben, etwa 1 EL)
@@ -32,7 +32,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 > Eine Kastenform von etwa 23 × 13 × 6 cm (900-g- bzw. 2-lb-Form) fetten und mit Backpapier auslegen.
 >
 > Eier und Zucker mit der Küchenmaschine bei mittelhoher Geschwindigkeit etwa 2 Minuten schlagen, bis die Mischung hell und schaumig ist.\
-> Double Cream zugeben und weitere 2 Minuten schlagen, bis die Masse homogen, heller und etwas dicker geworden ist.
+> Crème double zugeben und weitere 2 Minuten schlagen, bis die Masse homogen, heller und etwas dicker geworden ist.
 >
 > Währenddessen Butter bei kleiner Hitze schmelzen. Mohn und Zitronenschale einrühren und beiseitestellen.
 >

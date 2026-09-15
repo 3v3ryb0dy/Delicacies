@@ -31,7 +31,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 
 - 200 g Zartbitterschokolade (70 %)
 - 200 ml Schlagsahne
-- 1 EL Golden Syrup
+- 1 EL Golden Syrup (alt. Grafschafter Karamell)
 - 1 EL Butter (weich)
 
 ### Espresso-Zimt-Mascarponecreme (optional)
