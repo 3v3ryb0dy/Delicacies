@@ -8,6 +8,10 @@ tags: [vegetarisch]
 wip: true
 ---
 
+## Tipp
+
+> Nach Wunsch einige ganze gebratene Pfifferlinge mittig in einen tiefen Teller geben und pro Person ca. 60–80 g gebeizten, gebratenen Lachs daraufsetzen. Den Lachs mit ein paar Tropfen Zitronensaft beträufeln und die Suppe vorsichtig darum angießen, damit die gebratene Oberfläche erhalten bleibt.
+
 ## Zutaten
 
 - 200 g Pfifferlinge

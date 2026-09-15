@@ -40,6 +40,14 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 - [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(Ungetestet)_
 
+### Suppen (5)
+
+- [Karottensüppchen](recipes/karottensueppchen.md) _(Ungetestet)_
+- [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
+- [Pastinakensuppe](recipes/pastinakensuppe.md)
+- [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md) _(Ungetestet)_
+- [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
+
 ### Beilagen (8)
 
 #### Gemüse
@@ -56,29 +64,9 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Kretische Kartoffeln](recipes/kretische-kartoffeln.md) _(Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Kuchen (4)
+### Salate (1)
 
-- [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(Ungetestet)_
-- [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
-- [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
-- [Selterswasserkuchen](recipes/selterswasserkuchen.md)
-
-### Torten (0)
-
-_Noch keine Rezepte. Hier ist Platz für Neues._
-
-### Gebäck (2)
-
-- [Schinkengipfeli](recipes/schinkengipfeli.md)
-- [Vanillekipferl](recipes/vanillekipferl.md)
-
-### Brot / Brötchen (5)
-
-- [Bhatura (indisches Ballonbrot)](recipes/bhatura.md)
-- [Burger Buns](recipes/burger-buns.md)
-- [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(Ungetestet)_
-- [Kürbisbrot](recipes/kuerbisbrot.md)
-- [Simit](recipes/simit.md)
+- [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 
 ### Saucen / Dips / Dressings (9)
 
@@ -92,17 +80,29 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Remoulade](recipes/remoulade.md)
 - [Senfbutter](recipes/senfbutter.md) _(Ungetestet)_
 
-### Salate (1)
+### Brot / Brötchen (5)
 
-- [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
+- [Bhatura (indisches Ballonbrot)](recipes/bhatura.md)
+- [Burger Buns](recipes/burger-buns.md)
+- [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(Ungetestet)_
+- [Kürbisbrot](recipes/kuerbisbrot.md)
+- [Simit](recipes/simit.md)
 
-### Suppen (5)
+### Gebäck (2)
 
-- [Karottensüppchen](recipes/karottensueppchen.md) _(Ungetestet)_
-- [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
-- [Pastinakensuppe](recipes/pastinakensuppe.md)
-- [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md) _(Ungetestet)_
-- [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
+- [Schinkengipfeli](recipes/schinkengipfeli.md)
+- [Vanillekipferl](recipes/vanillekipferl.md)
+
+### Kuchen (4)
+
+- [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(Ungetestet)_
+- [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
+- [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
+- [Selterswasserkuchen](recipes/selterswasserkuchen.md)
+
+### Torten (0)
+
+_Noch keine Rezepte. Hier ist Platz für Neues._
 
 ### Getränke (1)
 

@@ -2,14 +2,14 @@ export const categoryIds = [
   'vorspeisen',
   'hauptgerichte',
   'desserts',
+  'suppen',
   'beilagen',
+  'salate',
+  'saucen',
+  'brot',
+  'gebaeck',
   'kuchen',
   'torten',
-  'gebaeck',
-  'brot',
-  'saucen',
-  'salate',
-  'suppen',
   'getraenke',
   'sonstiges'
 ] as const
@@ -28,7 +28,7 @@ export type Category = {
   subcategories?: { id: string; title: string }[]
 }
 
-/** Display order mirrors the original README table of contents. */
+/** Shared display order for the site filters, recipe sections and generated README. */
 export const categories: Category[] = [
   {
     id: 'vorspeisen',
@@ -49,6 +49,12 @@ export const categories: Category[] = [
     description: 'Süßer Abschluss.'
   },
   {
+    id: 'suppen',
+    title: 'Suppen',
+    short: 'Suppen',
+    description: 'Wärmend, in der Regel in einem Topf.'
+  },
+  {
     id: 'beilagen',
     title: 'Beilagen',
     short: 'Beilagen',
@@ -57,6 +63,30 @@ export const categories: Category[] = [
       { id: 'gemuese', title: 'Gemüse' },
       { id: 'saettigungsbeilagen', title: 'Sättigungsbeilagen' }
     ]
+  },
+  {
+    id: 'salate',
+    title: 'Salate',
+    short: 'Salate',
+    description: 'Zum Dazuessen, Mitbringen und fürs Buffet.'
+  },
+  {
+    id: 'saucen',
+    title: 'Saucen / Dips / Dressings',
+    short: 'Saucen',
+    description: 'Was dem Gericht den Schliff gibt.'
+  },
+  {
+    id: 'brot',
+    title: 'Brot / Brötchen',
+    short: 'Brot',
+    description: 'Teig, der aufgeht.'
+  },
+  {
+    id: 'gebaeck',
+    title: 'Gebäck',
+    short: 'Gebäck',
+    description: 'Kleines aus dem Ofen, süß und herzhaft.'
   },
   {
     id: 'kuchen',
@@ -69,36 +99,6 @@ export const categories: Category[] = [
     title: 'Torten',
     short: 'Torten',
     description: 'Für besondere Anlässe.'
-  },
-  {
-    id: 'gebaeck',
-    title: 'Gebäck',
-    short: 'Gebäck',
-    description: 'Kleines aus dem Ofen, süß und herzhaft.'
-  },
-  {
-    id: 'brot',
-    title: 'Brot / Brötchen',
-    short: 'Brot',
-    description: 'Teig, der aufgeht.'
-  },
-  {
-    id: 'saucen',
-    title: 'Saucen / Dips / Dressings',
-    short: 'Saucen',
-    description: 'Was dem Gericht den Schliff gibt.'
-  },
-  {
-    id: 'salate',
-    title: 'Salate',
-    short: 'Salate',
-    description: 'Zum Dazuessen, Mitbringen und fürs Buffet.'
-  },
-  {
-    id: 'suppen',
-    title: 'Suppen',
-    short: 'Suppen',
-    description: 'Wärmend, in der Regel in einem Topf.'
   },
   {
     id: 'getraenke',
