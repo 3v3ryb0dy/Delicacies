@@ -11,9 +11,13 @@ permissions:
   pages: write
   id-token: write
 
+# Runs are only superseded within their own branch or pull request. A newer
+# pull request run used to cancel the deploy run that shared the "pages" group,
+# which killed the Pages deployment mid-flight ("Error: The operation was
+# canceled."). Publishing runs now queue instead of cancelling each other.
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: pages-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
