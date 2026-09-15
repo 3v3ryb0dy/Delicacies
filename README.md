@@ -23,7 +23,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (16)
+### Hauptgerichte (15)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -33,7 +33,6 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Hähnchen mit karamellisierten Zwiebeln, Kardamom und Reis](recipes/haehnchen-mit-kardamomreis.md) _(Ungetestet)_
 - [Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat](recipes/halloumi-auf-ofengemuese.md)
 - [Kurz gebeizter Lachs aus der Pfanne](recipes/kurz-gebeizter-lachs.md)
-- [Mejadra](recipes/mejadra.md) _(Ungetestet)_
 - [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md) _(Ungetestet)_
@@ -55,7 +54,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md) _(Ungetestet)_
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
 
-### Beilagen (8)
+### Beilagen (9)
 
 #### Gemüse
 
@@ -69,6 +68,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 - [Kartoffelgratin](recipes/kartoffelgratin.md) _(Ungetestet)_
 - [Kretische Kartoffeln](recipes/kretische-kartoffeln.md) _(Ungetestet)_
+- [Mejadra](recipes/mejadra.md) _(Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
 ### Salate (2)
@@ -102,20 +102,19 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Schinkengipfeli](recipes/schinkengipfeli.md)
 - [Vanillekipferl](recipes/vanillekipferl.md)
 
-### Kuchen (8)
+### Kuchen (7)
 
 - [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(Ungetestet)_
 - [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
-- [Honig-Joghurt-Cheesecake](recipes/honig-joghurt-cheesecake.md) _(Ungetestet)_
 - [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
 - [Pistazien-Rosen-Grießkuchen](recipes/pistazien-rosen-griesskuchen.md) _(Ungetestet)_
 - [Schokoladenkuchen (Take-Home Chocolate Cake)](recipes/schokoladenkuchen.md) _(Ungetestet)_
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
 - [Zitronen-Mohn-Kuchen](recipes/zitronen-mohn-kuchen.md) _(Ungetestet)_
 
-### Torten (0)
+### Torten (1)
 
-_Noch keine Rezepte. Hier ist Platz für Neues._
+- [Honig-Joghurt-Cheesecake](recipes/honig-joghurt-cheesecake.md) _(Ungetestet)_
 
 ### Getränke (1)
 

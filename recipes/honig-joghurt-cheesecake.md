@@ -1,6 +1,6 @@
 ---
 title: Honig-Joghurt-Cheesecake
-category: kuchen
+category: torten
 image: images/honig-joghurt-cheesecake
 imageAlt: Honig-Joghurt-Cheesecake mit Haferkeksboden, Honig und Thymian
 servings: 8 Portionen

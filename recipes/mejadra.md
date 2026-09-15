@@ -1,6 +1,7 @@
 ---
 title: Mejadra
-category: hauptgerichte
+category: beilagen
+subcategory: saettigungsbeilagen
 image: images/mejadra
 imageAlt: Mejadra mit Linsen, Basmatireis und knusprigen Röstzwiebeln
 servings: 6 Portionen
