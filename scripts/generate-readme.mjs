@@ -26,7 +26,10 @@ for (const recipe of recipes) {
 }
 
 const recipeLines = (list) =>
-  list.map((recipe) => `- [${recipe.title}](recipes/${recipe.file})${recipe.wip ? ' _(in Arbeit)_' : ''}`)
+  list.map((recipe) => {
+    const labels = [recipe.preparationPending && 'In Arbeit', recipe.wip && 'Ungetestet'].filter(Boolean)
+    return `- [${recipe.title}](recipes/${recipe.file})${labels.length ? ` _(${labels.join(', ')})_` : ''}`
+  })
 
 const sections = categories.map((category) => {
   const list = byCategory.get(category.id) ?? []

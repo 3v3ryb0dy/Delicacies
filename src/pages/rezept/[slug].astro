@@ -1,6 +1,6 @@
 ---
 import { getImage, Image } from 'astro:assets'
-import { ArrowLeft, Lightbulb, UtensilsCrossed } from '@lucide/astro'
+import { ArrowLeft, Lightbulb, TestTubeDiagonal, UtensilsCrossed } from '@lucide/astro'
 import { getCollection } from 'astro:content'
 import RecipeCard from '../../components/RecipeCard.astro'
 import RecipePreparation from '../../components/RecipePreparation.astro'
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title, subcategory, tags, image, imageAlt, wip, servings, note, source } = entry.data
+const { title, subcategory, tags, image, imageAlt, wip, preparationPending, servings, note, source } = entry.data
 
 const categoryMeta = categoryById.get(entry.data.category)
 const categoryTitle = categoryMeta?.title ?? entry.data.category
@@ -87,9 +87,17 @@ const previewImage = socialImage
             <span data-pagefind-ignore>{categoryShort}</span>
           </a>
           {subcategoryTitle && <span class='text-ink-soft/70'>· {subcategoryTitle}</span>}
-          {wip && (
+          {preparationPending && (
             <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent'>
-              in Arbeit
+              In Arbeit
+            </span>
+          )}
+          {wip && (
+            <span
+              title='Ungetestet'
+              class='inline-flex size-7 items-center justify-center rounded-full border border-accent/20 bg-accent-pale text-accent'>
+              <TestTubeDiagonal size={16} aria-hidden='true' focusable='false' />
+              <span class='sr-only'>Ungetestet</span>
             </span>
           )}
         </div>
@@ -211,7 +219,7 @@ const previewImage = socialImage
         <RecipePreparation
           normal={body.preparation}
           thermomix={body.thermomixPreparation}
-          preparationPending={entry.data.preparationPending}
+          preparationPending={preparationPending}
         />
 
         {pairings.length > 0 && (

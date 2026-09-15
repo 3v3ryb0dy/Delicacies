@@ -16,10 +16,10 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 ### Vorspeisen (4)
 
-- [Mauritius-Krabbencocktail](recipes/mauritius-krabbencocktail.md) _(in Arbeit)_
-- [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(in Arbeit)_
-- [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(in Arbeit)_
-- [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(in Arbeit)_
+- [Mauritius-Krabbencocktail](recipes/mauritius-krabbencocktail.md) _(Ungetestet)_
+- [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(Ungetestet)_
+- [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
+- [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
 ### Hauptgerichte (10)
 
@@ -31,12 +31,12 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat](recipes/halloumi-auf-ofengemuese.md)
 - [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
-- [Pizza (Basis)](recipes/pizza.md) _(in Arbeit)_
-- [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(in Arbeit)_
+- [Pizza (Basis)](recipes/pizza.md) _(Ungetestet)_
+- [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(Ungetestet)_
 
 ### Desserts (1)
 
-- [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(in Arbeit)_
+- [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(Ungetestet)_
 
 ### Beilagen (8)
 
@@ -46,17 +46,17 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Brokkoli (gebraten)](recipes/brokkoli.md)
 - [Karotten](recipes/karotten.md)
 - [Rosenkohl (gebacken)](recipes/rosenkohl.md)
-- [Spitzkohl mit Senfrahm und Butterbröseln](recipes/spitzkohl-mit-senfrahm.md) _(in Arbeit)_
+- [Spitzkohl mit Senfrahm und Butterbröseln](recipes/spitzkohl-mit-senfrahm.md) _(Ungetestet)_
 
 #### Sättigungsbeilagen
 
-- [Kartoffelgratin](recipes/kartoffelgratin.md) _(in Arbeit)_
-- [Kretische Kartoffeln](recipes/kretanische-kartoffeln.md) _(in Arbeit)_
+- [Kartoffelgratin](recipes/kartoffelgratin.md) _(Ungetestet)_
+- [Kretische Kartoffeln](recipes/kretanische-kartoffeln.md) _(Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
 ### Kuchen (4)
 
-- [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(in Arbeit)_
+- [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(Ungetestet)_
 - [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
 - [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
@@ -74,7 +74,7 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 
 - [Bhatura (indisches Ballonbrot)](recipes/bhatura.md)
 - [Burger Buns](recipes/burger-buns.md)
-- [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(in Arbeit)_
+- [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(Ungetestet)_
 - [Kürbisbrot](recipes/kuerbisbrot.md)
 - [Simit](recipes/simit.md)
 
@@ -88,18 +88,18 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)
 - [Remoulade](recipes/remoulade.md)
-- [Senfbutter](recipes/senfbutter.md) _(in Arbeit)_
+- [Senfbutter](recipes/senfbutter.md) _(Ungetestet)_
 
 ### Salate (1)
 
-- [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(in Arbeit)_
+- [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 
 ### Suppen (4)
 
-- [Karottensüppchen](recipes/karottensueppchen.md) _(in Arbeit)_
+- [Karottensüppchen](recipes/karottensueppchen.md) _(Ungetestet)_
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
-- [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(in Arbeit)_
+- [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
 
 ### Getränke (1)
 

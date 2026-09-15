@@ -1,5 +1,5 @@
 ---
-import { ArrowRight } from '@lucide/astro'
+import { ArrowRight, TestTubeDiagonal } from '@lucide/astro'
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import { categoryById } from '../config/taxonomy'
@@ -12,7 +12,7 @@ type Props = {
 }
 
 const { entry, position = 'default' } = Astro.props
-const { title, category, tags, image, imageAlt, wip } = entry.data
+const { title, category, tags, image, imageAlt, wip, preparationPending } = entry.data
 
 const categoryTitle = categoryById.get(category)?.short ?? category
 const href = withBase(`rezept/${entry.id}/`)
@@ -84,10 +84,22 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
           </span>
         </div>
       )}
-      {wip && (
-        <span class='absolute top-3 right-3 rounded-full border border-accent/20 bg-accent-pale/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase backdrop-blur'>
-          in Arbeit
-        </span>
+      {(wip || preparationPending) && (
+        <div class='absolute top-3 right-3 left-3 flex flex-wrap justify-end gap-2'>
+          {preparationPending && (
+            <span class='rounded-full border border-accent/20 bg-accent-pale/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase backdrop-blur'>
+              In Arbeit
+            </span>
+          )}
+          {wip && (
+            <span
+              title='Ungetestet'
+              class='inline-flex size-7 items-center justify-center rounded-full border border-accent/20 bg-accent-pale/90 text-accent backdrop-blur'>
+              <TestTubeDiagonal size={16} aria-hidden='true' focusable='false' />
+              <span class='sr-only'>Ungetestet</span>
+            </span>
+          )}
+        </div>
       )}
     </div>
 
