@@ -119,7 +119,8 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
    `image: images/mein-rezept` funktioniert ohne Dateiendung; mit Dateiendung muss die Datei genau so existieren.
    Ungetestete Rezepte mit `wip: true` markieren: Sie sind standardmäßig ausgeblendet und lassen sich über „Ungetestete Rezepte anzeigen“ einblenden. Die Auswahl wird im Browser gespeichert. Nach dem Testen `wip` entfernen oder auf `false` setzen.
 4. `npm run check` und danach `npm run build` ausführen. Übersicht und README entstehen automatisch. Der Check prüft
-   Rezeptaufbau, Bilder und Querverweise, der Build zusätzlich die gebaute Seite und den Suchindex.
+   Rezeptaufbau, Bilder und Querverweise, der Build zusätzlich die gebaute Seite und den Suchindex. Beim Commit und
+   Push laufen dieselben Prüfungen automatisch über die Git-Hooks (siehe [Contributing](docs/README.md)).
 
 ## Ideen
 

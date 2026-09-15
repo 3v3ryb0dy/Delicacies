@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prepare": "node scripts/install-hooks.mjs",
     "prebuild": "node scripts/generate-readme.mjs",
     "build": "astro build && pagefind --site dist && node scripts/verify-built-site.mjs",
     "preview": "astro preview",
@@ -15,8 +16,11 @@
     "images:webp": "node scripts/convert-recipe-images.mjs",
     "test": "node --test src/lib/*.test.mjs scripts/lib/*.test.mjs",
     "check": "npm test && node scripts/generate-readme.mjs --check && node scripts/check-recipes.mjs && astro check && prettier --check .",
+    "ci": "npm run check && npm run build",
     "verify:site": "node scripts/verify-built-site.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:staged": "node scripts/format-staged.mjs",
+    "hooks:install": "node scripts/install-hooks.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.2.5",

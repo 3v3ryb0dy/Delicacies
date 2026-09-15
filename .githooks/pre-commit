@@ -1,0 +1,25 @@
+#!/bin/sh
+# Formats the staged files, keeps the generated README in step with the
+# recipes, and runs the fast checks. The full gate (`npm run check` and the
+# site build) runs in .githooks/pre-push.
+BYPASS='git commit --no-verify'
+. "$(dirname "$0")/_common.sh"
+
+echo "Formatting staged files …"
+node scripts/format-staged.mjs || fail "Prettier could not format the staged files."
+
+if ! node scripts/generate-readme.mjs --check >/dev/null 2>&1; then
+  echo "README.md is out of date; regenerating it from recipes/ and content/ …"
+  node scripts/generate-readme.mjs || fail "Could not regenerate README.md."
+  git add README.md || fail "Could not stage the regenerated README.md."
+fi
+
+test_output=$(npm test --silent 2>&1) || {
+  echo "$test_output" >&2
+  fail "Unit tests failed."
+}
+
+recipe_output=$(node scripts/check-recipes.mjs 2>&1) || {
+  echo "$recipe_output" >&2
+  fail "The recipe check failed."
+}

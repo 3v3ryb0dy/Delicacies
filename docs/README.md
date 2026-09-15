@@ -20,6 +20,20 @@ When asked to add a recipe, complete the whole workflow:
    unknown category or subcategory, a missing image and an unresolvable pairing link; `npm run build` then checks the
    built HTML (links, anchors, duplicate ids, nested anchors) and the Pagefind index.
 
+## Local hooks
+
+`npm install` activates the hooks in [`.githooks/`](../.githooks) by setting `core.hooksPath` for this clone; run
+`npm run hooks:install` to do the same by hand. They keep a commit from turning into a red pipeline:
+
+- **pre-commit** (about a second): formats the staged files and stages them again, regenerates `README.md` when it is
+  behind the recipes, then runs the unit tests and the recipe/content check. It does not run `astro check` or the site
+  build, so commits stay quick.
+- **pre-push**: runs `npm run ci`, which is `npm run check` followed by `npm run build` — the same gate as CI. Deleting
+  a remote branch runs nothing.
+
+Use `git commit --no-verify` or `git push --no-verify` only when a check is knowingly wrong; CI still runs the full
+gate on the pull request and on `master`.
+
 ```md
 ---
 title: Rezeptname

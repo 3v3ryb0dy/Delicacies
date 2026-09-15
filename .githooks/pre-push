@@ -1,0 +1,22 @@
+#!/bin/sh
+# Runs the same gate as CI — `npm run check` followed by `npm run build` — so a
+# red pipeline is caught before the push leaves the machine.
+BYPASS='git push --no-verify'
+. "$(dirname "$0")/_common.sh"
+
+# Git passes the refs being pushed on stdin. A branch deletion has no commit to
+# check, so nothing is run when every ref is a deletion.
+pushing=''
+while read -r _local_ref local_sha _remote_ref _remote_sha; do
+  if [ -n "$local_sha" ] && [ "$local_sha" != '0000000000000000000000000000000000000000' ]; then
+    pushing=1
+  fi
+done
+[ -n "$pushing" ] || exit 0
+
+echo "Running the full gate before pushing: checks, then the site build."
+echo "The first build after 'npm ci' takes longer: the image cache is rebuilt."
+
+if ! npm run ci; then
+  fail "The pre-push gate failed."
+fi
