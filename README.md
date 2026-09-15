@@ -11,11 +11,12 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-50 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+51 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
-### Vorspeisen (4)
+### Vorspeisen (5)
 
+- [Kaltes Thunfisch-Tataki mit Grapefruit und rosa Beeren](recipes/thunfisch-tataki.md) _(Ungetestet)_
 - [Mauritius-Krabbencocktail](recipes/mauritius-krabbencocktail.md) _(Ungetestet)_
 - [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(Ungetestet)_
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_

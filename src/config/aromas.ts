@@ -1114,25 +1114,20 @@ export const aromas: readonly Aroma[] = [
     character:
       'Milde, fruchtig-süßliche Würze mit harzigen, an Wacholder erinnernden Noten. Die rosa-roten Früchte des Schinusbaums bringen vor allem Duft und einen farbigen Akzent. Die kräftige Schärfe von echtem Pfeffer fehlt ihnen.',
     foods: ['Fisch', 'Meeresfrüchte', 'Blattsalat', 'Frischkäse', 'Geflügel', 'Schokolade'],
-    partners: ['Limette', 'Zitrone', 'Maracuja', 'Honig', 'Dill'],
+    partners: ['Grapefruit', 'Orange', 'Olivenöl', 'Zitrone', 'Honig', 'Dill'],
     applications: [
       {
-        form: 'Leicht zerdrückte Beeren',
-        place: 'Finish',
+        form: 'Ganze Beeren, leicht angedrückt',
+        place: 'Kaltes Dressing',
         method:
-          'Zwischen den Fingern zerreiben oder im Mörser leicht andrücken und erst beim Anrichten über das Gericht geben. Nicht lange mitkochen, damit der Duft erhalten bleibt.',
+          'Mit einem Löffelrücken oder der flachen Messerseite nur so weit andrücken, dass die Hüllen aufbrechen. In einem Zitrus-Olivenöl-Dressing zunächst 20–30 Minuten im Kühlschrank ziehen lassen. Danach probieren und erst dann nachdosieren. Für kaltes Thunfisch-Tataki nicht fein mahlen und keine zusätzlichen trockenen Beeren als Finish verwenden.',
         start:
-          'Ungetesteter Startwert: etwa ½ TL ganze Beeren für vier kleine Vorspeisenportionen. Leicht zerdrücken, zunächst an einer Portion probieren und nach Geschmack ergänzen. Keine bestätigte Dosierung aus dem Hotel.'
-      },
-      {
-        form: 'Grob zerstoßene Beeren',
-        place: 'Dressing',
-        method: 'Kurz vor dem Servieren in ein kaltes Dressing rühren oder über den bereits angemachten Salat streuen.'
+          'Ungetesteter Startwert für vier kleine Tataki-Vorspeisen: ¼ TL ganze Beeren auf 5 EL Olivenöl, 2 EL Grapefruit- oder Orangensaft und 1 TL Zitronensaft. Bei kaum wahrnehmbarem Beerenakzent auf insgesamt höchstens ½ TL erhöhen und nochmals etwa 10 Minuten ziehen lassen. Keine bestätigte Dosierung aus dem Hotel.'
       }
     ],
     mistake:
       'Nicht allein in einer normalen Pfeffermühle mahlen: Die weichen Beeren können das Mahlwerk verkleben. Besser zerreiben oder mörsern.',
-    note: 'Die Aromapartner sind Vorschläge zum Ausprobieren. Allergiehinweis: Bei Cashewallergie sind Reaktionen auf rosa Pfeffer möglich.',
+    note: 'Ungetestete Referenzkombination: Thunfisch · Grapefruit oder Orange · Olivenöl · rosa Beeren. Olivenöl und Salz stehen im Vordergrund, danach Zitrusfrucht und ein zurückhaltender Beerenakzent. Allergiehinweis: Bei Cashewallergie sind Reaktionen auf rosa Pfeffer möglich.',
     sources: [
       {
         title: 'Allergiehinweis: Kreuzreaktivität von rosa Pfeffer bei Cashew- und Pistazienallergie (2019)',
