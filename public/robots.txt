@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cook.drng.me/sitemap-index.xml

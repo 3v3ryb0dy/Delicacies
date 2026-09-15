@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { siteBase, withBase } from '../lib/url'
+import { withBase } from '../lib/url'
 ---
 
-<BaseLayout title='Seite nicht gefunden' description='Diese Adresse gibt es im Kochbuch der Delikatessen nicht.'>
-  <div class='mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8'>
+<BaseLayout
+  title='Seite nicht gefunden'
+  description='Diese Adresse gibt es im Kochbuch der Delikatessen nicht.'
+  noindex>
+  <div data-base={withBase()} class='mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8'>
     <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Fehler 404</p>
     <h1 class='mt-5 font-display text-display font-semibold text-balance'>Diese Seite fehlt noch.</h1>
     <p class='mt-5 max-w-[42rem] text-lg leading-8 text-ink-soft'>
@@ -25,22 +28,12 @@ import { siteBase, withBase } from '../lib/url'
     </div>
   </div>
 
-  <script is:inline data-base={siteBase}>
-    // GitHub Pages answers missing paths without touching the router, so this
-    // page is the only place we can correct the case of a typed address.
-    // Everything after the deployment base is lowercased; the base itself keeps
-    // its spelling, because that part is the repository name.
-    var script = document.currentScript
-    var base = (script && script.dataset && script.dataset.base) || '/'
-    var path = window.location.pathname
+  <script>
+    import { lowercasePathAfterBase } from '../lib/lowercase-path'
 
-    if (path.indexOf(base) === 0) {
-      var rest = path.slice(base.length)
-      var lower = rest.toLowerCase()
+    const base = document.querySelector<HTMLElement>('[data-base]')?.dataset.base ?? '/'
+    const corrected = lowercasePathAfterBase(window.location.pathname, base)
 
-      if (lower !== rest) {
-        window.location.replace(base + lower + window.location.search + window.location.hash)
-      }
-    }
+    if (corrected) window.location.replace(corrected + window.location.search + window.location.hash)
   </script>
 </BaseLayout>

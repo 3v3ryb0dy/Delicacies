@@ -15,7 +15,8 @@ const byCategory = new Map(
 )
 
 const vorwort = await getEntry('seiten', 'vorwort')
-const { Content: Vorwort } = await render(vorwort!)
+if (!vorwort) throw new Error('content/vorwort.md is missing: the home page renders it as "Über dieses Kochbuch".')
+const { Content: Vorwort } = await render(vorwort)
 
 const filledCategories = categories.filter((category) => (byCategory.get(category.id)?.length ?? 0) > 0)
 const emptyCategories = categories.filter((category) => (byCategory.get(category.id)?.length ?? 0) === 0)
@@ -45,7 +46,7 @@ const emptyEntries = [
 ]
 ---
 
-<BaseLayout>
+<BaseLayout hideUntestedByDefault>
   <section class='relative isolate'>
     <div
       class='pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-accent-soft/50 via-transparent to-transparent'
@@ -65,9 +66,18 @@ const emptyEntries = [
       {filledCategories.map((category) => {
         const categoryRecipes = byCategory.get(category.id) ?? []
         const testedCount = categoryRecipes.filter((recipe) => !recipe.data.wip).length
+        const declaredSubcategories = category.subcategories ?? []
+        const declaredSubcategoryIds = new Set(declaredSubcategories.map((subcategory) => subcategory.id))
+        /** Recipes without a group, or with one this category does not declare. */
+        const ungroupedRecipes = categoryRecipes.filter(
+          (recipe) => !recipe.data.subcategory || !declaredSubcategoryIds.has(recipe.data.subcategory)
+        )
 
         return (
-          <section id={category.id} data-category-section hidden={categoryRecipes.every((recipe) => recipe.data.wip)}>
+          <section
+            id={category.id}
+            data-category-section
+            data-untested={categoryRecipes.every((recipe) => recipe.data.wip) ? 'true' : undefined}>
             <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
               <div>
                 <h2 class='flex items-center gap-3 font-display text-section font-semibold'>
@@ -83,19 +93,21 @@ const emptyEntries = [
               </p>
             </header>
 
-            {category.subcategories ? (
+            {declaredSubcategories.length > 0 ? (
               <div class='mt-8 flex flex-col gap-10'>
-                {category.subcategories.map((subcategory) => {
+                {declaredSubcategories.map((subcategory) => {
                   const subRecipes = categoryRecipes.filter((recipe) => recipe.data.subcategory === subcategory.id)
                   if (subRecipes.length === 0) return null
                   return (
-                    <div data-subcategory-section hidden={subRecipes.every((recipe) => recipe.data.wip)}>
+                    <div
+                      data-subcategory-section
+                      data-untested={subRecipes.every((recipe) => recipe.data.wip) ? 'true' : undefined}>
                       <h3 class='mb-4 text-[0.7rem] font-bold tracking-[0.18em] text-ink-soft uppercase'>
                         {subcategory.title}
                       </h3>
                       <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {subRecipes.map((entry) => (
-                          <li data-recipe-item hidden={entry.data.wip}>
+                          <li data-recipe-item data-untested={entry.data.wip ? 'true' : undefined}>
                             <RecipeCard entry={entry} />
                           </li>
                         ))}
@@ -103,11 +115,24 @@ const emptyEntries = [
                     </div>
                   )
                 })}
+                {ungroupedRecipes.length > 0 && (
+                  <div
+                    data-subcategory-section
+                    data-untested={ungroupedRecipes.every((recipe) => recipe.data.wip) ? 'true' : undefined}>
+                    <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                      {ungroupedRecipes.map((entry) => (
+                        <li data-recipe-item data-untested={entry.data.wip ? 'true' : undefined}>
+                          <RecipeCard entry={entry} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             ) : (
               <ul class='mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                 {categoryRecipes.map((entry) => (
-                  <li data-recipe-item hidden={entry.data.wip}>
+                  <li data-recipe-item data-untested={entry.data.wip ? 'true' : undefined}>
                     <RecipeCard entry={entry} />
                   </li>
                 ))}

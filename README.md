@@ -115,9 +115,11 @@ _Noch keine Rezepte. Hier ist Platz für Neues._
 1. Neue Datei `recipes/mein-rezept.md` anlegen, Dateiname bestimmt die Adresse.
 2. Kopf ausfüllen: `title`, `category` (siehe oben), `tags` und optional `image`.
 3. `## Zutaten` und `## Zubereitung` schreiben, Bilder nach `recipes/images/` (Prompt-Vorlage: [Image Generation](docs/image-generation.md)).
-   PNG, JPG und JPEG sind möglich. `image: images/mein-rezept` funktioniert ohne Dateiendung; beim Formatwechsel wird eine passende Datei automatisch gesucht.
+   PNG, JPG und JPEG sind möglich, ausgeliefert wird WebP (`npm run images:webp`); im Repo liegt nur die WebP-Datei.
+   `image: images/mein-rezept` funktioniert ohne Dateiendung; mit Dateiendung muss die Datei genau so existieren.
    Ungetestete Rezepte mit `wip: true` markieren: Sie sind standardmäßig ausgeblendet und lassen sich über „Ungetestete Rezepte anzeigen“ einblenden. Die Auswahl wird im Browser gespeichert. Nach dem Testen `wip` entfernen oder auf `false` setzen.
-4. `npm run build` ausführen. Übersicht und README entstehen automatisch.
+4. `npm run check` und danach `npm run build` ausführen. Übersicht und README entstehen automatisch. Der Check prüft
+   Rezeptaufbau, Bilder und Querverweise, der Build zusätzlich die gebaute Seite und den Suchindex.
 
 ## Ideen
 

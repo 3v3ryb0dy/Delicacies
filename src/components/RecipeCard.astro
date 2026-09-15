@@ -2,38 +2,45 @@
 import { ArrowRight, TestTubeDiagonal } from '@lucide/astro'
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
-import { categoryById } from '../config/taxonomy'
+import { categoryById, subcategoryById } from '../config/taxonomy'
 import { withBase } from '../lib/url'
 import { parseRecipeBody } from '../lib/recipe-body'
 
 type Props = {
   entry: CollectionEntry<'recipes'>
-  position?: 'default' | 'spotlight'
 }
 
-const { entry, position = 'default' } = Astro.props
+const { entry } = Astro.props
 const { title, category, tags, image, imageAlt, wip, preparationPending } = entry.data
 
 const categoryTitle = categoryById.get(category)?.short ?? category
 const href = withBase(`rezept/${entry.id}/`)
 const alt = imageAlt ?? title
 
-const spotlight = position === 'spotlight'
+const subcategoryTitle = entry.data.subcategory
+  ? (subcategoryById(category, entry.data.subcategory)?.title ?? entry.data.subcategory)
+  : undefined
 
 /**
- * Pagefind only exists in the built site, so the explorer falls back to
- * searching the rendered cards by title, tags, ingredients and preparation.
+ * Pagefind only exists in a built site, so `astro dev` falls back to searching
+ * the rendered cards by title, tags, ingredients and preparation. Built pages
+ * leave the text out: Pagefind indexes the recipe pages themselves, and the
+ * home page stays light.
  */
-const parsedBody = parseRecipeBody(entry.body ?? '')
-const searchText = [
-  ...parsedBody.ingredients.flatMap((group) => [group.title, ...group.items]),
-  ...[...parsedBody.preparation, ...parsedBody.thermomixPreparation].flatMap((group) => [
-    group.title,
-    ...group.paragraphs
-  ])
-]
-  .filter(Boolean)
-  .join(' · ')
+function recipeSearchText(body: string): string {
+  const parsedBody = parseRecipeBody(body)
+  return [
+    ...parsedBody.ingredients.flatMap((group) => [group.title, ...group.items]),
+    ...[...parsedBody.preparation, ...parsedBody.thermomixPreparation].flatMap((group) => [
+      group.title,
+      ...group.paragraphs
+    ])
+  ]
+    .filter(Boolean)
+    .join(' · ')
+}
+
+const searchText = import.meta.env.DEV ? recipeSearchText(entry.body ?? '') : undefined
 
 /** Keeps the no-photo cards from looking like a wall of identical blocks. */
 const placeholderTints: Record<string, string> = {
@@ -59,11 +66,10 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
   data-category-label={categoryTitle}
   data-tags={tags.join(' ')}
   data-title={title}
-  data-search={searchText || undefined}
+  data-search={searchText}
   class:list={[
     'group relative flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper-raised transition duration-200',
-    'hover:-translate-y-0.5 hover:border-ink/20',
-    spotlight && 'sm:col-span-2 lg:col-span-1'
+    'hover:-translate-y-0.5 hover:border-ink/20'
   ]}>
   <a href={href} class='focus-ring flex flex-1 flex-col rounded-2xl'>
     <div class='relative aspect-4/3 w-full overflow-hidden bg-paper-sunken'>
@@ -71,7 +77,10 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
         <Image
           src={image}
           alt={alt}
-          widths={[400, 800, 1200]}
+          width={640}
+          height={480}
+          widths={[320, 480, 640]}
+          quality={80}
           sizes='(min-width: 1280px) 22rem, (min-width: 600px) 45vw, 92vw'
           loading='lazy'
           decoding='async'
@@ -107,7 +116,7 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
       <div class='flex items-center justify-between gap-2 text-[0.7rem] font-semibold tracking-[0.12em] uppercase'>
         <span class='flex items-center gap-2'>
           <span class='text-accent'>{categoryTitle}</span>
-          {entry.data.subcategory && <span class='text-ink-soft/70'>· {entry.data.subcategory}</span>}
+          {subcategoryTitle && <span class='text-ink-soft/70'>· {subcategoryTitle}</span>}
         </span>
         <ArrowRight
           size={16}

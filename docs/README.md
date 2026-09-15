@@ -9,12 +9,16 @@ When asked to add a recipe, complete the whole workflow:
 3. Create the photo with the canonical prompt template in
    [`image-generation.md`](image-generation.md): copy that template, replace its placeholders, and add only necessary
    dish-specific constraints. Do not substitute a generic or differently structured image prompt. Save the reviewed
-   result under `recipes/images/`; for PNG or JPEG sources, run `npm run images:webp` to create the WebP. Then add
-   `image` and a useful German `imageAlt`.
+   result under `recipes/images/` and run `npm run images:webp` to create the WebP; only the WebP is committed, the
+   PNG or JPEG source stays out of the repository. Then add `image` and a useful German `imageAlt`. Prefer
+   `image: images/<slug>` without an extension, which uses whichever supported format exists; a named extension must
+   match the file on disk.
 4. Save the exact prompt actually submitted, together with its slug and alt text, in
    [`recipe-image-prompts.json`](recipe-image-prompts.json).
-5. Run `npm run build` and `npm run check`. The build generates the root `README.md` automatically; never edit its
-   recipe count or list by hand.
+5. Run `npm run check` and `npm run build`. The build generates the root `README.md` automatically; never edit its
+   recipe count or list by hand. `npm run check` fails on a recipe without `## Zutaten` or `## Zubereitung`, an
+   unknown category or subcategory, a missing image and an unresolvable pairing link; `npm run build` then checks the
+   built HTML (links, anchors, duplicate ids, nested anchors) and the Pagefind index.
 
 ```md
 ---

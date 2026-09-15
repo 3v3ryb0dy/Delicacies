@@ -1,11 +1,10 @@
 ---
-import '@fontsource-variable/fraunces/opsz.css'
-import '@fontsource-variable/nunito-sans'
 import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url'
 import nunitoSansLatin from '@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2?url'
 import '../tailwind.css'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
+import { showWipPreferenceKey, untestedHiddenAttribute } from '../config/preferences'
 import { withBase } from '../lib/url'
 
 type Props = {
@@ -19,19 +18,74 @@ type Props = {
     alt: string
     type: string
   }
+  /** Keeps a page out of search engines; used by the 404 page. */
+  noindex?: boolean
+  /**
+   * Hides untested recipes before the first paint unless the visitor stored the
+   * preference. The recipes stay in the markup and become visible again without
+   * JavaScript.
+   */
+  hideUntestedByDefault?: boolean
 }
 
 const {
   title,
   description = 'Kochbuch der Delikatessen. Über Jahre gesammelte Rezepte, die sich bewährt haben.',
   previewTitle,
-  previewImage
+  previewImage,
+  noindex = false,
+  hideUntestedByDefault = false
 } = Astro.props
 
 const pageTitle = title ? `${title} | Kochbuch der Delikatessen` : 'Kochbuch der Delikatessen'
 const canonical = new URL(Astro.url.pathname, Astro.site)
 const socialTitle = previewTitle ?? pageTitle
-const imageUrl = previewImage ? new URL(previewImage.src, Astro.site).href : undefined
+/** Pages without a photo of their own share one branded card. */
+const socialImage = previewImage ?? {
+  src: withBase('og-default.jpg'),
+  width: 1200,
+  height: 630,
+  alt: 'Kochbuch der Delikatessen',
+  type: 'image/jpeg'
+}
+const imageUrl = new URL(socialImage.src, Astro.site).href
+
+/**
+ * Runs before the body is parsed so the untested recipes never flash in and out
+ * for visitors who keep them hidden. Without JavaScript the flag is never set
+ * and every recipe stays reachable.
+ */
+const untestedPreferenceScript = `
+  try {
+    if (localStorage.getItem(${JSON.stringify(showWipPreferenceKey)}) !== 'true') {
+      document.documentElement.setAttribute(${JSON.stringify(untestedHiddenAttribute)}, '')
+    }
+  } catch (error) {
+    document.documentElement.setAttribute(${JSON.stringify(untestedHiddenAttribute)}, '')
+  }
+`
+
+/**
+ * Both webfonts are self-hosted. Only the Latin subset ships: the cookbook is
+ * German, and the remaining subsets in the Fontsource stylesheets would add
+ * unused woff2 files to every deployment.
+ */
+const fontFaces = `
+  @font-face {
+    font-family: 'Nunito Sans Variable';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 200 1000;
+    src: url('${nunitoSansLatin}') format('woff2-variations');
+  }
+  @font-face {
+    font-family: 'Fraunces Variable';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('${frauncesLatin}') format('woff2-variations');
+  }
+`
 ---
 
 <!doctype html>
@@ -42,16 +96,18 @@ const imageUrl = previewImage ? new URL(previewImage.src, Astro.site).href : und
     <meta name='generator' content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name='description' content={description} />
-    <link rel='canonical' href={canonical} />
+    {noindex ? <meta name='robots' content='noindex' /> : <link rel='canonical' href={canonical} />}
     <link rel='icon' type='image/x-icon' sizes='16x16 32x32 48x48' href={withBase('favicon.ico')} />
     <link rel='icon' type='image/svg+xml' sizes='any' href={withBase('logo.svg')} />
     <link rel='apple-touch-icon' sizes='180x180' href={withBase('apple-touch-icon.png')} />
     <meta name='theme-color' content='#fff9f3' media='(prefers-color-scheme: light)' />
     <meta name='theme-color' content='#16120f' media='(prefers-color-scheme: dark)' />
-    <!-- The webfonts are bundled locally (see the @fontsource-variable imports),
-         never fetched from Google. Preloading the Latin cuts pulls them in with
-         the stylesheet instead of after it, so the swap into Nunito Sans and
-         Fraunces happens before the first paint. -->
+    <style set:html={fontFaces}></style>
+    {hideUntestedByDefault && <script is:inline set:html={untestedPreferenceScript}></script>}
+    <!-- The webfonts are bundled locally, never fetched from Google. Preloading
+         the two Latin cuts pulls them in with the stylesheet instead of after
+         it, so the swap into Nunito Sans and Fraunces happens before the first
+         paint. -->
     <link rel='preload' href={nunitoSansLatin} as='font' type='font/woff2' crossorigin />
     <link rel='preload' href={frauncesLatin} as='font' type='font/woff2' crossorigin />
     <meta property='og:title' content={socialTitle} />
@@ -60,24 +116,16 @@ const imageUrl = previewImage ? new URL(previewImage.src, Astro.site).href : und
     <meta property='og:locale' content='de_DE' />
     <meta property='og:url' content={canonical.href} />
     <meta property='og:site_name' content='Kochbuch der Delikatessen' />
-    {previewImage && (
-      <>
-        <meta property='og:image' content={imageUrl} />
-        <meta property='og:image:type' content={previewImage.type} />
-        <meta property='og:image:width' content={String(previewImage.width)} />
-        <meta property='og:image:height' content={String(previewImage.height)} />
-        <meta property='og:image:alt' content={previewImage.alt} />
-      </>
-    )}
-    <meta name='twitter:card' content={previewImage ? 'summary_large_image' : 'summary'} />
+    <meta property='og:image' content={imageUrl} />
+    <meta property='og:image:type' content={socialImage.type} />
+    <meta property='og:image:width' content={String(socialImage.width)} />
+    <meta property='og:image:height' content={String(socialImage.height)} />
+    <meta property='og:image:alt' content={socialImage.alt} />
+    <meta name='twitter:card' content='summary_large_image' />
     <meta name='twitter:title' content={socialTitle} />
     <meta name='twitter:description' content={description} />
-    {previewImage && (
-      <>
-        <meta name='twitter:image' content={imageUrl} />
-        <meta name='twitter:image:alt' content={previewImage.alt} />
-      </>
-    )}
+    <meta name='twitter:image' content={imageUrl} />
+    <meta name='twitter:image:alt' content={socialImage.alt} />
   </head>
   <body class='flex min-h-dvh flex-col bg-paper text-ink'>
     <a

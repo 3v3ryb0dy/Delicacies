@@ -19,15 +19,6 @@ export type ParsedRecipeBody = {
   notes: string[]
 }
 
-export const EMPTY_RECIPE_BODY: ParsedRecipeBody = {
-  tips: [],
-  ingredients: [],
-  preparation: [],
-  thermomixPreparation: [],
-  pairings: [],
-  notes: []
-}
-
 type Section = 'tips' | 'ingredients' | 'preparation' | 'thermomixPreparation' | 'unknown'
 
 const sectionHeadings: Record<string, Section> = {

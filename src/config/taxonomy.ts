@@ -116,6 +116,14 @@ export const categories: Category[] = [
 
 export const categoryById = new Map(categories.map((category) => [category.id, category]))
 
+/** Nested group declared by a category, e.g. Beilagen > Gemüse. */
+export function subcategoryById(
+  categoryId: CategoryId,
+  subcategoryId: string
+): { id: string; title: string } | undefined {
+  return categoryById.get(categoryId)?.subcategories?.find((subcategory) => subcategory.id === subcategoryId)
+}
+
 /**
  * Small, deliberately flat vocabulary so filtering stays useful.
  * `vegetarisch` and `vegan` are only set when the ingredient list supports it.
@@ -139,5 +147,3 @@ export const tagVocabulary = [
 ] as const
 
 export type Tag = (typeof tagVocabulary)[number]
-
-export const tagById = new Map<string, Tag>(tagVocabulary.map((tag) => [tag, tag]))

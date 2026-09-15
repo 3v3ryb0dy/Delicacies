@@ -6,5 +6,3 @@ const normalizedBase = import.meta.env.BASE_URL.endsWith('/')
 export function withBase(path = ''): string {
   return `${normalizedBase}${path.replace(/^\//, '')}`
 }
-
-export const siteBase = normalizedBase

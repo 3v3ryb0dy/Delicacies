@@ -9,12 +9,13 @@
   "scripts": {
     "dev": "astro dev",
     "prebuild": "node scripts/generate-readme.mjs",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist && node scripts/verify-built-site.mjs",
     "preview": "astro preview",
     "readme": "node scripts/generate-readme.mjs",
     "images:webp": "node scripts/convert-recipe-images.mjs",
-    "test": "node --test src/lib/*.test.mjs",
-    "check": "npm test && node scripts/generate-readme.mjs --check && astro check && prettier --check .",
+    "test": "node --test src/lib/*.test.mjs scripts/lib/*.test.mjs",
+    "check": "npm test && node scripts/generate-readme.mjs --check && node scripts/check-recipes.mjs && astro check && prettier --check .",
+    "verify:site": "node scripts/verify-built-site.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
     "pagefind": "^1.4.0",
     "prettier": "^3.6.2",

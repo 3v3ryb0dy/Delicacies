@@ -1,22 +1,34 @@
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
 import { test } from 'node:test'
-import { runInNewContext } from 'node:vm'
+import { initRecipeExplorer } from '../scripts/recipe-explorer.ts'
 
-// Exercise the actual inline controller with a small DOM fixture and search adapter.
-const source = readFileSync(new URL('../components/RecipeExplorer.astro', import.meta.url), 'utf8')
-const script = source.match(/<script is:inline[^>]*>([\s\S]*?)<\/script>/)[1]
+/** Lets pending microtasks (the Pagefind loader) settle before asserting. */
+const flush = () => new Promise((resolve) => setImmediate(resolve))
 
-function explorer({ saved = null, blocked = false } = {}) {
+/**
+ * Runs the real controller against a small DOM fixture. The controller only
+ * touches globals at init time, so each explorer() installs its own and returns
+ * a handle to the behaviour under test.
+ */
+function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
   const element = (dataset = {}) => ({
     dataset,
     hidden: false,
+    checked: false,
     value: '',
     textContent: '',
     innerHTML: '',
     style: { setProperty() {} },
     listeners: {},
     children: [],
+    className: '',
+    attributes: {},
+    setAttribute(name, value) {
+      this.attributes[name] = String(value)
+    },
+    getAttribute(name) {
+      return this.attributes[name]
+    },
     addEventListener(event, listener) {
       this.listeners[event] = listener
     },
@@ -63,12 +75,16 @@ function explorer({ saved = null, blocked = false } = {}) {
       'rezepte'
     ].map((id) => [id, element()])
   )
+  ids.rezepte.dataset.pagefindUrl = '/pagefind/pagefind.js'
+  ids.rezepte.dataset.basePath = '/'
   const singles = Object.fromEntries(
     ['[data-empty-block]', '[data-reset-filters]', '[data-sticky-bar]', '[data-wip-control]'].map((id) => [
       id,
       element()
     ])
   )
+  singles['#rezept-suche'] = ids['rezept-suche']
+  singles['#show-wip'] = ids['show-wip']
   const categoryButtons = ['', 'brot', 'salate'].map((category) => element({ filterCategory: category }))
   const tagButton = element({ filterTag: 'fleisch' })
   const tagChip = element({ chipLabel: 'fleisch' })
@@ -83,40 +99,52 @@ function explorer({ saved = null, blocked = false } = {}) {
   }
   const storage = new Map([['delicacies.showWip', saved]])
   const scrollCalls = []
-  const context = {
-    document: {
-      currentScript: { dataset: {} },
-      documentElement: {},
-      getElementById: (id) => ids[id],
-      querySelector: (id) => singles[id],
-      querySelectorAll: (id) => lists[id] || [],
-      createElement: () => element()
-    },
-    localStorage: {
-      getItem(key) {
-        if (blocked) throw Error('blocked')
-        return storage.get(key)
+  globalThis.document = {
+    documentElement: {
+      style: { setProperty() {} },
+      attributes: {},
+      setAttribute(name, value) {
+        this.attributes[name] = String(value)
       },
-      setItem(key, value) {
-        if (blocked) throw Error('blocked')
-        storage.set(key, value)
+      removeAttribute(name) {
+        delete this.attributes[name]
       }
     },
-    window: { location: { hash: '' }, scrollY: 800, scrollTo: (options) => scrollCalls.push(options) },
-    getComputedStyle: () => ({ top: '0', scrollPaddingTop: '0' }),
-    ResizeObserver: class {
-      observe() {}
-    },
-    clearTimeout,
-    setTimeout
+    fonts: { ready: Promise.resolve() },
+    readyState: 'complete',
+    getElementById: (id) => ids[id],
+    querySelector: (selector) => singles[selector],
+    querySelectorAll: (selector) => lists[selector] || [],
+    createElement: () => element()
   }
-  runInNewContext(
-    script +
-      '\n globalThis.controller = { local: (query) => { pagefindFailed = true; return runSearch(query) }, search: runSearch, setPagefind: (adapter) => { pagefind = adapter }, filters: activeFilters };',
-    context
-  )
+  globalThis.localStorage = {
+    getItem(key) {
+      if (blocked) throw Error('blocked')
+      return storage.get(key)
+    },
+    setItem(key, value) {
+      if (blocked) throw Error('blocked')
+      storage.set(key, value)
+    }
+  }
+  globalThis.window = {
+    location: { hash: '', pathname: '/', search: '' },
+    scrollY: 800,
+    scrollTo: (options) => scrollCalls.push(options),
+    addEventListener() {}
+  }
+  globalThis.getComputedStyle = () => ({ top: '0', scrollPaddingTop: '0' })
+  globalThis.ResizeObserver = class {
+    observe() {}
+  }
+
+  const controller = initRecipeExplorer({
+    loadPagefind: async () => pagefind
+  })
+
   return {
-    ...context.controller,
+    controller,
+    documentElement: globalThis.document.documentElement,
     ids,
     sections,
     subgroup,
@@ -124,7 +152,10 @@ function explorer({ saved = null, blocked = false } = {}) {
     scrollCalls,
     categoryButtons,
     tagChip,
+    tagButton,
     visible: () => cards.filter((card) => !card.item.hidden).map((card) => card.dataset.title),
+    search: (query, options) => controller.search(query, options),
+    filters: () => controller.activeFilters(),
     toggle(value) {
       ids['show-wip'].checked = value
       singles['[data-wip-control]'].hidden = false
@@ -155,6 +186,21 @@ test('filter updates preserve single-line icon and label layout', () => {
   }
 })
 
+test('filter chips expose their pressed state', () => {
+  const ui = explorer()
+  ui.category('brot')
+  const pressed = (category) =>
+    ui.categoryButtons.find((button) => button.dataset.filterCategory === category).attributes['aria-pressed']
+  assert.equal(pressed('brot'), 'true')
+  assert.equal(pressed(''), 'false')
+  assert.equal(ui.tagButton.attributes['aria-pressed'], 'false')
+  ui.tag()
+  assert.equal(ui.tagButton.attributes['aria-pressed'], 'true')
+  ui.reset()
+  assert.equal(pressed(''), 'true')
+  assert.equal(ui.tagButton.attributes['aria-pressed'], 'false')
+})
+
 test('default, invalid, and unavailable preferences hide WIP list items and empty groups', () => {
   for (const options of [{}, { saved: 'false' }, { saved: 'invalid' }, { saved: 'true', blocked: true }]) {
     const ui = explorer(options)
@@ -164,6 +210,17 @@ test('default, invalid, and unavailable preferences hide WIP list items and empt
     assert.equal(ui.sections[2].hidden, true)
     assert.equal(ui.subgroup.hidden, true)
   }
+})
+
+test('the untested flag follows the preference and the toggle', () => {
+  const hidden = explorer()
+  assert.equal(hidden.documentElement.attributes['data-untested-hidden'], '')
+  hidden.toggle(true)
+  assert.equal(hidden.documentElement.attributes['data-untested-hidden'], undefined)
+  hidden.toggle(false)
+  assert.equal(hidden.documentElement.attributes['data-untested-hidden'], '')
+
+  assert.equal(explorer({ saved: 'true' }).documentElement.attributes['data-untested-hidden'], undefined)
 })
 
 test('toggle persists across controller reloads, composes with filters, and survives reset', () => {
@@ -206,7 +263,7 @@ test('WIP toggles do not scroll the recipe list, while category filters still do
 test('WIP toggles refresh fallback search without scrolling', async () => {
   const ui = explorer()
   ui.ids['rezept-suche'].value = 'Cloud'
-  await ui.local('Cloud')
+  await ui.search('Cloud')
   assert.equal(ui.scrollCalls.length, 1)
   ui.scrollCalls.length = 0
   await ui.toggle(true)
@@ -217,15 +274,17 @@ test('WIP toggles refresh fallback search without scrolling', async () => {
 })
 
 test('WIP toggles refresh Pagefind matches and empty results without scrolling', async () => {
-  const ui = explorer()
-  ui.ids['rezept-suche'].value = 'Cloud'
-  ui.setPagefind({
-    search: async (_query, options) => ({
-      results: options?.filters?.wip
-        ? []
-        : [{ data: async () => ({ url: '/rezept/cloud-burger-buns/', meta: { title: 'Cloud Burger Buns' } }) }]
-    })
+  const ui = explorer({
+    pagefind: {
+      init: async () => {},
+      search: async (_query, options) => ({
+        results: options?.filters?.wip
+          ? []
+          : [{ data: async () => ({ url: '/rezept/cloud-burger-buns/', meta: { title: 'Cloud Burger Buns' } }) }]
+      })
+    }
   })
+  ui.ids['rezept-suche'].value = 'Cloud'
   await ui.toggle(true)
   assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
   await ui.toggle(false)
@@ -237,27 +296,33 @@ test('WIP toggles refresh Pagefind matches and empty results without scrolling',
 
 test('fallback search hides untested recipes until enabled', async () => {
   const ui = explorer()
-  await ui.local('Cloud')
+  await ui.search('Cloud')
   assert.equal(ui.ids['suche-leer'].hidden, false)
   ui.toggle(true)
-  await ui.local('Cloud')
+  await ui.search('Cloud')
   assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
   ui.category('salate')
-  await ui.local('Cloud')
+  await ui.search('Cloud')
   assert.equal(ui.ids['suche-leer'].hidden, false)
-  await ui.local('Farfallesalat')
+  await ui.search('Farfallesalat')
   assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
 })
 
 test('Pagefind receives the WIP filter with other filters and stale searches cannot render', async () => {
-  const ui = explorer()
   const pending = []
-  ui.setPagefind({ search: (_query, options) => new Promise((resolve) => pending.push({ options, resolve })) })
+  const ui = explorer({
+    pagefind: {
+      init: async () => {},
+      search: (_query, options) => new Promise((resolve) => pending.push({ options, resolve }))
+    }
+  })
   ui.category('brot')
   const oldSearch = ui.search('Burger')
+  await flush()
   assert.deepEqual(JSON.parse(JSON.stringify(pending[0].options.filters)), { wip: ['false'], category: ['brot'] })
   ui.toggle(true)
   const newSearch = ui.search('Burger')
+  await flush()
   assert.deepEqual(JSON.parse(JSON.stringify(pending[1].options.filters)), { category: ['brot'] })
   pending[1].resolve({
     results: [

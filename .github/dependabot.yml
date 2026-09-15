@@ -1,0 +1,25 @@
+version: 2
+
+updates:
+  # Keeps the Astro, Tailwind, Pagefind and Prettier versions current.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      astro:
+        patterns:
+          - astro
+          - '@astrojs/*'
+      tooling:
+        patterns:
+          - prettier
+          - prettier-plugin-*
+          - typescript
+          - pagefind
+
+  # The deploy workflow pins actions to SHAs; this keeps those commits current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

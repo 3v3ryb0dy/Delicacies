@@ -100,3 +100,32 @@ export async function readProse(file) {
   const { body } = parseFrontmatter(await readFile(file, 'utf8'))
   return body.trim()
 }
+
+/**
+ * Category and subcategory checks shared by the README generator and the
+ * content check. `src/content.config.ts` enforces the same rules for the
+ * website build, so a bad file fails both paths instead of quietly losing a
+ * recipe from the home page.
+ */
+export function validateRecipes(recipes, categories) {
+  const categoryById = new Map(categories.map((category) => [category.id, category]))
+
+  for (const recipe of recipes) {
+    const category = categoryById.get(recipe.category)
+    if (!category) {
+      throw new Error(
+        `Unknown category "${recipe.category}" in recipes/${recipe.file}. ` +
+          `Allowed: ${[...categoryById.keys()].join(', ')}`
+      )
+    }
+    if (recipe.subcategory === undefined) continue
+
+    const declared = category.subcategories ?? []
+    if (!declared.some((subcategory) => subcategory.id === recipe.subcategory)) {
+      throw new Error(
+        `Unknown subcategory "${recipe.subcategory}" for category "${recipe.category}" in recipes/${recipe.file}. ` +
+          `Allowed: ${declared.map((subcategory) => subcategory.id).join(', ') || 'none'}`
+      )
+    }
+  }
+}

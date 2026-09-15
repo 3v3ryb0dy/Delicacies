@@ -44,7 +44,7 @@ const siblings = recipes
 const alt = imageAlt?.trim() || title
 const description = imageAlt?.trim() || `${title}: Zutaten und Zubereitung aus dem Kochbuch der Delikatessen.`
 const socialImage = image
-  ? await getImage({ src: image, width: Math.min(image.width, 1200), format: 'jpeg', quality: 80 })
+  ? await getImage({ src: image, width: Math.min(image.width, 1200), format: 'jpeg', quality: 72 })
   : undefined
 const previewImage = socialImage
   ? {
@@ -101,9 +101,7 @@ const previewImage = socialImage
             </span>
           )}
           {tags.map((tag) => (
-            <a href={withBase(`#${entry.data.category}`)} data-pagefind-filter={`tag:${tag}`} class='contents'>
-              <TagChip label={tag} href={withBase(`#${entry.data.category}`)} />
-            </a>
+            <TagChip label={tag} href={withBase(`#${entry.data.category}`)} data-pagefind-filter={`tag:${tag}`} />
           ))}
           {servings && <span class='text-xs font-semibold text-ink-soft'>für {servings}</span>}
         </div>
@@ -151,7 +149,10 @@ const previewImage = socialImage
           <Image
             src={image}
             alt={alt}
-            widths={[320, 400, 640, 800]}
+            width={720}
+            height={540}
+            widths={[320, 480, 720]}
+            quality={80}
             sizes='(min-width: 1200px) 368px, (min-width: 960px) calc((100vw - 96px) / 3), (min-width: 360px) 320px, calc(100vw - 40px)'
             loading='eager'
             decoding='async'

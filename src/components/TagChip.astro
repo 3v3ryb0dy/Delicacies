@@ -2,12 +2,11 @@
 type Props = {
   label: string
   href?: string
-  active?: boolean
   interactive?: boolean
   tone?: 'neutral' | 'herb'
 }
 
-const { label, href, active = false, interactive = false, tone = 'neutral' } = Astro.props
+const { label, href, interactive = false, tone = 'neutral', ...rest } = Astro.props
 
 const base =
   'focus-ring inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1 text-sm font-semibold tracking-wide transition-colors'
@@ -16,18 +15,16 @@ const tones = {
   herb: 'bg-herb-soft text-herb'
 }
 
-const classes = [base, active ? 'bg-ink text-paper' : tones[tone], interactive ? 'cursor-pointer' : '']
-  .filter(Boolean)
-  .join(' ')
+const classes = [base, tones[tone], interactive ? 'cursor-pointer' : ''].filter(Boolean).join(' ')
 ---
 
 {href ? (
-  <a href={href} class={classes}>
+  <a href={href} class={classes} {...rest}>
     <slot name='icon' />
     {label}
   </a>
 ) : (
-  <span class={classes} data-chip-label={label}>
+  <span class={classes} data-chip-label={label} {...rest}>
     <slot name='icon' />
     {label}
   </span>
