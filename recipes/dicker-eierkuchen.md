@@ -31,6 +31,6 @@ servings: etwa 4 Personen
 >
 > Die Oberfläche vollständig mit Brötchenscheiben belegen. Butterflocken darauf verteilen.
 >
-> Bei mittlerer Hitze (ca. 170 °C) auf mittlerer Schiene etwa 1 Stunde goldgelb backen.
+> Bei 190 °C auf mittlerer Schiene etwa 45 Minuten goldgelb backen.
 
 Passende Beilagen: [Warmer Kartoffelsalat](warmer-kartoffelsalat.md). So hat Oma den Eierkuchen serviert.
