@@ -71,6 +71,8 @@ function explorer({ saved = null, blocked = false } = {}) {
   )
   const categoryButtons = ['', 'brot', 'salate'].map((category) => element({ filterCategory: category }))
   const tagButton = element({ filterTag: 'fleisch' })
+  const tagChip = element({ chipLabel: 'fleisch' })
+  tagButton.querySelector = () => tagChip
   const lists = {
     '[data-category-section]': sections,
     '[data-recipe]': cards,
@@ -120,6 +122,8 @@ function explorer({ saved = null, blocked = false } = {}) {
     subgroup,
     storage,
     scrollCalls,
+    categoryButtons,
+    tagChip,
     visible: () => cards.filter((card) => !card.item.hidden).map((card) => card.dataset.title),
     toggle(value) {
       ids['show-wip'].checked = value
@@ -137,6 +141,19 @@ function explorer({ saved = null, blocked = false } = {}) {
     }
   }
 }
+
+test('filter updates preserve single-line icon and label layout', () => {
+  const ui = explorer()
+  for (const update of [() => ui.category('brot'), () => ui.tag(), () => ui.reset()]) {
+    update()
+    for (const chip of [...ui.categoryButtons, ui.tagChip]) {
+      const classes = new Set(chip.className.split(/\s+/))
+      for (const required of ['inline-flex', 'items-center', 'shrink-0', 'whitespace-nowrap']) {
+        assert.ok(classes.has(required), `Missing ${required} after filter update`)
+      }
+    }
+  }
+})
 
 test('default, invalid, and unavailable preferences hide WIP list items and empty groups', () => {
   for (const options of [{}, { saved: 'false' }, { saved: 'invalid' }, { saved: 'true', blocked: true }]) {

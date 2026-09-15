@@ -2,6 +2,7 @@
 import { RotateCcw } from '@lucide/astro'
 import { getCollection, getEntry, render } from 'astro:content'
 import RecipeCard from '../components/RecipeCard.astro'
+import CategoryIcon from '../components/CategoryIcon.astro'
 import RecipeExplorer from '../components/RecipeExplorer.astro'
 import LogoWatermark from '../components/LogoWatermark.astro'
 import { categories } from '../config/taxonomy'
@@ -27,13 +28,19 @@ const emptySubcategories = filledCategories.flatMap((category) =>
     )
     .map((subcategory) => ({
       id: `${category.id}-${subcategory.id}`,
+      category: category.id,
       title: subcategory.title,
       note: `Untergruppe von ${category.title}`
     }))
 )
 
 const emptyEntries = [
-  ...emptyCategories.map((category) => ({ id: category.id, title: category.title, note: category.description })),
+  ...emptyCategories.map((category) => ({
+    id: category.id,
+    category: category.id,
+    title: category.title,
+    note: category.description
+  })),
   ...emptySubcategories
 ]
 ---
@@ -63,7 +70,10 @@ const emptyEntries = [
           <section id={category.id} data-category-section hidden={categoryRecipes.every((recipe) => recipe.data.wip)}>
             <header class='flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-rule pb-4'>
               <div>
-                <h2 class='font-display text-section font-semibold'>{category.title}</h2>
+                <h2 class='flex items-center gap-3 font-display text-section font-semibold'>
+                  <CategoryIcon category={category.id} size={28} class='text-accent' />
+                  {category.title}
+                </h2>
                 {category.description && <p class='mt-1.5 text-sm text-ink-soft'>{category.description}</p>}
               </div>
               <p
@@ -121,7 +131,10 @@ const emptyEntries = [
                 id={entry.id}
                 data-empty-category={entry.id}
                 class='min-w-56 flex-1 rounded-2xl border border-dashed border-rule px-5 py-4 sm:flex-none'>
-                <p class='font-display text-lg font-semibold'>{entry.title}</p>
+                <p class='flex items-center gap-2 font-display text-lg font-semibold'>
+                  <CategoryIcon category={entry.category} size={20} class='text-accent' />
+                  {entry.title}
+                </p>
                 {entry.note && <p class='mt-1 text-sm text-ink-soft'>{entry.note}</p>}
                 <p class='mt-2 text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
                   0 Rezepte

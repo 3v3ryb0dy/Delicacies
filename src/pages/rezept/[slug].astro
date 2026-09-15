@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content'
 import RecipeCard from '../../components/RecipeCard.astro'
 import RecipePreparation from '../../components/RecipePreparation.astro'
 import TagChip from '../../components/TagChip.astro'
+import CategoryIcon from '../../components/CategoryIcon.astro'
 import LogoWatermark from '../../components/LogoWatermark.astro'
 import { categoryById } from '../../config/taxonomy'
 import { brandRecommendations } from '../../config/brands'
@@ -19,12 +20,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title, subcategory, tags, image, imageAlt, wip, preparationPending, servings, note, source } = entry.data
+const { title, tags, image, imageAlt, wip, preparationPending, servings, note, source } = entry.data
 
 const categoryMeta = categoryById.get(entry.data.category)
 const categoryTitle = categoryMeta?.title ?? entry.data.category
 const categoryShort = categoryMeta?.short ?? entry.data.category
-const subcategoryTitle = categoryMeta?.subcategories?.find((item) => item.id === subcategory)?.title
 
 const body = parseRecipeBody(entry.body ?? '')
 const recipes = await getCollection('recipes')
@@ -60,12 +60,14 @@ const previewImage = socialImage
 <BaseLayout title={title} description={description} previewTitle={title} previewImage={previewImage}>
   <article
     data-pagefind-body
+    data-pagefind-meta={`category:${categoryShort}`}
     data-pagefind-filter={`wip:${wip}`}
     class='relative isolate mx-auto max-w-[75rem] px-5 pt-8 pb-16 sm:px-8 print:max-w-none print:px-0 print:py-0'>
     <LogoWatermark tone='page' side='left' class='top-[3rem] left-[-124px] size-[min(46vw,22rem)]' />
     <nav class='print:hidden' aria-label='Brotkrümel'>
       <a
         href={withBase(`#${entry.data.category}`)}
+        data-pagefind-filter={`category:${entry.data.category}`}
         class='focus-ring inline-flex items-center gap-2 rounded-full text-sm font-semibold text-ink-soft transition-colors hover:text-ink'>
         <ArrowLeft size={16} class='shrink-0' aria-hidden='true' focusable='false' />
         {categoryTitle}
@@ -74,21 +76,19 @@ const previewImage = socialImage
 
     <header
       class:list={[
-        'mt-7 grid items-start gap-8 print:mt-2',
+        'mt-6 grid items-start gap-8 print:mt-2',
         image &&
           'md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] print:grid-cols-[minmax(0,1fr)_minmax(0,12rem)] print:gap-8'
       ]}>
       <div class='min-w-0'>
-        <div class='flex flex-wrap items-center gap-2 text-[0.7rem] font-bold tracking-[0.16em] uppercase'>
-          <a
-            href={withBase(`#${entry.data.category}`)}
-            class='focus-ring rounded-full text-accent transition-colors hover:text-ink'
-            data-pagefind-filter={`category:${entry.data.category}`}>
-            <span data-pagefind-ignore>{categoryShort}</span>
-          </a>
-          {subcategoryTitle && <span class='text-ink-soft/70'>· {subcategoryTitle}</span>}
+        <h1 class='max-w-4xl font-display text-display font-semibold text-balance'>{title}</h1>
+
+        <div class='mt-6 flex flex-wrap items-center gap-2 print:hidden'>
+          <TagChip label={categoryTitle} href={withBase(`#${entry.data.category}`)} tone='herb'>
+            <CategoryIcon slot='icon' category={entry.data.category} />
+          </TagChip>
           {preparationPending && (
-            <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent'>
+            <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase'>
               In Arbeit
             </span>
           )}
@@ -100,12 +100,6 @@ const previewImage = socialImage
               <span class='sr-only'>Ungetestet</span>
             </span>
           )}
-        </div>
-
-        <h1 class='mt-5 max-w-4xl font-display text-display font-semibold text-balance print:mt-2'>{title}</h1>
-
-        <div class='mt-6 flex flex-wrap items-center gap-2 print:hidden'>
-          <TagChip label={categoryTitle} href={withBase(`#${entry.data.category}`)} tone='herb' />
           {tags.map((tag) => (
             <a href={withBase(`#${entry.data.category}`)} data-pagefind-filter={`tag:${tag}`} class='contents'>
               <TagChip label={tag} href={withBase(`#${entry.data.category}`)} />
