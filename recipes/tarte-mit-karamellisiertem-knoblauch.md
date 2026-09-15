@@ -9,6 +9,10 @@ wip: true
 note: Nach Yotam Ottolenghi, Plenty.
 ---
 
+## Tipp
+
+> Die beiden Ziegenkäsesorten können durch 120 g Frischkäse und 120 g Gruyère ersetzt werden.
+
 ## Zutaten
 
 - 375 g Blätterteig
