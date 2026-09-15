@@ -12,7 +12,7 @@ const findCombinations = (query) =>
     .map((combination) => combination.id)
 
 test('seed content has unique anchors, valid references and complete application plans', () => {
-  assert.equal(aromas.length, 36)
+  assert.equal(aromas.length, 37)
   assert.equal(aromaCombinations.length, 20)
   const ids = [...aromas, ...aromaCombinations].map((entry) => entry.id)
   assert.equal(new Set(ids).size, ids.length)
@@ -83,7 +83,10 @@ test('new aliases reach the intended profile and its curated applications', () =
     ['Kalonji', 'schwarzkuemmel'],
     ['Sesam', 'sesam'],
     ['Sichuan-Pfeffer', 'szechuanpfeffer'],
-    ['Szechuanpfeffer', 'szechuanpfeffer']
+    ['Szechuanpfeffer', 'szechuanpfeffer'],
+    ['Rosa Pfeffer', 'rosa-pfefferbeeren'],
+    ['Rosa Beeren', 'rosa-pfefferbeeren'],
+    ['Pink Peppercorns', 'rosa-pfefferbeeren']
   ])
     assert.ok(findAromas(query).includes(id), query)
   assert.deepEqual(findCombinations('Sichuan-Pfeffer'), ['bohnen-szechuanpfeffer-ingwer-chili'])

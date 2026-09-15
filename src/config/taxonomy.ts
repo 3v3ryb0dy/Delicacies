@@ -92,7 +92,7 @@ export const categories: Category[] = [
     id: 'salate',
     title: 'Salate',
     short: 'Salate',
-    description: 'Frisch angerichtet.'
+    description: 'Zum Dazuessen, Mitbringen und fürs Buffet.'
   },
   {
     id: 'suppen',

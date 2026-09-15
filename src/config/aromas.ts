@@ -1104,5 +1104,40 @@ export const aromas: readonly Aroma[] = [
         url: 'https://www.loveandlemons.com/tahini-dressing/'
       }
     ]
+  },
+  {
+    id: 'rosa-pfefferbeeren',
+    name: 'Rosa Pfefferbeeren',
+    aliases: ['Rosa Pfeffer', 'Rosa Beeren', 'Pink Peppercorns', 'Schinus'],
+    kind: 'Gewürz',
+    tags: ['fruchtig', 'süßlich', 'mild', 'harzig'],
+    character:
+      'Milde, fruchtig-süßliche Würze mit harzigen, an Wacholder erinnernden Noten. Die rosa-roten Früchte des Schinusbaums bringen vor allem Duft und einen farbigen Akzent. Die kräftige Schärfe von echtem Pfeffer fehlt ihnen.',
+    foods: ['Fisch', 'Meeresfrüchte', 'Blattsalat', 'Frischkäse', 'Geflügel', 'Schokolade'],
+    partners: ['Limette', 'Zitrone', 'Maracuja', 'Honig', 'Dill'],
+    applications: [
+      {
+        form: 'Leicht zerdrückte Beeren',
+        place: 'Finish',
+        method:
+          'Zwischen den Fingern zerreiben oder im Mörser leicht andrücken und erst beim Anrichten über das Gericht geben. Nicht lange mitkochen, damit der Duft erhalten bleibt.',
+        start:
+          'Ungetesteter Startwert: etwa ½ TL ganze Beeren für vier kleine Vorspeisenportionen. Leicht zerdrücken, zunächst an einer Portion probieren und nach Geschmack ergänzen. Keine bestätigte Dosierung aus dem Hotel.'
+      },
+      {
+        form: 'Grob zerstoßene Beeren',
+        place: 'Dressing',
+        method: 'Kurz vor dem Servieren in ein kaltes Dressing rühren oder über den bereits angemachten Salat streuen.'
+      }
+    ],
+    mistake:
+      'Nicht allein in einer normalen Pfeffermühle mahlen: Die weichen Beeren können das Mahlwerk verkleben. Besser zerreiben oder mörsern.',
+    note: 'Die Aromapartner sind Vorschläge zum Ausprobieren. Allergiehinweis: Bei Cashewallergie sind Reaktionen auf rosa Pfeffer möglich.',
+    sources: [
+      {
+        title: 'Allergiehinweis: Kreuzreaktivität von rosa Pfeffer bei Cashew- und Pistazienallergie (2019)',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31384580/'
+      }
+    ]
   }
 ]
