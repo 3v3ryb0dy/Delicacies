@@ -14,5 +14,6 @@ export const brandRecommendations: readonly BrandRecommendation[] = [
     brand: 'dmBio Reisnudeln Pad Thai'
   },
   { id: 'tahini', ingredient: 'Tahini', brand: 'Pepperwood Organics' },
-  { id: 'tamarindenpaste', ingredient: 'Tamarindenpaste', brand: 'Suree' }
+  { id: 'tamarindenpaste', ingredient: 'Tamarindenpaste', brand: 'Suree' },
+  { id: 'worcestersauce', ingredient: 'Worcestersauce', brand: 'Excellent' }
 ]
