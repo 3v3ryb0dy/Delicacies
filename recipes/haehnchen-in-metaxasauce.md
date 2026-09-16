@@ -17,7 +17,7 @@ tags: [fleisch, hähnchen, griechisch]
 - 3 rote Spitzpaprika
 - 1 weiße Zwiebel
 - 1 Knoblauchzehe
-- 2 Zweige Rosmarin
+- 1 Zweig Rosmarin (klein)
 - 2 EL Olivenöl
 - 1 EL Tomatenmark
 - 100 ml Metaxa (alt. Weinbrand)
@@ -25,7 +25,6 @@ tags: [fleisch, hähnchen, griechisch]
 - 200 g Schlagsahne
 - 1 TL Oregano
 - 1 TL Paprikapulver (edelsüß)
-- 1 Prise Zucker
 - Salz, Pfeffer
 
 ### Optional
@@ -40,11 +39,11 @@ tags: [fleisch, hähnchen, griechisch]
 >
 > Paprika und Zwiebel in kleine Streifen schneiden. Knoblauch fein würfeln. Rosmarinnadeln abzupfen und fein hacken.
 >
-> Paprika und Zwiebel im Bratensatz mit etwas Olivenöl anbraten. Mit etwas Salz, Pfeffer und einer Prise Zucker würzen. Knoblauch und Rosmarin kurz mitbraten. Tomatenmark zugeben und 1–2 Minuten anrösten.
+> Paprika und Zwiebel im Bratensatz mit etwas Olivenöl anbraten. Mit etwas Salz und Pfeffer würzen. Knoblauch und Rosmarin kurz mitbraten. Tomatenmark zugeben und 1–2 Minuten anrösten.
 >
 > Mit Metaxa ablöschen und vollständig einreduzieren lassen.
 >
-> Hälfte des Pfanneninhalts beiseite zum Hähnchen stellen. 1 TL Oregano und 1 TL Paprikapulver in die Pfanne geben.
+> Hälfte des gebratenen Gemüses herausnehmen und beiseite zum Hähnchen stellen. 1 TL Oregano und 1 TL Paprikapulver in die Pfanne geben.
 >
 > Gemüsefond und Schlagsahne zugießen, etwas einreduzieren und anschließend fein pürieren.\
 >
