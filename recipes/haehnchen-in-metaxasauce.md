@@ -21,7 +21,7 @@ tags: [fleisch, hähnchen, griechisch]
 - 2 EL Olivenöl
 - 1 EL Tomatenmark
 - 100 ml Metaxa (alt. Weinbrand)
-- 200 ml Gemüsebrühe
+- 200 ml Gemüsefond
 - 200 g Schlagsahne
 - 1 TL Oregano
 - 1 TL Paprikapulver (edelsüß)
@@ -39,12 +39,12 @@ tags: [fleisch, hähnchen, griechisch]
 >
 > Paprika und Zwiebel in kleine Streifen schneiden. Knoblauch fein würfeln. Rosmarinnadeln abzupfen und fein hacken.
 >
-> Paprika und Zwiebel im Bratensatz mit etwas Olivenöl anbraten. Mit etwas Salz und Pfeffer würzen. Knoblauch und Rosmarin kurz mitbraten. Tomatenmark zugeben und 1–2 Minuten anrösten.
+> Paprika und Zwiebel im Bratensatz mit etwas Olivenöl anbraten. Mit einer Prise Salz und Pfeffer würzen. Knoblauch und Rosmarin kurz mitbraten. Tomatenmark zugeben und 1–2 Minuten anrösten.
 >
-> Mit Metaxa ablöschen und vollständig einreduzieren lassen.
+> Mit Metaxa ablöschen und etwas einreduzieren lassen.
 >
 > Hälfte des gebratenen Gemüses herausnehmen und beiseite zum Hähnchen stellen. 1 TL Oregano und 1 TL Paprikapulver in die Pfanne geben.
 >
-> Gemüsefond und Schlagsahne zugießen, etwas einreduzieren und anschließend fein pürieren.\
+> Gemüsefond und Schlagsahne hinzugeben, etwas einreduzieren und anschließend fein pürieren.
 >
 > Hähnchen mit Fleischsaft und Paprika zurück in die Sauce geben. Bei niedriger Hitze einige Minuten ziehen lassen, bis das Fleisch vollständig gegart und noch saftig ist.
