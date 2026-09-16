@@ -1,8 +1,8 @@
 /**
  * Home page recipe explorer.
  *
- * Owns category/tag filtering, Pagefind search, the remembered "Ungetestete
- * Rezepte anzeigen" preference and the scroll handling that keeps results clear
+ * Owns category/tag filtering, Pagefind search, the remembered "Versuchsküche
+ * anzeigen" preference and the scroll handling that keeps results clear
  * of the sticky filter bar.
  *
  * This lives in a module (loaded by `RecipeExplorer.astro`) instead of an

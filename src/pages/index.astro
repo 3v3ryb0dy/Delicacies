@@ -61,7 +61,9 @@ const emptyEntries = [
     </div>
   </section>
 
-  <RecipeExplorer total={recipes.filter((recipe) => !recipe.data.wip).length}>
+  <RecipeExplorer
+    total={recipes.filter((recipe) => !recipe.data.wip).length}
+    untestedCount={recipes.filter((recipe) => recipe.data.wip).length}>
     <div class='flex flex-col gap-16 pb-10'>
       {filledCategories.map((category) => {
         const categoryRecipes = byCategory.get(category.id) ?? []

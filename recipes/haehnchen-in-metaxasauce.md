@@ -13,18 +13,18 @@ tags: [fleisch, hähnchen, griechisch]
 
 ## Zutaten
 
-- 400 g Hähnchenbrustfilet
-- 1 rote Paprikaschote
+- 400 - 600 g Hähnchenbrustfilet
+- 3 rote Spitzpaprika
 - 1 weiße Zwiebel
 - 1 Knoblauchzehe
 - 2 Zweige Rosmarin
 - 2 EL Olivenöl
 - 1 EL Tomatenmark
-- 150 ml Metaxa (alt. Weinbrand)
-- 200 ml Gemüsefond
+- 100 ml Metaxa (alt. Weinbrand)
+- 200 ml Gemüsebrühe
 - 200 g Schlagsahne
-- 2 TL Oregano
-- 2 TL Paprikapulver (edelsüß)
+- 1 TL Oregano
+- 1 TL Paprikapulver (edelsüß)
 - 1 Prise Zucker
 - Salz, Pfeffer
 
@@ -34,17 +34,18 @@ tags: [fleisch, hähnchen, griechisch]
 
 ## Zubereitung
 
-> Hähnchenbrustfilets zwischen Frischhaltefolie flachklopfen. Mit Salz und Pfeffer würzen.
+> Hähnchenbrustfilets zwischen Frischhaltefolie flachklopfen. Vorsichtig mit Salz und Pfeffer würzen.
 >
-> Olivenöl in einer großen Pfanne stark erhitzen. Hähnchen von beiden Seiten scharf anbraten, bis es kräftig gebräunt ist. Aus der Pfanne nehmen und beiseitestellen.
+> Etwas Olivenöl in einer großen Pfanne stark erhitzen. Hähnchen von beiden Seiten scharf anbraten, bis es kräftig gebräunt ist. Aus der Pfanne nehmen und beiseitestellen, dabei Saft auffangen.
 >
-> Paprika in kleine Streifen schneiden. Zwiebel und Knoblauch fein würfeln. Rosmarinnadeln abzupfen und fein hacken.
+> Paprika und Zwiebel in kleine Streifen schneiden. Knoblauch fein würfeln. Rosmarinnadeln abzupfen und fein hacken.
 >
-> Zwiebel und Paprika im Bratensatz anbraten. Knoblauch und Rosmarin kurz mitbraten. Tomatenmark zugeben und 1–2 Minuten anrösten.
+> Paprika und Zwiebel im Bratensatz mit etwas Olivenöl anbraten. Mit etwas Salz, Pfeffer und einer Prise Zucker würzen. Knoblauch und Rosmarin kurz mitbraten. Tomatenmark zugeben und 1–2 Minuten anrösten.
 >
-> Mit Metaxa ablöschen. Kurz einkochen lassen.
+> Mit Metaxa ablöschen und vollständig einreduzieren lassen.
 >
-> Gemüsefond und Schlagsahne zugießen. Oregano, Paprikapulver und Zucker einrühren. Mit Salz und Pfeffer würzen.\
-> Sauce einige Minuten offen köcheln lassen, bis sie leicht eindickt.
+> Hälfte des Pfanneninhalts beiseite zum Hähnchen stellen. 1 TL Oregano und 1 TL Paprikapulver in die Pfanne geben.
 >
-> Hähnchen zurück in die Sauce geben. Bei niedriger Hitze einige Minuten ziehen lassen, bis das Fleisch vollständig gegart und noch saftig ist.
+> Gemüsefond und Schlagsahne zugießen, etwas einreduzieren und anschließend fein pürieren.\
+>
+> Hähnchen mit Fleischsaft und Paprika zurück in die Sauce geben. Bei niedriger Hitze einige Minuten ziehen lassen, bis das Fleisch vollständig gegart und noch saftig ist.

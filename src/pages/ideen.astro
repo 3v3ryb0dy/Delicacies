@@ -9,7 +9,9 @@ const ideas = [
   { title: 'Tarte Tatin', url: 'https://youtu.be/oY64vU11aug', kind: 'Video' }
 ]
 
-const total = (await getCollection('recipes')).length
+const recipes = await getCollection('recipes')
+const untestedCount = recipes.filter((recipe) => recipe.data.wip).length
+const testedCount = recipes.length - untestedCount
 ---
 
 <BaseLayout
@@ -78,19 +80,19 @@ tags: [ofen, deutsch]
 
 > Aus Mehl, Wasser, Öl und Salz einen Teig herstellen.`}</code></pre>
         <p>
-          Danach genügt <code class='font-mono text-sm text-ink'>npm run build</code>. Die Übersicht auf der
+          Danach genügt <code class='font-mono text-sm text-ink'>npm run build</code>. Die Übersicht auf der{' '}
           <a
             href={withBase()}
             class='focus-ring rounded-full text-accent underline decoration-dotted underline-offset-4'>
             Startseite
-          </a>
+          </a>{' '}
           und das README entstehen automatisch aus den Dateien.
         </p>
         <p class='text-sm text-ink-soft/80'>
-          {total} Rezepte liegen aktuell im Kochbuch. Bilder gehören nach
-          <code class='font-mono text-[0.8rem] text-ink'>recipes/images/</code> und werden im Kopf als
-          <code class='font-mono text-[0.8rem] text-ink'>image: images/dateiname</code> eingetragen. PNG, JPG und JPEG
-          werden unterstützt; die Dateiendung ist optional. Rezepte mit
+          {recipes.length} Rezepte liegen aktuell im Kochbuch: {testedCount} getestet und {untestedCount} ungetestet in
+          der Versuchsküche. Bilder gehören nach <code class='font-mono text-[0.8rem] text-ink'>recipes/images/</code>{' '}
+          und werden im Kopf als <code class='font-mono text-[0.8rem] text-ink'>image: images/dateiname</code>{' '}
+          eingetragen. PNG, JPG und JPEG werden unterstützt; die Dateiendung ist optional. Rezepte mit{' '}
           <code class='font-mono text-[0.8rem] text-ink'>preparationPending: true</code> zeigen statt der Zubereitung
           einen Hinweis.
         </p>

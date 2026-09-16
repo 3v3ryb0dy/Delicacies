@@ -7,9 +7,10 @@ import CategoryIcon from './CategoryIcon.astro'
 
 type Props = {
   total: number
+  untestedCount: number
 }
 
-const { total } = Astro.props
+const { total, untestedCount } = Astro.props
 
 const scrollRowClass =
   'no-scrollbar -mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 lg:mx-0 lg:px-0'
@@ -54,7 +55,7 @@ const chipClass =
           <span
             aria-hidden='true'
             class='relative h-5 w-9 shrink-0 rounded-full bg-rule transition-colors peer-checked:bg-accent peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-accent after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-paper after:transition-transform peer-checked:after:translate-x-4'></span>
-          Ungetestete Rezepte anzeigen
+          Versuchsküche anzeigen ({untestedCount})
         </label>
       </div>
 
