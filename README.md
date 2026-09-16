@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-66 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+70 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -23,7 +23,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (15)
+### Hauptgerichte (16)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -40,11 +40,13 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Tarte mit karamellisiertem Knoblauch](recipes/tarte-mit-karamellisiertem-knoblauch.md) _(Ungetestet)_
 - [Tofu mit schwarzem Pfeffer](recipes/tofu-mit-schwarzem-pfeffer.md) _(Ungetestet)_
 - [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(Ungetestet)_
+- [Zitronenhähnchen mit schneller Salzzitronenpaste](recipes/zitronenhaehnchen.md) _(Ungetestet)_
 
-### Desserts (2)
+### Desserts (3)
 
 - [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(Ungetestet)_
 - [Pavlova-Roulade mit Pfirsichen und Brombeeren](recipes/pavlova-roulade.md) _(Ungetestet)_
+- [Zimt-Pavlova mit Pralinécreme und frischen Feigen](recipes/zimt-pavlova.md) _(Ungetestet)_
 
 ### Suppen (5)
 
@@ -54,12 +56,13 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md) _(Ungetestet)_
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
 
-### Beilagen (9)
+### Beilagen (10)
 
 #### Gemüse
 
 - [Apfelrotkohl](recipes/rotkohl.md)
 - [Brokkoli (gebraten)](recipes/brokkoli.md)
+- [Butternut-Kürbis mit Chili-Joghurt und Koriandersauce](recipes/butternut-kuerbis-mit-chili-joghurt.md) _(Ungetestet)_
 - [Karotten](recipes/karotten.md)
 - [Rosenkohl (gebacken)](recipes/rosenkohl.md)
 - [Spitzkohl mit Senfrahm und Butterbröseln](recipes/spitzkohl-mit-senfrahm.md) _(Ungetestet)_
@@ -97,8 +100,9 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Kürbisbrot](recipes/kuerbisbrot.md)
 - [Simit](recipes/simit.md)
 
-### Gebäck (2)
+### Gebäck (3)
 
+- [Heidelbeer-Muffins mit Streuseln](recipes/heidelbeer-muffins-mit-streuseln.md) _(Ungetestet)_
 - [Schinkengipfeli](recipes/schinkengipfeli.md)
 - [Vanillekipferl](recipes/vanillekipferl.md)
 

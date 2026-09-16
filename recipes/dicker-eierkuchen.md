@@ -9,6 +9,7 @@ servings: etwa 4 Personen
 
 ## Tipp
 
+> Je mehr die Brötchenscheiben auf der Eiermischung schwimmen, statt einzusinken, desto besser.\
 > Für eine vegetarische Variante Schinken und Wurst weglassen.
 
 ## Zutaten
