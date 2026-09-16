@@ -28,9 +28,9 @@ servings: 10 Buns
 
 ## Zubereitung
 
-> Wasser, Milch, Zucker, Hefe und Ei vermischen. Mehl hinzugeben und 5 Minuten langsam kneten.\
-> Salz hinzugeben und weitere 5–7 Minuten kräftiger kneten.\
-> Weiche Butter in 3–4 Portionen einkneten. Weitere 5–8 Minuten kneten, bis der Teig glatt, elastisch und dehnbar ist.
+> Wasser, Milch, Zucker, Hefe und Ei vermischen. 500 g Mehl (Type 550) hinzugeben und 5 Minuten langsam kneten.\
+> 10 g Salz hinzugeben und weitere 5–7 Minuten kräftiger kneten.\
+> 70 g weiche Butter in 3–4 Portionen einkneten. Weitere 5–8 Minuten kneten, bis der Teig glatt, elastisch und dehnbar ist.
 >
 > Abgedeckt an einem warmen Ort ca. 60–120 Minuten gehen lassen, bis sich das Volumen fast verdoppelt hat.
 >

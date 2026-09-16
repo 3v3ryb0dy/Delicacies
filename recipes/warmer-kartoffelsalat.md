@@ -28,6 +28,6 @@ tags: [familienrezept]
 > Brühe kräftig mit 1 TL Essig, Salz, wenig Zucker und Pfeffer oder Paprikapulver abschmecken.\
 > Kartoffelscheiben mit der Brühe marinieren.
 >
-> Zwiebel fein schneiden. Erst anschließend Zwiebel und Öl unter den Kartoffelsalat geben.
+> Zwiebel fein schneiden. Erst anschließend Zwiebel und 2 EL Öl unter den Kartoffelsalat geben.
 
 Passende Hauptgerichte: [Dicker Eierkuchen](dicker-eierkuchen.md). Dazu hat Oma diesen Kartoffelsalat gemacht.

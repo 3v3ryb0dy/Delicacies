@@ -33,7 +33,7 @@ wip: true
 >
 > Kartoffelscheiben zugeben. Bei niedriger bis mittlerer Hitze 7–10 Minuten sanft köcheln lassen. Vorsichtig umrühren, damit nichts ansetzt. Die Kartoffeln sollen anfangen weich zu werden und die Sahne deutlich cremiger werden, aber nicht stark kochen.
 >
-> Eine kleine Auflaufform mit Butter einfetten. Kartoffelscheiben samt cremiger Sauce einschichten. Die Flüssigkeit soll zwischen den Kartoffeln stehen, sie aber nicht vollständig bedecken.
+> Eine kleine Auflaufform mit 5 g Butter einfetten. Kartoffelscheiben samt cremiger Sauce einschichten. Die Flüssigkeit soll zwischen den Kartoffeln stehen, sie aber nicht vollständig bedecken.
 >
 > Form abdecken. Bei 170 °C Ober-/Unterhitze etwa 35–45 Minuten backen, bis ein Messer ohne großen Widerstand durch die Kartoffeln gleitet.
 >

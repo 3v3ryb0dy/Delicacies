@@ -27,9 +27,9 @@ wip: true
 
 > Karotten in dünne Scheiben schneiden. Schalotte fein würfeln und in 40 g Butter bei niedriger bis mittlerer Hitze etwa 3 Minuten glasig dünsten.
 >
-> Karotten, etwas Salz und 2 EL der abgemessenen Brühe zugeben. Zugedeckt bei niedriger Hitze etwa 10 Minuten dünsten. Gelegentlich umrühren und nicht dunkel anrösten lassen. Bei Bedarf einen weiteren kleinen Schluck Brühe zugeben.
+> 600 ml Gemüsebrühe abmessen und 2 EL davon zugeben. Karotten und etwas Salz hinzufügen. Zugedeckt bei niedriger Hitze etwa 10 Minuten dünsten. Gelegentlich umrühren und nicht dunkel anrösten lassen. Bei Bedarf einen weiteren kleinen Schluck Brühe zugeben.
 >
 > Restliche Brühe angießen und etwa 15–20 Minuten sanft köcheln lassen. Die Karotten sollen sich mit einem Löffel leicht zerdrücken lassen.
 >
-> Sahne zugeben und erwärmen. Topf vom Herd nehmen.\
+> 75 ml Schlagsahne zugeben und erwärmen. Topf vom Herd nehmen.\
 > Die restlichen 30 g kalte Butter zugeben und alles sehr fein pürieren. Bei Bedarf mit zusätzlicher Brühe verdünnen. Mit Salz, weißem Pfeffer und Zitronensaft abschmecken.

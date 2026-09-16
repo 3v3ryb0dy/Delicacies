@@ -40,8 +40,8 @@ wip: true
 ### Teig
 
 > Tangzhong mit 475 g Mehl, 180 g Milch, Eigelb, Zucker und Hefe vermischen. 3–4 Minuten langsam kneten.\
-> Salz hinzugeben und weitere 7–10 Minuten kneten. Falls der Teig noch recht fest ist, die zurückgehaltenen 20 g Milch nach und nach hinzugeben.\
-> Butter portionsweise einkneten. Weitere 5–8 Minuten kneten, bis der Teig sehr glatt, elastisch und weich ist und den Fenstertest besteht.
+> 10 g Salz hinzugeben und weitere 7–10 Minuten kneten. Falls der Teig noch recht fest ist, die zurückgehaltenen 20 g Milch nach und nach hinzugeben.\
+> 35 g weiche Butter portionsweise einkneten. Weitere 5–8 Minuten kneten, bis der Teig sehr glatt, elastisch und weich ist und den Fenstertest besteht.
 >
 > Kein zusätzliches Mehl einkneten, nur weil der Teig klebt. Der weiche Teig und das Tangzhong sorgen für die wattige Krume.
 >

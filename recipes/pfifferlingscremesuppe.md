@@ -26,12 +26,12 @@ wip: true
 
 > Pfifferlinge putzen. Zwiebel fein würfeln.
 >
-> Butter in einem Topf erhitzen. Pfifferlinge bei mittlerer bis hoher Hitze leicht goldbraun anbraten. Mit Salz und Pfeffer würzen. Einige Pfifferlinge als Einlage herausnehmen und beiseitestellen.
+> 20 g Butter in einem Topf erhitzen. Pfifferlinge bei mittlerer bis hoher Hitze leicht goldbraun anbraten. Mit Salz und Pfeffer würzen. Einige Pfifferlinge als Einlage herausnehmen und beiseitestellen.
 >
-> Zwiebel zu den übrigen Pfifferlingen geben und kurz mitbraten. Mit Weißwein ablöschen und kurz einkochen lassen.\
-> Gemüsebrühe zugeben, aufkochen und bei mittlerer Hitze etwa 15 Minuten köcheln lassen.
+> Zwiebel zu den übrigen Pfifferlingen geben und kurz mitbraten. Mit 50 ml trockenem Weißwein ablöschen und kurz einkochen lassen.\
+> 350 ml Gemüsebrühe zugeben, aufkochen und bei mittlerer Hitze etwa 15 Minuten köcheln lassen.
 >
-> Sahne zugeben und die Suppe fein pürieren. Noch einmal erhitzen und mit Salz und Pfeffer abschmecken.
+> 200 g Schlagsahne zugeben und die Suppe fein pürieren. Noch einmal erhitzen und mit Salz und Pfeffer abschmecken.
 >
 > Die zurückgelegten Pfifferlinge in die Suppe geben und servieren.
 

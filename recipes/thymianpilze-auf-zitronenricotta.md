@@ -27,6 +27,6 @@ wip: true
 >
 > Pilze in dickere Scheiben oder Stücke schneiden. Knoblauch fein hacken und Thymianblättchen abzupfen. Pilze in wenig Olivenöl in zwei Durchgängen kräftig anbraten und herausnehmen.
 >
-> Hitze reduzieren. Butter in der Pfanne aufschäumen lassen, bis sie goldbraun ist und nussig duftet. Hitze stark reduzieren. Knoblauch und Thymian kurz darin schwenken, ohne den Knoblauch zu bräunen. Pilze wieder zugeben. Mit Salz, Pfeffer und wenigen Tropfen Zitronensaft abschmecken.
+> Hitze reduzieren. 30 g Butter in der Pfanne aufschäumen lassen, bis sie goldbraun ist und nussig duftet. Hitze stark reduzieren. Knoblauch und Thymian kurz darin schwenken, ohne den Knoblauch zu bräunen. Pilze wieder zugeben. Mit Salz, Pfeffer und wenigen Tropfen Zitronensaft abschmecken.
 >
 > Brot rösten. Ricotta auf vier Tellern verstreichen. Pilze mit der braunen Butter darauf verteilen und das Brot dazu reichen.

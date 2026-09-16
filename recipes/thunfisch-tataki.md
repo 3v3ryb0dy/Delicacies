@@ -60,7 +60,7 @@ note: Inspiriert vom Wonders Beach Boutique Hotel, Mauritius.
 >
 > Probieren. Ist der Beerenakzent kaum wahrnehmbar, auf insgesamt höchstens ½ TL erhöhen und nochmals etwa 10 Minuten ziehen lassen.
 >
-> Petersilie, Schnittlauch und Grapefruitstücke kurz vor dem Anrichten unterheben. Abschmecken. Olivenöl und Salz stehen im Vordergrund, danach Zitrusfrucht und ein zurückhaltender Beerenakzent. Zusätzlichen Zitronensaft nur tropfenweise zugeben. Die Grundfassung bleibt ohne Honig oder Zucker.
+> 1 EL gehackte Petersilie, 1 TL fein geschnittenen Schnittlauch und Grapefruitstücke kurz vor dem Anrichten unterheben. Abschmecken. Olivenöl und Salz stehen im Vordergrund, danach Zitrusfrucht und ein zurückhaltender Beerenakzent. Zusätzlichen Zitronensaft nur tropfenweise zugeben. Die Grundfassung bleibt ohne Honig oder Zucker.
 
 ### Anrichten
 

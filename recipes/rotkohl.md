@@ -27,9 +27,9 @@ tags: [deutsch, vegetarisch]
 
 > Rotkohl putzen, waschen, Kopf vierteln, Strunk entfernen. Rotkohl hobeln oder fein schneiden.
 >
-> In heißem Fett gewürfelte Zwiebel, Zucker und fein geschnittene Äpfel andünsten, Rotkohl zugeben und sofort Essig darüber gießen. 10 Minuten zugedeckt dünsten. Etwas Wasser aufgießen, Salz dazugeben.
+> In 50 g heißer Butter gewürfelte Zwiebel, 2 EL Zucker und fein geschnittene Äpfel andünsten, Rotkohl zugeben und sofort 2 EL Balsamico Essig darüber gießen. 10 Minuten zugedeckt dünsten. 250 ml Wasser aufgießen, Salz dazugeben.
 >
 > Zugedeckt ca. 30 - 45 Minuten weich dünsten. Bei Bedarf heißes Wasser aufgießen.\
-> Nach Belieben mit Rotwein abschmecken.
+> Nach Belieben mit 4 EL Rotwein abschmecken.
 
 Passende Hauptgerichte: [Ochsenbäckchen in Rotweinsauce](ochsenbaeckchen.md).

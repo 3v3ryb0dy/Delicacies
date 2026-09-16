@@ -37,13 +37,13 @@ tags: [asiatisch]
 
 ## Zubereitung
 
-> Reisbandnudeln 30–60 Minuten in kaltem Wasser einweichen und gut abtropfen lassen.\
+> 200 g Reisbandnudeln 30–60 Minuten in kaltem Wasser einweichen und gut abtropfen lassen.\
 > Währenddessen alle Zutaten der Sauce verrühren, bis sich der Zucker aufgelöst hat.
 >
-> Schalotte fein würfeln und Knoblauch hacken. Öl in einer großen Pfanne oder einem Wok erhitzen und beides kurz anbraten, bis die Schalotte weich ist und der Knoblauch duftet. Nach Belieben getrocknete Garnelen kurz mitbraten.\
+> Schalotte fein würfeln und Knoblauch hacken. Öl in einer großen Pfanne oder einem Wok erhitzen und beides kurz anbraten, bis die Schalotte weich ist und der Knoblauch duftet. Nach Belieben 1 EL grob gehackte getrocknete Garnelen kurz mitbraten.\
 > Alles zur Seite schieben, Eier darin auf niedriger Hitze als Omelette stocken lassen und grob zerteilen.
 >
 > Nudeln hinzugeben, Sauce angießen und unter regelmäßigem Wenden kochen, bis die Nudeln fast gar sind. Die Sauce nicht vollständig einkochen lassen. Die Nudeln sollen glänzend und saftig bleiben. Falls sie zu trocken werden, schluckweise Wasser hinzugeben.\
 > Sojasprossen und Thai-Schnittlauch kurz mitgaren, sodass sie knackig bleiben.
 >
-> Mit Erdnüssen bestreuen und nach Belieben mit Limettenspalten servieren.
+> Mit 2–3 EL gerösteten, grob gehackten Erdnüssen bestreuen und nach Belieben mit Limettenspalten servieren.

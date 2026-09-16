@@ -38,9 +38,9 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 > Backofen auf 220 °C Ober-/Unterhitze bzw. 200 °C Umluft vorheizen.\
 > Ein flaches Backblech von etwa 35 × 30 cm mit Backpapier auslegen. Das Papier sollte an den Seiten etwa 2 cm überstehen.
 >
-> Eiweiß bei mittelhoher Geschwindigkeit etwa 1 Minute schlagen, bis weiche Spitzen entstehen.\
-> Zucker anschließend esslöffelweise bei laufender Maschine zugeben und insgesamt mindestens 5 Minuten weiterschlagen, bis ein sehr dickes, glänzendes Baiser entstanden ist.\
-> Geschwindigkeit reduzieren, Vanille, Essig und Speisestärke einarbeiten. Danach bei mittlerer Geschwindigkeit nochmals etwa 1 Minute schlagen.
+> 250 g Eiweiß bei mittelhoher Geschwindigkeit etwa 1 Minute schlagen, bis weiche Spitzen entstehen.\
+> 375 g feinen Zucker anschließend esslöffelweise bei laufender Maschine zugeben und insgesamt mindestens 5 Minuten weiterschlagen, bis ein sehr dickes, glänzendes Baiser entstanden ist.\
+> Geschwindigkeit reduzieren, 2 TL Vanilleextrakt, 2 TL Weißweinessig und 2 TL Speisestärke einarbeiten. Danach bei mittlerer Geschwindigkeit nochmals etwa 1 Minute schlagen.
 >
 > Baiser gleichmäßig auf dem Blech verstreichen.\
 > In den Ofen geben und die Temperatur sofort auf 200 °C Ober-/Unterhitze bzw. 180 °C Umluft reduzieren. Etwa 35 Minuten backen, bis die Oberfläche hellbeige und knusprig ist.\
@@ -48,7 +48,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 >
 > Pfirsiche waschen, entsteinen und ungeschält in ca. 5 mm breite Spalten schneiden.
 >
-> Für die Füllung Sahne bei mittelhoher Geschwindigkeit etwa 1 Minute schlagen, bis sehr weiche Spitzen entstehen. Vanille und Puderzucker kurz einarbeiten.
+> Für die Füllung 400 ml Schlagsahne bei mittelhoher Geschwindigkeit etwa 1 Minute schlagen, bis sehr weiche Spitzen entstehen. 1 TL Vanilleextrakt und 30 g gesiebten Puderzucker kurz einarbeiten.
 >
 > Ein sauberes Küchentuch auf das Baiser legen und das Ganze vorsichtig umdrehen, sodass die knusprige Oberfläche unten liegt. Blech und Backpapier entfernen.\
 > Etwa ⅔ der Sahne auf dem Baiser verteilen. Darauf 500 g Pfirsiche, 200 g Brombeeren und 50 g Mandeln verteilen.

@@ -27,11 +27,11 @@ servings: 5 Stück
 
 ## Zubereitung
 
-> Hefe und Zucker in 85 ml Wasser und Milch auflösen. Mehl, Salz und Öl zugeben und etwa 8 Minuten zu einem glatten, weichen Teig kneten.
+> Hefe und Zucker in 85 ml Wasser und Milch auflösen. 250 g Weizenmehl (Type 405), 4 g Salz und 40 ml Öl zugeben und etwa 8 Minuten zu einem glatten, weichen Teig kneten.
 >
 > Abgedeckt etwa 60 Minuten gehen lassen, bis der Teig deutlich aufgegangen ist.
 >
-> Sesam in einer trockenen Pfanne goldgelb rösten und abkühlen lassen. Sirup mit 35 ml Wasser verrühren.
+> 90 g Sesam in einer trockenen Pfanne goldgelb rösten und abkühlen lassen. Sirup mit 35 ml Wasser verrühren.
 >
 > Teig in 5 Stücke teilen und 10 Minuten ruhen lassen.\
 > Jedes Stück zu einem etwa 50–55 cm langen Strang rollen. Mittig zusammenlegen, die beiden Hälften miteinander verdrehen und die Enden zu einem Ring zusammendrücken.

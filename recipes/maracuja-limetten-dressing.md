@@ -20,6 +20,6 @@ servings: eine Salatschüssel für ca. 2–3 Personen
 ## Zubereitung
 
 > Maracuja halbieren und das gesamte Fruchtfleisch samt Kernen auslöffeln. Mit Limettensaft, Honig, Senf, Salz und Pfeffer verrühren.\
-> Öl kräftig einrühren und mit Wasser auf die gewünschte Konsistenz bringen. Die Kerne ganz lassen.
+> 20 g neutrales Öl kräftig einrühren und mit 5–10 g Wasser auf die gewünschte Konsistenz bringen. Die Kerne ganz lassen.
 >
 > Bei zu viel Säure Honig ergänzen, bei zu viel Süße Limettensaft. Der Senf soll kaum herauszuschmecken sein.

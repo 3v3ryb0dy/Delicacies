@@ -35,7 +35,7 @@ note: Nach Yotam Ottolenghi, Plenty.
 >
 > Auberginen mit der Schnittfläche nach oben auf ein mit Backpapier belegtes Blech legen.\
 > Nach und nach mit den gesamten 80 ml Olivenöl bestreichen. Immer wieder warten, bis das Fruchtfleisch das Öl aufgenommen hat.\
-> Mit Zitronenthymian, Salz und schwarzem Pfeffer bestreuen.\
+> Mit 1½ TL Zitronenthymianblättchen, Salz und schwarzem Pfeffer bestreuen.\
 > 35–40 Minuten rösten, bis das Fruchtfleisch sehr weich und die Oberfläche kräftig gebräunt ist.\
 > Aus dem Ofen nehmen und vollständig abkühlen lassen.
 >
@@ -43,7 +43,7 @@ note: Nach Yotam Ottolenghi, Plenty.
 >
 > Für die Sauce Buttermilch, Joghurt, 1½ EL Olivenöl, Knoblauch und eine Prise Salz glatt verrühren. Abschmecken und bis zum Servieren kalt stellen.
 >
-> Zum Servieren reichlich Buttermilchsauce über die Auberginen geben. Mit Za'atar und großzügig Granatapfelkernen bestreuen.\
+> Zum Servieren reichlich Buttermilchsauce über die Auberginen geben. Mit 1 TL Za'atar und großzügig Granatapfelkernen bestreuen.\
 > Mit Zitronenthymian garnieren und mit etwas Olivenöl beträufeln.
-
+>
 > Dazu kräftiges Weißbrot oder Fladenbrot servieren.

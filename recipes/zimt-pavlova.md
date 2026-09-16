@@ -51,14 +51,14 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 > In einem Topf Wasser zum Kochen bringen. Die Rührschüssel soll darüber sitzen können, ohne das Wasser zu berühren.\
 > Eiweiß und beide Zuckersorten in der Rührschüssel von Hand verrühren. Hitze reduzieren und die Schüssel über das leicht köchelnde Wasser setzen. Etwa 4 Minuten ununterbrochen von Hand schlagen, bis die Masse warm und schaumig ist und sich der Zucker aufgelöst hat.
 >
-> Schüssel in die Küchenmaschine setzen. Bei hoher Geschwindigkeit etwa 5 Minuten schlagen, bis das Baiser abgekühlt, sehr steif und glänzend ist. Zimt kurz einarbeiten.
+> Schüssel in die Küchenmaschine setzen. Bei hoher Geschwindigkeit etwa 5 Minuten schlagen, bis das Baiser abgekühlt, sehr steif und glänzend ist. 1½ TL Zimt kurz einarbeiten.
 >
 > Baiser innerhalb des Kreises verteilen. Den Rand etwas höher formen, sodass in der Mitte eine Mulde entsteht.\
 > 3 Stunden backen. Ofen ausschalten und die Pavlova darin etwa 2 Stunden vollständig auskühlen lassen.
 
 ### Schokoladenschicht
 
-> Schokolade über einem sanft köchelnden Wasserbad schmelzen. Die Schüssel darf das Wasser nicht berühren.\
+> 50 g Zartbitterschokolade (70 %) über einem sanft köchelnden Wasserbad schmelzen. Die Schüssel darf das Wasser nicht berühren.\
 > Etwas abkühlen lassen und nur die Innenseite der Pavlova vorsichtig damit bestreichen. Rand und Außenseite frei lassen. Etwa 2 Stunden fest werden lassen.
 
 ### Pralinécreme
@@ -73,4 +73,4 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 ### Fertigstellen
 
 > Pralinécreme in die Mitte der Pavlova geben und mit Feigen belegen.\
-> Honig leicht erwärmen und die restlichen 20 g Mandelblättchen unterrühren. Über die Feigen verteilen und sofort servieren. Nach einigen Stunden verliert die Pavlova an Form und wird weicher.
+> 3 EL Honig leicht erwärmen und die restlichen 20 g Mandelblättchen unterrühren. Über die Feigen verteilen und sofort servieren. Nach einigen Stunden verliert die Pavlova an Form und wird weicher.

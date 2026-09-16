@@ -33,8 +33,8 @@ tags: [ofen, deutsch, vegetarisch]
 
 > Ofen auf 50 °C vorwärmen.
 >
-> Milch etwas mehr als lauwarm erwärmen. Butter darin auflösen und Zucker, Salz und Hefe einrühren.\
-> Mehl in eine Teigschüssel geben und eine Mulde formen. Milch-Hefe-Mischung hineingeben und 10 Minuten im lauwarmen Ofen stehen lassen.
+> 250 ml Milch etwas mehr als lauwarm erwärmen. 100 g Butter darin auflösen und 100 g Zucker, 1 Prise Salz und Hefe einrühren.\
+> 500 g Mehl (Type 550) in eine Teigschüssel geben und eine Mulde formen. Milch-Hefe-Mischung hineingeben und 10 Minuten im lauwarmen Ofen stehen lassen.
 >
 > Ei hinzugeben und alles zu einem glatten Teig kneten.
 >

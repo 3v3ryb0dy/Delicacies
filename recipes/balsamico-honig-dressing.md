@@ -19,7 +19,7 @@ servings: eine Salatschüssel für ca. 2–3 Personen (55–60 g Dressing)
 
 ## Zubereitung
 
-> Balsamico, Honig, Senf, Wasser, Salz und Pfeffer verrühren. Öl langsam einrühren oder alles im Schraubglas kräftig schütteln. Nach Belieben wenig Knoblauch hinzugeben.
+> Balsamico, Honig, Senf, Wasser, Salz und Pfeffer verrühren. 25 g neutrales Öl oder Olivenöl langsam einrühren oder alles im Schraubglas kräftig schütteln. Nach Belieben wenig Knoblauch hinzugeben.
 >
 > Bei sehr süßem Balsamico den Honig reduzieren.
 

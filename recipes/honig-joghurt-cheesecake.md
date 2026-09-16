@@ -40,14 +40,14 @@ note: Nach Yotam Ottolenghi, Simple.
 
 > Eine 23-cm-Springform am Boden mit Backpapier auslegen.
 >
-> Ein Sieb mit einem sauberen Küchentuch auslegen und über eine Schüssel setzen. Joghurt hineingeben, das Tuch darüber zusammenschlagen und möglichst viel Flüssigkeit herausdrücken. Es sollen etwa 340 g sehr dicker Joghurt übrig bleiben.
+> Ein Sieb mit einem sauberen Küchentuch auslegen und über eine Schüssel setzen. 500 g griechischen Joghurt hineingeben, das Tuch darüber zusammenschlagen und möglichst viel Flüssigkeit herausdrücken. Es sollen etwa 340 g sehr dicker Joghurt übrig bleiben.
 >
-> Kekse fein zerbröseln. Mit geschmolzener Butter und 1 EL Thymian vermengen.\
+> 200 g Hobnobs (alt. Haferkekse ohne Schokolade) fein zerbröseln. 60 g Butter schmelzen und mit den Keksbröseln und 1 EL Thymian vermengen.\
 > Gleichmäßig auf dem Boden der Springform verteilen, gut andrücken und bis zur weiteren Verwendung kalt stellen.
 >
 > Frischkäse, ausgedrückten Joghurt, Puderzucker und Zitronenschale glatt rühren.
 >
-> Weiße Schokolade über einem sanft köchelnden Wasserbad unter regelmäßigem Rühren etwa 2–3 Minuten schmelzen. Der Schüsselboden darf das Wasser nicht berühren. Kein Wasser in die Schokolade gelangen lassen.\
+> 150 g weiße Schokolade über einem sanft köchelnden Wasserbad unter regelmäßigem Rühren etwa 2–3 Minuten schmelzen. Der Schüsselboden darf das Wasser nicht berühren. Kein Wasser in die Schokolade gelangen lassen.\
 > Geschmolzene Schokolade zur Frischkäse-Joghurt-Mischung geben und gründlich einarbeiten.
 >
 > Creme gleichmäßig auf dem Keksboden verteilen. Mindestens 2 Stunden kalt stellen, bis die Masse fest ist.

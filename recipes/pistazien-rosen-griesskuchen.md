@@ -58,7 +58,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 > Backofen auf 100 °C Ober-/Unterhitze bzw. 80 °C Umluft vorheizen. Ein Blech mit Backpapier auslegen.
 >
 > Eiweiß von Hand schaumig schlagen.\
-> Rosenblätter portionsweise auf beiden Seiten sehr dünn mit Eiweiß bestreichen und leicht mit Zucker bestreuen. Überschüssigen Zucker abschütteln.
+> 25 g Zucker zum Bestreuen bereitstellen. Rosenblätter portionsweise auf beiden Seiten sehr dünn mit Eiweiß bestreichen und leicht mit dem Zucker bestreuen. Überschüssigen Zucker abschütteln.
 >
 > Auf dem Blech etwa 30 Minuten trocknen, bis die Blätter trocken und knusprig sind. Vollständig abkühlen lassen.
 
@@ -74,7 +74,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 >
 > Bei laufender Maschine die Eier langsam portionsweise zugeben. Jede Portion vollständig einarbeiten lassen und zwischendurch den Schüsselrand abschaben. Die Masse darf dabei gerinnen.
 >
-> Trockene Zutaten von Hand unterheben und möglichst wenig rühren. Zitronenschale, Zitronensaft, Rosenwasser und Vanille ebenfalls vorsichtig unterheben.
+> Trockene Zutaten von Hand unterheben und möglichst wenig rühren. Zitronenschale, 1 EL Zitronensaft, 2 EL Rosenwasser und ½ TL Vanilleextrakt ebenfalls vorsichtig unterheben.
 >
 > Teig in die Form geben, glatt streichen und etwa 55–60 Minuten backen. Ein Holzstäbchen soll sauber, aber noch leicht ölig herauskommen.
 

@@ -14,14 +14,13 @@ tags: [fleisch, deutsch]
 
 - 1 kg Hackfleisch (gemischt)
 - 7 Stangen Lauch
-- 1,75 l Wasser
+- 1,75 l Gemüsebrühe
 - 800 g Schmelzkäse
-- Gemüsebrühe
 - Öl
 - Salz, Pfeffer
 - n.B. Muskat
 
 ## Zubereitung
 
-> Das Hackfleisch im Öl anbraten. Anschließend den Lauch hinzugeben und mit Gemüsebrühe oder Wasser ablöschen.\
-> Den Schmelzkäse einrühren und mit den Gewürzen abschmecken.
+> Das Hackfleisch im Öl anbraten. Anschließend den Lauch hinzugeben und mit 1,75 l Gemüsebrühe ablöschen.\
+> 800 g Schmelzkäse einrühren und mit den Gewürzen abschmecken.

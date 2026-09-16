@@ -42,13 +42,13 @@ wip: true
 
 ### Keksboden
 
-> Kekse in einen Gefrierbeutel geben und mit einem Nudelholz fein zerbröseln. Butter in einem kleinen Topf schmelzen und mit den Keksbröseln vermengen.
+> 100 g Butterkekse oder Haferkekse in einen Gefrierbeutel geben und mit einem Nudelholz fein zerbröseln. 35 g Butter in einem kleinen Topf schmelzen und mit den Keksbröseln vermengen.
 >
 > Auf 6 Gläser verteilen, locker andrücken und abkühlen lassen.
 
 ### Cheesecake-Creme
 
-> Kalte Sahne mit dem Handrührgerät cremig-steif schlagen. Nach Belieben Sahnesteif dabei einrieseln lassen. Kalt stellen.
+> 150 g kalte Schlagsahne mit dem Handrührgerät cremig-steif schlagen. Nach Belieben ½ Pck. Sahnesteif dabei einrieseln lassen. Kalt stellen.
 >
 > Quark, Frischkäse, zunächst 100 g Milch, Zucker, Vanille, Zitronensaft und Salz glatt rühren. Falls die Masse zu kompakt ist, weitere 10–20 g Milch nach und nach zugeben.
 >
@@ -68,7 +68,7 @@ wip: true
 
 ### Keksboden
 
-> Kekse in den Mixtopf geben und 5 Sek. / Stufe 6 zerkleinern. Butter in kleinen Stücken dazugeben und 2 Min. / 50 °C / Stufe 2 vermengen. Falls noch Butterstücke vorhanden sind, bei gleicher Temperatur und Stufe kurz verlängern.
+> 100 g Butterkekse oder Haferkekse in den Mixtopf geben und 5 Sek. / Stufe 6 zerkleinern. 35 g Butter in kleinen Stücken dazugeben und 2 Min. / 50 °C / Stufe 2 vermengen. Falls noch Butterstücke vorhanden sind, bei gleicher Temperatur und Stufe kurz verlängern.
 >
 > Auf 6 Gläser verteilen, locker andrücken und abkühlen lassen. Mixtopf reinigen und vollständig abkühlen lassen.
 

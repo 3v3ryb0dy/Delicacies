@@ -21,10 +21,10 @@ wip: true
 
 ## Zubereitung
 
-> Walnüsse in einer Pfanne ohne Fett rösten, abkühlen lassen und grob zerkleinern.
+> 30 g Walnüsse in einer Pfanne ohne Fett rösten, abkühlen lassen und grob zerkleinern.
 >
 > Rote Bete in sehr dünne Scheiben schneiden und auf vier Tellern auslegen. Mit etwas Apfelessig und Olivenöl beträufeln. Mit Salz und Pfeffer abschmecken.
 >
-> Joghurt mit zunächst 1 TL Meerrettich verrühren. Nach Geschmack weiteren Meerrettich zugeben.
+> Joghurt mit zunächst 1 TL Meerrettich verrühren. Nach Geschmack bis zu 1 weiteren TL Meerrettich zugeben.
 >
 > Apfel in feine Stifte schneiden. Mit den Walnüssen auf der Roten Bete verteilen. Meerrettichjoghurt in kleinen Klecksen darübergeben.

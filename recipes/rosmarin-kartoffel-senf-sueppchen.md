@@ -32,9 +32,9 @@ wip: true
 
 > Zwiebel fein würfeln. Kartoffeln in etwa 1 cm große Würfel schneiden. Zwiebel in 15 g Butter bei mittlerer bis niedriger Hitze glasig dünsten, ohne sie zu bräunen. Kartoffeln kurz mitdünsten.
 >
-> Brühe und den ganzen Rosmarinzweig zugeben. Etwa 15–20 Minuten sanft köcheln lassen, bis die Kartoffeln weich sind.\
+> 650 ml Gemüsebrühe und den ganzen Rosmarinzweig zugeben. Etwa 15–20 Minuten sanft köcheln lassen, bis die Kartoffeln weich sind.\
 > Nach etwa 8 Minuten probieren. Rosmarin herausnehmen, sobald er deutlich, aber nicht dominant schmeckt.
 >
-> Rosmarinzweig spätestens jetzt entfernen. Sahne zugeben und kurz erwärmen. Nur so lange wie nötig glatt pürieren. Bei Bedarf mit zusätzlicher heißer Brühe verdünnen.
+> Rosmarinzweig spätestens jetzt entfernen. 100 ml Schlagsahne zugeben und kurz erwärmen. Nur so lange wie nötig glatt pürieren. Bei Bedarf mit zusätzlicher heißer Brühe verdünnen.
 >
-> Topf vom Herd nehmen. Beide Senfsorten und die restlichen 15 g kalte Butter einrühren. Mit Salz und weißem Pfeffer abschmecken. Nach Bedarf zunächst ½ TL Weißweinessig zugeben. Nicht mehr sprudelnd kochen.
+> Topf vom Herd nehmen. 20 g mittelscharfen Senf, 10 g Dijon-Senf und die restlichen 15 g kalte Butter einrühren. Mit Salz und weißem Pfeffer abschmecken. Nach Bedarf zunächst ½ TL Weißweinessig zugeben. Nicht mehr sprudelnd kochen.

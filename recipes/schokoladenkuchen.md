@@ -48,9 +48,9 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 > Backofen auf 170 °C Ober-/Unterhitze bzw. 150 °C Umluft vorheizen. Eine runde 23-cm-Form fetten und mit Backpapier auslegen.
 >
 > Instantkaffee im kochenden Wasser auflösen. Butter, Schokolade und heißen Kaffee in eine große hitzebeständige Schüssel geben und verrühren, bis alles vollständig geschmolzen und glatt ist.\
-> Zucker mit einem Schneebesen einrühren, bis er sich weitgehend gelöst hat. Eier und Vanille zugeben und gründlich unterrühren.
+> 250 g feinen Zucker mit einem Schneebesen einrühren, bis er sich weitgehend gelöst hat. Eier und 2 TL Vanilleextrakt zugeben und gründlich unterrühren.
 >
-> Mehl, Backpulver, Kakao und Salz darüber sieben und einarbeiten. Der Teig ist ungewöhnlich flüssig. Das ist normal.
+> 240 g Mehl, 3¼ TL Backpulver, 30 g Backkakao und ¼ TL Salz darüber sieben und einarbeiten. Der Teig ist ungewöhnlich flüssig. Das ist normal.
 >
 > In die Form geben und etwa 60 Minuten backen. Ein Holzstäbchen soll sauber oder nur mit wenigen trockenen Krümeln herauskommen. Die Oberfläche darf dabei aufreißen und eine Kruste bilden.
 >
@@ -58,11 +58,11 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 
 ### Schokoladenganache (optional)
 
-> Schokolade sehr fein hacken oder im Mixer mit Schneidemesser zerkleinern.
+> 200 g Zartbitterschokolade (70 %) sehr fein hacken oder im Mixer mit Schneidemesser zerkleinern.
 >
 > Sahne und Golden Syrup erhitzen. Sobald erste Bläschen erscheinen und die Mischung kurz vor dem Kochen steht, vom Herd nehmen.
 >
-> Heiße Sahne nach und nach zur Schokolade geben und verrühren beziehungsweise kurz mixen. Butter zugeben und weiterarbeiten, bis eine glatte, glänzende Ganache entsteht.\
+> Heiße Sahne nach und nach zur Schokolade geben und verrühren beziehungsweise kurz mixen. 1 EL weiche Butter zugeben und weiterarbeiten, bis eine glatte, glänzende Ganache entsteht.\
 > Direkt an der Oberfläche abdecken.
 >
 > Für eine dünne, glänzende Glasur die Ganache noch flüssig über den Kuchen geben. Für eine dickere, streichfähige Schicht etwa 2 Stunden bei Raumtemperatur stehen lassen.

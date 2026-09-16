@@ -68,18 +68,18 @@ note: Nach Ottolenghi Test Kitchen, Extra Good Things.
 
 ### Zitronensauce
 
-> 3 EL Salzzitronenpaste, Hühnerbrühe, Butter, Knoblauch, Zucker, Kurkuma und die Hälfte des Kreuzkümmels in einen Topf geben. Bei mittelhoher Hitze aufkochen und etwa 15 Minuten offen um ein Drittel einkochen lassen.
+> 3 EL Salzzitronenpaste, Hühnerbrühe, Butter, Knoblauch, Zucker, Kurkuma und ¾ TL geröstete und grob zerstoßene Kreuzkümmelsamen in einen Topf geben. Bei mittelhoher Hitze aufkochen und etwa 15 Minuten offen um ein Drittel einkochen lassen.
 >
 > Etwa 3 EL Sauce abnehmen und mit 1½ EL Speisestärke klümpchenfrei verrühren. Zurück in den Topf geben und unter ständigem Rühren bei mittelhoher Hitze etwa 1 Minute weiterkochen, bis die Sauce glatt und leicht angedickt ist. Vom Herd nehmen.
 
 ### Hähnchen braten
 
-> Sonnenblumenöl in einer großen, hohen Pfanne bei mittelhoher Hitze erhitzen. Jeweils zwei Hähnchenbrüste etwa 3 Minuten pro Seite braten, bis sie gut gebräunt und gerade durchgegart sind. Auf Küchenpapier abtropfen lassen. Bei stark spritzendem Öl die Hitze reduzieren.
+> 90 ml Sonnenblumenöl in einer großen, hohen Pfanne bei mittelhoher Hitze erhitzen. Jeweils zwei Hähnchenbrüste etwa 3 Minuten pro Seite braten, bis sie gut gebräunt und gerade durchgegart sind. Auf Küchenpapier abtropfen lassen. Bei stark spritzendem Öl die Hitze reduzieren.
 >
 > Überschüssiges Öl abgießen. Zitronensauce in die Pfanne geben und bei mittelhoher Hitze zum Köcheln bringen. Hähnchen hineinlegen und weitere 3 Minuten garen. Nach der Hälfte der Zeit vorsichtig wenden.\
 > Vom Herd nehmen und 2 EL Zitronensaft in die Sauce einrühren.
 
 ### Fertigstellen
 
-> Hähnchen nach Belieben in Streifen schneiden und auf einer Platte anrichten. Die gesamte Sauce darübergeben und mit dem restlichen Kreuzkümmel bestreuen.\
+> Hähnchen nach Belieben in Streifen schneiden und auf einer Platte anrichten. Die gesamte Sauce darübergeben und mit den restlichen ¾ TL gerösteten und grob zerstoßenen Kreuzkümmelsamen bestreuen.\
 > Frühlingszwiebel, Koriander und die weiteren 2 EL Zitronensaft vermengen und darüber verteilen.

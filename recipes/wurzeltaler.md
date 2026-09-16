@@ -37,7 +37,7 @@ wip: true
 
 > Am Vortag Kohlrabi und Karotten schälen, zerkleinern und mit Biss vorkochen. Abgießen, auskühlen lassen und raspeln.
 >
-> Mit Eiern, Gouda, Petersilie, Muskat, Salz und Pfeffer vermengen. Semmelbrösel einarbeiten. Die Masse soll feucht sein und zusammenhalten. Mehrere Stunden im Kühlschrank ziehen lassen.
+> Mit Eiern, Gouda, Petersilie, Muskat, Salz und Pfeffer vermengen. 200 g Semmelbrösel einarbeiten. Die Masse soll feucht sein und zusammenhalten. Mehrere Stunden im Kühlschrank ziehen lassen.
 >
 > Am nächsten Tag kleine Taler formen und in Semmelbröseln wenden.
 >

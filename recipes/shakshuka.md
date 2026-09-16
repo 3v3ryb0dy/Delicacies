@@ -25,8 +25,8 @@ note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
 
 ## Zubereitung
 
-> Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen.\
-> Harissa, Tomatenmark, Paprika, Knoblauch, Kreuzkümmel und ¾ TL Salz zugeben und etwa 8 Minuten unter gelegentlichem Rühren braten, bis die Paprika weich wird.
+> 2 EL Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen.\
+> 2 EL Harissa oder Pilpelchuma, 2 TL Tomatenmark, Paprika, Knoblauch, 1 TL gemahlenen Kreuzkümmel und ¾ TL Salz zugeben und etwa 8 Minuten unter gelegentlichem Rühren braten, bis die Paprika weich wird.
 >
 > Tomaten hinzufügen, sanft aufkochen und weitere 10 Minuten köcheln lassen, bis eine recht dicke Sauce entstanden ist. Abschmecken.
 >
@@ -37,4 +37,4 @@ note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
 >
 > Vom Herd nehmen und einige Minuten ruhen lassen.
 >
-> Mit Labneh oder Joghurt und gutem Weiß- oder Fladenbrot servieren.
+> Mit 120 g Labneh oder dickflüssigem Joghurt und gutem Weiß- oder Fladenbrot servieren.

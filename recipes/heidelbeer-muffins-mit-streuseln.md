@@ -45,7 +45,7 @@ note: 'Nach Yotam Ottolenghi und Sami Tamimi, Ottolenghi: The Cookbook.'
 ### Muffins
 
 > Mehl, Backpulver und Salz gemeinsam sieben und beiseitestellen.\
-> Eier, Zucker und die geschmolzene, nicht mehr heiße Butter leicht verquirlen. Milch und Zitronenschale einrühren. Apfelwürfel und 200 g Heidelbeeren vorsichtig unterheben.
+> 140 g Butter schmelzen und etwas abkühlen lassen. Eier, Zucker und die geschmolzene, nicht mehr heiße Butter leicht verquirlen. 380 ml Milch und Zitronenschale einrühren. Apfelwürfel und 200 g Heidelbeeren vorsichtig unterheben.
 >
 > Die trockenen Zutaten nur kurz und behutsam unterheben. Der Teig sollte etwas klumpig und ungleichmäßig bleiben. Nicht glatt rühren.
 >

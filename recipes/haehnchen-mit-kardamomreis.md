@@ -34,23 +34,23 @@ note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
 
 ## Zubereitung
 
-> Zucker und Wasser erwärmen, bis sich der Zucker aufgelöst hat. Vom Herd nehmen und die Berberitzen darin einweichen. Bei Korinthen entfallen Einweichen, Zucker und die 40 ml Wasser.
+> Zucker und Wasser erwärmen, bis sich der Zucker aufgelöst hat. Vom Herd nehmen und 25 g Berberitzen darin einweichen. Bei Korinthen entfallen Einweichen, Zucker und die 40 ml Wasser.
 >
-> Die Hälfte des Olivenöls in einer großen Pfanne oder einem breiten Topf mit Deckel erhitzen. Zwiebeln bei mittlerer Hitze 10–15 Minuten goldbraun karamellisieren. Herausnehmen und die Pfanne auswischen.
+> 2 EL Olivenöl in einer großen Pfanne oder einem breiten Topf mit Deckel erhitzen. Zwiebeln bei mittlerer Hitze 10–15 Minuten goldbraun karamellisieren. Herausnehmen und die Pfanne auswischen.
 >
-> Hähnchen mit dem restlichen Olivenöl, Kardamom, Nelken und Zimt vermengen. Mit 1½ TL Salz und 1½ TL schwarzem Pfeffer würzen.
+> Hähnchen mit den restlichen 2 EL Olivenöl, Kardamom, ⅓ TL ganzen Nelken und Zimt vermengen. Mit 1½ TL Salz und 1½ TL schwarzem Pfeffer würzen.
 >
 > Pfanne wieder erhitzen. Hähnchen samt Gewürzen jeweils etwa 5 Minuten pro Seite kräftig anbraten. Herausnehmen. Die Gewürze dürfen in der Pfanne bleiben.\
 > Überschüssiges Fett abgießen, sodass nur ein dünner Fettfilm zurückbleibt.
 >
-> Reis, karamellisierte Zwiebeln, 1 TL Salz und reichlich schwarzen Pfeffer in die Pfanne geben. Berberitzen abgießen und zugeben. Alternativ die Korinthen direkt zugeben. Alles vermengen.
+> 300 g Basmatireis, karamellisierte Zwiebeln, 1 TL Salz und reichlich schwarzen Pfeffer in die Pfanne geben. Berberitzen abgießen und zugeben. Alternativ 25 g Korinthen direkt zugeben. Alles vermengen.
 >
 > Hähnchen wieder einsetzen und leicht in den Reis drücken.\
 > 550 ml kochendes Wasser angießen, zudecken und bei sehr kleiner Hitze 30 Minuten garen.
 >
 > Vom Herd nehmen. Deckel kurz öffnen, ein sauberes Küchentuch über den Topf legen und wieder mit dem Deckel verschließen. Weitere 10 Minuten ungestört ruhen lassen.
 >
-> Petersilie, Dill und Koriander mit einer Gabel unterheben und dabei den Reis auflockern. Abschmecken.
+> 5 g gehackte glatte Petersilie, 5 g gehackten Dill und 5 g gehacktes Koriandergrün mit einer Gabel unterheben und dabei den Reis auflockern. Abschmecken.
 >
 > Nach Wunsch Joghurt mit 2 EL Olivenöl verrühren und dazu servieren.
 

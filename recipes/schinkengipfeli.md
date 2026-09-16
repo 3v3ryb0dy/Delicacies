@@ -25,9 +25,9 @@ servings: ca. 24 Stück
 >
 > Etwas Butter in einer Pfanne schmelzen. Die Eimasse zugeben und mit einem Pfannenwender hin- und herschieben, bis sie flockig, aber noch leicht feucht ist. In eine Schüssel geben.
 >
-> Kochschinken klein schneiden und Petersilie hacken. Zum Rührei geben, nach Belieben den geriebenen Käse untermischen und die Füllung auskühlen lassen.
+> Kochschinken klein schneiden und Petersilie hacken. Zum Rührei geben, nach Belieben 2 EL geriebenen Käse untermischen und die Füllung auskühlen lassen.
 >
-> Blätterteig 2–3 mm dick ausrollen. In etwa 12 × 12 cm große Quadrate schneiden und diagonal halbieren. Die Teigränder mit Wasser bestreichen.
+> 450 g Blätterteig 2–3 mm dick ausrollen. In etwa 12 × 12 cm große Quadrate schneiden und diagonal halbieren. Die Teigränder mit Wasser bestreichen.
 >
 > Füllung auf den Dreiecken verteilen. Die seitlichen Ecken etwas einschlagen, von der breiten Seite her aufrollen und zu Hörnchen biegen. Mit der Spitze nach unten auf ein vorbereitetes Backblech legen.
 >

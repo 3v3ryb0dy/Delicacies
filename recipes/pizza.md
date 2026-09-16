@@ -28,9 +28,9 @@ wip: true
 
 ### Teig
 
-> Hefe mit 600 g Wasser vermischen. Mehl hinzugeben und kneten, bis kein trockenes Mehl mehr vorhanden ist. 10–15 Minuten ruhen lassen.
+> 2–3 g frische Hefe oder 0,7–1 g Trockenhefe mit 600 g Wasser vermischen. 1000 g Mehl hinzugeben und kneten, bis kein trockenes Mehl mehr vorhanden ist. 10–15 Minuten ruhen lassen.
 >
-> Salz hinzugeben und die übrigen 100 g Wasser nach und nach einkneten. Wird der Teig schon bei 670–680 g Gesamtwasser sehr weich und baut keine Spannung mehr auf, das restliche Wasser weglassen.\
+> 28–30 g Salz hinzugeben und die übrigen 100 g Wasser nach und nach einkneten. Wird der Teig schon bei 670–680 g Gesamtwasser sehr weich und baut keine Spannung mehr auf, das restliche Wasser weglassen.\
 > Sobald das Wasser aufgenommen ist, 30 g Olivenöl langsam einkneten. Der Teig soll weich, elastisch und glatt sein.
 >
 > 15 Minuten ruhen lassen und falten. Nach weiteren 15 Minuten dehnen und falten, nach nochmals 15 Minuten ein drittes Mal falten.

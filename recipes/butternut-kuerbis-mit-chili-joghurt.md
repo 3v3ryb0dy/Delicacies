@@ -25,13 +25,13 @@ note: Nach Yotam Ottolenghi, Plenty More.
 ## Zubereitung
 
 > Backofen auf 220 °C Ober-/Unterhitze vorheizen.\
-> Kürbis längs halbieren und entkernen. Mit Schale in ca. 2 cm breite und 7 cm lange Spalten schneiden. Mit Zimt, 2 EL Olivenöl, ¾ TL Salz und reichlich schwarzem Pfeffer vermengen.
+> Kürbis längs halbieren und entkernen. Mit Schale in ca. 2 cm breite und 7 cm lange Spalten schneiden. Mit 1 TL Zimt, 2 EL Olivenöl, ¾ TL Salz und reichlich schwarzem Pfeffer vermengen.
 >
 > Mit der Schale nach unten auf zwei Backblechen verteilen. 35–40 Minuten rösten, bis der Kürbis weich ist und die Oberfläche zu bräunen beginnt. Herausnehmen und etwas abkühlen lassen.
 >
 > Koriander samt Stielen, Knoblauch, die restlichen 4 EL Olivenöl und eine großzügige Prise Salz im Zerkleinerer zu einer feinen Paste mixen.
 >
-> Ofentemperatur auf 180 °C Ober-/Unterhitze reduzieren. Kürbiskerne auf einem Blech verteilen und 6–8 Minuten rösten, bis sie knusprig sind und die äußere Haut teilweise aufspringt. Abkühlen lassen.
+> Ofentemperatur auf 180 °C Ober-/Unterhitze reduzieren. 20 g Kürbiskerne auf einem Blech verteilen und 6–8 Minuten rösten, bis sie knusprig sind und die äußere Haut teilweise aufspringt. Abkühlen lassen.
 >
 > Joghurt und Sriracha verrühren. Kürbisspalten auf einer Platte anrichten. Erst Chili-Joghurt, dann Koriandersauce darüberträufeln. Nach Belieben beide Saucen leicht miteinander verwirbeln.\
 > Mit Kürbiskernen und zusätzlichen Korianderblättern bestreuen und servieren.

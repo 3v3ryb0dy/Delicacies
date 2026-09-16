@@ -38,9 +38,9 @@ note: Nach Yotam Ottolenghi, Plenty.
 >
 > Öl und Bratrückstände vollständig aus der Pfanne entfernen.
 >
-> Butter darin schmelzen. Schalotten, Chili, Knoblauch und Ingwer hinzufügen und bei kleiner bis mittlerer Hitze etwa 15 Minuten braten, dabei gelegentlich umrühren. Alles soll vollständig weich und glänzend werden, nicht stark bräunen.
+> 150 g Butter darin schmelzen. Schalotten, Chili, Knoblauch und 3 EL gehackten frischen Ingwer hinzufügen und bei kleiner bis mittlerer Hitze etwa 15 Minuten braten, dabei gelegentlich umrühren. Alles soll vollständig weich und glänzend werden, nicht stark bräunen.
 >
-> Kecap Manis, helle und dunkle Sojasauce sowie Zucker einrühren. Anschließend den grob zerstoßenen schwarzen Pfeffer hinzufügen.
+> 3 EL Kecap Manis, 3 EL helle Sojasauce und 4 TL dunkle Sojasauce sowie 2 EL Zucker einrühren. Anschließend 5 EL grob zerstoßene schwarze Pfefferkörner hinzufügen.
 >
 > Tofu zurück in die Pfanne geben und etwa 1 Minute in der Sauce erhitzen.\
 > Frühlingszwiebeln unterheben und sofort servieren.

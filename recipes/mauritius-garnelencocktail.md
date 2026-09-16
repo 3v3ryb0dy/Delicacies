@@ -51,7 +51,7 @@ wip: true
 
 ### Dressing
 
-> Maracujasaft oder Maracujamark mit Mangopüree, Limettensaft, Honig, Senf und Öl verrühren. Mit Salz und optional etwas Sojasauce oder Fischsauce sowie Chili abschmecken.
+> Maracujasaft oder Maracujamark mit Mangopüree, Limettensaft, Honig, Senf und Öl verrühren. Mit Salz abschmecken. Nach Belieben etwas Sojasauce oder Fischsauce sowie 1 kleine Prise Chili oder fein gehackte rote Chili zugeben.
 
 ### Salat
 
@@ -61,6 +61,6 @@ wip: true
 
 ### Garnelen
 
-> Garnelen trocken tupfen. Mit Salz, Pfeffer und nach Belieben Chili würzen. Öl in einer Pfanne erhitzen. Garnelen kurz und scharf anbraten, bis sie gerade gar sind. Nach Belieben mit wenig Limettenabrieb abschmecken.
+> Garnelen trocken tupfen. Mit Salz, Pfeffer und nach Belieben Chili würzen. 1 EL Öl in einer Pfanne erhitzen. Garnelen kurz und scharf anbraten, bis sie gerade gar sind. Nach Belieben mit wenig Limettenabrieb abschmecken.
 >
 > Salat auf Teller oder in Gläser geben. Gemüse, Ananas und Apfel locker darauf verteilen und mit wenig Dressing benetzen. Die noch warmen Garnelen daraufsetzen und etwas Dressing darübergeben.

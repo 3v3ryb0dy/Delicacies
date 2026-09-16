@@ -20,7 +20,7 @@ note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
 - ½ Zitrone (Saft)
 - 1 rote Chilischote
 - 1 TL Kreuzkümmel (gemahlen)
-- 5 EL Olivenöl
+- 4 EL Olivenöl (für das Chimichurri, zzgl. etwas für Gemüse und Halloumi)
 - Salz, Pfeffer
 
 ## Zubereitung
@@ -32,6 +32,6 @@ note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
 >
 > Für das Chimichurri Knoblauch und entkernte Chili fein hacken. Mit Petersilie, Kreuzkümmel, Zitronensaft und 4 EL Olivenöl verrühren. Vorsichtig salzen und pfeffern, da der Grillkäse ziemlich salzig ist.
 >
-> Halloumi etwa 3 cm groß würfeln. In wenig Olivenöl bei mittlerer Hitze rundum 3–4 Minuten goldbraun braten.
+> Halloumi etwa 3 cm groß würfeln. Bei mittlerer Hitze zunächst ohne Öl anbraten. Nach 1–2 Minuten etwas Olivenöl hinzugeben und insgesamt 3–4 Minuten rundum goldbraun braten.
 >
 > Gegarte Süßkartoffeln und Zwiebel vorsichtig unter Tomate und Avocado heben. Mit Halloumi anrichten und Chimichurri darübergeben.

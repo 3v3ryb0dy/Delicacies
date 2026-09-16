@@ -21,7 +21,7 @@ tags: [asiatisch, frittiert, vegan, vegetarisch, grundrezept]
 
 ## Zubereitung
 
-> Mehl, Stärke und Salz mischen. Eiskaltes Mineralwasser hinzugeben.\
+> Mehl, Stärke und Salz mischen. 150–160 g eiskaltes Mineralwasser hinzugeben.\
 > Mit Stäbchen oder einer Gabel nur kurz vermischen. Klümpchen sind okay.
 >
 > Frittiergut trocken tupfen und leicht mit Stärke bestäuben. Durch den Teig ziehen und sofort frittieren. Nicht zu viel gleichzeitig ins Öl geben.

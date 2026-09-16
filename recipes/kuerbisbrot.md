@@ -12,7 +12,7 @@ note: Familienrezept von Hannelore. Etwa die halbe Menge für eine Kastenform.
 
 - ca. 500 g Kürbismus
 - 1000 g Mehl (zzgl. etwas zum Kneten)
-- 150 g Zucker
+- 150 g Zucker (50 g für das Kürbismus, 100 g für den Teig)
 - 1 Päckchen Vanillezucker
 - 1 Päckchen Trockenhefe
 - 1 Prise Salz
@@ -20,10 +20,10 @@ note: Familienrezept von Hannelore. Etwa die halbe Menge für eine Kastenform.
 
 ## Zubereitung
 
-> Für das Kürbismus Kürbisstücke mit etwas vom Zucker weich kochen und zu Mus zerdrücken. Etwa 500 g abwiegen und lauwarm abkühlen lassen.\
-> Margarine schmelzen und ebenfalls etwas abkühlen lassen.
+> Für das Kürbismus Kürbisstücke mit 50 g Zucker weich kochen und zu Mus zerdrücken. Etwa 500 g abwiegen und lauwarm abkühlen lassen.\
+> 130 g Margarine schmelzen und ebenfalls etwas abkühlen lassen.
 >
-> Mehl, übrigen Zucker, Vanillezucker, Trockenhefe und Salz in einer Schüssel mischen. Kürbismus zugeben und zuletzt die flüssige Margarine einarbeiten.
+> Mehl, die restlichen 100 g Zucker, Vanillezucker, Trockenhefe und Salz in einer Schüssel mischen. Kürbismus zugeben und zuletzt die flüssige Margarine einarbeiten.
 >
 > Gründlich durchkneten. Bei Bedarf etwas Mehl zugeben, bis der Teig nicht mehr klebt.
 >
