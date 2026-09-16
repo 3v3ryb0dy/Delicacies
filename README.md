@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-71 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+72 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -106,12 +106,13 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Schinkengipfeli](recipes/schinkengipfeli.md)
 - [Vanillekipferl](recipes/vanillekipferl.md)
 
-### Kuchen (8)
+### Kuchen (9)
 
 - [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(Ungetestet)_
 - [Brown-Sugar-Kuchen mit Brown-Sugar-Creme und Sumach-Erdbeeren](recipes/brown-sugar-kuchen.md) _(Ungetestet)_
 - [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
 - [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
+- [Ovomaltine-Brownies](recipes/ovomaltine-brownies.md) _(Ungetestet)_
 - [Pistazien-Rosen-Grießkuchen](recipes/pistazien-rosen-griesskuchen.md) _(Ungetestet)_
 - [Schokoladenkuchen (Take-Home Chocolate Cake)](recipes/schokoladenkuchen.md) _(Ungetestet)_
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
