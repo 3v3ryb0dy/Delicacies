@@ -6,8 +6,9 @@ type Props = { idPrefix: string; text?: string; animated?: boolean }
 const { idPrefix, text, animated = true } = Astro.props
 const tokens = favoriteTokens(text)
 const layout = layoutFavoriteNote(tokens)
-const stripeColors = ['#f3ead7', '#ede0c3', '#f0e5cd']
+const stripeColors = ['#f3ead7', '#ede0c3', '#e4d2ad']
 const stripeOpacity = [0.74, 0.7, 0.28]
+const markerTextureId = `${idPrefix}-marker-texture`
 ---
 
 <svg
@@ -16,8 +17,30 @@ const stripeOpacity = [0.74, 0.7, 0.28]
   viewBox={`0 0 ${layout.width} ${layout.height}`}
   fill='none'
   focusable='false'>
-  {/* Each stripe has its own opacity, so overlapping brush strokes build up colour. */}
-  <g>
+  <defs>
+    <filter id={markerTextureId} x='-2%' y='-8%' width='104%' height='116%' color-interpolation-filters='sRGB'>
+      {/* Fine horizontal grain follows the direction of a felt-tip stroke. */}
+      <feTurbulence type='fractalNoise' baseFrequency='0.012 0.32' numOctaves='2' seed='8' result='grain' />
+      <feDisplacementMap
+        in='SourceGraphic'
+        in2='grain'
+        scale='1.4'
+        xChannelSelector='R'
+        yChannelSelector='G'
+        result='ink'
+      />
+      {/* Moderate coverage variation keeps the grain visible without deep gaps. */}
+      <feColorMatrix
+        in='grain'
+        type='matrix'
+        values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.675 0 0 0 0.6'
+        result='coverage'
+      />
+      <feComposite in='ink' in2='coverage' operator='in' />
+    </filter>
+  </defs>
+  {/* Each stripe has its own opacity, so overlapping marker strokes build up colour. */}
+  <g class='note-stripes' filter={`url(#${markerTextureId})`}>
     {layout.stripes.map((stripe, index) => (
       <path
         data-note-stripe
@@ -48,7 +71,12 @@ const stripeOpacity = [0.74, 0.7, 0.28]
 </svg>
 
 <style>
+  .note-stripes {
+    opacity: var(--note-stripe-opacity, 1);
+  }
+
   .note-ink {
+    opacity: var(--note-ink-opacity, 1);
     font-family: 'Caveat', cursive;
     font-size: 30px;
     font-weight: 600;

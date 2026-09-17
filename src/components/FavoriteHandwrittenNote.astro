@@ -45,7 +45,9 @@ const randomize = variant === 'card' && !text?.trim()
 
 <style>
   .favorite-note {
-    --note-ink: #70573d;
+    --note-ink: #654e37;
+    --note-stripe-opacity: 1;
+    --note-ink-opacity: 1;
     --note-unit: 0.75px;
     --note-fade-duration: 350ms;
     width: calc(var(--note-width) * var(--note-unit));
@@ -71,8 +73,9 @@ const randomize = variant === 'card' && !text?.trim()
 
   .favorite-note--detail {
     --note-unit: clamp(0.58px, calc(0.34px + 0.06vw), 1.25px);
+    --note-stripe-opacity: 0.85;
     max-width: 68%;
-    opacity: 0.75;
+    opacity: 1;
     transform: rotate(-4deg);
     transition: none;
     right: 1rem;

@@ -5,7 +5,7 @@ import { Heart } from '@lucide/astro'
 <div data-pagefind-ignore class='ronny-favorite'>
   <span class='favorite-bookmark' title='Ronnys Favorit'>
     <Heart size={20} aria-hidden='true' focusable='false' />
-    <span class='sr-only print:not-sr-only'>Ronnys Favorit</span>
+    <span class='sr-only'>Ronnys Favorit</span>
     <svg
       class='favorite-bookmark-outline'
       viewBox='0 0 36 48'
@@ -58,18 +58,7 @@ import { Heart } from '@lucide/astro'
   }
 
   @media print {
-    .favorite-bookmark {
-      width: auto;
-      height: auto;
-      background: none;
-      color: var(--color-ink);
-      clip-path: none;
-      padding: 0;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .favorite-bookmark :global(svg) {
+    .ronny-favorite {
       display: none;
     }
   }

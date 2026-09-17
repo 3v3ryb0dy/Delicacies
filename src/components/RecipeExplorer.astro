@@ -44,7 +44,7 @@ const chipClass =
             class='focus-ring w-full rounded-full border border-rule bg-paper-raised py-2.5 pr-4 pl-10 text-sm text-ink transition-colors placeholder:text-ink-soft/70 focus:border-accent'
           />
         </label>
-        <p id='rezept-status' class='text-sm text-ink-soft tabular-nums' aria-live='polite'>
+        <p id='rezept-status' class='text-sm text-ink-soft tabular-nums whitespace-nowrap' aria-live='polite'>
           {total} Rezepte
         </p>
 
@@ -62,7 +62,7 @@ const chipClass =
             </span>
           </span>
           <span>
-            Versuchsküche <span class='hidden lg:inline'>anzeigen ({untestedCount})</span>
+            Versuchsküche <span class='hidden lg:inline'>anzeigen</span> ({untestedCount})
           </span>
         </label>
       </div>
