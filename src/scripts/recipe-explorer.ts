@@ -13,6 +13,7 @@
 // Explicit `.ts` so the module also loads under `node --test` (plain Node
 // resolves extensions, unlike Vite).
 import { showWipPreferenceKey, untestedHiddenAttribute } from '../config/preferences.ts'
+import { afterPageLayout, initRecipeNavigation } from '../lib/recipe-navigation.ts'
 
 export type PagefindResultData = {
   url: string
@@ -37,6 +38,7 @@ export type RecipeExplorerOptions = {
 }
 
 export type RecipeExplorerHandle = {
+  ready: Promise<void>
   search: (query: string, options?: { scroll?: boolean }) => Promise<void>
   activeFilters: () => Record<string, string[]>
 }
@@ -386,10 +388,19 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     }
 
     const filters = activeFilters()
-    const search = await pagefind.search(query, Object.keys(filters).length ? { filters } : undefined)
-    if (token !== searchToken) return
-
-    const results = await Promise.all(search.results.slice(0, 40).map((result) => result.data()))
+    let results: PagefindResultData[]
+    try {
+      const search = await pagefind.search(query, Object.keys(filters).length ? { filters } : undefined)
+      if (token !== searchToken) return
+      results = await Promise.all(search.results.slice(0, 40).map((result) => result.data()))
+    } catch {
+      if (token !== searchToken) return
+      pagefindFailed = true
+      pagefind = null
+      runLocalSearch(query)
+      if (scroll) scrollToResults()
+      return
+    }
     if (token !== searchToken) return
 
     if (results.length === 0) {
@@ -470,43 +481,80 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     return updateFilteredResults({ scroll: false })
   })
 
-  // Restore the preference without scrolling or changing an incoming category anchor.
-  applyFilters()
-
-  // The native fragment jump may precede filtering, font loading and the
-  // sticky bar measurement. Align once after layout settles on a fresh load
-  // or reload; leave browser Back/Forward restoration and user scrolling alone.
+  let originatingRecipe = ''
+  const savedView = initRecipeNavigation({
+    overviewUrl: new URL(basePath, win.location.href).href,
+    readOverview: (recipe) => {
+      if (recipe) originatingRecipe = recipe
+      if (!originatingRecipe) return undefined
+      return {
+        url: win.location.href,
+        query: input.value,
+        tags: Array.from(activeTags),
+        showWip,
+        scrollY: win.scrollY,
+        categoryScrollLeft: categoryNav.scrollLeft,
+        recipe: originatingRecipe
+      }
+    }
+  })
+  const restoredView =
+    savedView && cards.some((card) => card.dataset.recipeId === savedView.recipe) ? savedView : undefined
   const initialHash = win.location.hash
-  const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined
-  if (initialHash && navigation?.type !== 'back_forward') {
-    const cancellation = new AbortController()
-    let interrupted = false
-    const cancel = () => {
-      interrupted = true
+  let anchorTarget: HTMLElement | null = null
+  try {
+    anchorTarget = doc.getElementById(decodeURIComponent(initialHash.slice(1)))
+  } catch {
+    // An invalid fragment should not prevent searching or browsing.
+  }
+  const navigation = win.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined
+  let ready = Promise.resolve()
+
+  if (restoredView) {
+    originatingRecipe = restoredView.recipe
+    input.value = restoredView.query
+    restoredView.tags.forEach((tag) => {
+      if (tagButtons.some((button) => button.dataset.filterTag === tag)) activeTags.add(tag)
+    })
+    showWip = restoredView.showWip
+    wipToggle.checked = showWip
+    syncUntestedVisibility()
+    try {
+      win.history.replaceState(win.history.state, '', restoredView.url)
+    } catch {
+      // Restoration still works when the URL cannot be updated.
     }
-    for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
-      win.addEventListener(event, cancel, { passive: true, signal: cancellation.signal })
+    ready = afterPageLayout(Promise.resolve(updateFilteredResults({ scroll: false })), () => {
+      updateAnchorOffset()
+      win.scrollTo({ top: restoredView.scrollY, behavior: 'instant' })
+      updateCurrentCategory()
+      categoryNav.scrollLeft = restoredView.categoryScrollLeft
+    })
+  } else {
+    // Direct links to untested cards must reveal their destination for this visit,
+    // without changing the visitor's stored Versuchsküche preference.
+    if (anchorTarget?.matches('[data-recipe]') && anchorTarget.dataset.wip === 'true') {
+      showWip = true
+      wipToggle.checked = true
+      syncUntestedVisibility()
     }
-    const alignInitialAnchor = async () => {
-      await doc.fonts.ready
-      requestAnimationFrame(() => {
-        cancellation.abort()
-        if (interrupted || win.location.hash !== initialHash) return
-        const target = doc.getElementById(initialHash.slice(1))
+    applyFilters()
+    if (initialHash && navigation?.type !== 'back_forward') {
+      ready = afterPageLayout(Promise.resolve(), () => {
+        if (win.location.hash !== initialHash) return
         if (
-          !target?.matches('[data-category-section], [data-empty-category], #noch-leer') ||
-          (target as HTMLElement).hidden
+          !anchorTarget?.matches('[data-recipe], [data-category-section], [data-empty-category], #noch-leer') ||
+          !anchorTarget.getClientRects().length
         )
           return
         updateAnchorOffset()
         win.scrollTo({
-          top: Math.max(0, win.scrollY + target.getBoundingClientRect().top - resultsOffset()),
+          top: Math.max(0, win.scrollY + anchorTarget.getBoundingClientRect().top - resultsOffset()),
           behavior: 'instant'
         })
+        updateCurrentCategory()
       })
     }
-    if (doc.readyState === 'complete') void alignInitialAnchor()
-    else win.addEventListener('load', () => void alignInitialAnchor(), { once: true })
   }
 
   resetButton?.addEventListener('click', () => {
@@ -515,5 +563,5 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     return updateFilteredResults()
   })
 
-  return { search: runSearch, activeFilters }
+  return { search: runSearch, activeFilters, ready }
 }

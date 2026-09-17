@@ -10,7 +10,14 @@ const flush = () => new Promise((resolve) => setImmediate(resolve))
  * touches globals at init time, so each explorer() installs its own and returns
  * a handle to the behaviour under test.
  */
-function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
+function explorer({
+  saved = null,
+  blocked = false,
+  pagefind = null,
+  snapshot,
+  hash = '',
+  navigationType = 'navigate'
+} = {}) {
   const element = (dataset = {}) => ({
     dataset,
     hidden: false,
@@ -19,6 +26,7 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
     textContent: '',
     innerHTML: '',
     style: { setProperty() {} },
+    scrollLeft: 0,
     listeners: {},
     children: [],
     className: '',
@@ -54,6 +62,9 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
   const cards = entries.map(([title, category, tags, wip]) => {
     const item = element()
     const card = element({ title, category, tags, wip: String(wip) })
+    card.dataset.recipeId = title.toLowerCase().replaceAll(' ', '-')
+    card.id = 'rezept-' + card.dataset.recipeId
+    card.matches = (selector) => selector.includes('[data-recipe]')
     card.closest = () => item
     card.querySelector = () => ({ getAttribute: () => '/rezept/' + title })
     card.item = item
@@ -84,6 +95,9 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
       'rezepte'
     ].map((id) => [id, element()])
   )
+  cards.forEach((card) => {
+    ids[card.id] = card
+  })
   ids.rezepte.dataset.pagefindUrl = '/pagefind/pagefind.js'
   ids.rezepte.dataset.basePath = '/'
   const singles = Object.fromEntries(
@@ -114,7 +128,12 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
   }
   const storage = new Map([['delicacies.showWip', saved]])
   const scrollCalls = []
+  const documentListeners = {}
   globalThis.document = {
+    referrer: '',
+    addEventListener(event, listener) {
+      documentListeners[event] = listener
+    },
     documentElement: {
       style: { setProperty() {} },
       attributes: {},
@@ -148,7 +167,16 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
     for (const callback of frames.splice(0)) callback()
   }
   globalThis.window = {
-    location: { hash: '', pathname: '/', search: '' },
+    location: { hash, pathname: '/', search: '', href: 'https://cook.test/' + hash },
+    performance: { getEntriesByType: () => [{ type: navigationType }] },
+    history: {
+      state: snapshot ? { delicaciesNavigation: { version: 1, overview: snapshot } } : null,
+      replaceState(state, _unused, url) {
+        this.state = state
+        if (url) globalThis.window.location.href = url
+      }
+    },
+    sessionStorage: { getItem: () => null, removeItem() {} },
     scrollY: 800,
     scrollTo: (options) => scrollCalls.push(options),
     requestAnimationFrame(callback) {
@@ -156,7 +184,7 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
       return frames.length
     },
     addEventListener(event, callback) {
-      windowListeners[event] = callback
+      ;(windowListeners[event] ??= []).push(callback)
     }
   }
   globalThis.getComputedStyle = () => ({ top: '0', scrollPaddingTop: '0' })
@@ -168,12 +196,39 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
     loadPagefind: async () => pagefind
   })
 
+  const explorerWindow = globalThis.window
+  globalThis.history = explorerWindow.history
   flushFrames()
   return {
     controller,
+    history: explorerWindow.history,
+    openRecipe(recipe) {
+      class Link {
+        href = 'https://cook.test/rezept/' + recipe + '/'
+        target = ''
+        closest() {
+          return this
+        }
+        hasAttribute() {
+          return false
+        }
+      }
+      globalThis.Element = Link
+      documentListeners.click({ target: new Link(), button: 0 })
+      windowListeners.pagehide.forEach((callback) => callback())
+    },
+    async settled() {
+      await flush()
+      flushFrames()
+      await controller.ready
+    },
+    interrupt() {
+      windowListeners.wheel?.forEach((callback) => callback())
+    },
+    nav: singles['[data-category-nav]'],
     flushFrames,
     scroll() {
-      windowListeners.scroll()
+      windowListeners.scroll.forEach((callback) => callback())
       flushFrames()
     },
     documentElement: globalThis.document.documentElement,
@@ -402,4 +457,116 @@ test('Pagefind receives the WIP filter with other filters and stale searches can
   await oldSearch
   assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
   assert.equal(ui.ids['suche-leer'].hidden, true)
+})
+
+const savedOverview = {
+  url: 'https://cook.test/#brot',
+  query: '',
+  tags: [],
+  showWip: true,
+  scrollY: 2400,
+  categoryScrollLeft: 180,
+  recipe: 'cloud-burger-buns'
+}
+
+test('a reconstructed history entry restores filters and exact scroll position instead of the category anchor', async () => {
+  const ui = explorer({
+    snapshot: { ...savedOverview, tags: ['fleisch'] },
+    hash: '#brot',
+    navigationType: 'back_forward'
+  })
+  assert.deepEqual(ui.visible(), ['Bouletten'])
+  assert.deepEqual(ui.filters(), { tag: ['fleisch'] })
+  assert.equal(ui.ids['show-wip'].checked, true)
+  assert.equal(ui.scrollCalls.length, 0)
+  await ui.settled()
+  assert.deepEqual(ui.scrollCalls, [{ top: 2400, behavior: 'instant' }])
+  assert.equal(ui.nav.scrollLeft, 180)
+  assert.equal(ui.storage.get('delicacies.showWip'), null)
+})
+
+test('restored search waits for results before restoring position', async () => {
+  let resolveSearch
+  const ui = explorer({
+    snapshot: { ...savedOverview, query: 'Cloud' },
+    navigationType: 'reload',
+    pagefind: {
+      init: async () => {},
+      search: () =>
+        new Promise((resolve) => {
+          resolveSearch = resolve
+        })
+    }
+  })
+  await flush()
+  ui.flushFrames()
+  assert.equal(ui.ids['rezept-suche'].value, 'Cloud')
+  assert.equal(ui.ids['rezept-liste'].hidden, true)
+  assert.equal(ui.scrollCalls.length, 0)
+  resolveSearch({
+    results: [
+      { data: async () => ({ url: '/rezept/cloud-burger-buns/', meta: { title: 'Cloud Burger Buns' }, excerpt: '' }) }
+    ]
+  })
+  await ui.settled()
+  assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
+  assert.deepEqual(ui.scrollCalls, [{ top: 2400, behavior: 'instant' }])
+})
+
+test('interaction cancels the delayed position correction', async () => {
+  const ui = explorer({ snapshot: savedOverview, navigationType: 'back_forward' })
+  ui.interrupt()
+  await ui.settled()
+  assert.equal(ui.scrollCalls.length, 0)
+})
+
+test('direct card anchors reveal untested recipes without persisting the preference', async () => {
+  const ui = explorer({ hash: '#rezept-cloud-burger-buns' })
+  assert.equal(ui.ids['show-wip'].checked, true)
+  assert.ok(ui.visible().includes('Cloud Burger Buns'))
+  await ui.settled()
+  assert.deepEqual(ui.scrollCalls, [{ top: 784, behavior: 'instant' }])
+  assert.equal(ui.storage.get('delicacies.showWip'), null)
+})
+
+test('malformed fragments do not break the overview', async () => {
+  const ui = explorer({ hash: '#%invalid' })
+  await ui.settled()
+  assert.deepEqual(ui.visible(), ['Bouletten', 'Burger Buns'])
+  assert.equal(ui.scrollCalls.length, 0)
+})
+
+test('a failing search index falls back before restoring the view', async () => {
+  const ui = explorer({
+    snapshot: { ...savedOverview, query: 'Cloud' },
+    navigationType: 'back_forward',
+    pagefind: {
+      init: async () => {},
+      search: async () => {
+        throw Error('offline')
+      }
+    }
+  })
+  await ui.settled()
+  assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
+  assert.deepEqual(ui.scrollCalls, [{ top: 2400, behavior: 'instant' }])
+})
+
+test('opening a recipe captures the actual search, tags, visibility, and position in its overview entry', async () => {
+  const ui = explorer()
+  ui.tag()
+  await ui.toggle(true)
+  ui.ids['rezept-suche'].value = 'Bouletten'
+  await ui.search('Bouletten')
+  ui.nav.scrollLeft = 120
+  ui.openRecipe('bouletten')
+  assert.deepEqual(ui.history.state.delicaciesNavigation.overview, {
+    url: 'https://cook.test/',
+    query: 'Bouletten',
+    tags: ['fleisch'],
+    showWip: true,
+    scrollY: 800,
+    categoryScrollLeft: 120,
+    recipe: 'bouletten'
+  })
 })

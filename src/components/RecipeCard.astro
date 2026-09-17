@@ -11,9 +11,10 @@ import FavoriteHandwrittenNote from './FavoriteHandwrittenNote.astro'
 
 type Props = {
   entry: CollectionEntry<'recipes'>
+  overview?: boolean
 }
 
-const { entry } = Astro.props
+const { entry, overview = false } = Astro.props
 const { title, category, tags, imageAlt, wip, preparationPending, isFavorite, favoriteText } = entry.data
 const image = resolveRecipePhoto(entry.data.image)
 
@@ -64,6 +65,8 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
 ---
 
 <article
+  id={overview ? `rezept-${entry.id}` : undefined}
+  data-recipe-id={entry.id}
   data-recipe
   data-wip={String(wip)}
   data-category={category}

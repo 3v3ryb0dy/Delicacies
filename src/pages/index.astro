@@ -110,7 +110,7 @@ const emptyEntries = [
                       <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {subRecipes.map((entry) => (
                           <li data-recipe-item data-untested={entry.data.wip ? 'true' : undefined}>
-                            <RecipeCard entry={entry} />
+                            <RecipeCard entry={entry} overview />
                           </li>
                         ))}
                       </ul>
@@ -124,7 +124,7 @@ const emptyEntries = [
                     <ul class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                       {ungroupedRecipes.map((entry) => (
                         <li data-recipe-item data-untested={entry.data.wip ? 'true' : undefined}>
-                          <RecipeCard entry={entry} />
+                          <RecipeCard entry={entry} overview />
                         </li>
                       ))}
                     </ul>
@@ -135,7 +135,7 @@ const emptyEntries = [
               <ul class='mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                 {categoryRecipes.map((entry) => (
                   <li data-recipe-item data-untested={entry.data.wip ? 'true' : undefined}>
-                    <RecipeCard entry={entry} />
+                    <RecipeCard entry={entry} overview />
                   </li>
                 ))}
               </ul>
