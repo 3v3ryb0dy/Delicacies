@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-72 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+73 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -23,7 +23,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (16)
+### Hauptgerichte (17)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -32,6 +32,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Hähnchen in Metaxasauce](recipes/haehnchen-in-metaxasauce.md)
 - [Hähnchen mit karamellisierten Zwiebeln, Kardamom und Reis](recipes/haehnchen-mit-kardamomreis.md) _(Ungetestet)_
 - [Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat](recipes/halloumi-auf-ofengemuese.md)
+- [Jakobsmuscheln mit brauner Kapernbutter auf Spargelrisotto](recipes/jakobsmuscheln-mit-spargelrisotto.md) _(Ungetestet)_
 - [Kurz gebeizter Lachs aus der Pfanne](recipes/kurz-gebeizter-lachs.md)
 - [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
