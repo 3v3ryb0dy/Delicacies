@@ -26,6 +26,12 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
     setAttribute(name, value) {
       this.attributes[name] = String(value)
     },
+    removeAttribute(name) {
+      delete this.attributes[name]
+    },
+    getClientRects() {
+      return this.hidden ? [] : [this.getBoundingClientRect()]
+    },
     getAttribute(name) {
       return this.attributes[name]
     },
@@ -35,7 +41,7 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
     appendChild(child) {
       this.children.push(child)
     },
-    getBoundingClientRect: () => ({ top: 0, height: 0 }),
+    getBoundingClientRect: () => ({ top: 0, height: 0, bottom: 3000, left: 0, right: 300 }),
     querySelectorAll: () => [],
     querySelector: () => null
   })
@@ -53,8 +59,11 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
     card.item = item
     return card
   })
-  const sections = ['hauptgerichte', 'brot', 'salate'].map((category) => {
+  const sections = ['hauptgerichte', 'brot', 'salate'].map((category, index) => {
     const section = element()
+    section.id = category
+    section.top = 400 + index * 600
+    section.getBoundingClientRect = () => ({ top: section.top, bottom: section.top + 500 })
     section.count = element()
     section.querySelector = () => section.count
     section.querySelectorAll = () => cards.filter((card) => card.dataset.category === category && !card.item.hidden)
@@ -78,21 +87,27 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
   ids.rezepte.dataset.pagefindUrl = '/pagefind/pagefind.js'
   ids.rezepte.dataset.basePath = '/'
   const singles = Object.fromEntries(
-    ['[data-empty-block]', '[data-reset-filters]', '[data-sticky-bar]', '[data-wip-control]'].map((id) => [
-      id,
-      element()
-    ])
+    [
+      '[data-empty-block]',
+      '[data-reset-filters]',
+      '[data-sticky-bar]',
+      '[data-wip-control]',
+      '[data-category-nav]'
+    ].map((id) => [id, element()])
   )
   singles['#rezept-suche'] = ids['rezept-suche']
   singles['#show-wip'] = ids['show-wip']
-  const categoryButtons = ['', 'brot', 'salate'].map((category) => element({ filterCategory: category }))
+  sections.forEach((section) => {
+    ids[section.id] = section
+  })
+  const categoryLinks = ['hauptgerichte', 'brot', 'salate'].map((category) => element({ categoryLink: category }))
   const tagButton = element({ filterTag: 'fleisch' })
   const tagChip = element({ chipLabel: 'fleisch' })
   tagButton.querySelector = () => tagChip
   const lists = {
     '[data-category-section]': sections,
     '[data-recipe]': cards,
-    '[data-filter-category]': categoryButtons,
+    '[data-category-link]': categoryLinks,
     '[data-filter-tag]': [tagButton],
     '[data-empty-category]': [],
     '[data-subcategory-section]': [subgroup]
@@ -127,11 +142,22 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
       storage.set(key, value)
     }
   }
+  const windowListeners = {}
+  const frames = []
+  const flushFrames = () => {
+    for (const callback of frames.splice(0)) callback()
+  }
   globalThis.window = {
     location: { hash: '', pathname: '/', search: '' },
     scrollY: 800,
     scrollTo: (options) => scrollCalls.push(options),
-    addEventListener() {}
+    requestAnimationFrame(callback) {
+      frames.push(callback)
+      return frames.length
+    },
+    addEventListener(event, callback) {
+      windowListeners[event] = callback
+    }
   }
   globalThis.getComputedStyle = () => ({ top: '0', scrollPaddingTop: '0' })
   globalThis.ResizeObserver = class {
@@ -142,15 +168,21 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
     loadPagefind: async () => pagefind
   })
 
+  flushFrames()
   return {
     controller,
+    flushFrames,
+    scroll() {
+      windowListeners.scroll()
+      flushFrames()
+    },
     documentElement: globalThis.document.documentElement,
     ids,
     sections,
     subgroup,
     storage,
     scrollCalls,
-    categoryButtons,
+    categoryLinks,
     tagChip,
     tagButton,
     visible: () => cards.filter((card) => !card.item.hidden).map((card) => card.dataset.title),
@@ -162,7 +194,8 @@ function explorer({ saved = null, blocked = false, pagefind = null } = {}) {
       return ids['show-wip'].listeners.change()
     },
     category(value) {
-      categoryButtons.find((button) => button.dataset.filterCategory === value).listeners.click()
+      categoryLinks.find((button) => button.dataset.categoryLink === value).listeners.click({ button: 0 })
+      flushFrames()
     },
     tag() {
       tagButton.listeners.click()
@@ -177,7 +210,7 @@ test('filter updates preserve single-line icon and label layout', () => {
   const ui = explorer()
   for (const update of [() => ui.category('brot'), () => ui.tag(), () => ui.reset()]) {
     update()
-    for (const chip of [...ui.categoryButtons, ui.tagChip]) {
+    for (const chip of [...ui.categoryLinks, ui.tagChip]) {
       const classes = new Set(chip.className.split(/\s+/))
       for (const required of ['inline-flex', 'items-center', 'shrink-0', 'whitespace-nowrap']) {
         assert.ok(classes.has(required), `Missing ${required} after filter update`)
@@ -186,19 +219,54 @@ test('filter updates preserve single-line icon and label layout', () => {
   }
 })
 
-test('filter chips expose their pressed state', () => {
+test('category links navigate without filtering recipes and tags retain pressed state', () => {
   const ui = explorer()
   ui.category('brot')
-  const pressed = (category) =>
-    ui.categoryButtons.find((button) => button.dataset.filterCategory === category).attributes['aria-pressed']
-  assert.equal(pressed('brot'), 'true')
-  assert.equal(pressed(''), 'false')
+  assert.deepEqual(ui.visible(), ['Bouletten', 'Burger Buns'])
+  assert.deepEqual(ui.filters(), { wip: ['false'] })
   assert.equal(ui.tagButton.attributes['aria-pressed'], 'false')
   ui.tag()
   assert.equal(ui.tagButton.attributes['aria-pressed'], 'true')
-  ui.reset()
-  assert.equal(pressed(''), 'true')
+  ui.category('brot')
   assert.equal(ui.tagButton.attributes['aria-pressed'], 'false')
+  assert.deepEqual(ui.visible(), ['Bouletten', 'Burger Buns'])
+})
+
+test('scroll position controls the current category, including scrolling back and leaving the list', () => {
+  const ui = explorer()
+  const current = () =>
+    ui.categoryLinks
+      .filter((link) => link.attributes['aria-current'] === 'location')
+      .map((link) => link.dataset.categoryLink)
+  assert.deepEqual(current(), [])
+  ui.sections[0].top = 16
+  ui.scroll()
+  assert.deepEqual(current(), ['hauptgerichte'])
+  ui.sections[0].top = -600
+  ui.sections[1].top = 16
+  ui.scroll()
+  assert.deepEqual(current(), ['brot'])
+  ui.sections[0].top = 16
+  ui.sections[1].top = 616
+  ui.scroll()
+  assert.deepEqual(current(), ['hauptgerichte'])
+  ui.ids['rezept-liste'].getBoundingClientRect = () => ({ bottom: 0 })
+  ui.scroll()
+  assert.deepEqual(current(), [])
+})
+
+test('search clears the current category and navigation restores sections and clears the query', async () => {
+  const ui = explorer()
+  ui.sections[1].top = 16
+  ui.scroll()
+  ui.ids['rezept-suche'].value = 'Burger'
+  await ui.search('Burger')
+  ui.flushFrames()
+  assert.ok(ui.categoryLinks.every((link) => !link.attributes['aria-current']))
+  ui.category('brot')
+  assert.equal(ui.ids['rezept-suche'].value, '')
+  assert.equal(ui.ids['rezept-liste'].hidden, false)
+  assert.equal(ui.ids['suche-bereich'].hidden, true)
 })
 
 test('default, invalid, and unavailable preferences hide WIP list items and empty groups', () => {
@@ -231,9 +299,9 @@ test('toggle persists across controller reloads, composes with filters, and surv
   assert.equal(ui.storage.get('delicacies.showWip'), 'true')
   assert.equal(explorer({ saved: ui.storage.get('delicacies.showWip') }).visible().length, 4)
   ui.category('salate')
-  assert.deepEqual(ui.visible(), ['Farfallesalat'])
+  assert.equal(ui.visible().length, 4)
   ui.toggle(false)
-  assert.equal(ui.ids['keine-treffer'].hidden, false)
+  assert.equal(ui.ids['keine-treffer'].hidden, true)
   ui.toggle(true)
   ui.reset()
   assert.equal(ui.visible().length, 4)
@@ -251,13 +319,13 @@ test('blocked persistence does not prevent toggling', () => {
   assert.equal(ui.visible().length, 2)
 })
 
-test('WIP toggles do not scroll the recipe list, while category filters still do', async () => {
+test('WIP toggles do not scroll and category links leave scrolling to the browser', async () => {
   const ui = explorer()
   await ui.toggle(true)
   await ui.toggle(false)
   assert.equal(ui.scrollCalls.length, 0)
   ui.category('brot')
-  assert.equal(ui.scrollCalls.length, 1)
+  assert.equal(ui.scrollCalls.length, 0)
 })
 
 test('WIP toggles refresh fallback search without scrolling', async () => {
@@ -303,7 +371,7 @@ test('fallback search hides untested recipes until enabled', async () => {
   assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
   ui.category('salate')
   await ui.search('Cloud')
-  assert.equal(ui.ids['suche-leer'].hidden, false)
+  assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
   await ui.search('Farfallesalat')
   assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
 })
@@ -319,11 +387,11 @@ test('Pagefind receives the WIP filter with other filters and stale searches can
   ui.category('brot')
   const oldSearch = ui.search('Burger')
   await flush()
-  assert.deepEqual(JSON.parse(JSON.stringify(pending[0].options.filters)), { wip: ['false'], category: ['brot'] })
+  assert.deepEqual(JSON.parse(JSON.stringify(pending[0].options.filters)), { wip: ['false'] })
   ui.toggle(true)
   const newSearch = ui.search('Burger')
   await flush()
-  assert.deepEqual(JSON.parse(JSON.stringify(pending[1].options.filters)), { category: ['brot'] })
+  assert.deepEqual(pending[1].options, undefined)
   pending[1].resolve({
     results: [
       { data: async () => ({ url: '/rezept/cloud-burger-buns/', meta: { title: 'Cloud Burger Buns' }, excerpt: '' }) }

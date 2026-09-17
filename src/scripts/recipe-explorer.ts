@@ -1,7 +1,7 @@
 /**
  * Home page recipe explorer.
  *
- * Owns category/tag filtering, Pagefind search, the remembered "Versuchsküche
+ * Owns category navigation, tag filtering, Pagefind search, the remembered "Versuchsküche
  * anzeigen" preference and the scroll handling that keeps results clear
  * of the sticky filter bar.
  *
@@ -92,7 +92,8 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   const emptyEntries = Array.from(doc.querySelectorAll<HTMLElement>('[data-empty-category]'))
   const sections = Array.from(doc.querySelectorAll<HTMLElement>('[data-category-section]'))
   const cards = Array.from(doc.querySelectorAll<HTMLElement>('[data-recipe]'))
-  const categoryButtons = Array.from(doc.querySelectorAll<HTMLButtonElement>('[data-filter-category]'))
+  const categoryLinks = Array.from(doc.querySelectorAll<HTMLAnchorElement>('[data-category-link]'))
+  const categoryNav = required(doc.querySelector<HTMLElement>('[data-category-nav]'), '[data-category-nav]')
   const tagButtons = Array.from(doc.querySelectorAll<HTMLButtonElement>('[data-filter-tag]'))
 
   let persistence: Pick<Storage, 'getItem' | 'setItem'> | undefined
@@ -122,8 +123,6 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   syncUntestedVisibility()
 
   const availableTotal = () => cards.filter((card) => showWip || card.dataset.wip !== 'true').length
-  const emptyIds = emptyEntries.map((entry) => entry.dataset.emptyCategory ?? '')
-  let activeCategory = ''
   const activeTags = new Set<string>()
   let pagefind: PagefindAdapter | null = null
   let pagefindFailed = false
@@ -170,20 +169,64 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   const tagActive = 'bg-ink text-paper'
   const tagIdle = 'bg-paper-sunken text-ink-soft'
 
+  const categoryTargets = [...sections, ...emptyEntries].filter((section) =>
+    categoryLinks.some((link) => link.dataset.categoryLink === section.id)
+  )
+  let currentCategory: string | undefined
+  let categoryFrame = 0
+
+  const updateCurrentCategory = () => {
+    categoryFrame = 0
+    const offset = resultsOffset()
+    const listBounds = cardList.getBoundingClientRect()
+    let current = ''
+    let currentTop = -Infinity
+    if (!cardList.hidden && listBounds.bottom > offset) {
+      for (const section of categoryTargets) {
+        if (!section.getClientRects().length) continue
+        const top = section.getBoundingClientRect().top
+        if (top > offset + 1) continue
+        // Empty categories can share a row; retain the linked destination there.
+        if (top > currentTop || (top === currentTop && win.location.hash === '#' + section.id)) {
+          current = section.id
+          currentTop = top
+        }
+      }
+    }
+    if (current === currentCategory) return
+    currentCategory = current
+    categoryLinks.forEach((link) => {
+      const isActive = link.dataset.categoryLink === current
+      link.className = chipBase + ' ' + (isActive ? chipActive : chipIdle)
+      if (isActive) link.setAttribute('aria-current', 'location')
+      else link.removeAttribute('aria-current')
+      if (isActive) {
+        // Reveal the active link on narrow screens without moving the page vertically.
+        const bounds = link.getBoundingClientRect()
+        const navBounds = categoryNav.getBoundingClientRect()
+        if (bounds.left < navBounds.left) categoryNav.scrollLeft += bounds.left - navBounds.left
+        else if (bounds.right > navBounds.right) categoryNav.scrollLeft += bounds.right - navBounds.right
+      }
+    })
+  }
+  const scheduleCategoryUpdate = () => {
+    if (!categoryFrame) categoryFrame = win.requestAnimationFrame(updateCurrentCategory)
+  }
+  win.addEventListener('scroll', scheduleCategoryUpdate, { passive: true })
+  win.addEventListener('resize', scheduleCategoryUpdate)
+  win.addEventListener('hashchange', scheduleCategoryUpdate)
+  const categoryObserver = new ResizeObserver(scheduleCategoryUpdate)
+  categoryObserver.observe(cardList)
+  categoryObserver.observe(stickyBar)
+
   const activeFilters = () => {
     const filters: Record<string, string[]> = {}
     if (!showWip) filters.wip = ['false']
-    if (activeCategory) filters.category = [activeCategory]
     if (activeTags.size) filters.tag = Array.from(activeTags)
     return filters
   }
 
   const paintButtons = () => {
-    categoryButtons.forEach((button) => {
-      const isActive = (button.dataset.filterCategory ?? '') === activeCategory
-      button.className = chipBase + ' ' + (isActive ? chipActive : chipIdle)
-      button.setAttribute('aria-pressed', String(isActive))
-    })
     tagButtons.forEach((button) => {
       const isActive = activeTags.has(button.dataset.filterTag ?? '')
       button.setAttribute('aria-pressed', String(isActive))
@@ -195,7 +238,6 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
 
   const matches = (card: HTMLElement) => {
     if (!showWip && card.dataset.wip === 'true') return false
-    if (activeCategory && card.dataset.category !== activeCategory) return false
     if (activeTags.size) {
       const cardTags = (card.dataset.tags ?? '').split(/\s+/).filter(Boolean)
       if (!cardTags.some((tag) => activeTags.has(tag))) return false
@@ -221,23 +263,18 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     })
     const total = availableTotal()
 
-    const filtering = !showWip || Boolean(activeCategory) || activeTags.size > 0
-    const selectedEmptyCategory = activeCategory !== '' && emptyIds.indexOf(activeCategory) !== -1
+    if (emptyBlock) emptyBlock.hidden = activeTags.size > 0
+    if (noResults) noResults.hidden = visible > 0
 
-    if (emptyBlock) {
-      emptyBlock.hidden = activeTags.size > 0 || (activeCategory !== '' && !selectedEmptyCategory)
-      emptyEntries.forEach((entry) => {
-        entry.hidden = activeCategory !== '' && entry.dataset.emptyCategory !== activeCategory
-      })
-    }
+    // Categories containing only untested recipes become available with the switch.
+    categoryLinks.forEach((link) => {
+      const categoryCards = cards.filter((card) => card.dataset.category === link.dataset.categoryLink)
+      link.hidden = categoryCards.length > 0 && !categoryCards.some((card) => showWip || card.dataset.wip !== 'true')
+    })
 
-    if (noResults) {
-      noResults.hidden = !(filtering && visible === 0 && !selectedEmptyCategory)
-    }
-
-    if (selectedEmptyCategory && visible === 0) status.textContent = 'Noch keine Rezepte'
-    else if (visible === total) status.textContent = total === 1 ? '1 Rezept' : total + ' Rezepte'
+    if (visible === total) status.textContent = total === 1 ? '1 Rezept' : total + ' Rezepte'
     else status.textContent = visible + ' von ' + total + ' Rezepten'
+    scheduleCategoryUpdate()
   }
 
   const escapeHtml = (value: string) =>
@@ -285,7 +322,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
 
   const appendResult = (url: string, title: string, meta: string, excerptHtml: string) => {
     const categoryIcon =
-      categoryButtons.find((button) => button.dataset.categoryLabel === meta)?.querySelector('svg')?.outerHTML ?? ''
+      categoryLinks.find((button) => button.dataset.categoryLabel === meta)?.querySelector('svg')?.outerHTML ?? ''
     const item = doc.createElement('li')
     item.innerHTML =
       '<a href="' +
@@ -334,6 +371,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     searchArea.hidden = false
     searchEmpty.hidden = true
     searchList.innerHTML = ''
+    scheduleCategoryUpdate()
 
     if (!pagefind && !pagefindFailed) {
       pagefind = pagefindUrl ? await loadPagefind(pagefindUrl) : null
@@ -393,11 +431,18 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     return undefined
   }
 
-  categoryButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      beginResultsChange()
-      activeCategory = button.dataset.filterCategory ?? ''
-      return updateFilteredResults()
+  categoryLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      // Reveal the destination before the browser performs its native fragment jump.
+      clearTimeout(debounce)
+      ++searchToken
+      input.value = ''
+      activeTags.clear()
+      paintButtons()
+      showSections()
+      updateAnchorOffset()
+      scheduleCategoryUpdate()
     })
   })
 
@@ -466,7 +511,6 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
 
   resetButton?.addEventListener('click', () => {
     beginResultsChange()
-    activeCategory = ''
     activeTags.clear()
     return updateFilteredResults()
   })

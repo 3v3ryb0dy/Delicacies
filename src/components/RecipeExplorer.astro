@@ -67,26 +67,18 @@ const chipClass =
         </label>
       </div>
 
-      <div class={scrollRowClass}>
-        <button
-          type='button'
-          data-filter-category=''
-          aria-pressed='true'
-          class='focus-ring inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-transparent bg-ink px-3.5 py-1.5 text-xs font-semibold tracking-wide whitespace-nowrap text-paper'>
-          Alle
-        </button>
+      <nav aria-label='Rezeptkategorien' data-category-nav class={scrollRowClass}>
         {categories.map((category) => (
-          <button
-            type='button'
-            data-filter-category={category.id}
+          <a
+            href={`#${category.id}`}
+            data-category-link={category.id}
             data-category-label={category.short}
-            aria-pressed='false'
             class={chipClass}>
             <CategoryIcon category={category.id} />
             {category.short}
-          </button>
+          </a>
         ))}
-      </div>
+      </nav>
     </div>
   </div>
 
