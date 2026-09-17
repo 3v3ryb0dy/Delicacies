@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { initRecipeNavigation, readOverviewSnapshot } from './recipe-navigation.ts'
+import { initRecipeNavigation, readOverviewSnapshot, saveOverviewSnapshot } from './recipe-navigation.ts'
 
 const overviewUrl = 'https://cook.test/cookbook/'
 const recipeUrl = (slug) => overviewUrl + 'rezept/' + slug + '/'
@@ -39,8 +39,10 @@ function page({
     }
   }
   globalThis.Element = Link
+  const labels = [{ textContent: '' }, { textContent: '' }]
   globalThis.document = {
     referrer,
+    querySelectorAll: () => labels,
     addEventListener(event, callback) {
       documentListeners[event] = callback
     }
@@ -50,6 +52,10 @@ function page({
     performance: { getEntriesByType: () => [{ type }] },
     history: {
       state,
+      backCalls: 0,
+      back() {
+        this.backCalls++
+      },
       replaceState(next) {
         this.state = next
       }
@@ -75,10 +81,21 @@ function page({
   const restored = initRecipeNavigation({ overviewUrl, readOverview })
   return {
     restored,
+    labels,
+    win,
     storage,
     history: win.history,
     click(href, attributes = {}, event = {}) {
-      documentListeners.click({ target: new Link(href, attributes), button: 0, ...event })
+      const click = {
+        target: new Link(href, attributes),
+        button: 0,
+        preventDefault() {
+          this.defaultPrevented = true
+        },
+        ...event
+      }
+      documentListeners.click(click)
+      return click
     },
     leave() {
       windowListeners.pagehide()
@@ -89,41 +106,49 @@ function page({
   }
 }
 
-test('list → recipe → related recipe → overview preserves the original view and unrelated history state', () => {
+test('overview → recipe A → recipe B uses actual browser Back at each step', () => {
   const storage = new Map()
   const list = page({ url: snapshot.url, storage, state: { anotherFeature: 7 }, readOverview: () => snapshot })
   list.click(recipeUrl('burger-buns'))
-  assert.equal(storage.size, 0, 'handoff only commits when the source leaves')
+  assert.equal(storage.size, 0)
   list.leave()
   assert.equal(list.history.state.anotherFeature, 7)
   assert.deepEqual(list.history.state.delicaciesNavigation.overview, snapshot)
 
   const first = page({ url: recipeUrl('burger-buns'), referrer: overviewUrl, storage })
-  assert.deepEqual(first.restored, snapshot, 'referrers omit the source category fragment')
-  assert.equal(storage.size, 0, 'handoff is consumed once')
+  assert.ok(first.labels.every((label) => label.textContent === 'Zurück'))
   first.click(recipeUrl('cloud-burger-buns'))
   first.leave()
-
   const second = page({ url: recipeUrl('cloud-burger-buns'), referrer: recipeUrl('burger-buns'), storage })
-  assert.deepEqual(second.restored, snapshot)
-  const back = overviewUrl + '#rezept-cloud-burger-buns'
-  second.click(back, { 'data-recipe-back': '' })
+  const click = second.click(overviewUrl + '#rezept-cloud-burger-buns', { 'data-recipe-back': '' })
+  assert.equal(click.defaultPrevented, true)
+  assert.equal(second.history.backCalls, 1)
   second.leave()
-  const returned = page({ url: back, referrer: recipeUrl('cloud-burger-buns'), storage, readOverview: () => snapshot })
-  assert.deepEqual(returned.restored, snapshot)
-  assert.equal(storage.size, 0)
+  assert.equal(storage.size, 0, 'Back must not create a new handoff or overview visit')
+
+  const returned = page({ url: recipeUrl('burger-buns'), type: 'back_forward', state: first.history.state })
+  returned.click(overviewUrl, { 'data-recipe-back': '' })
+  assert.equal(returned.history.backCalls, 1)
 })
 
-test('recipe reload and browser history traversal retain their own return context', () => {
+test('recipe reload and browser traversal preserve provenance; fresh visits do not', () => {
+  const state = { other: 'retained', delicaciesNavigation: { version: 2, previous: overviewUrl } }
   for (const type of ['reload', 'back_forward']) {
-    const recipe = page({
-      url: recipeUrl('burger-buns'),
-      type,
-      state: { other: 'retained', delicaciesNavigation: { version: 1, returnTo: snapshot } }
-    })
-    assert.deepEqual(recipe.restored, snapshot)
+    const recipe = page({ url: recipeUrl('burger-buns'), type, state })
+    assert.equal(recipe.labels[0].textContent, 'Zurück')
     assert.equal(recipe.history.state.other, 'retained')
   }
+  assert.equal(page({ url: recipeUrl('burger-buns'), state }).labels[0].textContent, 'Zur Übersicht')
+})
+
+test('an overview can be saved and restored before opening any recipe', () => {
+  const { recipe: _recipe, ...view } = snapshot
+  const list = page({ url: view.url, readOverview: () => view })
+  list.leave()
+  const returned = page({ url: view.url, type: 'reload', state: list.history.state, readOverview: () => view })
+  assert.deepEqual(returned.restored, view)
+  saveOverviewSnapshot({ ...view, scrollY: 42 }, returned.win)
+  assert.equal(returned.history.state.delicaciesNavigation.overview.scrollY, 42)
 })
 
 test('direct visits and new tabs cannot inherit an unrelated previous list', () => {
@@ -135,7 +160,8 @@ test('direct visits and new tabs cannot inherit an unrelated previous list', () 
   const direct = page({ url: recipeUrl('burger-buns'), storage })
   direct.click(overviewUrl + '#rezept-burger-buns', { 'data-recipe-back': '' })
   direct.leave()
-  assert.equal(storage.size, 0)
+  assert.equal(direct.history.backCalls, 0)
+  assert.equal(direct.labels[0].textContent, 'Zur Übersicht')
 })
 
 test('modified, cancelled, download, and non-primary clicks do not pass context', () => {
@@ -171,7 +197,7 @@ test('unrelated destinations cannot receive or reuse the pending context', () =>
   list.click(recipeUrl('burger-buns'))
   list.leave()
   const wrong = page({ url: recipeUrl('cloud-burger-buns'), referrer: overviewUrl, storage: list.storage })
-  assert.equal(wrong.restored, undefined)
+  assert.equal(wrong.labels[0].textContent, 'Zur Übersicht')
   assert.equal(list.storage.size, 0)
 })
 
@@ -192,7 +218,7 @@ test('expired, corrupt, and mismatched-referrer handoffs fall back safely', () =
       referrer: mutation === 'referrer' ? '' : overviewUrl,
       storage: list.storage
     })
-    assert.equal(destination.restored, undefined)
+    assert.equal(destination.labels[0].textContent, 'Zur Übersicht')
     assert.equal(list.storage.size, 0)
   }
 })
@@ -219,4 +245,17 @@ test('snapshots reject foreign overview URLs and invalid values', () => {
     { query: null }
   ])
     assert.equal(readOverviewSnapshot({ ...snapshot, ...changes }, overviewUrl), undefined)
+})
+
+test('external referrers and foreign saved provenance never enable Back', () => {
+  for (const options of [
+    { referrer: 'https://external.test/' },
+    { type: 'reload', state: { delicaciesNavigation: { version: 2, previous: 'https://external.test/' } } }
+  ]) {
+    const recipe = page({ url: recipeUrl('burger-buns'), ...options })
+    const click = recipe.click(overviewUrl, { 'data-recipe-back': '' })
+    assert.equal(click.defaultPrevented, undefined)
+    assert.equal(recipe.history.backCalls, 0)
+    assert.equal(recipe.labels[0].textContent, 'Zur Übersicht')
+  }
 })

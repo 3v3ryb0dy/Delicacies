@@ -141,5 +141,11 @@ const fontFaces = `
       <slot />
     </main>
     <Footer />
+    <script>
+      import { initRecipeNavigation } from '../lib/recipe-navigation'
+      import { withBase } from '../lib/url'
+      // The overview supplies its own state reader when initializing navigation.
+      if (!document.getElementById('rezepte')) initRecipeNavigation({ overviewUrl: withBase() })
+    </script>
   </body>
 </html>

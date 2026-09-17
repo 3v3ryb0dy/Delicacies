@@ -33,7 +33,9 @@ function relative(file) {
 /** Maps a site URL path to the file that serves it, the way the host does. */
 async function resolveUrl(htmlFile, url) {
   const target = url.startsWith('/') ? url : path.posix.join(path.posix.dirname(relative(htmlFile)), url)
-  const [pathname, fragment = ''] = target.split('#')
+  const parsed = new URL(target.replaceAll('&amp;', '&'), 'https://site.test')
+  const pathname = parsed.pathname
+  const fragment = decodeURIComponent(parsed.hash.slice(1))
   const trimmed = pathname.replace(/\/+$/, '')
   const candidates = trimmed === '' ? ['/index.html'] : [`${trimmed}`, `${trimmed}/index.html`, `${trimmed}.html`]
 

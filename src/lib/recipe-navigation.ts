@@ -1,4 +1,4 @@
-/** A list view belongs to a history entry, not to the last recipe visited in a tab. */
+/** A list view belongs to a history entry, even before any recipe is opened. */
 export type OverviewSnapshot = {
   url: string
   query: string
@@ -6,27 +6,19 @@ export type OverviewSnapshot = {
   showWip: boolean
   scrollY: number
   categoryScrollLeft: number
-  recipe: string
+  recipe?: string
 }
 
 const stateKey = 'delicaciesNavigation'
 const handoffKey = 'delicacies.navigationHandoff'
-const version = 1
+const version = 2
 
 type NavigationState = {
   version: number
+  previous?: string
   overview?: OverviewSnapshot
-  returnTo?: OverviewSnapshot
 }
-
-type Handoff = {
-  version: number
-  from: string
-  to: string
-  kind: 'overview' | 'recipe'
-  created: number
-  snapshot: OverviewSnapshot
-}
+type Handoff = { version: number; from: string; to: string; created: number }
 
 export function readOverviewSnapshot(value: unknown, overviewUrl: string): OverviewSnapshot | undefined {
   if (!value || typeof value !== 'object') return
@@ -47,11 +39,35 @@ export function readOverviewSnapshot(value: unknown, overviewUrl: string): Overv
     snapshot.scrollY < 0 ||
     !Number.isFinite(snapshot.categoryScrollLeft) ||
     snapshot.categoryScrollLeft < 0 ||
-    typeof snapshot.recipe !== 'string' ||
-    !/^[a-z0-9-]+$/.test(snapshot.recipe)
+    (snapshot.recipe !== undefined && (typeof snapshot.recipe !== 'string' || !/^[a-z0-9-]+$/.test(snapshot.recipe)))
   )
     return
   return snapshot
+}
+
+export function saveOverviewSnapshot(snapshot: OverviewSnapshot, win: Window = window): void {
+  try {
+    win.history.replaceState(
+      {
+        ...win.history.state,
+        [stateKey]: {
+          ...win.history.state?.[stateKey],
+          version,
+          overview: snapshot
+        }
+      },
+      ''
+    )
+  } catch {
+    // URL navigation and native anchors still work without writable history.
+  }
+}
+
+export function currentOverviewSnapshot(overviewUrl: string, win: Window = window): OverviewSnapshot | undefined {
+  const entry = win.history.state?.[stateKey] as NavigationState | undefined
+  if (entry?.version !== version) return
+  const snapshot = readOverviewSnapshot(entry.overview, overviewUrl)
+  return snapshot?.url === win.location.href ? snapshot : undefined
 }
 
 export function isSameTabActivation(event: MouseEvent, link: HTMLAnchorElement): boolean {
@@ -67,6 +83,9 @@ export function isSameTabActivation(event: MouseEvent, link: HTMLAnchorElement):
   )
 }
 
+/** Prove a same-tab navigation with a one-use handoff committed only on departure.
+ * Referrer or history.length alone cannot distinguish a direct/new-tab visit.
+ */
 export function initRecipeNavigation({
   overviewUrl,
   readOverview
@@ -77,100 +96,96 @@ export function initRecipeNavigation({
   const win = window
   const doc = document
   const overview = new URL(overviewUrl, win.location.href)
-  const recipePrefix = overview.pathname + 'rezept/'
-  const navigationType = (win.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined)
-    ?.type
-  const kind = readOverview ? 'overview' : 'recipe'
-  const field = readOverview ? 'overview' : 'returnTo'
-  let outgoing: Handoff | undefined
-
-  const save = (snapshot: OverviewSnapshot) => {
+  const inSite = (value: string) => {
     try {
-      const state = win.history.state
-      win.history.replaceState({ ...state, [stateKey]: { version, [field]: snapshot } }, '')
+      const url = new URL(value)
+      return url.origin === overview.origin && url.pathname.startsWith(overview.pathname)
     } catch {
-      // A real anchor remains usable when history or storage is unavailable.
+      return false
     }
   }
-
-  let restored: OverviewSnapshot | undefined
+  if (!readOverview) win.history.scrollRestoration = 'auto'
+  const navigationType = (win.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined)
+    ?.type
+  let entry: NavigationState = { version }
+  if (navigationType === 'reload' || navigationType === 'back_forward') {
+    const saved = win.history.state?.[stateKey] as NavigationState | undefined
+    if (saved?.version === version) entry = saved
+  }
+  let outgoing: Handoff | undefined
   try {
-    const entry = win.history.state?.[stateKey] as NavigationState | undefined
-    if (entry?.version === version && (navigationType === 'reload' || navigationType === 'back_forward')) {
-      restored = readOverviewSnapshot(entry[field], overview.href)
-    }
-    // Consume once, even when stale or intended for another destination.
     const raw = win.sessionStorage.getItem(handoffKey)
     win.sessionStorage.removeItem(handoffKey)
     if (raw && navigationType === 'navigate') {
       const pending = JSON.parse(raw) as Handoff
       if (
         pending.version === version &&
-        pending.kind === kind &&
         pending.to === win.location.href &&
         pending.from === doc.referrer &&
+        inSite(pending.from) &&
         Date.now() - pending.created >= 0 &&
         Date.now() - pending.created < 30_000
       ) {
-        restored = readOverviewSnapshot(pending.snapshot, overview.href)
+        entry.previous = pending.from
       }
     }
   } catch {
-    // Malformed data and denied storage must not break navigation.
+    /* Direct visitors retain a real overview link. */
   }
-  if (restored) save(restored)
+  try {
+    win.history.replaceState({ ...win.history.state, [stateKey]: entry }, '')
+  } catch {
+    /* History may be unavailable. */
+  }
 
+  const canGoBack = () => {
+    const previous = (win.history.state?.[stateKey] as NavigationState | undefined)?.previous
+    return typeof previous === 'string' && inSite(previous)
+  }
+  const paintBack = () => {
+    doc.querySelectorAll<HTMLElement>('[data-recipe-back-label]').forEach((label) => {
+      label.textContent = canGoBack() ? 'Zurück' : 'Zur Übersicht'
+    })
+  }
+  paintBack()
   doc.addEventListener('click', (event) => {
     const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null
     if (!link || !isSameTabActivation(event, link)) return
     outgoing = undefined
-    const destination = new URL(link.href, win.location.href)
-    if (destination.origin !== overview.origin) return
-    let snapshot: OverviewSnapshot | undefined
-    let destinationKind: Handoff['kind']
-    if (link.hasAttribute('data-recipe-back') && destination.pathname === overview.pathname) {
-      snapshot = restored
-      destinationKind = 'overview'
-    } else if (destination.pathname.startsWith(recipePrefix)) {
-      const recipe = destination.pathname.slice(recipePrefix.length).replace(/\/$/, '')
-      if (!/^[a-z0-9-]+$/.test(recipe)) return
-      snapshot = readOverview ? readOverview(recipe) : restored
-      destinationKind = 'recipe'
-    } else return
-    if (!snapshot) return
-    save(snapshot)
-    outgoing = {
-      version,
-      from: win.location.href.split('#')[0],
-      to: destination.href,
-      kind: destinationKind,
-      created: Date.now(),
-      snapshot
+    if (link.hasAttribute('data-recipe-back') && canGoBack()) {
+      event.preventDefault()
+      win.history.back()
+      return
     }
+    const destination = new URL(link.href, win.location.href)
+    const source = new URL(win.location.href)
+    if (!inSite(destination.href) || (destination.pathname === source.pathname && destination.search === source.search))
+      return
+    const recipePrefix = overview.pathname + 'rezept/'
+    const recipe = destination.pathname.startsWith(recipePrefix)
+      ? destination.pathname.slice(recipePrefix.length).replace(/\/$/, '')
+      : undefined
+    const snapshot = readOverview?.(recipe)
+    if (snapshot) saveOverviewSnapshot(snapshot, win)
+    outgoing = { version, from: source.href.split('#')[0], to: destination.href, created: Date.now() }
   })
-
   win.addEventListener('pagehide', () => {
     const snapshot = readOverview?.()
-    if (snapshot) save(snapshot)
-    // Commit only when this document actually leaves. Modified/new-tab clicks
-    // never create a handoff that could be copied into a new tab's storage.
+    if (snapshot) saveOverviewSnapshot(snapshot, win)
     try {
       win.sessionStorage.removeItem(handoffKey)
-      if (outgoing) {
-        win.sessionStorage.setItem(
-          handoffKey,
-          JSON.stringify({ ...outgoing, snapshot: snapshot ?? outgoing.snapshot, created: Date.now() })
-        )
-      }
+      if (outgoing) win.sessionStorage.setItem(handoffKey, JSON.stringify({ ...outgoing, created: Date.now() }))
     } catch {
-      // The destination will use its recipe-card anchor instead.
+      /* No handoff means a safe overview fallback. */
     }
     outgoing = undefined
   })
   win.addEventListener('pageshow', () => {
     outgoing = undefined
+    paintBack()
   })
-  return restored
+  win.addEventListener('popstate', paintBack)
+  return currentOverviewSnapshot(overview.href, win)
 }
 
 /** Run one layout correction; never fight scrolling, interaction or a page departure. */

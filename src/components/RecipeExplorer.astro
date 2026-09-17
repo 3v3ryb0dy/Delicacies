@@ -1,5 +1,5 @@
 ---
-import { Search, TestTubeDiagonal } from '@lucide/astro'
+import { Search, TestTubeDiagonal, ChevronLeft, ChevronRight } from '@lucide/astro'
 import { categories, tagVocabulary } from '../config/taxonomy'
 import { withBase } from '../lib/url'
 import TagChip from './TagChip.astro'
@@ -27,8 +27,8 @@ const chipClass =
     data-sticky-bar
     class='sticky top-18 z-20 -mx-5 border-b border-rule/80 bg-paper/85 px-5 py-3 backdrop-blur-md sm:-mx-8 sm:px-8'>
     <div class='flex flex-col gap-3'>
-      <div class='flex flex-wrap items-center gap-3'>
-        <label class='relative flex-1 min-w-[248px] sm:max-w-md'>
+      <div class='grid grid-cols-2 items-center gap-x-3 gap-y-2 sm:grid-cols-[minmax(0,28rem)_1fr_auto]'>
+        <label class='relative col-span-2 min-w-0 sm:col-span-1'>
           <span class='sr-only'>Rezepte durchsuchen</span>
           <Search
             size={16}
@@ -47,11 +47,11 @@ const chipClass =
         <p id='rezept-status' class='text-sm text-ink-soft tabular-nums' aria-live='polite'>
           {total} Rezepte
         </p>
-        <span class='flex-1 -ml-3'></span>
+
         <label
           data-wip-control
           title='Versuchsküche anzeigen'
-          class='flex justify-self-end min-h-9 cursor-pointer items-center gap-2 text-xs font-semibold text-ink-soft'
+          class='flex min-h-9 cursor-pointer items-center justify-self-end gap-2 text-xs font-semibold text-ink-soft'
           hidden>
           <input id='show-wip' type='checkbox' role='switch' class='peer sr-only' />
           <span
@@ -61,29 +61,58 @@ const chipClass =
               <TestTubeDiagonal size={14} aria-hidden='true' focusable='false' />
             </span>
           </span>
-          <span class='sr-only sm:not-sr-only'>
-            Versuchsküche <span class='sm:hidden md:inline'>anzeigen ({untestedCount})</span>
+          <span>
+            Versuchsküche <span class='hidden lg:inline'>anzeigen ({untestedCount})</span>
           </span>
         </label>
       </div>
 
-      <nav aria-label='Rezeptkategorien' data-category-nav class={scrollRowClass}>
-        {categories.map((category) => (
-          <a
-            href={`#${category.id}`}
-            data-category-link={category.id}
-            data-category-label={category.short}
-            class={chipClass}>
-            <CategoryIcon category={category.id} />
-            {category.short}
-          </a>
-        ))}
-      </nav>
+      <div class='flex min-w-0 flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3'>
+        <span class='shrink-0 text-[0.65rem] font-semibold tracking-widest text-ink-soft uppercase'>Zu Kategorie</span>
+        <div class='flex min-w-0 flex-1 items-center gap-1'>
+          <button
+            type='button'
+            data-category-previous
+            aria-label='Vorherige Kategorien'
+            hidden
+            class='focus-ring flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-rule disabled:cursor-default disabled:opacity-30'>
+            <ChevronLeft size={16} aria-hidden='true' />
+          </button>
+          <nav aria-label='Rezeptkategorien' data-category-nav class={scrollRowClass + ' min-w-0 flex-1'}>
+            {categories.map((category) => (
+              <a
+                href={`#${category.id}`}
+                data-category-link={category.id}
+                data-category-label={category.short}
+                class={chipClass}>
+                <CategoryIcon category={category.id} />
+                {category.short}
+              </a>
+            ))}
+          </nav>
+          <button
+            type='button'
+            data-category-next
+            aria-label='Weitere Kategorien'
+            hidden
+            class='focus-ring flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-rule disabled:cursor-default disabled:opacity-30'>
+            <ChevronRight size={16} aria-hidden='true' />
+          </button>
+        </div>
+      </div>
+      <div data-active-filters hidden class='flex items-center gap-3 border-t border-rule/60 pt-2'>
+        <div data-active-filter-chips class='flex min-w-0 flex-1 gap-2 overflow-x-auto py-1'></div>
+        <button
+          type='button'
+          data-reset-filters
+          class='focus-ring shrink-0 cursor-pointer rounded-full px-2 py-1 text-xs font-semibold text-ink-soft underline underline-offset-4 hover:text-ink'>
+          Filter zurücksetzen
+        </button>
+      </div>
     </div>
   </div>
 
-  {/* Deliberately outside the sticky area: the tag row scrolls away so the
-      pinned bar stays two rows tall. */}
+  {/* Available tags scroll away; selected filters remain in the sticky bar. */}
   <div data-tag-row class='border-b border-rule/60 pt-4 pb-3'>
     <div class={scrollRowClass}>
       <span class='shrink-0 pr-1 text-[0.7rem] font-semibold tracking-[0.14em] text-ink-soft/80 uppercase'>
@@ -103,7 +132,7 @@ const chipClass =
 
   <div id='suche-bereich' class='mt-8' hidden>
     <h2 class='font-display text-section font-semibold'>Suchergebnisse</h2>
-    <ul id='suche-liste' class='mt-5 flex flex-col gap-2'></ul>
+    <div id='suche-liste' class='mt-6 flex flex-col gap-10'></div>
     <p id='suche-leer' class='mt-6 text-sm text-ink-soft' hidden>
       Keine Rezepte gefunden.
     </p>
@@ -123,6 +152,7 @@ const chipClass =
 <style is:global>
   html:has(#rezepte) {
     scroll-behavior: auto;
+    scroll-padding-top: var(--recipe-focus-offset, 15rem);
   }
 
   /* Untested recipes are rendered visible so they stay reachable without
@@ -134,6 +164,7 @@ const chipClass =
 
   #rezepte [data-recipe],
   #rezepte [data-category-section],
+  #rezepte [data-search-category],
   #rezepte [data-empty-category],
   #rezepte #noch-leer {
     scroll-margin-top: var(--recipe-anchor-margin, 7rem);

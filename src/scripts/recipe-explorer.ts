@@ -13,7 +13,13 @@
 // Explicit `.ts` so the module also loads under `node --test` (plain Node
 // resolves extensions, unlike Vite).
 import { showWipPreferenceKey, untestedHiddenAttribute } from '../config/preferences.ts'
-import { afterPageLayout, initRecipeNavigation } from '../lib/recipe-navigation.ts'
+import {
+  afterPageLayout,
+  initRecipeNavigation,
+  currentOverviewSnapshot,
+  saveOverviewSnapshot,
+  type OverviewSnapshot
+} from '../lib/recipe-navigation.ts'
 
 export type PagefindResultData = {
   url: string
@@ -89,7 +95,11 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   const wipControl = required(doc.querySelector<HTMLElement>('[data-wip-control]'), '[data-wip-control]')
   const wipToggle = required(doc.querySelector<HTMLInputElement>('#show-wip'), '#show-wip')
   const noResults = doc.getElementById('keine-treffer')
-  const resetButton = doc.querySelector<HTMLButtonElement>('[data-reset-filters]')
+  const resetButtons = Array.from(doc.querySelectorAll<HTMLButtonElement>('[data-reset-filters]'))
+  const activeFilterBar = doc.querySelector<HTMLElement>('[data-active-filters]')
+  const activeFilterChips = doc.querySelector<HTMLElement>('[data-active-filter-chips]')
+  const categoryPrevious = doc.querySelector<HTMLButtonElement>('[data-category-previous]')
+  const categoryNext = doc.querySelector<HTMLButtonElement>('[data-category-next]')
   const emptyBlock = doc.querySelector<HTMLElement>('[data-empty-block]')
   const emptyEntries = Array.from(doc.querySelectorAll<HTMLElement>('[data-empty-category]'))
   const sections = Array.from(doc.querySelectorAll<HTMLElement>('[data-category-section]'))
@@ -133,10 +143,10 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
 
   const beginResultsChange = () => {
     clearTimeout(debounce)
+    debounce = undefined
     ++searchToken
-    if (win.location.hash) {
-      history.replaceState(history.state, '', win.location.pathname + win.location.search)
-    }
+    ++restorationToken
+    restoring = false
   }
 
   const resultsOffset = () => {
@@ -148,7 +158,9 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   // Scroll padding and scroll margin add together, so subtract the global padding.
   const updateAnchorOffset = () => {
     const padding = parseFloat(computedStyle(doc.documentElement).scrollPaddingTop) || 0
-    root.style.setProperty('--recipe-anchor-margin', resultsOffset() - padding + 'px')
+    doc.documentElement.style.setProperty('--recipe-focus-offset', resultsOffset() + 'px')
+    const effectivePadding = parseFloat(computedStyle(doc.documentElement).scrollPaddingTop) || padding
+    root.style.setProperty('--recipe-anchor-margin', Math.max(0, resultsOffset() - effectivePadding) + 'px')
   }
   updateAnchorOffset()
   new ResizeObserver(updateAnchorOffset).observe(stickyBar)
@@ -174,35 +186,38 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   const categoryTargets = [...sections, ...emptyEntries].filter((section) =>
     categoryLinks.some((link) => link.dataset.categoryLink === section.id)
   )
+  const searchGroups = new Map<string, { section: HTMLElement; list: HTMLElement; count: HTMLElement; total: number }>()
   let currentCategory: string | undefined
   let categoryFrame = 0
 
   const updateCurrentCategory = () => {
     categoryFrame = 0
     const offset = resultsOffset()
-    const listBounds = cardList.getBoundingClientRect()
+    const listBounds = (searchArea.hidden ? cardList : searchArea).getBoundingClientRect()
     let current = ''
     let currentTop = -Infinity
-    if (!cardList.hidden && listBounds.bottom > offset) {
-      for (const section of categoryTargets) {
+    if (listBounds.bottom > offset) {
+      const targets = searchArea.hidden ? categoryTargets : Array.from(searchGroups.values(), (group) => group.section)
+      for (const section of targets) {
         if (!section.getClientRects().length) continue
+        const id = section.dataset.searchCategory ?? section.id
         const top = section.getBoundingClientRect().top
         if (top > offset + 1) continue
         // Empty categories can share a row; retain the linked destination there.
-        if (top > currentTop || (top === currentTop && win.location.hash === '#' + section.id)) {
-          current = section.id
+        if (top > currentTop || (top === currentTop && win.location.hash === '#' + id)) {
+          current = id
           currentTop = top
         }
       }
     }
-    if (current === currentCategory) return
+    const changed = current !== currentCategory
     currentCategory = current
     categoryLinks.forEach((link) => {
       const isActive = link.dataset.categoryLink === current
       link.className = chipBase + ' ' + (isActive ? chipActive : chipIdle)
       if (isActive) link.setAttribute('aria-current', 'location')
       else link.removeAttribute('aria-current')
-      if (isActive) {
+      if (isActive && changed) {
         // Reveal the active link on narrow screens without moving the page vertically.
         const bounds = link.getBoundingClientRect()
         const navBounds = categoryNav.getBoundingClientRect()
@@ -228,6 +243,29 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     return filters
   }
 
+  const updateCategoryOverflow = () => {
+    const overflow = categoryNav.scrollWidth > categoryNav.clientWidth + 2
+    if (categoryPrevious) {
+      categoryPrevious.hidden = !overflow
+      categoryPrevious.disabled = categoryNav.scrollLeft <= 1
+    }
+    if (categoryNext) {
+      categoryNext.hidden = !overflow
+      categoryNext.disabled = categoryNav.scrollLeft + categoryNav.clientWidth >= categoryNav.scrollWidth - 2
+    }
+  }
+  categoryNav.addEventListener('scroll', updateCategoryOverflow, { passive: true })
+  new ResizeObserver(updateCategoryOverflow).observe(categoryNav)
+  for (const [button, direction] of [
+    [categoryPrevious, -1],
+    [categoryNext, 1]
+  ] as const) {
+    button?.addEventListener('click', () => {
+      categoryNav.scrollBy({ left: direction * categoryNav.clientWidth * 0.75, behavior: 'instant' })
+      updateCategoryOverflow()
+    })
+  }
+
   const paintButtons = () => {
     tagButtons.forEach((button) => {
       const isActive = activeTags.has(button.dataset.filterTag ?? '')
@@ -245,6 +283,14 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       if (!cardTags.some((tag) => activeTags.has(tag))) return false
     }
     return true
+  }
+
+  const syncCategories = (available: Set<string>) => {
+    categoryLinks.forEach((link) => {
+      link.hidden = !available.has(link.dataset.categoryLink ?? '')
+    })
+    scheduleCategoryUpdate()
+    updateCategoryOverflow()
   }
 
   const applyFilters = () => {
@@ -268,11 +314,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     if (emptyBlock) emptyBlock.hidden = activeTags.size > 0
     if (noResults) noResults.hidden = visible > 0
 
-    // Categories containing only untested recipes become available with the switch.
-    categoryLinks.forEach((link) => {
-      const categoryCards = cards.filter((card) => card.dataset.category === link.dataset.categoryLink)
-      link.hidden = categoryCards.length > 0 && !categoryCards.some((card) => showWip || card.dataset.wip !== 'true')
-    })
+    syncCategories(new Set(cards.filter(matches).map((card) => card.dataset.category ?? '')))
 
     if (visible === total) status.textContent = total === 1 ? '1 Rezept' : total + ' Rezepte'
     else status.textContent = visible + ' von ' + total + ' Rezepten'
@@ -341,7 +383,48 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
         : '') +
       (excerptHtml ? '<span class="text-ink-soft text-sm leading-relaxed">' + excerptHtml + '</span>' : '') +
       '</a>'
-    searchList.appendChild(item)
+    const path = new URL(url, win.location.href).pathname
+    const recipe = cards.find(
+      (card) => path === new URL(card.querySelector('a')?.getAttribute('href') ?? '', win.location.href).pathname
+    )
+    const category =
+      recipe?.dataset.category ??
+      categoryLinks.find((link) => link.dataset.categoryLabel === meta)?.dataset.categoryLink
+    if (!category) return
+    let group = searchGroups.get(category)
+    if (!group) {
+      const section = doc.createElement('section')
+      section.dataset.searchCategory = category
+      section.id = 'suche-' + category
+      const heading = doc.createElement('h3')
+      heading.className = 'font-display text-2xl font-semibold'
+      heading.textContent =
+        categoryLinks.find((link) => link.dataset.categoryLink === category)?.dataset.categoryLabel ?? category
+      const count = doc.createElement('span')
+      count.className = 'text-xs text-ink-soft tabular-nums'
+      const header = doc.createElement('div')
+      header.className = 'mb-4 flex items-baseline justify-between gap-4 border-b border-rule pb-3'
+      header.appendChild(heading)
+      header.appendChild(count)
+      const list = doc.createElement('ul')
+      list.className = 'flex flex-col gap-2'
+      section.appendChild(header)
+      section.appendChild(list)
+      group = { section, list, count, total: 0 }
+      searchGroups.set(category, group)
+    }
+    group.list.appendChild(item)
+    group.total++
+    group.count.textContent = group.total === 1 ? '1 Treffer' : group.total + ' Treffer'
+  }
+
+  const finishSearch = () => {
+    // Cookbook order between categories, search relevance within each category.
+    categoryLinks.forEach((link) => {
+      const group = searchGroups.get(link.dataset.categoryLink ?? '')
+      if (group) searchList.appendChild(group.section)
+    })
+    syncCategories(new Set(searchGroups.keys()))
   }
 
   const runLocalSearch = (query: string) => {
@@ -360,7 +443,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       return
     }
 
-    hits.slice(0, 40).forEach((entry) => {
+    hits.forEach((entry) => {
       appendResult(entry.url, entry.title, entry.category, escapeHtml(excerpt(entry.detail, tokens[0])))
     })
 
@@ -373,6 +456,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     searchArea.hidden = false
     searchEmpty.hidden = true
     searchList.innerHTML = ''
+    searchGroups.clear()
     scheduleCategoryUpdate()
 
     if (!pagefind && !pagefindFailed) {
@@ -383,6 +467,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
 
     if (!pagefind) {
       runLocalSearch(query)
+      finishSearch()
       if (scroll) scrollToResults()
       return
     }
@@ -392,12 +477,13 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     try {
       const search = await pagefind.search(query, Object.keys(filters).length ? { filters } : undefined)
       if (token !== searchToken) return
-      results = await Promise.all(search.results.slice(0, 40).map((result) => result.data()))
+      results = await Promise.all(search.results.map((result) => result.data()))
     } catch {
       if (token !== searchToken) return
       pagefindFailed = true
       pagefind = null
       runLocalSearch(query)
+      finishSearch()
       if (scroll) scrollToResults()
       return
     }
@@ -406,6 +492,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     if (results.length === 0) {
       searchEmpty.hidden = false
       status.textContent = 'Keine Treffer'
+      finishSearch()
       if (scroll) scrollToResults()
       return
     }
@@ -417,151 +504,281 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       appendResult(url, result.meta?.title ?? 'Rezept', meta, result.excerpt)
     })
 
+    finishSearch()
     status.textContent = results.length === 1 ? '1 Treffer' : results.length + ' Treffer'
     if (scroll) scrollToResults()
   }
 
-  const onQueryChange = () => {
-    beginResultsChange()
-    const query = input.value.trim()
-    if (query.length < 2) {
-      showSections()
-      scrollToResults()
-      return
-    }
-    debounce = setTimeout(() => void runSearch(query), 180)
+  const overviewUrl = new URL(basePath, win.location.href).href
+  let stateQuery = ''
+  let originatingRecipe: string | undefined
+  let editingSearch = false
+  let restoring = false
+  let restorationToken = 0
+  let scrollSaveTimer: ReturnType<typeof setTimeout> | undefined
+  const cancelScrollSave = () => {
+    clearTimeout(scrollSaveTimer)
+    scrollSaveTimer = undefined
   }
+  const readView = (recipe?: string): OverviewSnapshot => {
+    if (recipe) originatingRecipe = recipe
+    return {
+      url: win.location.href,
+      query: stateQuery,
+      tags: Array.from(activeTags),
+      showWip,
+      scrollY: win.scrollY,
+      categoryScrollLeft: categoryNav.scrollLeft,
+      ...(originatingRecipe ? { recipe: originatingRecipe } : {})
+    }
+  }
+  const saveView = () => {
+    cancelScrollSave()
+    if (!restoring) saveOverviewSnapshot(readView(), win)
+  }
+  const savedView = initRecipeNavigation({ overviewUrl, readOverview: (recipe) => readView(recipe) })
 
-  input.addEventListener('input', onQueryChange)
-
+  const syncLinks = () => {
+    categoryLinks.forEach((link) => {
+      const url = new URL(win.location.href)
+      url.hash = link.dataset.categoryLink ?? ''
+      link.href = url.href
+    })
+  }
+  const writeUrl = (mode: 'push' | 'replace', hash = '') => {
+    const url = new URL(win.location.href)
+    url.searchParams.delete('q')
+    url.searchParams.delete('tag')
+    if (stateQuery) url.searchParams.set('q', stateQuery)
+    activeTags.forEach((tag) => url.searchParams.append('tag', tag))
+    url.hash = hash
+    try {
+      if (mode === 'push' && url.href !== win.location.href)
+        win.history.pushState({ ...win.history.state }, '', url.href)
+      else win.history.replaceState(win.history.state, '', url.href)
+    } catch {
+      /* Filtering remains usable without history. */
+    }
+    syncLinks()
+    saveView()
+  }
+  const paintActiveFilters = () => {
+    if (!activeFilterBar || !activeFilterChips) return
+    activeFilterChips.innerHTML = ''
+    const addChip = (label: string, remove: () => void) => {
+      const button = doc.createElement('button')
+      button.type = 'button'
+      button.className =
+        'focus-ring inline-flex shrink-0 cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-ink px-3 py-1 text-xs font-semibold text-paper'
+      button.textContent = label + ' ×'
+      button.setAttribute('aria-label', label + ' entfernen')
+      button.addEventListener('click', () => {
+        saveView()
+        beginResultsChange()
+        editingSearch = false
+        remove()
+        writeUrl('push')
+        void updateFilteredResults()
+        // Removing the focused chip must not lose keyboard focus to the body.
+        const next = activeFilterChips.querySelector<HTMLButtonElement>('button')
+        ;(next ?? input).focus({ preventScroll: true })
+      })
+      activeFilterChips.appendChild(button)
+    }
+    if (stateQuery)
+      addChip('Suche: ' + stateQuery, () => {
+        stateQuery = ''
+        input.value = ''
+      })
+    activeTags.forEach((tag) => addChip(tag, () => activeTags.delete(tag)))
+    activeFilterBar.hidden = !stateQuery && activeTags.size === 0
+    updateAnchorOffset()
+  }
   const updateFilteredResults = ({ scroll = true }: { scroll?: boolean } = {}) => {
     paintButtons()
-    if (input.value.trim().length >= 2) return runSearch(input.value.trim(), { scroll })
+    paintActiveFilters()
+    if (stateQuery.trim().length >= 2) return runSearch(stateQuery.trim(), { scroll })
     showSections()
     if (scroll) scrollToResults()
     return undefined
   }
-
-  categoryLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
-      // Reveal the destination before the browser performs its native fragment jump.
+  const onQueryChange = () => {
+    saveView()
+    beginResultsChange()
+    stateQuery = input.value
+    writeUrl(editingSearch ? 'replace' : 'push')
+    editingSearch = true
+    paintActiveFilters()
+    debounce = setTimeout(() => {
+      debounce = undefined
+      void updateFilteredResults()
+    }, 180)
+  }
+  input.addEventListener('input', onQueryChange)
+  input.addEventListener('blur', () => {
+    editingSearch = false
+  })
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      editingSearch = false
       clearTimeout(debounce)
-      ++searchToken
-      input.value = ''
-      activeTags.clear()
-      paintButtons()
-      showSections()
-      updateAnchorOffset()
-      scheduleCategoryUpdate()
+      debounce = undefined
+      void updateFilteredResults()
+    }
+  })
+  const hashTarget = (): HTMLElement | null => {
+    let id = ''
+    try {
+      id = decodeURIComponent(win.location.hash.slice(1))
+    } catch {
+      return null
+    }
+    if (!searchArea.hidden && searchGroups.has(id)) return searchGroups.get(id)!.section
+    return doc.getElementById(id)
+  }
+  const scrollToHash = (focus = false) => {
+    const target = hashTarget()
+    if (!target?.getClientRects().length) return
+    updateAnchorOffset()
+    win.scrollTo({
+      top: Math.max(0, win.scrollY + target.getBoundingClientRect().top - resultsOffset()),
+      behavior: 'instant'
+    })
+    if (focus) {
+      target.tabIndex = -1
+      target.focus({ preventScroll: true })
+    }
+    scheduleCategoryUpdate()
+  }
+  categoryLinks.forEach((link) => {
+    link.addEventListener('click', async (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      event.preventDefault()
+      saveView()
+      editingSearch = false
+      // Cancel an in-flight search's automatic scroll before navigating its groups.
+      beginResultsChange()
+      const token = restorationToken
+      const pending = updateFilteredResults({ scroll: false })
+      if (pending) {
+        restoring = true
+        await pending
+        if (token !== restorationToken) return
+        restoring = false
+      }
+      writeUrl('push', link.dataset.categoryLink)
+      scrollToHash(event.detail === 0)
+      saveView()
     })
   })
-
   tagButtons.forEach((button) => {
     button.addEventListener('click', () => {
+      saveView()
       beginResultsChange()
+      editingSearch = false
       const tag = button.dataset.filterTag
       if (!tag) return
       if (activeTags.has(tag)) activeTags.delete(tag)
       else activeTags.add(tag)
+      writeUrl('push')
       return updateFilteredResults()
     })
   })
-
   wipToggle.addEventListener('change', () => {
+    saveView()
     beginResultsChange()
+    editingSearch = false
     showWip = wipToggle.checked
     try {
       persistence?.setItem(showWipPreferenceKey, String(showWip))
     } catch {
-      // Keep the in-memory preference even when persistence is blocked.
+      /* In-memory preference still works. */
     }
     syncUntestedVisibility()
-    // This preference updates the current view without jumping back to its start.
+    // Preference-only changes need an entry too, even though the URL is identical.
+    try {
+      win.history.pushState({ ...win.history.state }, '', win.location.href)
+    } catch {
+      /* Optional history. */
+    }
+    saveView()
     return updateFilteredResults({ scroll: false })
   })
+  resetButtons.forEach((button) =>
+    button.addEventListener('click', () => {
+      saveView()
+      beginResultsChange()
+      editingSearch = false
+      activeTags.clear()
+      stateQuery = ''
+      input.value = ''
+      writeUrl('push')
+      void updateFilteredResults()
+      input.focus({ preventScroll: true })
+    })
+  )
 
-  let originatingRecipe = ''
-  const savedView = initRecipeNavigation({
-    overviewUrl: new URL(basePath, win.location.href).href,
-    readOverview: (recipe) => {
-      if (recipe) originatingRecipe = recipe
-      if (!originatingRecipe) return undefined
-      return {
-        url: win.location.href,
-        query: input.value,
-        tags: Array.from(activeTags),
-        showWip,
-        scrollY: win.scrollY,
-        categoryScrollLeft: categoryNav.scrollLeft,
-        recipe: originatingRecipe
-      }
-    }
-  })
-  const restoredView =
-    savedView && cards.some((card) => card.dataset.recipeId === savedView.recipe) ? savedView : undefined
-  const initialHash = win.location.hash
-  let anchorTarget: HTMLElement | null = null
-  try {
-    anchorTarget = doc.getElementById(decodeURIComponent(initialHash.slice(1)))
-  } catch {
-    // An invalid fragment should not prevent searching or browsing.
-  }
-  const navigation = win.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined
-  let ready = Promise.resolve()
-
-  if (restoredView) {
-    originatingRecipe = restoredView.recipe
-    input.value = restoredView.query
-    restoredView.tags.forEach((tag) => {
+  const restoreView = async (snapshot?: OverviewSnapshot, traversal = false) => {
+    cancelScrollSave()
+    clearTimeout(debounce)
+    debounce = undefined
+    ++searchToken
+    const token = ++restorationToken
+    restoring = true
+    editingSearch = false
+    const url = new URL(win.location.href)
+    stateQuery = url.searchParams.get('q') ?? ''
+    input.value = stateQuery
+    activeTags.clear()
+    url.searchParams.getAll('tag').forEach((tag) => {
       if (tagButtons.some((button) => button.dataset.filterTag === tag)) activeTags.add(tag)
     })
-    showWip = restoredView.showWip
+    if (snapshot) showWip = snapshot.showWip
+    originatingRecipe = snapshot?.recipe
+    const anchor = hashTarget()
+    if (!snapshot && anchor?.matches('[data-recipe]') && anchor.dataset.wip === 'true') showWip = true
     wipToggle.checked = showWip
     syncUntestedVisibility()
-    try {
-      win.history.replaceState(win.history.state, '', restoredView.url)
-    } catch {
-      // Restoration still works when the URL cannot be updated.
-    }
-    ready = afterPageLayout(Promise.resolve(updateFilteredResults({ scroll: false })), () => {
+    syncLinks()
+    const layout = Promise.resolve(updateFilteredResults({ scroll: false }))
+    await afterPageLayout(layout, () => {
+      if (token !== restorationToken) return
       updateAnchorOffset()
-      win.scrollTo({ top: restoredView.scrollY, behavior: 'instant' })
-      updateCurrentCategory()
-      categoryNav.scrollLeft = restoredView.categoryScrollLeft
-    })
-  } else {
-    // Direct links to untested cards must reveal their destination for this visit,
-    // without changing the visitor's stored Versuchsküche preference.
-    if (anchorTarget?.matches('[data-recipe]') && anchorTarget.dataset.wip === 'true') {
-      showWip = true
-      wipToggle.checked = true
-      syncUntestedVisibility()
-    }
-    applyFilters()
-    if (initialHash && navigation?.type !== 'back_forward') {
-      ready = afterPageLayout(Promise.resolve(), () => {
-        if (win.location.hash !== initialHash) return
-        if (
-          !anchorTarget?.matches('[data-recipe], [data-category-section], [data-empty-category], #noch-leer') ||
-          !anchorTarget.getClientRects().length
-        )
-          return
-        updateAnchorOffset()
-        win.scrollTo({
-          top: Math.max(0, win.scrollY + anchorTarget.getBoundingClientRect().top - resultsOffset()),
-          behavior: 'instant'
-        })
+      if (snapshot) {
+        win.scrollTo({ top: snapshot.scrollY, behavior: 'instant' })
         updateCurrentCategory()
-      })
-    }
+        categoryNav.scrollLeft = snapshot.categoryScrollLeft
+      } else if (win.location.hash) scrollToHash()
+      else if (stateQuery || activeTags.size) scrollToResults()
+      else if (traversal) win.scrollTo({ top: 0, behavior: 'instant' })
+    })
+    if (token !== restorationToken) return
+    restoring = false
+    saveView()
+    updateCategoryOverflow()
   }
-
-  resetButton?.addEventListener('click', () => {
-    beginResultsChange()
-    activeTags.clear()
-    return updateFilteredResults()
+  const ready = restoreView(savedView)
+  win.history.scrollRestoration = 'manual'
+  win.addEventListener('popstate', () => {
+    void restoreView(currentOverviewSnapshot(overviewUrl, win), true)
   })
+  win.addEventListener('pageshow', (event) => {
+    win.history.scrollRestoration = 'manual'
+    if (event.persisted) void restoreView(currentOverviewSnapshot(overviewUrl, win), true)
+  })
+  win.addEventListener('pagehide', () => {
+    cancelScrollSave()
+    win.history.scrollRestoration = 'auto'
+  })
+  const scheduleSave = () => {
+    if (restoring || scrollSaveTimer !== undefined) return
+    // History writes count as navigations, even without a URL change. A frame
+    // throttle can exceed Chromium's 200 writes / 10s limit while scrolling.
+    // Sample the latest position twice a second; actions/departure save immediately.
+    scrollSaveTimer = setTimeout(saveView, 500)
+  }
+  win.addEventListener('scroll', scheduleSave, { passive: true })
+  categoryNav.addEventListener('scroll', scheduleSave, { passive: true })
 
   return { search: runSearch, activeFilters, ready }
 }
