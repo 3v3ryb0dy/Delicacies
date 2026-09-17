@@ -1,5 +1,7 @@
 ---
 title: Pad Thai
+isFavorite: true
+favoriteText: Wie bei papaya am Winterfeldtplatz. ♥
 category: hauptgerichte
 image: images/pad-thai.webp
 imageAlt: Gebratene Reisbandnudeln mit Ei, Sojasprossen und Thai-Schnittlauch

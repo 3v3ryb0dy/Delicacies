@@ -1,5 +1,7 @@
 ---
 title: Hefekuchen (Bienenstich)
+isFavorite: true
+favoriteText: 'Danke an meine Friseurin Tini! ♥'
 category: kuchen
 image: images/hefekuchen.webp
 imageAlt: Ungefüllter Hefekuchen mit goldbrauner Honig-Mandelkruste

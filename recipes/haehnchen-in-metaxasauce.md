@@ -1,5 +1,7 @@
 ---
 title: Hähnchen in Metaxasauce
+isFavorite: true
+favoriteText: Bekommt kein Grieche besser hin! ★
 category: hauptgerichte
 image: images/haehnchen-in-metaxasauce.webp
 imageAlt: Gebratene Hähnchenbrust in cremiger Metaxasauce mit Paprika

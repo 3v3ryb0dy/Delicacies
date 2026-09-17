@@ -1,5 +1,7 @@
 ---
 title: Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat
+isFavorite: true
+favoriteText: 'Mehr Gehalt für den HelloFresh-Koch! ★'
 category: hauptgerichte
 image: images/halloumi-auf-ofengemuese.webp
 imageAlt: Goldbrauner Halloumi auf Süßkartoffeln und roten Zwiebeln mit Avocado, Tomate und Petersilien-Chimichurri

@@ -1,5 +1,7 @@
 ---
 title: Karotten
+isFavorite: true
+favoriteText: 'Wer kein Gemüse mag: selber schuld! ✨'
 category: beilagen
 image: images/karotten.webp
 imageAlt: In Butter gegarte halbierte Karotten mit kurzem Grünansatz

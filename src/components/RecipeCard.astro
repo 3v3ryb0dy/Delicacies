@@ -6,13 +6,15 @@ import { categoryById, subcategoryById } from '../config/taxonomy'
 import { withBase } from '../lib/url'
 import { parseRecipeBody } from '../lib/recipe-body'
 import { resolveRecipePhoto } from '../lib/recipe-photo'
+import RonnyFavorite from './RonnyFavorite.astro'
+import FavoriteHandwrittenNote from './FavoriteHandwrittenNote.astro'
 
 type Props = {
   entry: CollectionEntry<'recipes'>
 }
 
 const { entry } = Astro.props
-const { title, category, tags, imageAlt, wip, preparationPending } = entry.data
+const { title, category, tags, imageAlt, wip, preparationPending, isFavorite, favoriteText } = entry.data
 const image = resolveRecipePhoto(entry.data.image)
 
 const categoryTitle = categoryById.get(category)?.short ?? category
@@ -69,10 +71,7 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
   data-tags={tags.join(' ')}
   data-title={title}
   data-search={searchText}
-  class:list={[
-    'group relative flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper-raised transition duration-200',
-    'hover:-translate-y-0.5 hover:border-ink/20'
-  ]}>
+  class='group relative flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper-raised transition duration-200 hover:-translate-y-0.5 hover:border-ink/20'>
   <a href={href} class='focus-ring flex flex-1 flex-col rounded-2xl'>
     <div class='relative aspect-4/3 w-full overflow-hidden bg-paper-sunken'>
       {image ? (
@@ -95,23 +94,29 @@ const tint = placeholderTints[category] ?? 'from-accent-soft to-herb-soft'
           </span>
         </div>
       )}
-      {(wip || preparationPending) && (
-        <div class='absolute top-3 right-3 left-3 flex flex-wrap justify-end gap-2'>
-          {preparationPending && (
-            <span class='rounded-full border border-accent/20 bg-accent-pale/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase backdrop-blur'>
-              In Arbeit
-            </span>
-          )}
-          {wip && (
-            <span
-              title='Ungetestet'
-              class='inline-flex size-7 items-center justify-center rounded-full border border-accent/20 bg-accent-pale/90 text-accent backdrop-blur'>
-              <TestTubeDiagonal size={16} aria-hidden='true' focusable='false' />
-              <span class='sr-only'>Ungetestet</span>
-            </span>
+      {(isFavorite || wip || preparationPending) && (
+        <div class='absolute top-0 right-3 left-3 flex flex-wrap items-start justify-between gap-x-2'>
+          {isFavorite && <RonnyFavorite />}
+          {(wip || preparationPending) && (
+            <div class='mt-3 ml-auto flex flex-wrap justify-end gap-2'>
+              {preparationPending && (
+                <span class='rounded-full border border-accent/20 bg-accent-pale/90 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase backdrop-blur'>
+                  In Arbeit
+                </span>
+              )}
+              {wip && (
+                <span
+                  title='Ungetestet'
+                  class='inline-flex size-7 items-center justify-center rounded-full border border-accent/20 bg-accent-pale/90 text-accent backdrop-blur'>
+                  <TestTubeDiagonal size={16} aria-hidden='true' focusable='false' />
+                  <span class='sr-only'>Ungetestet</span>
+                </span>
+              )}
+            </div>
           )}
         </div>
       )}
+      {isFavorite && <FavoriteHandwrittenNote recipeId={entry.id} text={favoriteText} />}
     </div>
 
     <div class='flex flex-1 flex-col gap-3 p-5'>

@@ -1,5 +1,7 @@
 ---
 title: Ochsenbäckchen in Rotweinsauce
+isFavorite: true
+favoriteText: 'Jede der drei Stunden lohnt sich. ✧'
 category: hauptgerichte
 image: images/ochsenbaeckchen.webp
 imageAlt: Geschmorte Ochsenbäckchen in dunkler Rotweinsauce

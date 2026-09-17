@@ -1,5 +1,7 @@
 ---
 title: Mango-Lassi
+isFavorite: true
+favoriteText: 'Könnte ich jeden Tag trinken. ♥'
 category: getraenke
 image: images/mango-lassi.webp
 imageAlt: Cremiger Mango Lassi im Glas

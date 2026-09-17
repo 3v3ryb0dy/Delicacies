@@ -1,5 +1,7 @@
 ---
 title: Maracuja-Limetten-Dressing
+isFavorite: true
+favoriteText: 'Schmeckt sogar Gabi und Benno. ✺'
 category: saucen
 image: images/maracuja-limetten-dressing.webp
 imageAlt: Goldgelbes Maracuja-Limetten-Dressing mit ganzen Maracujakernen in einer kleinen Keramikschale

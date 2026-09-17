@@ -1,0 +1,86 @@
+---
+import { heartDoodle, starDoodle } from '../lib/favorite-doodles'
+import { extraFavoriteDoodles } from '../lib/favorite-extra-doodles'
+import type { FavoriteSymbol } from '../lib/favorite-note'
+
+type Props = {
+  symbol: FavoriteSymbol
+  maskId: string
+  animated?: boolean
+  width?: number
+  height?: number
+}
+
+const { symbol, maskId, animated = false, width, height } = Astro.props
+const doodles = { heart: heartDoodle, star: starDoodle, ...extraFavoriteDoodles }
+const doodle = doodles[symbol]
+const [x, y, boxWidth, boxHeight] = doodle.viewBox.split(' ').map(Number)
+---
+
+<svg
+  class:list={['favorite-doodle', animated && 'favorite-doodle--animated']}
+  viewBox={doodle.viewBox}
+  width={width ?? doodle.width}
+  height={height ?? doodle.height}
+  aria-hidden='true'
+  focusable='false'>
+  <defs>
+    <mask id={maskId} maskUnits='userSpaceOnUse' x={x} y={y} width={boxWidth} height={boxHeight}>
+      <path
+        class='doodle-pen'
+        d={doodle.stroke}
+        fill='none'
+        stroke='white'
+        stroke-width={doodle.maskWidth}
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        pathLength='1'
+      />
+    </mask>
+  </defs>
+  <path d={doodle.outline} fill='currentColor' mask={`url(#${maskId})`} />
+</svg>
+
+<style>
+  .favorite-doodle {
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: middle;
+    overflow: visible;
+  }
+
+  .favorite-doodle--animated .doodle-pen {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+
+  @keyframes draw-doodle {
+    from {
+      stroke-dashoffset: 1;
+      opacity: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  :global([data-recipe]:has(> a:focus-visible)) .favorite-doodle--animated .doodle-pen {
+    animation: draw-doodle var(--write-duration) linear var(--write-delay) forwards;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :global([data-recipe]:hover) .favorite-doodle--animated .doodle-pen {
+      animation: draw-doodle var(--write-duration) linear var(--write-delay) forwards;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .favorite-doodle--animated .doodle-pen {
+      animation: none !important;
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+</style>

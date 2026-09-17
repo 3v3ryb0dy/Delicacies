@@ -56,6 +56,88 @@ tags: [vegetarisch]
 
 ## Recipe writing style
 
+### Ronny's favorites
+
+Set `isFavorite: true` in a recipe's front matter to award “Ronnys Favorit”.
+Omit it (or use `false`) for other recipes. Favorites receive a muted orange
+bookmark and a handwritten hover note on cards, including related recipes.
+On recipe pages, the note is permanently visible at the bottom right of the
+photo, with a round heart badge next to the category, styled like the WIP badge.
+There is no extra box above
+the title. Without a photo, a compact heart and quote appear below the title.
+
+```yaml
+isFavorite: true
+favoriteText: "Das könnte ich jeden Tag essen. ★"
+```
+
+`favoriteText` is optional. An omitted, empty or whitespace-only value picks a
+random note on each card hover or keyboard focus, without consecutive repeats:
+
+- “Da könnte ich mich reinlegen.”
+- “Davon nehme ich noch eine Portion.”
+- “Könnte ich jeden Tag essen.”
+- “Den letzten Bissen teile ich nicht.”
+- “Das macht einfach glücklich.”
+
+The hand-drawn doodle is chosen independently from six shapes with equal probability on
+each hover or keyboard focus. The detail page and the card's fallback without
+JavaScript use the first phrase with a heart. A custom
+`favoriteText` stays fixed. Custom text must contain **20–40
+characters**, including spaces, punctuation and symbols. Leading/trailing spaces
+are removed and repeated whitespace becomes one space before counting. Emoji
+variation selectors do not count as extra characters. Invalid lengths fail the
+content build with a validation error; text is never silently truncated.
+
+#### Doodle symbols
+
+Copy a symbol into `favoriteText` to select its hand-drawn doodle:
+
+```yaml
+isFavorite: true
+favoriteText: "Das macht einfach glücklich. ✨"
+```
+
+| Symbol | Drawing |
+| --- | --- |
+| `♥`, `♡`, `❤`, `❤️` | Heart |
+| `★`, `☆`, `⭐` | Star |
+| `✨` | Three curved sparkles |
+| `♦`, `♦️` | Four diamonds |
+| `✧` | Large sparkle with small companions |
+| `✺` | Curved starburst with small sparkles |
+
+Symbols can appear anywhere in the text and are replaced by variable-width pen
+drawings; multiple symbols can be combined. Each symbol counts as one character
+toward the 20–40 character limit. If no symbol is supplied, a heart is appended.
+The bookmark always uses a heart, independently of the note's symbols. The same custom text and drawings
+appear on the recipe detail page. Existing recipes need no changes.
+
+The detail-page note is static, including its doodles, and uses the same paper
+stripes and font as the cards. Its text, doodle and stripes scale together:
+smaller on phones, gradually larger on desktop, with a maximum size and a width
+limit to keep the note on the photo. Card notes retain their existing size.
+Only the photo receives the desktop fade mask. The note sits slightly farther
+down and right on desktop. The entire note, including text, doodle and paper
+stripes, uses 75% opacity at every screen size. The heart badge and card notes keep
+their existing opacity. In print, the overlays disappear
+and a plain “Ronnys Favorit” label is shown above the title.
+
+The note automatically splits into two lines, keeping words together. Each
+background stripe fits its line's text and symbols. After the locally hosted
+Caveat font loads, the browser measures the actual text to refine the layout;
+without JavaScript, the server provides a conservative layout. Long notes scale
+to fit narrow cards. Text and symbols draw in reading order in about 0.9 seconds
+on mouse hover or keyboard focus. Reduced-motion preferences show the complete
+note immediately. The overlay never intercepts clicks or introduces a tap step
+on touchscreens.
+
+The bookmark's “Ronnys Favorit” label remains available to screen readers and as
+a tooltip. Favorites do not change categories, ordering or search. In print,
+only the plain award label remains.
+
+### Writing recipes
+
 Write in German, like a short personal cooking note.
 
 Names, categories and tags:

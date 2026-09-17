@@ -1,0 +1,88 @@
+---
+import FavoriteDoodle from './FavoriteDoodle.astro'
+import { favoriteTokens, layoutFavoriteNote } from '../lib/favorite-note'
+
+type Props = { idPrefix: string; text?: string; animated?: boolean }
+const { idPrefix, text, animated = true } = Astro.props
+const tokens = favoriteTokens(text)
+const layout = layoutFavoriteNote(tokens)
+const stripeColors = ['#f3ead7', '#ede0c3', '#f0e5cd']
+const stripeOpacity = [0.74, 0.7, 0.28]
+---
+
+<svg
+  data-note-canvas
+  class:list={{ 'note-canvas--static': !animated }}
+  viewBox={`0 0 ${layout.width} ${layout.height}`}
+  fill='none'
+  focusable='false'>
+  {/* Each stripe has its own opacity, so overlapping brush strokes build up colour. */}
+  <g>
+    {layout.stripes.map((stripe, index) => (
+      <path
+        data-note-stripe
+        d={stripe.d}
+        transform={`translate(${stripe.x} 0)`}
+        fill={stripeColors[index]}
+        opacity={stripeOpacity[index]}
+      />
+    ))}
+  </g>
+  <g class='note-ink'>
+    {tokens.map((token, index) => {
+      const position = layout.positions[index]
+      return (
+        <g
+          data-note-token
+          transform={`translate(${position.x} ${position.y})`}
+          style={`--write-delay: ${position.delay}ms; --write-duration: ${position.duration}ms`}>
+          {token.kind === 'text' ? (
+            <text class='note-word'>{token.text}</text>
+          ) : (
+            <FavoriteDoodle symbol={token.kind} maskId={`${idPrefix}-${index}`} animated={animated} />
+          )}
+        </g>
+      )
+    })}
+  </g>
+</svg>
+
+<style>
+  .note-ink {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--note-ink);
+  }
+
+  .note-word {
+    fill: currentColor;
+    clip-path: inset(0 100% 0 0) fill-box;
+  }
+
+  .note-canvas--static .note-word {
+    clip-path: none;
+    animation: none !important;
+  }
+
+  @keyframes reveal-note {
+    to {
+      clip-path: inset(0) fill-box;
+    }
+  }
+
+  :global([data-recipe]:has(> a:focus-visible)) .note-word {
+    animation: reveal-note var(--write-duration) linear var(--write-delay) forwards;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    :global([data-recipe]:hover) .note-word {
+      animation: reveal-note var(--write-duration) linear var(--write-delay) forwards;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .note-word {
+      animation: none !important;
+      clip-path: none;
+    }
+  }
+</style>

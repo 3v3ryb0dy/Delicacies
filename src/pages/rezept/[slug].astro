@@ -1,8 +1,10 @@
 ---
 import { getImage, Image } from 'astro:assets'
-import { ArrowLeft, Lightbulb, TestTubeDiagonal, UtensilsCrossed } from '@lucide/astro'
+import { ArrowLeft, Heart, Lightbulb, TestTubeDiagonal, UtensilsCrossed } from '@lucide/astro'
 import { getCollection } from 'astro:content'
 import RecipeCard from '../../components/RecipeCard.astro'
+import FavoriteHandwrittenNote from '../../components/FavoriteHandwrittenNote.astro'
+import { favoriteTokens } from '../../lib/favorite-note'
 import RecipePreparation from '../../components/RecipePreparation.astro'
 import TagChip from '../../components/TagChip.astro'
 import CategoryIcon from '../../components/CategoryIcon.astro'
@@ -21,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title, tags, imageAlt, wip, preparationPending, servings, note, source } = entry.data
+const { title, tags, imageAlt, wip, preparationPending, servings, note, source, isFavorite, favoriteText } = entry.data
 const image = resolveRecipePhoto(entry.data.image)
 
 const categoryMeta = categoryById.get(entry.data.category)
@@ -31,6 +33,9 @@ const categoryShort = categoryMeta?.short ?? entry.data.category
 const body = parseRecipeBody(entry.body ?? '')
 // Short introductions need less space beside the photo; longer content can grow naturally.
 const compactHero = title.length <= 40 && !note && !source && body.tips.length === 0
+const favoriteQuote = favoriteTokens(favoriteText)
+  .flatMap((token) => (token.kind === 'text' ? [token.text] : []))
+  .join(' ')
 const recipes = await getCollection('recipes')
 const recipeIds = new Set(recipes.map((recipe) => recipe.id))
 const pairings = body.pairings.map((line) => parsePairingLinks(line, recipeIds, entry.id))
@@ -91,12 +96,36 @@ const previewImage = socialImage
           image && compactHero && 'recipe-hero--compact'
         ]}>
         <div class='recipe-hero-copy min-w-0'>
+          {isFavorite && (
+            <p data-pagefind-ignore class='sr-only print:not-sr-only print:mb-2 print:text-xs print:font-semibold'>
+              Ronnys Favorit<span class='print:hidden'>: {favoriteQuote}</span>
+            </p>
+          )}
           <h1 class='max-w-4xl font-display text-display font-semibold text-balance'>{title}</h1>
+
+          {isFavorite && !image && (
+            <p
+              data-pagefind-ignore
+              aria-hidden='true'
+              class='mt-3 flex items-center gap-2 text-sm text-ink-soft print:hidden'>
+              <Heart size={16} class='shrink-0 text-accent' />
+              <span class='font-display italic'>{favoriteQuote}</span>
+            </p>
+          )}
 
           <div class='mt-6 flex flex-wrap items-center gap-2 print:hidden'>
             <TagChip label={categoryTitle} href={withBase(`#${entry.data.category}`)} tone='herb'>
               <CategoryIcon slot='icon' category={entry.data.category} />
             </TagChip>
+            {isFavorite && (
+              <span
+                title='Ronnys Favorit'
+                data-pagefind-ignore
+                aria-hidden='true'
+                class='inline-flex size-7 items-center justify-center rounded-full border border-accent/20 bg-accent-pale text-accent'>
+                <Heart size={16} aria-hidden='true' focusable='false' />
+              </span>
+            )}
             {preparationPending && (
               <span class='rounded-full border border-accent/20 bg-accent-pale px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.12em] text-accent uppercase'>
                 In Arbeit
@@ -156,18 +185,21 @@ const previewImage = socialImage
 
         {image && (
           <div class='recipe-hero-photo print:overflow-hidden print:rounded-md'>
-            <Image
-              src={image}
-              alt={alt}
-              width={1440}
-              height={1080}
-              widths={[480, 720, 960, 1440, 1920]}
-              quality={80}
-              sizes='(min-width: 1200px) calc(50vw + 150px), (min-width: 960px) 65vw, (min-width: 600px) calc(100vw - 64px), calc(100vw - 40px)'
-              loading='eager'
-              decoding='async'
-              class='aspect-4/3 w-full object-cover'
-            />
+            <div class='recipe-hero-photo-image'>
+              <Image
+                src={image}
+                alt={alt}
+                width={1440}
+                height={1080}
+                widths={[480, 720, 960, 1440, 1920]}
+                quality={80}
+                sizes='(min-width: 1200px) calc(50vw + 150px), (min-width: 960px) 65vw, (min-width: 600px) calc(100vw - 64px), calc(100vw - 40px)'
+                loading='eager'
+                decoding='async'
+                class='aspect-4/3 w-full object-cover'
+              />
+            </div>
+            {isFavorite && <FavoriteHandwrittenNote variant='detail' recipeId={entry.id} text={favoriteText} />}
           </div>
         )}
       </header>
@@ -296,8 +328,13 @@ const previewImage = socialImage
   /* Masks blend into either theme without tinting the food itself. */
   @media screen {
     .recipe-hero-photo {
+      position: relative;
       overflow: hidden;
       border-radius: 0.75rem;
+    }
+
+    .recipe-hero-photo-image {
+      height: 100%;
     }
 
     .recipe-hero-photo img {
@@ -332,6 +369,10 @@ const previewImage = socialImage
       right: min(-2rem, calc((75rem - 100vw) / 2 - 2rem));
       margin: 0;
       border-radius: 0;
+      pointer-events: none;
+    }
+
+    .recipe-hero-photo-image {
       mask-image:
         radial-gradient(
           ellipse 60% 120% at 60% 10%,
@@ -344,7 +385,6 @@ const previewImage = socialImage
         ),
         linear-gradient(to bottom, black 78%, rgb(0 0 0 / 22%) 91%, rgb(0 0 0 / 4%) 97%, transparent);
       mask-composite: intersect;
-      pointer-events: none;
     }
 
     .recipe-hero-photo img {

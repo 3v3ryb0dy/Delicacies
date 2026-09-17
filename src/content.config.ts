@@ -3,6 +3,12 @@ import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
 import { categoryById, categoryIds, tagVocabulary } from './config/taxonomy'
 import { resolveContentImageReference } from './lib/recipe-image'
+import {
+  favoriteTextLength,
+  favoriteTextMaxLength,
+  favoriteTextMinLength,
+  normalizeFavoriteText
+} from './lib/favorite-note'
 
 // Track available filenames without importing image metadata into the content
 // store; Astro's image() helper handles asset optimization for dev and build.
@@ -30,6 +36,20 @@ const recipes = defineCollection({
         servings: z.string().optional(),
         source: z.url().optional(),
         note: z.string().optional(),
+        isFavorite: z.boolean().default(false),
+        favoriteText: z.preprocess(
+          (value) =>
+            value === null ? undefined : typeof value === 'string' ? normalizeFavoriteText(value) || undefined : value,
+          z
+            .string()
+            .refine(
+              (value) =>
+                favoriteTextLength(value) >= favoriteTextMinLength &&
+                favoriteTextLength(value) <= favoriteTextMaxLength,
+              `Favoritentexte müssen ${favoriteTextMinLength}–${favoriteTextMaxLength} Zeichen lang sein.`
+            )
+            .optional()
+        ),
         wip: z.boolean().default(false),
         /** Marks a recipe whose preparation section is still a placeholder. */
         preparationPending: z.boolean().default(false)

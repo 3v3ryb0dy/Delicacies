@@ -1,0 +1,113 @@
+---
+import '@fontsource/caveat/latin-600.css'
+import FavoriteNoteCanvas from './FavoriteNoteCanvas.astro'
+import FavoriteDoodle from './FavoriteDoodle.astro'
+import { defaultFavoriteTexts, defaultFavoriteSymbols, favoriteTokens, layoutFavoriteNote } from '../lib/favorite-note'
+
+type Props = { recipeId: string; text?: string; variant?: 'card' | 'detail' }
+const { recipeId, text, variant = 'card' } = Astro.props
+const tokens = favoriteTokens(text)
+const layout = layoutFavoriteNote(tokens)
+const randomize = variant === 'card' && !text?.trim()
+---
+
+<div
+  class:list={['favorite-note', variant === 'detail' && 'favorite-note--detail']}
+  data-favorite-note
+  data-note-text={text ?? ''}
+  aria-hidden='true'
+  data-pagefind-ignore
+  style={`--note-width: ${layout.width}`}>
+  <FavoriteNoteCanvas idPrefix={`favorite-note-${variant}-${recipeId}`} text={text} animated={variant === 'card'} />
+  {randomize &&
+    defaultFavoriteTexts.map((phrase, index) => (
+      <template data-note-variant data-note-text={phrase}>
+        <FavoriteNoteCanvas idPrefix={`favorite-note-${recipeId}-variant-${index}`} text={phrase} />
+      </template>
+    ))}
+  {randomize &&
+    defaultFavoriteSymbols.map((symbol, index) => {
+      const token = favoriteTokens(symbol)[0]
+      return (
+        token.kind !== 'text' && (
+          <template data-note-doodle>
+            <FavoriteDoodle symbol={token.kind} maskId={`favorite-note-${recipeId}-doodle-${index}`} animated />
+          </template>
+        )
+      )
+    })}
+</div>
+
+<script>
+  import { sizeFavoriteNotes } from '../scripts/favorite-notes'
+  void sizeFavoriteNotes()
+</script>
+
+<style>
+  .favorite-note {
+    --note-ink: #70573d;
+    --note-unit: 0.75px;
+    width: calc(var(--note-width) * var(--note-unit));
+    position: absolute;
+    right: 0.625rem;
+    bottom: 0.75rem;
+    max-width: 78%;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(0.3rem) rotate(-4deg);
+    transform-origin: bottom right;
+    transition:
+      opacity 160ms ease,
+      transform 200ms ease;
+  }
+
+  .favorite-note > :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .favorite-note--detail {
+    --note-unit: clamp(0.58px, calc(0.34px + 0.06vw), 1.25px);
+    max-width: 68%;
+    opacity: 0.75;
+    transform: rotate(-4deg);
+    transition: none;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  @media (min-width: 960px) {
+    .favorite-note--detail {
+      max-width: 52%;
+      right: max(0rem, calc((100vw - 75rem) / 2 - 0.5rem));
+      bottom: 0;
+    }
+  }
+
+  :global([data-recipe]:has(> a:focus-visible)) .favorite-note {
+    opacity: 1;
+    transform: rotate(-4deg);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :global([data-recipe]:hover) .favorite-note {
+      opacity: 1;
+      transform: rotate(-4deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .favorite-note {
+      transition: none;
+      transform: rotate(-4deg);
+    }
+  }
+
+  @media print {
+    .favorite-note {
+      display: none;
+    }
+  }
+</style>

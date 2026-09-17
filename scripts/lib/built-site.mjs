@@ -8,10 +8,15 @@
 /** Positions of tags that open before the previous same-name tag closed. */
 export function findNestedTags(html, tag) {
   const nested = []
-  const pattern = new RegExp(`<${tag}\\b|</${tag}>`, 'g')
+  const pattern = new RegExp(
+    `<!--[\\s\\S]*?-->|<(script|style)\\b[^>]*>[\\s\\S]*?</\\1\\s*>|<${tag}(?=[\\s/>])|</${tag}>`,
+    'g'
+  )
   let depth = 0
 
   for (const match of html.matchAll(pattern)) {
+    // Inline code and comments can contain tag-like text that is not markup.
+    if (match[1] || match[0].startsWith('<!--')) continue
     if (match[0] === `</${tag}>`) {
       depth = Math.max(0, depth - 1)
       continue

@@ -9,6 +9,14 @@ test('nested anchors and buttons are reported, siblings are not', () => {
   assert.equal(findNestedTags('<button>x</button><button>y</button>', 'button').length, 0)
 })
 
+test('inline code and comments do not create false nested anchors', () => {
+  const html =
+    '<a href="#x"><script>const result = t<a?0:1; const tag = "<a>";</script><!-- <a> --><style>/* <a> */</style></a>'
+  assert.deepEqual(findNestedTags(html, 'a'), [])
+  const nested = `${html}<a><a>nested</a></a>`
+  assert.deepEqual(findNestedTags(nested, 'a'), [html.length + 3])
+})
+
 test('duplicate ids are reported once and single ids are left alone', () => {
   assert.deepEqual(duplicateIds('<p id="a"></p><p id="b"></p><p id="a"></p>'), ['a'])
   assert.deepEqual(duplicateIds('<p id="a"></p><p id="b"></p>'), [])
