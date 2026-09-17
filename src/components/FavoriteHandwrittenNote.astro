@@ -1,5 +1,5 @@
 ---
-import '@fontsource/caveat/latin-600.css'
+import '@fontsource/caveat/latin-500.css'
 import FavoriteNoteCanvas from './FavoriteNoteCanvas.astro'
 import FavoriteDoodle from './FavoriteDoodle.astro'
 import { defaultFavoriteTexts, defaultFavoriteSymbols, favoriteTokens, layoutFavoriteNote } from '../lib/favorite-note'
@@ -86,7 +86,7 @@ const randomize = variant === 'card' && !text?.trim()
     .favorite-note--detail {
       max-width: 52%;
       right: max(0rem, calc((100vw - 75rem) / 2 - 0.5rem));
-      bottom: 0;
+      bottom: -16px;
     }
   }
 
