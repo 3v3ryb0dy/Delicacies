@@ -1,8 +1,8 @@
 ---
-title: Brown-Sugar-Kuchen mit Brown-Sugar-Creme und Sumach-Erdbeeren
+title: Rohrzuckerkuchen mit Creme und Sumach-Erdbeeren
 category: kuchen
 image: images/brown-sugar-kuchen
-imageAlt: Brown-Sugar-Kuchen mit heller Muscovadocreme und gerösteten Sumach-Erdbeeren auf einer Keramikplatte
+imageAlt: Rohrzuckerkuchen mit heller Creme und gerösteten Sumach-Erdbeeren auf einer Keramikplatte
 servings: 8 Portionen
 tags: [vegetarisch, ofen]
 wip: true
@@ -27,7 +27,7 @@ note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 - 75 g Crème fraîche
 - n.B. Puderzucker (zum Servieren)
 
-### Brown-Sugar-Creme
+### Rohrzuckercreme
 
 - 200 ml Crème double (alt. Schlagsahne)
 - 200 g Crème fraîche
@@ -67,7 +67,7 @@ note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 > Teig in die Form geben und 30–35 Minuten backen, bis der Kuchen bei leichtem Druck zurückfedert.\
 > In der Form auf einem Kuchengitter vollständig auskühlen lassen. Durch den hohen Anteil dunklen Zuckers kann der Kuchen in der Mitte etwas einsinken. Das ist bei diesem Rezept normal.
 
-### Brown-Sugar-Creme
+### Rohrzuckercreme
 
 > Bei Verwendung von Schlagsahne diese gut gekühlt verwenden. Die Creme wird damit etwas leichter und weicher.
 >

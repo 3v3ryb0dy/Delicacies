@@ -110,11 +110,11 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 ### Kuchen (9)
 
 - [Apfel-Streuselkuchen](recipes/apfel-streuselkuchen.md) _(Ungetestet)_
-- [Brown-Sugar-Kuchen mit Brown-Sugar-Creme und Sumach-Erdbeeren](recipes/brown-sugar-kuchen.md) _(Ungetestet)_
 - [Hefekuchen (Bienenstich)](recipes/hefekuchen.md)
 - [Kirsch-Streuselkuchen](recipes/kirsch-streuselkuchen.md)
 - [Ovomaltine-Brownies](recipes/ovomaltine-brownies.md) _(Ungetestet)_
 - [Pistazien-Rosen-Grießkuchen](recipes/pistazien-rosen-griesskuchen.md) _(Ungetestet)_
+- [Rohrzuckerkuchen mit Creme und Sumach-Erdbeeren](recipes/brown-sugar-kuchen.md) _(Ungetestet)_
 - [Schokoladenkuchen (Take-Home Chocolate Cake)](recipes/schokoladenkuchen.md) _(Ungetestet)_
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
 - [Zitronen-Mohn-Kuchen](recipes/zitronen-mohn-kuchen.md) _(Ungetestet)_
