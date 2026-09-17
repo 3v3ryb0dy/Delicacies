@@ -304,10 +304,18 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       section.hidden = !section.querySelector('[data-recipe-item]:not([hidden])')
     })
     sections.forEach((section) => {
-      const count = section.querySelectorAll('[data-recipe-item]:not([hidden])').length
+      const visibleCards = Array.from(
+        section.querySelectorAll<HTMLElement>('[data-recipe-item]:not([hidden]) [data-recipe]')
+      )
+      const count = visibleCards.length
+      const untestedCount = visibleCards.filter((card) => card.dataset.wip === 'true').length
       section.hidden = count === 0
       required(section.querySelector<HTMLElement>('[data-category-count]'), '[data-category-count]').textContent =
-        count === 1 ? '1 Rezept' : count + ' Rezepte'
+        showWip
+          ? `${count - untestedCount} bewährt · ${untestedCount} Versuchsküche`
+          : count === 1
+            ? '1 Rezept'
+            : count + ' Rezepte'
     })
     const total = availableTotal()
 

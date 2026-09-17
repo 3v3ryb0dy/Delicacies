@@ -162,6 +162,13 @@ const chipClass =
     display: none;
   }
 
+  /* Match the counts to the same preference before the controller starts,
+     including the all-recipes fallback when JavaScript is unavailable. */
+  html:not([data-untested-hidden]) #rezepte [data-count-tested],
+  html[data-untested-hidden] #rezepte [data-count-with-untested] {
+    display: none;
+  }
+
   #rezepte [data-recipe],
   #rezepte [data-category-section],
   #rezepte [data-search-category],

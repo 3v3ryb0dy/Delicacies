@@ -91,7 +91,10 @@ const emptyEntries = [
               <p
                 data-category-count
                 class='text-xs font-semibold tracking-[0.14em] text-ink-soft/80 uppercase tabular-nums'>
-                {testedCount === 1 ? '1 Rezept' : `${testedCount} Rezepte`}
+                <span data-count-tested>{testedCount === 1 ? '1 Rezept' : `${testedCount} Rezepte`}</span>
+                <span data-count-with-untested>
+                  {testedCount} bewährt · {categoryRecipes.length - testedCount} Versuchsküche
+                </span>
               </p>
             </header>
 

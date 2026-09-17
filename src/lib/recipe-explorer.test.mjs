@@ -405,6 +405,30 @@ test('the untested flag follows the preference and the toggle', () => {
   assert.equal(explorer({ saved: 'true' }).documentElement.attributes['data-untested-hidden'], undefined)
 })
 
+test('category counts distinguish tested and WIP recipes across toggles, filters, and reloads', () => {
+  const ui = explorer()
+  const counts = () => ui.sections.map((section) => section.count.textContent)
+  const withWip = ['1 bewährt · 0 Versuchsküche', '1 bewährt · 1 Versuchsküche', '0 bewährt · 1 Versuchsküche']
+  assert.deepEqual(counts(), ['1 Rezept', '1 Rezept', '0 Rezepte'])
+  ui.toggle(true)
+  assert.deepEqual(counts(), withWip)
+  ui.tag()
+  assert.deepEqual(counts(), [
+    '1 bewährt · 0 Versuchsküche',
+    '0 bewährt · 0 Versuchsküche',
+    '0 bewährt · 0 Versuchsküche'
+  ])
+  assert.equal(ui.sections[1].hidden, true)
+  ui.reset()
+  assert.deepEqual(counts(), withWip)
+  ui.toggle(false)
+  assert.deepEqual(counts(), ['1 Rezept', '1 Rezept', '0 Rezepte'])
+  assert.deepEqual(
+    explorer({ saved: 'true' }).sections.map((section) => section.count.textContent),
+    withWip
+  )
+})
+
 test('toggle persists across controller reloads, composes with filters, and survives reset', () => {
   const ui = explorer()
   ui.toggle(true)
