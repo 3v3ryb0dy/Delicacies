@@ -29,6 +29,8 @@ export async function sizeFavoriteNotes() {
     })
   }
   const hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)')
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const cards = new Map<Element, { setVisible: (visible: boolean) => void; syncInput: () => void }>()
   notes.forEach((note) => {
     const canvas = note.querySelector<SVGSVGElement>('[data-note-canvas]')
     if (!canvas) return
@@ -40,15 +42,29 @@ export async function sizeFavoriteNotes() {
     const doodles = [...note.querySelectorAll<HTMLTemplateElement>('[data-note-doodle]')]
     const card = note.closest<HTMLElement>('[data-recipe]')
     const link = card?.querySelector<HTMLAnchorElement>(':scope > a')
-    if (!variants.length || !doodles.length || !card || !link) return
+    if (!card || !link) return
 
     let previous: number | undefined
     let hovered = false
     let focused = false
+    let visible = false
     let active = false
+    let fadeTimeout: number | undefined
+    const fadeDuration = parseFloat(getComputedStyle(note).getPropertyValue('--note-fade-duration'))
+    const finishFade = () => {
+      if (active) return
+      window.clearTimeout(fadeTimeout)
+      card.removeAttribute('data-favorite-writing')
+      card.removeAttribute('data-favorite-fading')
+    }
+    note.addEventListener('transitionend', (event) => {
+      if (event.target === note && event.propertyName === 'opacity') finishFade()
+    })
     const update = () => {
-      const nextActive = hovered || focused
-      if (nextActive && !active) {
+      const scrollActive = !hoverMedia.matches && visible
+      const nextActive = hovered || focused || scrollActive
+      const resuming = card.hasAttribute('data-favorite-writing')
+      if (nextActive && !active && !resuming && variants.length && doodles.length) {
         previous = nextFavoriteTextIndex(previous)
         const symbolIndex = Math.floor(Math.random() * defaultFavoriteSymbols.length)
         const template = variants[previous]
@@ -63,8 +79,31 @@ export async function sizeFavoriteNotes() {
         // New nodes restart both writing animations for the selected phrase.
         note.querySelector('[data-note-canvas]')!.replaceWith(replacement)
       }
+      if (nextActive) {
+        window.clearTimeout(fadeTimeout)
+        card.setAttribute('data-favorite-writing', '')
+        card.removeAttribute('data-favorite-fading')
+      } else if (active) {
+        // Freeze the ink while the whole note fades. Re-entry resumes the same
+        // drawing; a completed fade resets it for the next activation.
+        card.setAttribute('data-favorite-fading', '')
+        // Hidden cards may never emit transitionend.
+        fadeTimeout = window.setTimeout(finishFade, fadeDuration + 50)
+      }
+      card.toggleAttribute('data-favorite-visible', scrollActive)
       active = nextActive
+      if (!active && reducedMotion.matches) finishFade()
     }
+    cards.set(card, {
+      setVisible: (nextVisible) => {
+        visible = nextVisible
+        update()
+      },
+      syncInput: () => {
+        hovered = hoverMedia.matches && card.matches(':hover')
+        update()
+      }
+    })
     card.addEventListener('pointerenter', () => {
       hovered = hoverMedia.matches
       update()
@@ -82,4 +121,23 @@ export async function sizeFavoriteNotes() {
       update()
     })
   })
+
+  if (!cards.size) return
+  let observer: IntersectionObserver
+  const observeScrollThreshold = () => {
+    observer?.disconnect()
+    // Use pixels: percentage root margins are relative to viewport width.
+    const bottomMargin = (document.documentElement.clientHeight * 3) / 5
+    // Activate while the card overlaps the upper two-fifths of the viewport.
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => cards.get(entry.target)?.setVisible(entry.isIntersecting))
+      },
+      { rootMargin: `0px 0px -${bottomMargin}px 0px` }
+    )
+    cards.forEach((_, card) => observer.observe(card))
+  }
+  observeScrollThreshold()
+  window.addEventListener('resize', observeScrollThreshold)
+  hoverMedia.addEventListener('change', () => cards.forEach((card) => card.syncInput()))
 }

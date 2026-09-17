@@ -47,6 +47,7 @@ const randomize = variant === 'card' && !text?.trim()
   .favorite-note {
     --note-ink: #70573d;
     --note-unit: 0.75px;
+    --note-fade-duration: 350ms;
     width: calc(var(--note-width) * var(--note-unit));
     position: absolute;
     right: 0.625rem;
@@ -57,7 +58,7 @@ const randomize = variant === 'card' && !text?.trim()
     transform: translateY(0.3rem) rotate(-4deg);
     transform-origin: bottom right;
     transition:
-      opacity 160ms ease,
+      opacity var(--note-fade-duration) ease,
       transform 200ms ease;
   }
 
@@ -86,6 +87,7 @@ const randomize = variant === 'card' && !text?.trim()
     }
   }
 
+  :global([data-recipe][data-favorite-visible]) .favorite-note,
   :global([data-recipe]:has(> a:focus-visible)) .favorite-note {
     opacity: 1;
     transform: rotate(-4deg);

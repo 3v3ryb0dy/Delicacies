@@ -66,6 +66,8 @@ const [x, y, boxWidth, boxHeight] = doodle.viewBox.split(' ').map(Number)
     }
   }
 
+  :global([data-recipe][data-favorite-writing]) .favorite-doodle--animated .doodle-pen,
+  :global([data-recipe][data-favorite-visible]) .favorite-doodle--animated .doodle-pen,
   :global([data-recipe]:has(> a:focus-visible)) .favorite-doodle--animated .doodle-pen {
     animation: draw-doodle var(--write-duration) linear var(--write-delay) forwards;
   }
@@ -74,6 +76,10 @@ const [x, y, boxWidth, boxHeight] = doodle.viewBox.split(' ').map(Number)
     :global([data-recipe]:hover) .favorite-doodle--animated .doodle-pen {
       animation: draw-doodle var(--write-duration) linear var(--write-delay) forwards;
     }
+  }
+
+  :global([data-recipe][data-favorite-fading]) .favorite-doodle--animated .doodle-pen {
+    animation-play-state: paused;
   }
 
   @media (prefers-reduced-motion: reduce) {

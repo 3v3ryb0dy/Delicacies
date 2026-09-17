@@ -71,6 +71,8 @@ const stripeOpacity = [0.74, 0.7, 0.28]
     }
   }
 
+  :global([data-recipe][data-favorite-writing]) .note-word,
+  :global([data-recipe][data-favorite-visible]) .note-word,
   :global([data-recipe]:has(> a:focus-visible)) .note-word {
     animation: reveal-note var(--write-duration) linear var(--write-delay) forwards;
   }
@@ -78,6 +80,9 @@ const stripeOpacity = [0.74, 0.7, 0.28]
     :global([data-recipe]:hover) .note-word {
       animation: reveal-note var(--write-duration) linear var(--write-delay) forwards;
     }
+  }
+  :global([data-recipe][data-favorite-fading]) .note-word {
+    animation-play-state: paused;
   }
   @media (prefers-reduced-motion: reduce) {
     .note-word {
