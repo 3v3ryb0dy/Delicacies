@@ -1,10 +1,11 @@
 ---
 import { RotateCcw } from '@lucide/astro'
+import { Image } from 'astro:assets'
 import { getCollection, getEntry, render } from 'astro:content'
+import spiceExplosionImage from '../assets/spice-explosion.webp'
 import RecipeCard from '../components/RecipeCard.astro'
 import CategoryIcon from '../components/CategoryIcon.astro'
 import RecipeExplorer from '../components/RecipeExplorer.astro'
-import LogoWatermark from '../components/LogoWatermark.astro'
 import { categories } from '../config/taxonomy'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
@@ -48,10 +49,21 @@ const emptyEntries = [
 
 <BaseLayout hideUntestedByDefault>
   <section class='relative isolate'>
+    <Image
+      src={spiceExplosionImage}
+      alt=''
+      widths={[320, 480, 768, 1024, 1280, 1645]}
+      sizes='60vw'
+      quality={82}
+      loading='eager'
+      decoding='async'
+      fetchpriority='high'
+      aria-hidden='true'
+      class='pointer-events-none absolute right-0 -z-10 h-full w-[60%] object-cover object-left opacity-40 blur-[2px]'
+    />
     <div
       class='pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-accent-soft/50 via-transparent to-transparent'
       aria-hidden='true'></div>
-    <LogoWatermark tone='hero' class='top-[-2.5rem] right-[-3.5rem] size-[calc(min(52vw,34rem)-56px)]' />
     <div class='mx-auto max-w-[75rem] px-5 pt-16 pb-10 sm:px-8 sm:pt-24 sm:pb-12'>
       <p class='text-[0.7rem] font-bold tracking-[0.24em] text-accent uppercase'>Seit Jahren bewährt</p>
       <h1 class='mt-5 max-w-5xl font-display text-hero font-semibold text-balance'>
