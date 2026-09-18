@@ -1,20 +1,85 @@
-import { defaultFavoriteSymbols, favoriteTokens, layoutFavoriteNote, nextFavoriteTextIndex } from '../lib/favorite-note'
+import {
+  defaultFavoriteSymbols,
+  estimateFavoriteTextWidth,
+  favoriteTokens,
+  layoutFavoriteNote,
+  nextFavoriteTextIndex
+} from '../lib/favorite-note'
 
-/** Load Caveat once, then fit each selected note; SVG scaling handles resizes. */
+const typographyProperties = [
+  'font-family',
+  'font-size',
+  'font-style',
+  'font-weight',
+  'font-stretch',
+  'font-variant',
+  'font-feature-settings',
+  'font-variation-settings',
+  'font-kerning',
+  'letter-spacing',
+  'word-spacing',
+  'text-transform',
+  'text-rendering'
+] as const
+
+type NoteTypography = { font: string; properties: [string, string][] }
+
+function measureNoteLayout(text: string | undefined, typography?: NoteTypography) {
+  const tokens = favoriteTokens(text)
+  if (!typography) return layoutFavoriteNote(tokens)
+
+  // A connected probe also works for filtered-out cards and detached variants.
+  // Measure in SVG units, independent of the note's responsive scale or rotation.
+  const probe = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  const word = document.createElementNS('http://www.w3.org/2000/svg', 'text')
+  probe.setAttribute('aria-hidden', 'true')
+  probe.setAttribute('focusable', 'false')
+  probe.style.cssText =
+    'position: fixed; top: 0; left: 0; width: 1px; height: 1px; visibility: hidden; pointer-events: none'
+  typography.properties.forEach(([property, value]) => word.style.setProperty(property, value))
+  probe.appendChild(word)
+  document.body.appendChild(probe)
+  try {
+    return layoutFavoriteNote(tokens, (text) => {
+      word.textContent = text
+      try {
+        const width = word.getComputedTextLength()
+        if (Number.isFinite(width) && width > 0) return width
+      } catch {
+        // Keep the server estimate when SVG measurement is unavailable.
+      }
+      return estimateFavoriteTextWidth(text)
+    })
+  } finally {
+    probe.remove()
+  }
+}
+
+/** Load the rendered font, then fit each selected note; SVG scaling handles resizes. */
 export async function sizeFavoriteNotes() {
   const notes = document.querySelectorAll<HTMLElement>('[data-favorite-note]')
   if (!notes.length) return
-  try {
-    await document.fonts.load('600 30px Caveat')
-  } catch {
-    // If the font is unavailable, measure the same cursive fallback as the CSS.
-  }
-  const context = document.createElement('canvas').getContext('2d')
-  if (!context) return
-  context.font = '600 30px Caveat, cursive'
-  const measureCanvas = (canvas: SVGSVGElement, text?: string) => {
-    const tokens = favoriteTokens(text)
-    const layout = layoutFavoriteNote(tokens, (text) => context.measureText(text).width)
+  const typographyByNote = new Map<HTMLElement, NoteTypography>()
+  notes.forEach((note) => {
+    const word = note.querySelector<SVGTextElement>('[data-note-canvas] .note-word')
+    if (!word) return
+    const style = getComputedStyle(word)
+    typographyByNote.set(note, {
+      font: `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
+      properties: typographyProperties.map((property) => [property, style.getPropertyValue(property)])
+    })
+  })
+  await Promise.all(
+    [...new Set([...typographyByNote.values()].map(({ font }) => font))].map(async (font) => {
+      try {
+        await document.fonts.load(font)
+      } catch {
+        // The SVG probe uses the same fallback font as the visible note.
+      }
+    })
+  )
+  const measureCanvas = (canvas: SVGSVGElement, typography: NoteTypography | undefined, text?: string) => {
+    const layout = measureNoteLayout(text, typography)
     canvas.dataset.noteWidth = String(layout.width)
     canvas.setAttribute('viewBox', `0 0 ${layout.width} ${layout.height}`)
     canvas.querySelectorAll('[data-note-stripe]').forEach((stripe, index) => {
@@ -34,7 +99,8 @@ export async function sizeFavoriteNotes() {
   notes.forEach((note) => {
     const canvas = note.querySelector<SVGSVGElement>('[data-note-canvas]')
     if (!canvas) return
-    measureCanvas(canvas, note.dataset.noteText)
+    const typography = typographyByNote.get(note)
+    measureCanvas(canvas, typography, note.dataset.noteText)
     note.style.setProperty('--note-width', canvas.dataset.noteWidth!)
 
     // Custom text stays fixed. Inert templates retain Astro's SVG styles and masks.
@@ -74,7 +140,7 @@ export async function sizeFavoriteNotes() {
         // once per card instead of duplicating all phrase/doodle combinations.
         const tokens = replacement.querySelectorAll('[data-note-token]')
         tokens[tokens.length - 1].replaceChildren(doodles[symbolIndex].content.cloneNode(true))
-        measureCanvas(replacement, `${template.dataset.noteText} ${defaultFavoriteSymbols[symbolIndex]}`)
+        measureCanvas(replacement, typography, `${template.dataset.noteText} ${defaultFavoriteSymbols[symbolIndex]}`)
         note.style.setProperty('--note-width', replacement.dataset.noteWidth!)
         // New nodes restart both writing animations for the selected phrase.
         note.querySelector('[data-note-canvas]')!.replaceWith(replacement)
