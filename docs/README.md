@@ -156,6 +156,7 @@ Pairings:
 Ingredients:
 
 - One bullet per ingredient, quantity first: `- 70 g Butter (weich)`. Use `g`, `ml`, `EL` and `TL`.
+- When setting or scaling the number of servings, prefer quantities that use common package sizes sensibly and avoid awkward leftovers. Treat this as a soft preference: preserve the supplied recipe and its ratios, and do not force package use by introducing unusual serving counts or unnecessarily precise ingredient amounts.
 - Put short details in parentheses. Use `n.B.` for optional additions, or `### Optional` for a group.
 - Group components under `### Teig`, `### Sauce`, etc. Keep supplied amounts and include ingredients used in the instructions.
 

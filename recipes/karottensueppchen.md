@@ -18,7 +18,7 @@ wip: true
 - 1 kleine Schalotte
 - 70 g Butter (40 g zum Dünsten, 30 g kalt für den Schluss)
 - 600 ml Gemüsebrühe
-- 75 ml Schlagsahne
+- 100 ml Schlagsahne
 - Salz, weißer Pfeffer
 - n.B. Gemüsebrühe (zum Verdünnen)
 - n.B. Zitronensaft
@@ -31,5 +31,5 @@ wip: true
 >
 > Restliche Brühe angießen und etwa 15–20 Minuten sanft köcheln lassen. Die Karotten sollen sich mit einem Löffel leicht zerdrücken lassen.
 >
-> 75 ml Schlagsahne zugeben und erwärmen. Topf vom Herd nehmen.\
+> 100 ml Schlagsahne zugeben und erwärmen. Topf vom Herd nehmen.\
 > Die restlichen 30 g kalte Butter zugeben und alles sehr fein pürieren. Bei Bedarf mit zusätzlicher Brühe verdünnen. Mit Salz, weißem Pfeffer und Zitronensaft abschmecken.
