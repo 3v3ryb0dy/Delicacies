@@ -7,6 +7,7 @@ servings: 10–12 Stück
 tags: [vegetarisch, ofen]
 wip: true
 note: 'Nach Yotam Ottolenghi und Sami Tamimi, Ottolenghi: The Cookbook.'
+ingredientTips: [zitrusschale-abreiben]
 ---
 
 ## Tipp

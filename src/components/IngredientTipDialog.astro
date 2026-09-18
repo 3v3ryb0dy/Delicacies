@@ -1,0 +1,99 @@
+---
+import { Lightbulb, X } from '@lucide/astro'
+---
+
+<dialog
+  id='ingredient-tip-dialog'
+  data-ingredient-tip-dialog
+  data-pagefind-ignore='all'
+  aria-labelledby='ingredient-tip-title'
+  class='ingredient-tip-dialog border border-rule bg-paper-raised text-ink shadow-xl print:hidden'>
+  <div class='flex items-start justify-between gap-3 border-b border-rule px-5 py-4'>
+    <div class='min-w-0'>
+      <h2
+        id='ingredient-tip-title'
+        class='flex items-center gap-2 text-xs font-bold tracking-[0.14em] text-accent uppercase'>
+        <Lightbulb size={16} aria-hidden='true' focusable='false' />
+        Küchenwissen
+      </h2>
+      <p data-ingredient-tip-subtitle class='mt-1.5 text-sm text-ink-soft'></p>
+    </div>
+    <button
+      type='button'
+      data-ingredient-tip-close
+      aria-label='Küchenwissen schließen'
+      class='focus-ring -mt-2 -mr-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-paper-sunken hover:text-ink motion-reduce:transition-none'>
+      <X size={20} aria-hidden='true' focusable='false' />
+    </button>
+  </div>
+  <div
+    data-ingredient-tip-dialog-content
+    tabindex='0'
+    role='region'
+    aria-label='Hinweise zur Zutat'
+    class='ingredient-tip-scroll min-h-0 overflow-y-auto overscroll-contain px-5 py-5 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-accent'></div>
+</dialog>
+
+<script>
+  import { initIngredientTipDialog } from '../lib/ingredient-tip-dialog'
+  initIngredientTipDialog(document)
+</script>
+
+<style>
+  .ingredient-tip-dialog {
+    position: fixed;
+    inset: auto 0 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+    max-height: 85vh;
+    max-height: 85dvh;
+    border-radius: 1.25rem 1.25rem 0 0;
+    overflow: hidden;
+  }
+
+  .ingredient-tip-dialog[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredient-tip-dialog::backdrop {
+    background: rgb(0 0 0 / 30%);
+  }
+
+  .ingredient-tip-scroll {
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 600px) {
+    .ingredient-tip-dialog {
+      inset: var(--tip-top, 12px) auto auto var(--tip-left, 12px);
+      width: min(25rem, calc(100vw - 24px));
+      max-height: calc(100dvh - 24px);
+      border-radius: 1rem;
+    }
+
+    .ingredient-tip-dialog::backdrop {
+      background: rgb(0 0 0 / 8%);
+    }
+  }
+
+  @media print {
+    .ingredient-tip-dialog[open] {
+      display: none !important;
+    }
+
+    .ingredient-tip-dialog::backdrop {
+      display: none;
+    }
+  }
+</style>
+
+<style is:global>
+  @media screen {
+    html[data-ingredient-tip-open] {
+      overflow: hidden;
+    }
+  }
+</style>

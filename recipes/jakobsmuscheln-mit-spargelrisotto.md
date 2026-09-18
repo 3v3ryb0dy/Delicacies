@@ -7,6 +7,7 @@ servings: 2 Portionen
 tags: [meeresfrüchte]
 wip: true
 note: Zubereitungszeit ca. 35 Minuten.
+ingredientTips: [reis-waschen, zitrusschale-abreiben]
 ---
 
 ## Tipp
@@ -66,7 +67,7 @@ note: Zubereitungszeit ca. 35 Minuten.
 
 ### Risotto
 
-> 1 EL Olivenöl und 15 g Butter in einem breiten Topf erhitzen. Schalotte bei mittlerer Hitze 2–3 Minuten glasig dünsten, ohne sie zu bräunen. 150 g Reis zugeben und 1–2 Minuten anschwitzen. Mit 80 ml Weißwein ablöschen und fast vollständig einkochen lassen.
+> 1 EL Olivenöl und 15 g Butter in einem breiten Topf erhitzen. Schalotte bei mittlerer Hitze 2–3 Minuten glasig dünsten, ohne sie zu bräunen. 150 g ungewaschenen Reis zugeben und 1–2 Minuten anschwitzen. Mit 80 ml Weißwein ablöschen und fast vollständig einkochen lassen.
 >
 > Nach und nach den heißen Fond angießen und regelmäßig rühren. Neuen Fond zugeben, bevor das Risotto trocken wird. Nach etwa 17–20 Minuten soll der Reis noch Biss haben und von einer cremigen, recht flüssigen Sauce umgeben sein.
 >

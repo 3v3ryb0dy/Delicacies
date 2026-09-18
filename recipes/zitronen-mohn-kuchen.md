@@ -7,6 +7,7 @@ servings: 8 Portionen
 tags: [vegetarisch, ofen]
 wip: true
 note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
+ingredientTips: [zitrusschale-abreiben]
 ---
 
 ## Zutaten

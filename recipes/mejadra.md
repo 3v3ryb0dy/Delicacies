@@ -8,6 +8,7 @@ servings: 6 Portionen
 tags: [vegetarisch, vegan, frittiert]
 wip: true
 note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
+ingredientTips: [reis-waschen]
 ---
 
 ## Zutaten
@@ -29,6 +30,8 @@ note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
 
 ## Zubereitung
 
+> 200 g Basmatireis mit kaltem Wasser waschen, bis es deutlich klarer bleibt. In einem Sieb gut abtropfen lassen.
+>
 > 250 g grüne oder braune Linsen in reichlich Wasser aufkochen und 12–15 Minuten garen. Sie sollen weich sein, aber noch etwas Biss haben. Abgießen.
 >
 > Zwiebeln schälen, dünn schneiden und mit 3 EL Mehl und 1 TL Salz vermengen.

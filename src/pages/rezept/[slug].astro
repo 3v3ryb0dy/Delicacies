@@ -6,11 +6,15 @@ import RecipeCard from '../../components/RecipeCard.astro'
 import FavoriteHandwrittenNote from '../../components/FavoriteHandwrittenNote.astro'
 import { favoriteTokens } from '../../lib/favorite-note'
 import RecipePreparation from '../../components/RecipePreparation.astro'
+import IngredientTip from '../../components/IngredientTip.astro'
+import IngredientTipDialog from '../../components/IngredientTipDialog.astro'
 import TagChip from '../../components/TagChip.astro'
 import CategoryIcon from '../../components/CategoryIcon.astro'
 import LogoWatermark from '../../components/LogoWatermark.astro'
 import { categoryById } from '../../config/taxonomy'
 import { brandRecommendations } from '../../config/brands'
+import { ingredientTips } from '../../config/ingredient-tips'
+import { resolveIngredientTips } from '../../lib/ingredient-tips'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { parseIngredientBrands } from '../../lib/ingredient-brands'
 import { parsePairingLinks, parseRecipeBody } from '../../lib/recipe-body'
@@ -31,6 +35,13 @@ const categoryTitle = categoryMeta?.title ?? entry.data.category
 const categoryShort = categoryMeta?.short ?? entry.data.category
 
 const body = parseRecipeBody(entry.body ?? '')
+const ingredientTipRows = resolveIngredientTips(
+  body.ingredients,
+  entry.data.ingredientTips,
+  ingredientTips,
+  `recipes/${entry.id}.md`
+)
+const hasIngredientTips = ingredientTipRows.some((group) => group.some((tips) => tips.length > 0))
 // Short introductions need less space beside the photo; longer content can grow naturally.
 const compactHero = title.length <= 40 && !note && !source && body.tips.length === 0
 const favoriteQuote = favoriteTokens(favoriteText)
@@ -236,7 +247,7 @@ const previewImage = socialImage
                   'border-t border-rule/70 tabular-nums',
                   body.ingredients.length === 1 && 'print:columns-2 print:gap-10 print:border-t-0'
                 ]}>
-                {group.items.map((item) => (
+                {group.items.map((item, itemIndex) => (
                   <li class='break-inside-avoid border-b border-rule/50 py-2.5 text-base leading-snug text-ink print:py-1 print:text-[0.9rem]'>
                     {parseIngredientBrands(item, brandRecommendations).map((segment) =>
                       segment.brandId ? (
@@ -248,6 +259,9 @@ const previewImage = socialImage
                       ) : (
                         segment.text
                       )
+                    )}
+                    {ingredientTipRows[index][itemIndex].length > 0 && (
+                      <IngredientTip tips={ingredientTipRows[index][itemIndex]} ingredient={item} />
                     )}
                   </li>
                 ))}
@@ -337,6 +351,8 @@ const previewImage = socialImage
       </section>
     )}
   </article>
+
+  {hasIngredientTips && <IngredientTipDialog />}
 
   <script>
     import '../../scripts/recipe-back'

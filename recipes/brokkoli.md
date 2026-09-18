@@ -5,6 +5,7 @@ image: images/brokkoli.webp
 imageAlt: In Butter gebratene Brokkoliröschen mit Knoblauch
 subcategory: gemuese
 tags: [vegetarisch]
+ingredientTips: [knoblauch-braten]
 ---
 
 ## Zutaten

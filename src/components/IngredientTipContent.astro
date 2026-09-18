@@ -1,0 +1,24 @@
+---
+import type { IngredientTip } from '../config/ingredient-tips'
+
+type Props = { tips: readonly IngredientTip[] }
+const { tips } = Astro.props
+---
+
+<div class='flex flex-col gap-6'>
+  {tips.map((tip) => (
+    <section class='text-sm leading-relaxed text-ink' data-ingredient-tip-guide={tip.id}>
+      <h3 class='font-display text-xl leading-snug font-semibold'>{tip.title}</h3>
+      <p class='mt-3 text-ink-soft'>{tip.intro}</p>
+      <ul class='mt-4 flex list-disc flex-col gap-3 pl-4 marker:text-accent/60'>
+        {tip.points.map((point) => (
+          <li class='pl-1'>
+            {point.label && <strong class='font-bold'>{point.label}: </strong>}
+            {point.text}
+          </li>
+        ))}
+      </ul>
+      {tip.note && <p class='mt-4 border-t border-rule pt-3 text-ink-soft'>{tip.note}</p>}
+    </section>
+  ))}
+</div>

@@ -7,6 +7,7 @@ servings: 4 kleine Vorspeisenportionen
 tags: [fisch]
 wip: true
 note: Inspiriert vom Wonders Beach Boutique Hotel, Mauritius.
+ingredientTips: [zitrus-filetieren]
 ---
 
 ## Tipp

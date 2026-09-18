@@ -6,6 +6,7 @@ imageAlt: Fein pürierte Pfifferlingscremesuppe mit goldbraun gebratenen Pfiffer
 servings: 4 Portionen oder 6 kleine Vorspeisen
 tags: [vegetarisch]
 wip: true
+ingredientTips: [pilze-braten]
 ---
 
 ## Tipp

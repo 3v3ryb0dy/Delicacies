@@ -186,6 +186,53 @@ Optional tip:
 > Nur kleine Portionen auf einmal frittieren.
 ```
 
+## Ingredient-aware Küchenwissen
+
+Reusable technique guides live in [`src/config/ingredient-tips.ts`](../src/config/ingredient-tips.ts).
+Select them explicitly in a recipe's front matter:
+
+```yaml
+ingredientTips: [reis-waschen, knoblauch-braten]
+```
+
+Omit the field when no guide adds value. This is an editorial choice based on the
+actual cooking method: a steak guide does not belong on a braise, and a fileting
+guide is unnecessary when a recipe uses only juice. The initial catalog covers
+rice washing, mushroom browning, avocado preparation, citrus fileting, steak
+searing, tofu browning, garlic frying and citrus zest. `steak-braten` is available
+for future recipes without being attached to a current dish.
+
+Each guide has a stable ID, title, ingredient aliases, introduction, short points,
+an optional closing note and editorial source links. Write concise German and
+verify culinary claims against those sources. The sources stay in the catalog
+for future editing; the cooking UI contains the guide itself.
+
+Only guides selected by the recipe are matched, and only against ingredient
+rows. Aliases are literal, case-insensitive phrases bounded by Unicode word
+boundaries, not regular expressions. Add plural forms and compounds explicitly.
+Use a qualified phrase when needed: `Zitrone (Abrieb` matches a zest ingredient,
+whereas `Zitrone` would also match `½ Zitrone (Saft)`. A shorter alias never
+matches inside a longer word, so `Reis` does not match `Reisbandnudeln`.
+
+The content check and page build reject unknown IDs, duplicate selections and
+selected guides without any matching ingredient. Errors name the recipe and
+guide ID. Multiple aliases for the same guide still produce one guide per row.
+If several guides match a row, one lightbulb opens them in frontmatter order.
+Repeated ingredients in separate groups can each have a lightbulb.
+
+**Keep required actions in the preparation.** For example, explicitly tell the
+reader to rinse and drain the rice in the steps; the guide explains which other
+varieties are treated differently. Keep recipe-specific corrections and
+variations under `## Tipp`. Neither kind of tip should repeat the entire method.
+
+The small lightbulb opens on click, tap or keyboard activation. It shows a
+popover beside the ingredient on desktop, and a bottom sheet below 600px.
+Escape, the close button or clicking outside dismisses it and returns focus to
+the ingredient. Without JavaScript or native dialog support, the same advice is
+available in expandable sections beneath the ingredient. There is no saved
+selection or separate knowledge page. Shared guides and their controls are
+excluded from print and recipe search; recipe-specific tips remain included.
+
 ## Alternative preparation methods
 
 Keep one shared ingredient list and a complete normal method under `## Zubereitung`.

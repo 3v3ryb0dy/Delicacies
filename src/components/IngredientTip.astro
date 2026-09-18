@@ -1,0 +1,49 @@
+---
+import { Lightbulb } from '@lucide/astro'
+import type { IngredientTip } from '../config/ingredient-tips'
+import IngredientTipContent from './IngredientTipContent.astro'
+
+type Props = { tips: readonly IngredientTip[]; ingredient: string }
+const { tips, ingredient } = Astro.props
+---
+
+<span data-ingredient-tip-control data-pagefind-ignore='all' class='print:hidden'>
+  <button
+    type='button'
+    data-ingredient-tip-trigger
+    data-ingredient={ingredient}
+    hidden
+    aria-haspopup='dialog'
+    aria-controls='ingredient-tip-dialog'
+    aria-label={`Küchenwissen: ${tips.map((tip) => tip.title).join(' · ')}`}
+    title='Küchenwissen'
+    class='ingredient-tip-trigger focus-ring group ml-2 inline-flex size-7 cursor-pointer items-center justify-center rounded-full align-middle text-ink-soft transition-colors hover:text-ink motion-reduce:transition-none'>
+    <span class='inline-flex size-7 items-center justify-center rounded-full border border-rule transition-colors group-hover:border-ink motion-reduce:transition-none'>
+      <Lightbulb size={14} aria-hidden='true' focusable='false' />
+    </span>
+  </button>
+</span>
+<details
+  data-ingredient-tip-fallback
+  data-pagefind-ignore='all'
+  class='mt-2 rounded-lg border border-rule bg-paper-raised p-3 print:hidden'>
+  <summary class='focus-ring cursor-pointer text-sm font-semibold text-ink-soft'>
+    Küchenwissen: {tips.map((tip) => tip.title).join(' · ')}
+  </summary>
+  <div data-ingredient-tip-content class='mt-4'>
+    <IngredientTipContent tips={tips} />
+  </div>
+</details>
+
+<style>
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (pointer: coarse) {
+    .ingredient-tip-trigger {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+</style>

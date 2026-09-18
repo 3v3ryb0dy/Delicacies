@@ -28,6 +28,7 @@ const recipes = defineCollection({
         category: z.enum(categoryIds),
         subcategory: z.string().optional(),
         tags: z.array(z.enum(tagVocabulary)).default([]),
+        ingredientTips: z.array(z.string()).default([]),
         image: z.preprocess(
           (reference) => (typeof reference === 'string' ? resolveContentImageReference(reference, photos) : reference),
           image().optional()

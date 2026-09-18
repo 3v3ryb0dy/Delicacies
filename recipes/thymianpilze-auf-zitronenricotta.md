@@ -6,6 +6,7 @@ imageAlt: Gebräunte Thymianpilze auf Zitronenricotta mit brauner Butter und ger
 servings: 4 Vorspeisenportionen
 tags: [vegetarisch]
 wip: true
+ingredientTips: [pilze-braten, knoblauch-braten, zitrusschale-abreiben]
 ---
 
 ## Zutaten

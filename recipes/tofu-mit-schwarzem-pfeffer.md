@@ -7,6 +7,7 @@ servings: 4 Portionen
 tags: [vegetarisch, asiatisch]
 wip: true
 note: Nach Yotam Ottolenghi, Plenty.
+ingredientTips: [tofu-braten, knoblauch-braten]
 ---
 
 ## Tipp
@@ -33,7 +34,7 @@ note: Nach Yotam Ottolenghi, Plenty.
 ## Zubereitung
 
 > So viel Pflanzenöl in eine große Pfanne oder einen Wok geben, dass es etwa 5 mm hoch steht, und erhitzen.\
-> Tofu in etwa 2–3 cm große Würfel schneiden, in Speisestärke wenden und überschüssige Stärke abschütteln.\
+> Tofu abgießen, gründlich trocken tupfen und in etwa 2–3 cm große Würfel schneiden, in Speisestärke wenden und überschüssige Stärke abschütteln.\
 > Tofu portionsweise im heißen Öl von allen Seiten goldbraun braten, bis sich eine dünne Kruste bildet. Nicht zu viel auf einmal in die Pfanne geben, sonst dünstet er statt zu braten. Auf Küchenpapier abtropfen lassen.
 >
 > Öl und Bratrückstände vollständig aus der Pfanne entfernen.

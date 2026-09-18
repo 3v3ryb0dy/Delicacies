@@ -7,6 +7,7 @@ servings: 4 Portionen
 tags: [fleisch, hähnchen]
 wip: true
 note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
+ingredientTips: [reis-waschen]
 ---
 
 ## Zutaten
@@ -34,6 +35,8 @@ note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
 
 ## Zubereitung
 
+> 300 g Basmatireis mit kaltem Wasser waschen, bis es deutlich klarer bleibt. In einem Sieb gut abtropfen lassen.
+>
 > Zucker und Wasser erwärmen, bis sich der Zucker aufgelöst hat. Vom Herd nehmen und 25 g Berberitzen darin einweichen. Bei Korinthen entfallen Einweichen, Zucker und die 40 ml Wasser.
 >
 > 2 EL Olivenöl in einer großen Pfanne oder einem breiten Topf mit Deckel erhitzen. Zwiebeln bei mittlerer Hitze 10–15 Minuten goldbraun karamellisieren. Herausnehmen und die Pfanne auswischen.

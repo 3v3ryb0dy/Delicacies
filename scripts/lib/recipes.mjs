@@ -84,6 +84,7 @@ export async function readRecipes(recipesDir) {
         category: data.category ?? 'sonstiges',
         subcategory: data.subcategory,
         tags: Array.isArray(data.tags) ? data.tags : [],
+        ingredientTips: data.ingredientTips,
         image: typeof data.image === 'string' ? data.image : undefined,
         wip: data.wip === true,
         preparationPending: data.preparationPending === true,

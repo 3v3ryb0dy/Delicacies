@@ -8,6 +8,7 @@ imageAlt: Goldbrauner Halloumi auf Süßkartoffeln und roten Zwiebeln mit Avocad
 tags: [vegetarisch]
 servings: 3 Personen
 note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
+ingredientTips: [avocado-schneiden]
 ---
 
 ## Zutaten
@@ -30,7 +31,7 @@ note: Nach HelloFresh, mit Gemüse aus dem Airfryer.
 > Süßkartoffel schälen und etwa 1 cm groß würfeln. Zwiebel in etwa 1 cm breite Spalten schneiden. Beides in einer Schüssel salzen und pfeffern und mit ein bisschen Öl benetzen.\
 > Süßkartoffeln im Airfryer bei 200 °C insgesamt 20 Minuten garen. Nach 8 Minuten die Zwiebel zugeben. Die Süßkartoffeln sollen weich sein.
 >
-> Währenddessen Tomate in Spalten und Avocado in Würfel schneiden. Petersilie hacken.
+> Währenddessen Tomate in Spalten schneiden. Avocado waschen, entkernen, schälen und das Fruchtfleisch würfeln. Petersilie hacken.
 >
 > Für das Chimichurri Knoblauch und entkernte Chili fein hacken. Mit Petersilie, Kreuzkümmel, Zitronensaft und 4 EL Olivenöl verrühren. Vorsichtig salzen und pfeffern, da der Grillkäse ziemlich salzig ist.
 >

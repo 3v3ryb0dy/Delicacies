@@ -3,6 +3,8 @@ import { readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { categories } from '../src/config/taxonomy.ts'
+import { ingredientTips } from '../src/config/ingredient-tips.ts'
+import { resolveIngredientTips } from '../src/lib/ingredient-tips.ts'
 import { resolveRecipeImage } from '../src/lib/recipe-image.ts'
 import { parsePairingLinks, parseRecipeBody } from '../src/lib/recipe-body.ts'
 import { readRecipes, validateRecipes } from './lib/recipes.mjs'
@@ -32,6 +34,12 @@ for (const recipe of recipes) {
   const where = `recipes/${recipe.file}`
   const body = parseRecipeBody(recipe.body)
   const hasPreparation = body.preparation.length > 0 || body.thermomixPreparation.length > 0
+
+  try {
+    resolveIngredientTips(body.ingredients, recipe.ingredientTips, ingredientTips, where)
+  } catch (error) {
+    failures.push(error.message)
+  }
 
   if (body.ingredients.length === 0) {
     failures.push(`${where}: no ingredients. Expected "## Zutaten" with list items.`)
@@ -75,4 +83,4 @@ if (failures.length > 0) {
   process.exit(1)
 }
 
-console.log(`Checked ${recipes.length} recipes: sections, images and pairings.`)
+console.log(`Checked ${recipes.length} recipes: sections, images, pairings and ingredient tips.`)
