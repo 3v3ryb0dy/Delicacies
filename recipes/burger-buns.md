@@ -9,8 +9,6 @@ servings: 10 Buns
 
 ## Zutaten
 
-### Teig
-
 - 200 g Wasser (lauwarm)
 - 80 g Vollmilch
 - 18 g Hefe (frisch)
@@ -19,12 +17,9 @@ servings: 10 Buns
 - 70 g Butter (weich)
 - 500 g Mehl (Type 550)
 - 1 Ei
-
-### Zusätzlich
-
-- 1 Ei
-- 2 EL Milch
-- n.B. Sesam
+- 1 Ei (zum Bestreichen)
+- 2 EL Milch (zum Bestreichen)
+- n.B. Sesam (zum Bestreuen)
 
 ## Zubereitung
 

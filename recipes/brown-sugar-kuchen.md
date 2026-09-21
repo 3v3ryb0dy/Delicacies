@@ -15,6 +15,14 @@ note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 
 ## Zutaten
 
+### Sumach-Erdbeeren
+
+- 600 g Erdbeeren (geputzt, halbiert)
+- 1½ EL Sumach
+- 1-3 Minzzweige
+- 1 TL Vanillepaste oder Vanilleextrakt
+- 70 g Muscovadozucker (dunkel)
+
 ### Kuchen
 
 - 3 Eier
@@ -33,14 +41,6 @@ note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 - 200 g Crème fraîche
 - 1 TL Vanillepaste oder Vanilleextrakt
 - 50 g Muscovadozucker (dunkel)
-
-### Sumach-Erdbeeren
-
-- 600 g Erdbeeren (geputzt, halbiert)
-- 1½ EL Sumach
-- 1-3 Minzzweige
-- 1 TL Vanillepaste oder Vanilleextrakt
-- 70 g Muscovadozucker (dunkel)
 
 ## Zubereitung
 
@@ -72,8 +72,6 @@ note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 > Bei Verwendung von Schlagsahne diese gut gekühlt verwenden. Die Creme wird damit etwas leichter und weicher.
 >
 > Crème double (alt. Schlagsahne), Crème fraîche, Vanille und Muscovadozucker zusammen aufschlagen, bis weiche Spitzen entstehen. Nicht unnötig weiterschlagen.
-
-### Fertigstellen
-
+>
 > Den vollständig ausgekühlten Kuchen aus der Form lösen und auf eine Kuchenplatte setzen.\
 > Kurz vor dem Servieren die Creme großzügig darauf verteilen. Die abgekühlten Sumach-Erdbeeren darauf oder dazu servieren. Nach Wunsch mit etwas Puderzucker bestäuben.

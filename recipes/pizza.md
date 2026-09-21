@@ -39,7 +39,7 @@ wip: true
 >
 > In 6 Stücke à ca. 293–294 g teilen und straff zu Kugeln formen. In einer Pizzabox ca. 3 Stunden bei Raumtemperatur gehen lassen.
 
-### Backen
+### Belag
 
 > Pizzastein relativ weit oben im Ofen platzieren und bei 250 °C mindestens 45–60 Minuten vorheizen.
 >

@@ -10,6 +10,8 @@ ingredientTips: [knoblauch-braten, zitrusschale-abreiben]
 
 ## Zutaten
 
+### Tomaten
+
 - 350 g Kirschtomaten
 - 3 EL Olivenöl
 - ¾ TL Kreuzkümmelsamen
@@ -17,26 +19,26 @@ ingredientTips: [knoblauch-braten, zitrusschale-abreiben]
 - 3 Knoblauchzehen (in sehr dünnen Scheiben)
 - 3 Zweige Thymian
 - 5 g frischer Oregano (3 Zweige, übrige Blätter zum Servieren)
-- 1 Bio-Zitrone (3 dünne Schalenstreifen und 1 TL Zitronenabrieb)
-- 350 g griechischer Joghurt (10 % Fett, gut gekühlt)
+- 1 Bio-Zitrone (3 dünne Schalenstreifen für die Tomaten, 1 TL Abrieb für den Joghurt)
 - 1 TL Urfa-Chiliflocken (alternativ ½ TL normale Chiliflocken)
-- ¾ TL Meersalzflocken
+- ½ TL Meersalzflocken
 - schwarzer Pfeffer
-
-### Zum Servieren
-
 - Sauerteigbrot oder Focaccia
+
+### Zitronenjoghurt
+
+- 350 g griechischer Joghurt (10 % Fett, gut gekühlt)
+- 1 TL Zitronenabrieb (von der Bio-Zitrone oben)
+- ¼ TL Meersalzflocken
 
 ## Zubereitung
 
-### Vorbereiten
+### Tomaten
 
 > Backofen auf 200 °C Umluft vorheizen.
 >
 > Von einer Zitronenhälfte mit einem Sparschäler 3 dünne Streifen Schale abschneiden. Dabei möglichst wenig von der weißen Schicht mitnehmen. Von der anderen Hälfte etwa 1 TL Zitronenschale fein abreiben.
-
-### Tomaten
-
+>
 > Tomaten mit Olivenöl, Kreuzkümmel, braunem Zucker, Knoblauch, Thymian, 3 Oreganozweigen, den Zitronenschalenstreifen, ½ TL Meersalz und reichlich schwarzem Pfeffer vermengen.
 >
 > Alles in eine kleine Auflaufform oder auf ein kleines Backblech geben. Die Tomaten sollten relativ eng beieinanderliegen, damit ihre austretenden Säfte nicht sofort verdampfen.
@@ -48,9 +50,7 @@ ingredientTips: [knoblauch-braten, zitrusschale-abreiben]
 ### Zitronenjoghurt
 
 > Währenddessen den eiskalten Joghurt mit dem fein geriebenen Zitronenabrieb und etwa ¼ TL Meersalz verrühren. Bis zum Servieren wieder in den Kühlschrank stellen.
-
-### Anrichten
-
+>
 > Den kalten Joghurt auf einer Platte oder in einer flachen Schüssel verstreichen und in der Mitte eine leichte Mulde formen.
 >
 > Die direkt aus dem Ofen kommenden heißen Tomaten mitsamt Knoblauch, Kräutern und sämtlichem Bratensaft auf den kalten Joghurt geben.

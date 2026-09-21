@@ -28,9 +28,6 @@ tags: [fleisch, hähnchen, griechisch]
 - 1 TL Oregano
 - 1 TL Paprikapulver (edelsüß)
 - Salz, Pfeffer
-
-### Optional
-
 - n.B. geriebener Käse
 
 ## Zubereitung

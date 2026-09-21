@@ -19,9 +19,6 @@ note: Nach Yotam Ottolenghi und Sami Tamimi, Jerusalem.
 - 4 Knoblauchzehen (zerdrückt)
 - 100 ml Wasser (eiskalt)
 - Salz
-
-### Optional
-
 - n.B. Olivenöl (zum Servieren)
 - n.B. Kreuzkümmel
 

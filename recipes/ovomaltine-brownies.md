@@ -11,11 +11,9 @@ note: Nach Claire Saffitz, Malted Forever Brownies. Angepasst mit Ovomaltine.
 
 ## Zutaten
 
-### Teig
-
 - 20 g Backkakao (vorzugsweise alkalisiert, Dutch Process)
 - 60 g Wasser (kochend)
-- 140 g Zartbitterschokolade (ca. 60–70 % Kakao)
+- 140 g Zartbitterschokolade (ca. 60–70 % Kakao, zum Schmelzen)
 - 85 g Butter (zzgl. etwas für die Form)
 - 55 g Öl (neutral)
 - 100 g Zucker
@@ -26,11 +24,8 @@ note: Nach Claire Saffitz, Malted Forever Brownies. Angepasst mit Ovomaltine.
 - 100 g Mehl
 - 30 g Ovomaltine Original (Pulver)
 - ½ TL Salz
-
-### Schokoladenstücke
-
-- 100 g Ovomaltine Fine Crunchy Schokolade
-- 70 g Zartbitterschokolade (ca. 60–70 % Kakao)
+- 100 g Ovomaltine Fine Crunchy Schokolade (zum Unterheben)
+- 70 g Zartbitterschokolade (ca. 60–70 % Kakao, zum Unterheben)
 - n.B. Fleur de Sel (zum Bestreuen)
 
 ## Zubereitung

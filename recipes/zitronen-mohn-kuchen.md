@@ -12,6 +12,8 @@ ingredientTips: [zitrusschale-abreiben]
 
 ## Zutaten
 
+### Kuchen
+
 - 3 Eier (groß)
 - 225 g Zucker (fein)
 - 120 ml Crème double
@@ -29,6 +31,8 @@ ingredientTips: [zitrusschale-abreiben]
 
 ## Zubereitung
 
+### Kuchen
+
 > Backofen auf 180 °C Ober-/Unterhitze bzw. 160 °C Umluft vorheizen.\
 > Eine Kastenform von etwa 23 × 13 × 6 cm (900-g- bzw. 2-lb-Form) fetten und mit Backpapier auslegen.
 >
@@ -43,10 +47,12 @@ ingredientTips: [zitrusschale-abreiben]
 > Teig in die Form geben. Sie sollte ungefähr zu drei Vierteln gefüllt sein.\
 > Form auf ein Backblech stellen und etwa 50 Minuten backen. Ein Holzstäbchen soll sauber herauskommen.
 >
+> Für neun kleine Kuchen Formen von etwa 9 × 6 × 4 cm verwenden. Die Backzeit beträgt etwa 25 Minuten. Mit der Stäbchenprobe prüfen.
+
+### Glasur
+
 > Für die Glasur Puderzucker und Zitronensaft glatt rühren.\
 > Den Kuchen direkt nach dem Backen noch in der Form mit der Glasur übergießen und diese über der Oberfläche verteilen, damit ein Teil in den heißen Kuchen einziehen kann.\
 > 30 Minuten abkühlen lassen, danach aus der Form nehmen und vor dem Servieren vollständig auf Zimmertemperatur kommen lassen.
->
-> Für neun kleine Kuchen Formen von etwa 9 × 6 × 4 cm verwenden. Die Backzeit beträgt etwa 25 Minuten. Mit der Stäbchenprobe prüfen.
 >
 > Luftdicht verpackt etwa 3 Tage aufbewahren.

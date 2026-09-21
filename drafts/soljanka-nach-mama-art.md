@@ -9,8 +9,6 @@ note: Familienrezept. Zubereitungszeit ca. 50 Minuten plus mehrere Stunden Ziehz
 
 ## Zutaten
 
-### Soljanka
-
 - 200 g Jagdwurst
 - 200 g Geflügelwurst
 - 200 g Salami
@@ -28,20 +26,14 @@ note: Familienrezept. Zubereitungszeit ca. 50 Minuten plus mehrere Stunden Ziehz
 - schwarzer Pfeffer
 - ggf. Salz
 
-### Zum Servieren
-
-- 200 g saure Sahne oder Schmand
+- 200 g saure Sahne oder Schmand (zum Servieren)
 - n.B. Zitronenspalten
 
 ## Zubereitung
 
-### Vorbereiten
-
 > Jagdwurst und Geflügelwurst in mundgerechte Würfel oder Streifen schneiden. Salami ebenfalls schneiden.
 >
 > Zwiebeln fein würfeln. Paprika in kurze Streifen und Gewürzgurken in kleine Würfel schneiden. Knoblauch fein hacken oder reiben.
-
-### Soljanka
 
 > 200 g Schinkenspeck in einem großen Topf bei mittlerer bis hoher Hitze auslassen.
 >
@@ -56,8 +48,6 @@ note: Familienrezept. Zubereitungszeit ca. 50 Minuten plus mehrere Stunden Ziehz
 > 1 l Fleischbrühe angießen und alles etwa 20 Minuten sanft köcheln lassen. Falls die Soljanka zu dick ist, bis zu 250 ml weitere Fleischbrühe ergänzen.
 >
 > Lorbeerblatt entfernen. Mit bis zu 50 ml weiterem Gurkensud, einem weiteren TL Sambal Oelek und schwarzem Pfeffer abschmecken. Erst zum Schluss prüfen, ob zusätzliches Salz nötig ist.
-
-### Durchziehen und servieren
 
 > Soljanka vollständig abkühlen lassen und mindestens einige Stunden, am besten über Nacht, zugedeckt im Kühlschrank durchziehen lassen.
 >

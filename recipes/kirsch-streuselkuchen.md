@@ -9,21 +9,13 @@ servings: 12 Stücke (Springform Ø 26 cm)
 
 ## Zutaten
 
-### Füllung
-
 - 750 g Sauerkirschen (frisch)
-
-### Teig und Streusel
-
 - 500 g Mehl
 - 1 Prise Salz
 - 200 g Butter (kalt)
 - 200 g Zucker
 - n.B. 1 Prise Zimt
 - Abgeriebene Zitronenschale
-
-### Außerdem
-
 - Butter (für die Form)
 - Puderzucker (zum Bestäuben)
 

@@ -24,12 +24,9 @@ wip: true
 - 10 g Salz
 - 35 g Butter (weich)
 - 5 g Trockenhefe oder ca. 15 g Frischhefe
-
-### Zusätzlich
-
-- 1 Ei
-- 2 EL Milch
-- n.B. Sesam
+- 1 Ei (zum Bestreichen)
+- 2 EL Milch (zum Bestreichen)
+- n.B. Sesam (zum Bestreuen)
 
 ## Zubereitung
 
@@ -46,9 +43,7 @@ wip: true
 > Kein zusätzliches Mehl einkneten, nur weil der Teig klebt. Der weiche Teig und das Tangzhong sorgen für die wattige Krume.
 >
 > Abgedeckt 60–90 Minuten bei warmer Raumtemperatur gehen lassen, bis der Teig deutlich aufgegangen ist.
-
-### Formen und Backen
-
+>
 > In 9 Stücke à ca. 100–105 g oder 8 Stücke à ca. 115–120 g teilen und rundschleifen.\
 > 10–15 Minuten entspannen lassen, anschließend leicht auf ca. 8–9 cm Durchmesser flachdrücken.
 >

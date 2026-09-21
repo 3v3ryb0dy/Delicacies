@@ -157,8 +157,11 @@ Ingredients:
 
 - One bullet per ingredient, quantity first: `- 70 g Butter (weich)`. Use `g`, `ml`, `EL` and `TL`.
 - When setting or scaling the number of servings, prefer quantities that use common package sizes sensibly and avoid awkward leftovers. Treat this as a soft preference: preserve the supplied recipe and its ratios, and do not force package use by introducing unusual serving counts or unnecessarily precise ingredient amounts.
-- Put short details in parentheses. Use `n.B.` for optional additions, or `### Optional` for a group.
-- Group components under `### Teig`, `### Sauce`, etc. Keep supplied amounts and include ingredients used in the instructions.
+- Put short details in parentheses. Use `n.B.` for optional additions within the relevant component; small optional additions do not need their own heading.
+- Add `###` headings only for distinct components such as dough and sauce. Usually two or three components are enough; four can make sense for a more elaborate recipe. Keep simple recipes ungrouped.
+- Use the same component headings in the same order for ingredients and every preparation method. The page numbers groups independently on each side, so do not add separate preparation, baking or serving groups. Include those actions as paragraphs in the relevant component, with final assembly at the end.
+- Do not leave an untitled opening block before component headings: it also counts as a group. Put preparation directly in the appropriate component and describe parallel work explicitly without losing the cooking order.
+- Keep supplied amounts and include ingredients used in the instructions. When merging groups, distinguish repeated ingredients by their use, such as butter for frying and finishing or egg for brushing. Preserve optional components and complete variant quantities.
 
 Instructions:
 

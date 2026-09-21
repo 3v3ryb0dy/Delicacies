@@ -17,22 +17,16 @@ note: Zubereitungszeit ca. 25 Minuten plus mindestens 1 Stunde Ziehzeit.
 - schwarzer Pfeffer
 - n.B. ¼–½ TL Aromat
 
-### Zum Abschmecken
-
-- n.B. 1–2 TL Kräuteressig
-- n.B. etwas Rapsöl
-- n.B. etwas Salz
-- n.B. etwas Aromat
+- n.B. 1–2 TL Kräuteressig (zum Abschmecken)
+- n.B. etwas Rapsöl (zum Abschmecken)
+- n.B. etwas Salz (zum Abschmecken)
+- n.B. etwas Aromat (zum Abschmecken)
 
 ## Zubereitung
-
-### Bohnen
 
 > Bohnen putzen und in ausreichend Salzwasser je nach Dicke etwa 8–12 Minuten kochen, bis sie weich, aber noch nicht matschig sind.
 >
 > Bohnen abgießen und kurz ausdampfen lassen. Anschließend in mundgerechte Stücke schneiden und noch leicht warm in eine Schüssel geben.
-
-### Marinieren
 
 > Zwiebel sehr fein würfeln und zu den Bohnen geben.
 >

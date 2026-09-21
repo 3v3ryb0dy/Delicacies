@@ -37,14 +37,12 @@ ingredientTips: [zitrusschale-abreiben]
 
 ## Zubereitung
 
-### Vorbereiten
+### Hähnchenrouladen
 
 > Backofen auf 180 °C Ober-/Unterhitze vorheizen.
 >
 > Bärlauch gründlich waschen und sehr gut trocknen. Für die Füllung 100 g Bärlauch sehr fein hacken.
-
-### Hähnchenrouladen
-
+>
 > Bärlauch mit Frischkäse, Parmesan und Zitronenabrieb verrühren und kräftig mit schwarzem Pfeffer abschmecken. Mit Salz vorsichtig sein, da Parmesan und Bacon bereits einiges mitbringen.
 >
 > Hähnchenbrustfilets jeweils seitlich waagerecht einschneiden und wie ein Buch aufklappen. Zwischen zwei Bögen Backpapier vorsichtig auf etwa 8 mm Dicke plattieren.
@@ -74,9 +72,7 @@ ingredientTips: [zitrusschale-abreiben]
 > Die restlichen 20 g Bärlauch sehr fein schneiden. Pfanne vom Herd nehmen. Dijon-Senf, Bärlauch und zunächst etwa 2 TL Zitronensaft einrühren.
 >
 > Kalte Butter einrühren, bis die Sauce glänzend und leicht gebunden ist. Mit Salz, Pfeffer und bei Bedarf dem restlichen Zitronensaft abschmecken.
-
-### Anrichten
-
+>
 > Hähnchenrouladen entweder ganz oder schräg in dicke Scheiben geschnitten mit der Weißweinsauce servieren.
 
 Passende Beilagen: kleine Ofenkartoffeln, Kartoffelpüree, Tagliatelle, grüner Spargel oder grüne Bohnen.

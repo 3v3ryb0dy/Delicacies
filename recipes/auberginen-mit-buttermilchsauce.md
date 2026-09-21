@@ -11,6 +11,8 @@ note: Nach Yotam Ottolenghi, Plenty.
 
 ## Zutaten
 
+### Auberginen
+
 - 2 Auberginen (groß und länglich)
 - 80 ml Olivenöl
 - 1½ TL Zitronenthymianblättchen
@@ -29,6 +31,8 @@ note: Nach Yotam Ottolenghi, Plenty.
 
 ## Zubereitung
 
+### Auberginen
+
 > Backofen auf 200 °C Ober-/Unterhitze vorheizen.\
 > Auberginen längs halbieren. Der grüne Stiel kann zur Optik dranbleiben, wird aber nicht mitgegessen.\
 > Die Schnittflächen mit einem scharfen Messer drei- bis viermal parallel einschneiden, ohne die Haut zu durchtrennen. Anschließend schräg in Gegenrichtung einschneiden, sodass ein Rautenmuster entsteht.
@@ -40,7 +44,9 @@ note: Nach Yotam Ottolenghi, Plenty.
 > Aus dem Ofen nehmen und vollständig abkühlen lassen.
 >
 > Währenddessen die Granatapfelkerne auslösen und eventuell vorhandene weiße Häutchen entfernen.
->
+
+### Buttermilchsauce
+
 > Für die Sauce Buttermilch, Joghurt, 1½ EL Olivenöl, Knoblauch und eine Prise Salz glatt verrühren. Abschmecken und bis zum Servieren kalt stellen.
 >
 > Zum Servieren reichlich Buttermilchsauce über die Auberginen geben. Mit 1 TL Za'atar und großzügig Granatapfelkernen bestreuen.\

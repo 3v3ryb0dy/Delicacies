@@ -36,14 +36,20 @@ wip: true
 
 ## Zubereitung
 
+### Teig
+
 > Für den Teig Butter, Zucker, Vanillezucker, Ei, Mehl, Backpulver und Salz verkneten. In Frischhaltefolie wickeln und 60 Minuten kaltstellen.
 >
 > Backofen auf 180 °C Ober-/Unterhitze oder 160 °C Umluft vorheizen. Eine Springform mit 26 cm Durchmesser einfetten.
 >
 > Teig rund ausrollen und in die Springform legen. Dabei einen etwa 3 cm hohen Rand formen.
->
+
+### Belag
+
 > Äpfel schälen und würfeln. Mit Zimt und Zitronensaft vermengen. Auf dem Teig verteilen.
->
+
+### Streusel
+
 > Für die Streusel Butter, Zucker, Vanillezucker, Mehl und Salz verkneten. Grob über den Äpfeln verteilen.
 >
 > Kuchen 55–60 Minuten backen.

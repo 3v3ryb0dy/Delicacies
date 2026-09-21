@@ -22,6 +22,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 - 125 g Zucker (fein)
 - 100 g Muscovadozucker (dunkel)
 - 1½ TL Zimt
+- 50 g Zartbitterschokolade (70 %, fein gehackt)
 
 ### Pralinécreme
 
@@ -34,20 +35,19 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 ### Belag
 
 - 20 g Mandelblättchen
-- 50 g Zartbitterschokolade (70 %, fein gehackt)
 - 600 g Feigen (frisch, in ca. 1 cm dicken Scheiben)
 - 3 EL Honig
 
 ## Zubereitung
+
+### Baiser
 
 > Backofen auf 170 °C Ober-/Unterhitze bzw. 150 °C Umluft vorheizen.\
 > Alle 70 g Mandelblättchen auf einem Blech verteilen und 7–8 Minuten goldbraun rösten. Abkühlen lassen. 50 g für das Praliné und 20 g für den Belag beiseitestellen.
 >
 > Ofentemperatur auf 120 °C Ober-/Unterhitze bzw. 100 °C Umluft reduzieren.\
 > Ein großes Backblech mit Backpapier auslegen. Einen Kreis von ca. 23 cm Durchmesser daraufzeichnen und das Papier umdrehen. Die Zeichnung soll noch sichtbar sein.
-
-### Baiser
-
+>
 > In einem Topf Wasser zum Kochen bringen. Die Rührschüssel soll darüber sitzen können, ohne das Wasser zu berühren.\
 > Eiweiß und beide Zuckersorten in der Rührschüssel von Hand verrühren. Hitze reduzieren und die Schüssel über das leicht köchelnde Wasser setzen. Etwa 4 Minuten ununterbrochen von Hand schlagen, bis die Masse warm und schaumig ist und sich der Zucker aufgelöst hat.
 >
@@ -55,9 +55,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 >
 > Baiser innerhalb des Kreises verteilen. Den Rand etwas höher formen, sodass in der Mitte eine Mulde entsteht.\
 > 3 Stunden backen. Ofen ausschalten und die Pavlova darin etwa 2 Stunden vollständig auskühlen lassen.
-
-### Schokoladenschicht
-
+>
 > 50 g Zartbitterschokolade (70 %) über einem sanft köchelnden Wasserbad schmelzen. Die Schüssel darf das Wasser nicht berühren.\
 > Etwas abkühlen lassen und nur die Innenseite der Pavlova vorsichtig damit bestreichen. Rand und Außenseite frei lassen. Etwa 2 Stunden fest werden lassen.
 
@@ -70,7 +68,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 >
 > Sahne, Mascarpone und das gemahlene Praliné etwa 1 Minute schlagen, bis feste Spitzen entstehen. Nicht zu lange schlagen, sonst trennt sich die Creme. Falls sie gerinnt, etwas zusätzliche Sahne vorsichtig mit einem Teigschaber unterheben. Bis zur Verwendung kalt stellen.
 
-### Fertigstellen
+### Belag
 
 > Pralinécreme in die Mitte der Pavlova geben und mit Feigen belegen.\
 > 3 EL Honig leicht erwärmen und die restlichen 20 g Mandelblättchen unterrühren. Über die Feigen verteilen und sofort servieren. Nach einigen Stunden verliert die Pavlova an Form und wird weicher.

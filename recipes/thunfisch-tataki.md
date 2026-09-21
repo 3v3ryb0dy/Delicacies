@@ -37,7 +37,7 @@ ingredientTips: [zitrus-filetieren]
 - 1 TL Schnittlauch (fein geschnitten)
 - Salz, Pfeffer
 
-### Dazu
+### Salat
 
 - 100 g Blattsalat
 - n.B. wenige feine Karotten- und Rotkohlstreifen
@@ -63,7 +63,7 @@ ingredientTips: [zitrus-filetieren]
 >
 > 1 EL gehackte Petersilie, 1 TL fein geschnittenen Schnittlauch und Grapefruitstücke kurz vor dem Anrichten unterheben. Abschmecken. Olivenöl und Salz stehen im Vordergrund, danach Zitrusfrucht und ein zurückhaltender Beerenakzent. Zusätzlichen Zitronensaft nur tropfenweise zugeben. Die Grundfassung bleibt ohne Honig oder Zucker.
 
-### Anrichten
+### Salat
 
 > Den vollständig gekühlten Thunfisch mit einem sauberen, sehr scharfen Messer quer zur Faser in 6–8 mm dicke Scheiben schneiden und auffächern.
 >

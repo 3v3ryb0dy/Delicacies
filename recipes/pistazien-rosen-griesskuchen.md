@@ -15,6 +15,12 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 
 ## Zutaten
 
+### Kandierte Rosenblätter (optional)
+
+- 1 Eiweiß (groß)
+- 10 g rote oder rosa Rosenblätter (unbehandelt, essbar, ca. 40 Stück)
+- 25 g Zucker
+
 ### Kuchen
 
 - 3 Kardamomkapseln
@@ -45,15 +51,9 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 - 80 ml Rosenwasser
 - 100 g Zucker
 
-### Kandierte Rosenblätter (optional)
-
-- 1 Eiweiß (groß)
-- 10 g rote oder rosa Rosenblätter (unbehandelt, essbar, ca. 40 Stück)
-- 25 g Zucker
-
 ## Zubereitung
 
-### Rosenblätter (optional)
+### Kandierte Rosenblätter (optional)
 
 > Backofen auf 100 °C Ober-/Unterhitze bzw. 80 °C Umluft vorheizen. Ein Blech mit Backpapier auslegen.
 >
@@ -86,9 +86,7 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 
 > Etwa 10 Minuten vor Ende der Backzeit Zitronensaft, Rosenwasser und Zucker in einem kleinen Topf erhitzen.\
 > Unter Rühren aufkochen, bis sich der Zucker vollständig gelöst hat. Sofort vom Herd nehmen. Der Sirup bleibt relativ dünnflüssig.
-
-### Fertigstellen
-
+>
 > Den heißen Kuchen direkt nach dem Backen mit dem gesamten warmen Sirup übergießen. Die Menge wirkt zunächst groß, wird aber vollständig aufgenommen.\
 > Mit den zusätzlichen 20 g gehackten Pistazien bestreuen.
 >

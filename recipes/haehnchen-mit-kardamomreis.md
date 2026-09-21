@@ -27,11 +27,8 @@ ingredientTips: [reis-waschen]
 - 5 g Dill (gehackt)
 - 5 g Koriandergrün (gehackt)
 - Salz, Pfeffer
-
-### Optional
-
-- 100 g griechischer Joghurt
-- 2 EL Olivenöl
+- n.B. 100 g griechischer Joghurt
+- n.B. 2 EL Olivenöl
 
 ## Zubereitung
 

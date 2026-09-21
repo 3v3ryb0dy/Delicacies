@@ -10,7 +10,7 @@ ingredientTips: [zitrusschale-abreiben]
 
 ## Tipp
 
-> Im Frühling lässt sich ein Teil des Spinats durch 80 bis 100 g frischen Bärlauch ersetzen. Der Bärlauch kommt ungekocht in die Ricottamasse, während weniger Salbei sein Aroma im Vordergrund hält.
+> Im Frühling statt 450 g TK-Blattspinat nur 350 g verwenden und durch 80 bis 100 g frischen Bärlauch ergänzen. Der Bärlauch kommt ungekocht in die Ricottamasse. Für die Salbeibutter nur 5 bis 8 Salbeiblätter statt 12 bis 15 verwenden, damit das Bärlaucharoma im Vordergrund bleibt.
 
 ## Zutaten
 
@@ -34,24 +34,16 @@ ingredientTips: [zitrusschale-abreiben]
 - 40 g Parmesan (fein gerieben)
 - schwarzer Pfeffer
 
-### Bärlauch-Variante
-
-- 350 g TK-Blattspinat (statt 450 g)
-- 80 bis 100 g Bärlauch (frisch)
-- 5 bis 8 Salbeiblätter (statt 12 bis 15)
-
 ## Zubereitung
 
-### Vorbereiten
+### Malfatti
 
 > 450 g TK-Spinat auftauen. Das geht in der Mikrowelle oder in einem Topf bei niedriger Hitze.
 >
 > Währenddessen 500 g Ricotta in ein Sieb geben und abtropfen lassen.
 >
 > Spinat etwas abkühlen lassen und anschließend portionsweise mit den Händen oder in einem sauberen Küchentuch sehr gründlich ausdrücken. Den ausgedrückten Spinat grob bis mittelfein hacken.
-
-### Malfatti
-
+>
 > Spinat, Ricotta, 100 g Parmesan, Ei, 70 g Mehl und ½ TL Muskat miteinander verrühren. Vorsichtig salzen und kräftig pfeffern.
 >
 > Einen großen Topf mit Salzwasser aufkochen und anschließend die Temperatur reduzieren. Das Wasser soll nur noch sanft sieden.
@@ -69,7 +61,5 @@ ingredientTips: [zitrusschale-abreiben]
 > Fertige Malfatti mit einer Schaumkelle direkt aus dem Wasser in die Salbeibutter geben. Vorsichtig schwenken und 1 bis 2 Minuten braten, bis sie außen stellenweise leicht Farbe bekommen.
 >
 > Pfanne vom Herd ziehen. Etwas fein abgeriebene Zitronenschale und zunächst 1 TL Zitronensaft zugeben. Bei Bedarf mit einem weiteren TL Zitronensaft abschmecken.
-
-### Anrichten
-
+>
 > Malfatti auf vier Teller verteilen und die braune Salbeibutter darübergeben. Mit 40 g Parmesan und frisch gemahlenem schwarzen Pfeffer servieren.

@@ -16,6 +16,12 @@ ingredientTips: [zitrusschale-abreiben]
 
 ## Zutaten
 
+### Streusel
+
+- 150 g Mehl
+- 50 g Zucker (fein)
+- 100 g Butter (kalt, in kleinen Würfeln)
+
 ### Muffins
 
 - 540 g Mehl
@@ -29,15 +35,7 @@ ingredientTips: [zitrusschale-abreiben]
 - 1 Granny-Smith-Apfel (ungeschält, in ca. 1 cm großen Würfeln)
 - 200 g Heidelbeeren (frisch, zzgl. einige für die Oberfläche)
 
-### Streusel
-
-- 150 g Mehl
-- 50 g Zucker (fein)
-- 100 g Butter (kalt, in kleinen Würfeln)
-
 ## Zubereitung
-
-> Backofen auf 170 °C Ober-/Unterhitze vorheizen. Ein Muffinblech mit Papierförmchen auslegen.
 
 ### Streusel
 
@@ -45,6 +43,8 @@ ingredientTips: [zitrusschale-abreiben]
 
 ### Muffins
 
+> Backofen auf 170 °C Ober-/Unterhitze vorheizen. Ein Muffinblech mit Papierförmchen auslegen.
+>
 > Mehl, Backpulver und Salz gemeinsam sieben und beiseitestellen.\
 > 140 g Butter schmelzen und etwas abkühlen lassen. Eier, Zucker und die geschmolzene, nicht mehr heiße Butter leicht verquirlen. 380 ml Milch und Zitronenschale einrühren. Apfelwürfel und 200 g Heidelbeeren vorsichtig unterheben.
 >

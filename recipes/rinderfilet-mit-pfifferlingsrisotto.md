@@ -11,23 +11,19 @@ ingredientTips: [reis-waschen, pilze-braten, steak-braten]
 
 ## Zutaten
 
-### Pfifferlinge
+### Pfifferlingsrisotto
 
 - 200 g Pfifferlinge
 - 1 TL Öl (neutral)
-- 10 g Butter
-- Salz, Pfeffer
-
-### Risotto
-
+- 10 g Butter (für die Pfifferlinge)
 - 150 g Carnaroli- oder Arborio-Reis
 - 1 kleine Schalotte (fein gewürfelt)
 - 1 EL Olivenöl
-- 15 g Butter
+- 15 g Butter (zum Anschwitzen)
 - 80 ml Weißwein (trocken)
 - ca. 500–600 ml Gemüse- oder Geflügelfond (mild)
 - 25–30 g Parmesan (fein gerieben)
-- 10 g Butter (kalt)
+- 10 g Butter (kalt, zum Fertigstellen)
 - Salz, Pfeffer
 
 ### Rinderfilet
@@ -48,22 +44,18 @@ ingredientTips: [reis-waschen, pilze-braten, steak-braten]
 
 ## Zubereitung
 
-### Vorbereiten
+### Pfifferlingsrisotto
 
 > Fond für das Risotto erhitzen und warm halten.
 >
-> Pfifferlinge sorgfältig putzen, größere Exemplare halbieren. Rinderfilet trocken tupfen.
-
-### Pfifferlinge
-
+> Pfifferlinge sorgfältig putzen, größere Exemplare halbieren.
+>
 > Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen. Pfifferlinge hineingeben und etwa 4–5 Minuten kräftig braten, bis sie Farbe bekommen und eventuell austretende Flüssigkeit verdampft ist.
 >
 > 10 g Butter zugeben, kurz durchschwenken und mit Salz und Pfeffer würzen.
 >
 > Pfifferlinge herausnehmen. Etwa ein Drittel zum Anrichten beiseitelegen.
-
-### Risotto
-
+>
 > Olivenöl und 15 g Butter in einem breiten Topf erhitzen. Schalotte bei mittlerer Hitze 2–3 Minuten glasig dünsten.
 >
 > Reis zugeben und 1–2 Minuten anschwitzen. Mit Weißwein ablöschen und fast vollständig einkochen lassen.
@@ -78,6 +70,8 @@ ingredientTips: [reis-waschen, pilze-braten, steak-braten]
 
 ### Rinderfilet
 
+> Rinderfilet trocken tupfen.
+>
 > Während das Risotto gart, Rinderfilet salzen und pfeffern.
 >
 > Eine schwere Edelstahlpfanne kräftig erhitzen, Öl hineingeben und das Fleisch von beiden Seiten jeweils etwa 2–3 Minuten kräftig anbraten. Auch die Ränder kurz bräunen.
@@ -95,9 +89,7 @@ ingredientTips: [reis-waschen, pilze-braten, steak-braten]
 > Rinderfond und Thymian zugeben und kräftig köcheln lassen, bis die Sauce auf etwa 50–60 ml reduziert und leicht sirupartig ist.
 >
 > Thymian entfernen und die Pfanne vom Herd nehmen. Fleischsaft und 15 g kalte Butter einrühren. Mit Salz und Pfeffer abschmecken.
-
-### Anrichten
-
+>
 > Falls das Risotto inzwischen zu fest geworden ist, nochmals etwas heißen Fond unterrühren.
 >
 > Risotto auf drei vorgewärmte Teller geben.

@@ -23,15 +23,11 @@ ingredientTips: [zitrusschale-abreiben]
 
 ## Zubereitung
 
-### Haselnüsse
-
 > Backofen auf 180 °C Ober-/Unterhitze vorheizen.
 >
 > Haselnüsse auf einem kleinen Blech etwa 8–10 Minuten rösten, bis sie duften und leicht gebräunt sind.
 >
 > Etwas abkühlen lassen und die Nüsse in einem Küchentuch kräftig aneinanderreiben, sodass sich ein Großteil der Schale löst. Anschließend grob hacken. Einige größere Stücke dürfen erhalten bleiben.
-
-### Bohnen
 
 > Bohnen putzen.
 >
@@ -39,15 +35,11 @@ ingredientTips: [zitrusschale-abreiben]
 >
 > Sofort abgießen und unter sehr kaltem Wasser abschrecken. Anschließend gründlich abtropfen und möglichst trocken tupfen.
 
-### Dressing
-
 > Von der Orange die Schale sehr dünn abreiben oder mit einem Zestenreißer feine Streifen abziehen. Darauf achten, möglichst nichts von der bitteren weißen Schicht zu verwenden.
 >
 > Schnittlauch fein schneiden. Knoblauch sehr fein reiben.
 >
 > Haselnussöl, Olivenöl, 1 EL Orangensaft und Knoblauch miteinander verrühren.
-
-### Anrichten
 
 > Bohnen mit Orangenschale, Schnittlauch, Haselnüssen und Dressing vermengen.
 >

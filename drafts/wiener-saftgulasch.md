@@ -30,13 +30,9 @@ note: Zubereitungszeit ca. 3½ bis 4 Stunden, davon ca. 30 Minuten aktiv. Am nä
 
 ## Zubereitung
 
-### Vorbereiten
-
 > Rinderwade in etwa 4 cm große Würfel schneiden. Größere feste Sehnen entfernen, feines Bindegewebe jedoch am Fleisch lassen.
 >
 > Zwiebeln halbieren und in dünne Streifen schneiden. Knoblauch fein hacken oder reiben. Kümmel leicht zerstoßen.
-
-### Zwiebelbasis
 
 > 40 g Schmalz in einem schweren Schmortopf erhitzen. Zwiebeln zugeben und bei mittlerer bis niedriger Hitze etwa 25 bis 30 Minuten langsam kräftig goldbraun schmoren. Dabei regelmäßig umrühren.
 >
@@ -45,8 +41,6 @@ note: Zubereitungszeit ca. 3½ bis 4 Stunden, davon ca. 30 Minuten aktiv. Am nä
 > Topf kurz von der Hitze nehmen. 3 EL edelsüßes und ½ TL rosenscharfes Paprikapulver einrühren. Sofort mit 1 EL Essig und 150 ml Wasser ablöschen, damit das Paprikapulver nicht verbrennt und bitter wird.
 >
 > Knoblauch, 1 TL Kümmel, 2 TL Majoran und nach Wunsch ½ TL Zitronenschale unterrühren.
-
-### Schmoren
 
 > Fleisch ungebraten in die Zwiebelbasis geben. Mit Salz und Pfeffer würzen. Weitere 150 bis 250 ml Wasser angießen. Das Fleisch soll nicht vollständig bedeckt sein.
 >

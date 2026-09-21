@@ -35,14 +35,12 @@ note: Zubereitungszeit ca. 30 Minuten.
 
 ## Zubereitung
 
-### Vorbereiten
+### Bärlauchcremesuppe
 
 > Kartoffeln schälen und in kleine Würfel schneiden. Schalotte fein würfeln.
 >
 > Bärlauch gründlich waschen, sehr gut trocknen und grob schneiden. Den Bärlauch zum Garnieren separat sehr fein schneiden.
-
-### Bärlauchcremesuppe
-
+>
 > Butter in einem großen Topf bei mittlerer Hitze schmelzen. Schalotte darin etwa 2–3 Minuten glasig anschwitzen, ohne sie zu bräunen.
 >
 > Kartoffeln dazugeben und etwa 1 Minute mit anschwitzen.
@@ -64,7 +62,5 @@ note: Zubereitungszeit ca. 30 Minuten.
 > Chorizo ohne zusätzliches Fett in einer Pfanne bei mittlerer Hitze langsam knusprig ausbraten. Mit einer Schaumkelle aus der Pfanne nehmen und kurz auf Küchenpapier abtropfen lassen. Das ausgelassene Chorizofett in der Pfanne lassen.
 >
 > Brot in etwa 1,5 cm große Würfel schneiden. Die Brotwürfel im Chorizofett rundherum goldbraun und knusprig rösten. Falls nicht genügend Fett vorhanden ist, etwas Olivenöl ergänzen.
-
-### Anrichten
-
+>
 > Suppe auf vier Schalen verteilen. Mit knuspriger Chorizo, Croûtons und etwas sehr fein geschnittenem frischem Bärlauch bestreuen. Sofort servieren.

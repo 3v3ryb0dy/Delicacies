@@ -13,10 +13,16 @@ ingredientTips: [reis-waschen]
 
 ## Zutaten
 
-- 250 g grüne oder braune Linsen
+### Röstzwiebeln
+
 - 4 Zwiebeln (mittelgroß, ca. 700 g vor dem Schälen)
 - 3 EL Mehl
 - ca. 250 ml Sonnenblumenöl
+- Salz
+
+### Linsenreis
+
+- 250 g grüne oder braune Linsen
 - 2 TL Kreuzkümmelsamen
 - 1½ EL Koriandersamen
 - 200 g Basmatireis
@@ -30,15 +36,19 @@ ingredientTips: [reis-waschen]
 
 ## Zubereitung
 
-> 200 g Basmatireis mit kaltem Wasser waschen, bis es deutlich klarer bleibt. In einem Sieb gut abtropfen lassen.
->
-> 250 g grüne oder braune Linsen in reichlich Wasser aufkochen und 12–15 Minuten garen. Sie sollen weich sein, aber noch etwas Biss haben. Abgießen.
->
+### Röstzwiebeln
+
 > Zwiebeln schälen, dünn schneiden und mit 3 EL Mehl und 1 TL Salz vermengen.
 >
 > Ca. 250 ml Sonnenblumenöl in einem schweren Topf stark erhitzen. Ein hineingegebenes Stück Zwiebel soll sofort kräftig zischen.\
 > Hitze auf mittelhoch reduzieren und die Zwiebeln in drei Portionen jeweils 5–7 Minuten goldbraun und knusprig frittieren. Regelmäßig wenden und die Hitze gegebenenfalls reduzieren, damit sie nicht verbrennen.\
 > Mit einer Schaumkelle herausnehmen, auf Küchenpapier abtropfen lassen und leicht salzen.
+
+### Linsenreis
+
+> Während die Zwiebeln braten, 200 g Basmatireis mit kaltem Wasser waschen, bis es deutlich klarer bleibt. In einem Sieb gut abtropfen lassen.
+>
+> 250 g grüne oder braune Linsen in reichlich Wasser aufkochen und 12–15 Minuten garen. Sie sollen weich sein, aber noch etwas Biss haben. Abgießen.
 >
 > Topf auswischen. 2 TL Kreuzkümmelsamen und 1½ EL Koriandersamen bei mittlerer Hitze 1–2 Minuten trocken rösten.
 >

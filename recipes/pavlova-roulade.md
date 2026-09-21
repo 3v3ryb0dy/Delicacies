@@ -35,6 +35,8 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 
 ## Zubereitung
 
+### Baiser
+
 > Backofen auf 220 °C Ober-/Unterhitze bzw. 200 °C Umluft vorheizen.\
 > Ein flaches Backblech von etwa 35 × 30 cm mit Backpapier auslegen. Das Papier sollte an den Seiten etwa 2 cm überstehen.
 >
@@ -45,7 +47,9 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 > Baiser gleichmäßig auf dem Blech verstreichen.\
 > In den Ofen geben und die Temperatur sofort auf 200 °C Ober-/Unterhitze bzw. 180 °C Umluft reduzieren. Etwa 35 Minuten backen, bis die Oberfläche hellbeige und knusprig ist.\
 > Vollständig auskühlen lassen. Das Baiser fällt beim Abkühlen etwas zusammen. Das ist normal.
->
+
+### Füllung
+
 > Pfirsiche waschen, entsteinen und ungeschält in ca. 5 mm breite Spalten schneiden.
 >
 > Für die Füllung 400 ml Schlagsahne bei mittelhoher Geschwindigkeit etwa 1 Minute schlagen, bis sehr weiche Spitzen entstehen. 1 TL Vanilleextrakt und 30 g gesiebten Puderzucker kurz einarbeiten.

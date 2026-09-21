@@ -31,8 +31,6 @@ tags: [fleisch, ofen, deutsch]
 ### Belag
 
 > Den Schmand glatt rühren und gerne mit etwas Salz und Pfeffer würzen. Nach Belieben mit Schinken und Zwiebelringen belegen.
-
-### Backen
-
+>
 > Ofen mit Blech oder Pizzastein auf der unteren bis mittleren Schiene auf 250 °C Ober-/Unterhitze vorheizen und mindestens 30 Minuten mitheizen.\
 > Teig dünn ausrollen, belegen und auf das heiße Blech ziehen. Etwa 8–12 Minuten backen, bis der Rand gebräunt und der Boden knusprig ist.

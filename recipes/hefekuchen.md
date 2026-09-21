@@ -33,6 +33,8 @@ tags: [ofen, deutsch, vegetarisch]
 
 ## Zubereitung
 
+### Teig
+
 > Ofen auf 50 °C vorwärmen.
 >
 > 250 ml Milch etwas mehr als lauwarm erwärmen. 100 g Butter darin auflösen und 100 g Zucker, 1 Prise Salz und Hefe einrühren.\
@@ -42,7 +44,9 @@ tags: [ofen, deutsch, vegetarisch]
 >
 > 30 Minuten im Ofen gehen lassen,\
 > anschließend ausrollen und auf ein Blech geben. Weitere 20 Minuten gehen lassen.
->
+
+### Belag
+
 > Ofen auf 250 °C Umluft vorheizen. Währenddessen Zutaten für den Belag in einer Pfanne erhitzen, bis sich ein hellbraunes Butterkaramell bildet. Auf den Kuchen geben.
 >
 > Anschließend ca. 25 Minuten bei 175 °C Ober-/Unterhitze backen.

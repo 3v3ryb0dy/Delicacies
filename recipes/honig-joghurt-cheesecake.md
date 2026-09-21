@@ -30,20 +30,21 @@ note: Nach Yotam Ottolenghi, Simple.
 - 40 g Puderzucker (gesiebt)
 - 1 Zitrone (Schale fein abgerieben, ca. 1 TL)
 - 150 g weiße Schokolade (grob gehackt)
-
-### Zum Servieren
-
-- 60 g Honig
-- 1½ TL Thymianblättchen
+- 60 g Honig (zum Servieren)
+- 1½ TL Thymianblättchen (zum Servieren)
 
 ## Zubereitung
 
+### Boden
+
 > Eine 23-cm-Springform am Boden mit Backpapier auslegen.
->
-> Ein Sieb mit einem sauberen Küchentuch auslegen und über eine Schüssel setzen. 500 g griechischen Joghurt hineingeben, das Tuch darüber zusammenschlagen und möglichst viel Flüssigkeit herausdrücken. Es sollen etwa 340 g sehr dicker Joghurt übrig bleiben.
 >
 > 200 g Hobnobs (alt. Haferkekse ohne Schokolade) fein zerbröseln. 60 g Butter schmelzen und mit den Keksbröseln und 1 EL Thymian vermengen.\
 > Gleichmäßig auf dem Boden der Springform verteilen, gut andrücken und bis zur weiteren Verwendung kalt stellen.
+
+### Creme
+
+> Ein Sieb mit einem sauberen Küchentuch auslegen und über eine Schüssel setzen. 500 g griechischen Joghurt hineingeben, das Tuch darüber zusammenschlagen und möglichst viel Flüssigkeit herausdrücken. Es sollen etwa 340 g sehr dicker Joghurt übrig bleiben.
 >
 > Frischkäse, ausgedrückten Joghurt, Puderzucker und Zitronenschale glatt rühren.
 >

@@ -53,14 +53,12 @@ wip: true
 > Quark, Frischkäse, zunächst 100 g Milch, Zucker, Vanille, Zitronensaft und Salz glatt rühren. Falls die Masse zu kompakt ist, weitere 10–20 g Milch nach und nach zugeben.
 >
 > Die geschlagene Sahne mit einem Teigschaber vorsichtig unterheben. Nur kurz vermengen, damit die Creme luftig bleibt.
+>
+> Die Creme auf den abgekühlten Keksboden geben und die Gläser abgedeckt mindestens 2 Stunden kalt stellen.
 
 ### Mangopüree
 
 > Mangofruchtfleisch mit Zitronensaft und nach Belieben Zucker in einem hohen Gefäß mit dem Pürierstab fein pürieren. Abgedeckt kalt stellen.
-
-### Schichten und Kühlen
-
-> Die Creme auf den abgekühlten Keksboden geben und die Gläser abgedeckt mindestens 2 Stunden kalt stellen.
 >
 > Das Mangopüree bis zum Servieren getrennt gekühlt aufbewahren. Vor dem Servieren auf der Creme verteilen und glatt streichen.
 
@@ -79,13 +77,11 @@ wip: true
 > Rühraufsatz entfernen. Quark, Frischkäse, zunächst 100 g Milch, Zucker, Vanille, Zitronensaft und Salz in den Mixtopf geben und 20 Sek. / Stufe 4 verrühren. Falls die Masse zu kompakt ist, weitere 10–20 g Milch nach und nach mit dem Spatel einrühren.
 >
 > Die Quarkcreme in eine Schüssel umfüllen. Die geschlagene Sahne mit einem Teigschaber vorsichtig von Hand unterheben. Nur kurz vermengen, damit die Creme luftig bleibt.
+>
+> Die Creme auf den abgekühlten Keksboden geben und die Gläser abgedeckt mindestens 2 Stunden kalt stellen.
 
 ### Mangopüree
 
 > Mixtopf ausspülen. Mangofruchtfleisch, Zitronensaft und nach Belieben Zucker zugeben und 20 Sek. / Stufe 8 pürieren. Bei Bedarf mit dem Spatel nach unten schieben und kurz wiederholen. Umfüllen und abgedeckt kalt stellen.
-
-### Schichten und Kühlen
-
-> Die Creme auf den abgekühlten Keksboden geben und die Gläser abgedeckt mindestens 2 Stunden kalt stellen.
 >
 > Das Mangopüree bis zum Servieren getrennt gekühlt aufbewahren. Vor dem Servieren auf der Creme verteilen und glatt streichen.

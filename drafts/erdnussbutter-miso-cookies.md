@@ -27,7 +27,7 @@ note: Nach Diane Unger, Christopher Kimball's Milk Street, inspiriert von Falco 
 - 1 Ei (Größe L)
 - 2 TL Vanilleextrakt
 
-### Zum Wälzen
+### Zuckerkruste
 
 - 60 g Demerara-, Turbinado- oder grober brauner Zucker
 
@@ -47,7 +47,7 @@ note: Nach Diane Unger, Christopher Kimball's Milk Street, inspiriert von Falco 
 >
 > Teig abdecken und mindestens 2 Stunden, besser über Nacht, im Kühlschrank ruhen lassen.
 
-### Formen und backen
+### Zuckerkruste
 
 > Backofen auf 175 °C Ober-/Unterhitze vorheizen. Zwei Backbleche mit Backpapier auslegen.
 >

@@ -15,6 +15,8 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 
 ## Zutaten
 
+### Kuchen
+
 - 250 g Butter (weich) (zzgl. etwas für die Form)
 - 200 g Zartbitterschokolade (70 %)
 - 1½ TL Instantkaffee
@@ -44,6 +46,8 @@ note: Nach Yotam Ottolenghi und Helen Goh, Sweet.
 - 2½ EL Puderzucker
 
 ## Zubereitung
+
+### Kuchen
 
 > Backofen auf 170 °C Ober-/Unterhitze bzw. 150 °C Umluft vorheizen. Eine runde 23-cm-Form fetten und mit Backpapier auslegen.
 >

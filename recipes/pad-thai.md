@@ -22,7 +22,7 @@ tags: [asiatisch]
 - 80 g Palmzucker (alt. brauner Zucker)
 - 80 ml Wasser
 
-### Außerdem
+### Nudeln und Einlagen
 
 - 200 g Reisbandnudeln
 - 2 Eier
@@ -31,16 +31,18 @@ tags: [asiatisch]
 - Sojasprossen
 - Thai-Schnittlauch
 - 2–3 EL Erdnüsse (geröstet, grob gehackt)
-
-### Optional
-
-- 1 EL getrocknete Garnelen (grob gehackt)
-- Limettenspalten zum Servieren
+- n.B. 1 EL getrocknete Garnelen (grob gehackt)
+- n.B. Limettenspalten zum Servieren
 
 ## Zubereitung
 
-> 200 g Reisbandnudeln 30–60 Minuten in kaltem Wasser einweichen und gut abtropfen lassen.\
-> Währenddessen alle Zutaten der Sauce verrühren, bis sich der Zucker aufgelöst hat.
+### Sauce
+
+> Die Sauce während der Einweichzeit der Nudeln im nächsten Abschnitt zubereiten. Alle Zutaten der Sauce verrühren, bis sich der Zucker aufgelöst hat.
+
+### Nudeln und Einlagen
+
+> 200 g Reisbandnudeln 30–60 Minuten in kaltem Wasser einweichen und gut abtropfen lassen.
 >
 > Schalotte fein würfeln und Knoblauch hacken. Öl in einer großen Pfanne oder einem Wok erhitzen und beides kurz anbraten, bis die Schalotte weich ist und der Knoblauch duftet. Nach Belieben 1 EL grob gehackte getrocknete Garnelen kurz mitbraten.\
 > Alles zur Seite schieben, Eier darin auf niedriger Hitze als Omelette stocken lassen und grob zerteilen.

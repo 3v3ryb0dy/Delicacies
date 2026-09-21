@@ -16,9 +16,14 @@ ingredientTips: [tofu-braten, knoblauch-braten]
 
 ## Zutaten
 
+### Tofu
+
 - 800 g Tofu (fest)
 - Öl (zum Braten)
 - Speisestärke (zum Wenden)
+
+### Pfeffersauce
+
 - 150 g Butter
 - 12 Schalotten (klein, ca. 350 g, dünn geschnitten)
 - 8 rote Chilischoten (eher mild, dünn geschnitten)
@@ -33,10 +38,14 @@ ingredientTips: [tofu-braten, knoblauch-braten]
 
 ## Zubereitung
 
+### Tofu
+
 > So viel Pflanzenöl in eine große Pfanne oder einen Wok geben, dass es etwa 5 mm hoch steht, und erhitzen.\
 > Tofu abgießen, gründlich trocken tupfen und in etwa 2–3 cm große Würfel schneiden, in Speisestärke wenden und überschüssige Stärke abschütteln.\
 > Tofu portionsweise im heißen Öl von allen Seiten goldbraun braten, bis sich eine dünne Kruste bildet. Nicht zu viel auf einmal in die Pfanne geben, sonst dünstet er statt zu braten. Auf Küchenpapier abtropfen lassen.
->
+
+### Pfeffersauce
+
 > Öl und Bratrückstände vollständig aus der Pfanne entfernen.
 >
 > 150 g Butter darin schmelzen. Schalotten, Chili, Knoblauch und 3 EL gehackten frischen Ingwer hinzufügen und bei kleiner bis mittlerer Hitze etwa 15 Minuten braten, dabei gelegentlich umrühren. Alles soll vollständig weich und glänzend werden, nicht stark bräunen.

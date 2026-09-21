@@ -31,16 +31,12 @@ note: Nach Marian Burros, The New York Times. Zubereitungszeit ca. 15 Minuten pl
 
 ## Zubereitung
 
-### Vorbereiten
+### Teig
 
 > Backofen auf 175 °C Ober-/Unterhitze vorheizen.
 >
 > Eine Springform mit etwa 22 cm Durchmesser am Boden mit Backpapier auslegen. Den Rand leicht buttern.
 >
-> Zwetschgen halbieren und entsteinen.
-
-### Teig
-
 > Weiche Butter und 150 g Zucker etwa 2–3 Minuten cremig schlagen.
 >
 > Eier einzeln unterrühren.
@@ -49,8 +45,10 @@ note: Nach Marian Burros, The New York Times. Zubereitungszeit ca. 15 Minuten pl
 >
 > Den relativ festen Teig gleichmäßig in der Springform verstreichen.
 
-### Belegen und backen
+### Belag
 
+> Zwetschgen halbieren und entsteinen.
+>
 > Zwetschgen dicht nebeneinander mit der Hautseite nach oben auf dem Teig verteilen. Sie müssen nicht in den Teig gedrückt werden.
 >
 > Mit 1–2 TL Zitronensaft beträufeln.

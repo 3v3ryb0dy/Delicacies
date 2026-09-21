@@ -67,9 +67,7 @@ note: Zubereitungszeit ca. 35 Minuten.
 > Pfanne vom Herd ziehen und die kalte Butter nach und nach einschwenken.
 >
 > Mit Salz, schwarzem Pfeffer und – falls die Brombeeren sehr süß sind – etwa 1 TL Zitronensaft abschmecken.
-
-### Anrichten
-
+>
 > Schweinefilet in dicke Medaillons schneiden und mit dem Brombeer-Senf-Jus servieren.
 
 Passende Beilagen: Kartoffelpüree, Pastinaken-Kartoffelpüree oder kleine Ofenkartoffeln sowie grüne Bohnen.
