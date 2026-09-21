@@ -3,7 +3,7 @@ title: Pfifferlingscremesuppe
 category: suppen
 image: images/pfifferlingscremesuppe
 imageAlt: Fein pürierte Pfifferlingscremesuppe mit goldbraun gebratenen Pfifferlingen
-servings: 4 Portionen oder 6 kleine Vorspeisen
+servings: 3 Portionen oder 4 kleine Vorspeisen
 tags: [vegetarisch]
 ingredientTips: [pilze-braten]
 ---
