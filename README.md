@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-75 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+76 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -23,7 +23,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (18)
+### Hauptgerichte (19)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -38,6 +38,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md) _(Ungetestet)_
+- [Rinderfilet mit Pfifferlingsrisotto und Cognac-Thymian-Jus](recipes/rinderfilet-mit-pfifferlingsrisotto.md)
 - [Shakshuka](recipes/shakshuka.md) _(Ungetestet)_
 - [Tarte mit karamellisiertem Knoblauch](recipes/tarte-mit-karamellisiertem-knoblauch.md) _(Ungetestet)_
 - [Tofu mit schwarzem Pfeffer](recipes/tofu-mit-schwarzem-pfeffer.md) _(Ungetestet)_

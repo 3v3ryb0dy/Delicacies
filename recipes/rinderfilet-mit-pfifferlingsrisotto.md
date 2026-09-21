@@ -1,9 +1,10 @@
 ---
 title: Rinderfilet mit Pfifferlingsrisotto und Cognac-Thymian-Jus
 category: hauptgerichte
-servings: 2 Portionen
+image: images/rinderfilet-mit-pfifferlingsrisotto
+imageAlt: Rosa gebratenes Rinderfilet auf cremigem Pfifferlingsrisotto mit Cognac-Thymian-Jus auf einem hellen Keramikteller
+servings: 3 Portionen
 tags: [fleisch]
-wip: true
 note: Zubereitungszeit ca. 40 Minuten.
 ingredientTips: [reis-waschen, pilze-braten, steak-braten]
 ---
@@ -99,7 +100,7 @@ ingredientTips: [reis-waschen, pilze-braten, steak-braten]
 
 > Falls das Risotto inzwischen zu fest geworden ist, nochmals etwas heißen Fond unterrühren.
 >
-> Risotto auf zwei vorgewärmte Teller geben.
+> Risotto auf drei vorgewärmte Teller geben.
 >
 > Rinderfilet quer zur Faser in dicke Streifen schneiden und auf dem Risotto anrichten. Die zurückgelegten Pfifferlinge darüber verteilen.
 >
