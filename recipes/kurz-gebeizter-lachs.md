@@ -24,4 +24,4 @@ tags: [fisch]
 > 1 EL Öl in einer Pfanne bei mittlerer Hitze erhitzen (etwa zwei Drittel der maximalen Leistung).\
 > Lachsstücke von allen vier Seiten je 1–2 Minuten braun braten, bis der Kern durchgegart ist.
 
-Passende Begleitung: [Pfifferlingscremesuppe](pfifferlingscremesuppe.md).
+Passende Begleitung: [Pfifferlingscremesuppe](pfifferlingscremesuppe.md) oder [Pfifferlingscremesuppe 2.0](pfifferlingscremesuppe-2-0.md).
