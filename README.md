@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-74 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+75 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -23,10 +23,11 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (17)
+### Hauptgerichte (18)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
+- [Dal Makhani](recipes/dal-makhani.md) _(Ungetestet)_
 - [Dicker Eierkuchen](recipes/dicker-eierkuchen.md)
 - [Flammkuchen](recipes/flammkuchen.md)
 - [Hähnchen in Metaxasauce](recipes/haehnchen-in-metaxasauce.md)

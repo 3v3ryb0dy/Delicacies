@@ -25,3 +25,5 @@ tags: [asiatisch, frittiert, vegetarisch]
 > Teig nochmal kurz durchkneten und 8 kleine Fladen ausrollen. Kurz gehen lassen bis das Öl zum Frittieren heiß ist.
 >
 > In heißem Öl ausbacken.
+
+Passt zu: [Dal Makhani](dal-makhani.md).
