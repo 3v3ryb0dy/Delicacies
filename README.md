@@ -54,7 +54,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Karottensüppchen](recipes/karottensueppchen.md) _(Ungetestet)_
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
-- [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md) _(Ungetestet)_
+- [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md)
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
 
 ### Beilagen (10)

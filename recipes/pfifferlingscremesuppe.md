@@ -5,7 +5,6 @@ image: images/pfifferlingscremesuppe
 imageAlt: Fein pürierte Pfifferlingscremesuppe mit goldbraun gebratenen Pfifferlingen
 servings: 4 Portionen oder 6 kleine Vorspeisen
 tags: [vegetarisch]
-wip: true
 ingredientTips: [pilze-braten]
 ---
 
@@ -17,8 +16,8 @@ ingredientTips: [pilze-braten]
 
 - 200 g Pfifferlinge
 - 1 große Zwiebel
-- 20 g Butter
-- 50 ml trockener Weißwein
+- 30 g Butter
+- 70 ml Weißwein (trocken)
 - 350 ml Gemüsebrühe
 - 200 g Schlagsahne
 - Salz, Pfeffer
@@ -27,10 +26,10 @@ ingredientTips: [pilze-braten]
 
 > Pfifferlinge putzen. Zwiebel fein würfeln.
 >
-> 20 g Butter in einem Topf erhitzen. Pfifferlinge bei mittlerer bis hoher Hitze leicht goldbraun anbraten. Mit Salz und Pfeffer würzen. Einige Pfifferlinge als Einlage herausnehmen und beiseitestellen.
+> 30 g Butter in einem Topf erhitzen. Pfifferlinge bei mittlerer bis hoher Hitze leicht goldbraun anbraten. Mit Salz und Pfeffer würzen. Einige Pfifferlinge als Einlage herausnehmen und beiseitestellen.
 >
-> Zwiebel zu den übrigen Pfifferlingen geben und kurz mitbraten. Mit 50 ml trockenem Weißwein ablöschen und kurz einkochen lassen.\
-> 350 ml Gemüsebrühe zugeben, aufkochen und bei mittlerer Hitze etwa 15 Minuten köcheln lassen.
+> Zwiebel zu den übrigen Pfifferlingen geben und kurz mitbraten. Mit 70 ml trockenem Weißwein ablöschen und kurz einkochen lassen.\
+> 350 ml Gemüsebrühe zugeben, aufkochen und bei niedriger Hitze etwa 15 Minuten abgedeckt köcheln lassen.
 >
 > 200 g Schlagsahne zugeben und die Suppe fein pürieren. Noch einmal erhitzen und mit Salz und Pfeffer abschmecken.
 >
