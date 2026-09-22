@@ -20,6 +20,7 @@ import { parseIngredientBrands } from '../../lib/ingredient-brands'
 import { parsePairingLinks, parseRecipeBody } from '../../lib/recipe-body'
 import { withBase } from '../../lib/url'
 import { resolveRecipePhoto } from '../../lib/recipe-photo'
+import { buildRecipeStructuredData, serializeRecipeStructuredData } from '../../lib/recipe-seo'
 
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes')
@@ -79,14 +80,28 @@ const previewImage = socialImage
       type: 'image/jpeg'
     }
   : undefined
+const structuredData = buildRecipeStructuredData({
+  title,
+  description,
+  canonical: new URL(Astro.url.pathname, Astro.site),
+  image: socialImage?.src,
+  category: categoryTitle,
+  servings,
+  preparationPending,
+  body
+})
 ---
 
 <BaseLayout
   hideUntestedByDefault
+  noindex={preparationPending}
   title={title}
   description={description}
   previewTitle={title}
   previewImage={previewImage}>
+  {structuredData && (
+    <script is:inline type='application/ld+json' set:html={serializeRecipeStructuredData(structuredData)}></script>
+  )}
   <article
     data-pagefind-body
     data-pagefind-meta={`category:${categoryShort}`}

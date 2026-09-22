@@ -3,11 +3,15 @@ import { readFile, readdir, stat } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { duplicateIds, findNestedTags, isExternalUrl, pageIds } from './lib/built-site.mjs'
+import { checkRecipeSeo, decodeMarkup, readSeoMetadata } from './lib/recipe-seo.mjs'
+import { readRecipes } from './lib/recipes.mjs'
+import { site } from '../src/config/site.ts'
 
 /**
  * Checks the built site after `astro build` and `pagefind`: HTML that must stay
  * valid, links that must resolve to a page and an anchor that exists, and a
- * Pagefind index that covers exactly the recipe pages.
+ * Pagefind index that covers exactly the recipe pages, plus recipe structured
+ * data and agreement between unfinished status, noindex and the sitemap.
  *
  * Runs as part of `npm run build`, so a broken link or a nested anchor fails the
  * deployment instead of reaching the published site.
@@ -61,10 +65,48 @@ async function idsForPage(file) {
 const files = await walk(dist)
 const htmlFiles = files.filter((file) => file.endsWith('.html'))
 const assets = new Set(files.map((file) => relative(file)))
+const recipes = new Map((await readRecipes(path.join(root, 'recipes'))).map((recipe) => [recipe.slug, recipe]))
+const sitemapUrls = new Set()
+const expectedSitemapUrls = new Set()
+try {
+  const sitemapIndex = await readFile(path.join(dist, 'sitemap-index.xml'), 'utf8')
+  const locations = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => decodeMarkup(match[1]))
+  const sitemaps = locations(sitemapIndex)
+  if (!sitemaps.length) failures.push('sitemap: index has no sitemap files')
+  for (const location of sitemaps) {
+    const url = new URL(location)
+    if (url.origin !== new URL(site).origin || !assets.has(url.pathname)) {
+      failures.push(`sitemap: "${location}" does not resolve to a built sitemap`)
+      continue
+    }
+    const xml = await readFile(path.join(dist, url.pathname), 'utf8')
+    for (const entry of locations(xml)) {
+      if (sitemapUrls.has(entry)) failures.push(`sitemap: duplicate URL "${entry}"`)
+      sitemapUrls.add(entry)
+    }
+  }
+} catch (error) {
+  failures.push(`sitemap: could not read sitemap (${error.message})`)
+}
 
 for (const file of htmlFiles) {
   const page = relative(file)
   const html = await readFile(file, 'utf8')
+  const canonical = new URL(page.replace(/index\.html$/, ''), site).href
+  const seo = readSeoMetadata(html)
+  if (!seo.noindex) expectedSitemapUrls.add(canonical)
+  const recipeSlug = /^\/rezept\/([^/]+)\/index\.html$/.exec(page)?.[1]
+  if (recipeSlug) {
+    const recipe = recipes.get(recipeSlug)
+    if (!recipe) failures.push(`${page}: no recipe source found`)
+    else {
+      failures.push(
+        ...checkRecipeSeo({ html, recipe, canonical, inSitemap: sitemapUrls.has(canonical), assets }).map(
+          (failure) => `${page}: ${failure}`
+        )
+      )
+    }
+  }
 
   for (const tag of ['a', 'button']) {
     if (findNestedTags(html, tag).length > 0) failures.push(`${page}: nested <${tag}> elements`)
@@ -95,6 +137,13 @@ for (const file of htmlFiles) {
   }
 }
 
+for (const url of expectedSitemapUrls) {
+  if (!sitemapUrls.has(url)) failures.push(`sitemap: missing indexable page "${url}"`)
+}
+for (const url of sitemapUrls) {
+  if (!expectedSitemapUrls.has(url)) failures.push(`sitemap: unexpected or noindex page "${url}"`)
+}
+
 const recipePages = htmlFiles.filter((file) => relative(file).startsWith('/rezept/'))
 const pagefindEntry = path.join(dist, 'pagefind', 'pagefind-entry.json')
 try {
@@ -119,4 +168,6 @@ if (failures.length > 0) {
   process.exit(1)
 }
 
-console.log(`Checked ${htmlFiles.length} pages: links, anchors, ids, nesting and the Pagefind index.`)
+console.log(
+  `Checked ${htmlFiles.length} pages: links, anchors, ids, nesting, recipe SEO, sitemap and the Pagefind index.`
+)

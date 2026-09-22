@@ -86,6 +86,8 @@ export async function readRecipes(recipesDir) {
         tags: Array.isArray(data.tags) ? data.tags : [],
         ingredientTips: data.ingredientTips,
         image: typeof data.image === 'string' ? data.image : undefined,
+        imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : undefined,
+        servings: typeof data.servings === 'string' ? data.servings : undefined,
         wip: data.wip === true,
         preparationPending: data.preparationPending === true,
         body

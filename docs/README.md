@@ -267,3 +267,24 @@ Each method must include all steps, including assembly, cooling and serving; do 
 readers to steps hidden in the other method. `preparationPending: true` continues to hide
 preparation instructions until they are ready. Use `wip: true` for a complete but untested
 recipe, such as the TM5/TM6 instructions in `cheesecake-im-glas.md`.
+
+### Search-engine indexing
+
+Set `preparationPending: true` while instructions are unfinished. The page stays reachable
+in the cookbook and its local search, but receives `noindex`, is omitted from the sitemap,
+and has no recipe structured data. Once the instructions are complete, remove the flag or
+set it to `false`; the next build restores search-engine eligibility automatically.
+`wip: true` only marks a recipe as untested and controls its visibility preference in the
+cookbook. Complete untested recipes remain eligible for search engines.
+
+Complete recipes with photos receive `Recipe` JSON-LD automatically from the same title,
+description, optimized photo, category, ingredients, servings (when supplied), and preparation
+shown on the page. Normal is the structured-data method when both methods exist; otherwise
+the available method is used. Component headings and paragraphs retain their structure.
+Recipes without photos remain indexable but omit recipe structured data. No extra frontmatter
+is needed, and authors, ratings, nutrition, dates and times are not inferred.
+
+`npm run build` checks the structured data against recipe content and verifies robots metadata,
+sitemap inclusion and local image assets. It also ensures Pagefind continues to index every
+recipe, including unfinished ones. Search-engine eligibility does not guarantee indexing or
+rich-result display.
