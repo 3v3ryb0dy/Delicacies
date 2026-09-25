@@ -5,7 +5,6 @@ image: images/brown-sugar-kuchen
 imageAlt: Rohrzuckerkuchen mit heller Creme und gerösteten Sumach-Erdbeeren auf einer Keramikplatte
 servings: 8 Portionen
 tags: [vegetarisch, ofen]
-wip: true
 note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 ---
 
@@ -37,8 +36,8 @@ note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 
 ### Rohrzuckercreme
 
-- 200 ml Crème double (alt. Schlagsahne)
-- 200 g Crème fraîche
+- 200 ml Schlagsahne
+- 125 g Crème fraîche
 - 1 TL Vanillepaste oder Vanilleextrakt
 - 50 g Muscovadozucker (dunkel)
 
@@ -69,9 +68,7 @@ note: Nach Yotam Ottolenghi und Verena Lochmuller, Simple Too.
 
 ### Rohrzuckercreme
 
-> Bei Verwendung von Schlagsahne diese gut gekühlt verwenden. Die Creme wird damit etwas leichter und weicher.
->
-> Crème double (alt. Schlagsahne), Crème fraîche, Vanille und Muscovadozucker zusammen aufschlagen, bis weiche Spitzen entstehen. Nicht unnötig weiterschlagen.
+> Schlagsahne (gut gekühlt), Crème fraîche, Vanille und Muscovadozucker zusammen aufschlagen, bis weiche Spitzen entstehen. Nicht unnötig weiterschlagen.
 >
 > Den vollständig ausgekühlten Kuchen aus der Form lösen und auf eine Kuchenplatte setzen.\
 > Kurz vor dem Servieren die Creme großzügig darauf verteilen. Die abgekühlten Sumach-Erdbeeren darauf oder dazu servieren. Nach Wunsch mit etwas Puderzucker bestäuben.
