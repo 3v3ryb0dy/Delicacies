@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-76 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+77 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -78,9 +78,10 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Mejadra](recipes/mejadra.md) _(Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Salate (2)
+### Salate (3)
 
 - [Blumenkohlsalat mit Granatapfel und Pistazien](recipes/blumenkohlsalat-mit-granatapfel.md) _(Ungetestet)_
+- [Bohnensalat](recipes/bohnensalat.md)
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 
 ### Saucen / Dips / Dressings (10)
