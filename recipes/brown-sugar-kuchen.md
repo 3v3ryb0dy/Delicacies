@@ -1,5 +1,7 @@
 ---
 title: Rohrzuckerkuchen mit Creme und Sumach-Erdbeeren
+isFavorite: true
+favoriteText: 'Erst speziell, dann der beste Kuchen! ♥'
 category: kuchen
 image: images/brown-sugar-kuchen
 imageAlt: Rohrzuckerkuchen mit heller Creme und gerösteten Sumach-Erdbeeren auf einer Keramikplatte
