@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { initRecipeExplorer } from '../scripts/recipe-explorer.ts'
+import { recipeSearchGroups } from './recipe-search.ts'
 
 /** Lets pending microtasks (the Pagefind loader) settle before asserting. */
 const flush = () => new Promise((resolve) => setImmediate(resolve))
@@ -17,7 +18,8 @@ function explorer({
   snapshot,
   hash = '',
   query = '',
-  navigationType = 'navigate'
+  navigationType = 'navigate',
+  recipeEntries
 } = {}) {
   const element = (dataset = {}) => ({
     dataset,
@@ -36,7 +38,12 @@ function explorer({
     scrollLeft: 0,
     scrollWidth: 300,
     clientWidth: 300,
-    focus() {},
+    focus() {
+      this.focused = true
+    },
+    matches() {
+      return false
+    },
     scrollBy({ left }) {
       this.scrollLeft += left
     },
@@ -62,19 +69,31 @@ function explorer({
     appendChild(child) {
       this.children.push(child)
     },
+    replaceChildren(...children) {
+      this.children = children
+    },
     getBoundingClientRect: () => ({ top: 0, height: 0, bottom: 3000, left: 0, right: 300 }),
     querySelectorAll: () => [],
     querySelector: () => null
   })
-  const entries = [
+  const entries = recipeEntries ?? [
     ['Bouletten', 'hauptgerichte', 'fleisch', false],
     ['Burger Buns', 'brot', 'vegetarisch', false],
     ['Cloud Burger Buns', 'brot', 'vegetarisch', true],
     ['Farfallesalat', 'salate', 'vegetarisch', true]
   ]
-  const cards = entries.map(([title, category, tags, wip]) => {
+  const cards = entries.map(([title, category, tags, wip, fields]) => {
     const item = element()
-    const card = element({ title, category, tags, wip: String(wip) })
+    const card = element({
+      title,
+      category,
+      categoryLabel: category,
+      tags,
+      wip: String(wip),
+      ...(fields
+        ? { searchFields: JSON.stringify({ title, ingredients: '', recipeText: tags, pairings: '', ...fields }) }
+        : {})
+    })
     card.dataset.recipeId = title.toLowerCase().replaceAll(' ', '-')
     card.id = 'rezept-' + card.dataset.recipeId
     card.matches = (selector) => selector.includes('[data-recipe]')
@@ -119,7 +138,8 @@ function explorer({
       '[data-reset-filters]',
       '[data-sticky-bar]',
       '[data-wip-control]',
-      '[data-category-nav]'
+      '[data-category-nav]',
+      '[data-navigation-label]'
     ].map((id) => [id, element()])
   )
   singles['#rezept-suche'] = ids['rezept-suche']
@@ -130,6 +150,7 @@ function explorer({
   const categoryLinks = ['hauptgerichte', 'brot', 'salate'].map((category) =>
     element({ categoryLink: category, categoryLabel: category })
   )
+  const searchLinks = recipeSearchGroups.map((group) => element({ searchLink: group.id }))
   const tagButton = element({ filterTag: 'fleisch' })
   const tagChip = element({ chipLabel: 'fleisch' })
   tagButton.querySelector = () => tagChip
@@ -137,6 +158,7 @@ function explorer({
     '[data-category-section]': sections,
     '[data-recipe]': cards,
     '[data-category-link]': categoryLinks,
+    '[data-search-link]': searchLinks,
     '[data-filter-tag]': [tagButton],
     '[data-reset-filters]': [singles['[data-reset-filters]']],
     '[data-empty-category]': [],
@@ -290,6 +312,17 @@ function explorer({
     storage,
     scrollCalls,
     categoryLinks,
+    searchLinks,
+    navigationLabel: singles['[data-navigation-label]'],
+    groups: () => ids['suche-liste'].children,
+    async fundstelle(id, detail = 1) {
+      const pending = searchLinks
+        .find((link) => link.dataset.searchLink === id)
+        .listeners.click({ button: 0, preventDefault() {}, detail })
+      flushFrames()
+      await pending
+      flushFrames()
+    },
     tagChip,
     tagButton,
     visible: () => cards.filter((card) => !card.item.hidden).map((card) => card.dataset.title),
@@ -365,21 +398,33 @@ test('scroll position controls the current category, including scrolling back an
   assert.deepEqual(current(), [])
 })
 
-test('category navigation preserves search and shows only categories with matches', async () => {
+test('search navigation preserves the query and shows only matching fields', async () => {
   const ui = explorer()
   ui.sections[1].top = 16
   ui.scroll()
   ui.input('Burger')
   await ui.enter()
   ui.flushFrames()
-  assert.equal(ui.categoryLinks[1].attributes['aria-current'], 'location')
-  ui.category('brot')
+  assert.equal(ui.searchLinks[0].attributes['aria-current'], 'location')
+  await ui.fundstelle('suche-titel', 0)
   assert.equal(ui.ids['rezept-suche'].value, 'Burger')
   assert.equal(ui.ids['rezept-liste'].hidden, true)
   assert.equal(ui.ids['suche-bereich'].hidden, false)
   assert.deepEqual(
+    ui.searchLinks.filter((link) => !link.hidden).map((link) => link.dataset.searchLink),
+    ['suche-titel']
+  )
+  assert.ok(ui.categoryLinks.every((link) => link.hidden))
+  assert.equal(ui.groups()[0].focused, true)
+  assert.equal(ui.navigationLabel.textContent, 'Zu Fundstelle')
+  assert.equal(ui.nav.attributes['aria-label'], 'Fundstellen der Suchergebnisse')
+  ui.input('B')
+  await ui.enter()
+  assert.equal(ui.navigationLabel.textContent, 'Zu Kategorie')
+  assert.ok(ui.searchLinks.every((link) => link.hidden))
+  assert.deepEqual(
     ui.categoryLinks.filter((link) => !link.hidden).map((link) => link.dataset.categoryLink),
-    ['brot']
+    ['hauptgerichte', 'brot']
   )
 })
 
@@ -584,7 +629,7 @@ test('restored search waits for results before restoring position', async () => 
   await flush()
   ui.flushFrames()
   assert.equal(ui.ids['rezept-suche'].value, 'Cloud')
-  assert.equal(ui.ids['rezept-liste'].hidden, true)
+  assert.equal(ui.ids['rezept-liste'].hidden, false)
   assert.equal(ui.scrollCalls.length, 0)
   resolveSearch({
     results: [
@@ -593,6 +638,7 @@ test('restored search waits for results before restoring position', async () => 
   })
   await ui.settled()
   assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
+  assert.equal(ui.ids['rezept-liste'].hidden, true)
   assert.deepEqual(ui.scrollCalls, [{ top: 2400, behavior: 'instant' }])
 })
 
@@ -667,8 +713,8 @@ test('fresh search survives reload without ever opening a recipe', async () => {
   assert.equal(reload.ids['rezept-suche'].value, 'Burger')
   assert.equal(reload.ids['rezept-status'].textContent, '1 Treffer')
   assert.deepEqual(
-    reload.categoryLinks.filter((link) => !link.hidden).map((link) => link.dataset.categoryLink),
-    ['brot']
+    reload.searchLinks.filter((link) => !link.hidden).map((link) => link.dataset.searchLink),
+    ['suche-titel']
   )
 })
 
@@ -728,7 +774,7 @@ test('Back cancels a pending scroll save before restoring the destination entry'
   assert.equal(writes.mock.callCount(), restoredWrites)
 })
 
-test('search editing creates one entry and category Back restores search and position', async () => {
+test('search editing creates one entry and field Back restores search and position', async () => {
   const ui = explorer()
   await ui.settled()
   ui.input('Bu')
@@ -736,8 +782,8 @@ test('search editing creates one entry and category Back restores search and pos
   await ui.enter()
   assert.equal(ui.history.length, 2)
   ui.nav.scrollLeft = 45
-  await ui.category('brot')
-  assert.equal(ui.win.location.hash, '#brot')
+  await ui.fundstelle('suche-titel')
+  assert.equal(ui.win.location.hash, '#suche-titel')
   assert.equal(ui.history.length, 3)
   ui.history.back()
   await ui.settled()
@@ -761,7 +807,7 @@ test('copied query URLs apply supported tags and reset clears both query and tag
   assert.equal(ui.ids['show-wip'].checked, true)
 })
 
-test('category navigation cancels the automatic scroll of an older search', async () => {
+test('field navigation cancels the automatic scroll of an older search', async () => {
   const pending = []
   const ui = explorer({
     pagefind: {
@@ -772,17 +818,273 @@ test('category navigation cancels the automatic scroll of an older search', asyn
   await ui.settled()
   ui.input('Burger')
   await ui.enter()
-  const jump = ui.category('brot')
+  const jump = ui.fundstelle('suche-titel')
   await flush()
   const result = {
-    results: [{ data: async () => ({ url: '/rezept/burger-buns/', meta: { title: 'Burger Buns' }, excerpt: '' }) }]
+    results: [
+      {
+        matchedMetaFields: ['title'],
+        data: async () => ({ url: '/rezept/burger-buns/', meta: { title: 'Burger Buns' }, excerpt: '' })
+      }
+    ]
   }
   pending[1](result)
   await jump
   const scrollCount = ui.scrollCalls.length
   pending[0](result)
   await flush()
-  assert.equal(ui.win.location.hash, '#brot')
+  assert.equal(ui.win.location.hash, '#suche-titel')
   assert.equal(ui.ids['rezept-suche'].value, 'Burger')
   assert.equal(ui.scrollCalls.length, scrollCount, 'the older search must not jump back to the results heading')
+})
+
+const mushroomEntries = [
+  ['Lachs', 'hauptgerichte', 'fleisch', false, { pairings: 'Pfifferlingscremesuppe' }],
+  ['Pilzpfanne', 'hauptgerichte', 'vegetarisch', false, { ingredients: 'Pfifferlinge' }],
+  ['Herbstgericht', 'hauptgerichte', 'vegetarisch', false, { recipeText: 'Mit Pfifferlingen servieren' }],
+  ['Rinderfilet mit Pfifferlingsrisotto', 'hauptgerichte', 'fleisch', false, { ingredients: 'Pfifferlinge' }],
+  ['Pfifferlingscremesuppe', 'hauptgerichte', 'vegetarisch', false, { ingredients: 'Pfifferlinge' }],
+  ['Pfifferlingssalat', 'salate', 'vegetarisch', true, { ingredients: 'Pfifferlinge' }]
+]
+const resultTitles = (section) =>
+  section.children[1].children.map((item) => /tracking-tight">([^<]+)/.exec(item.innerHTML)[1])
+
+test('fallback search groups by field, deduplicates and sorts alphabetically within groups', async () => {
+  const ui = explorer({ recipeEntries: mushroomEntries })
+  ui.input('Pfifferling')
+  await ui.enter()
+  assert.deepEqual(
+    ui.groups().map((group) => group.id),
+    ['suche-titel', 'suche-zutaten', 'suche-rezepttext', 'suche-passt-dazu']
+  )
+  assert.deepEqual(ui.groups().map(resultTitles), [
+    ['Pfifferlingscremesuppe', 'Rinderfilet mit Pfifferlingsrisotto'],
+    ['Pilzpfanne'],
+    ['Herbstgericht'],
+    ['Lachs']
+  ])
+  assert.equal(ui.ids['rezept-status'].textContent, '5 Treffer')
+  assert.equal(ui.groups()[0].children[0].children[1].textContent, '2 Treffer')
+  assert.match(ui.groups()[3].children[1].children[0].innerHTML, /hauptgerichte/)
+  await ui.toggle(true)
+  assert.equal(ui.ids['rezept-status'].textContent, '6 Treffer')
+  ui.tag()
+  await flush()
+  assert.deepEqual(ui.groups().map(resultTitles), [['Rinderfilet mit Pfifferlingsrisotto'], ['Lachs']])
+  ui.input('Lachs Pfifferling')
+  await ui.enter()
+  assert.deepEqual(
+    ui.groups().map((group) => group.id),
+    ['suche-titel']
+  )
+  assert.deepEqual(ui.groups().map(resultTitles), [['Lachs']])
+  ui.input('unbekannt')
+  await ui.enter()
+  assert.equal(ui.groups().length, 0)
+  assert.ok(ui.searchLinks.every((link) => link.hidden))
+  assert.ok(ui.categoryLinks.every((link) => link.hidden))
+  assert.equal(ui.ids['suche-leer'].hidden, false)
+})
+
+test('Pagefind metadata determines groups while preserving relevance within each group', async () => {
+  const rows = [
+    ['Lachs', ['pairings']],
+    ['Rinderfilet mit Pfifferlingsrisotto', ['ingredients', 'title']],
+    ['Herbstgericht', ['recipeText']],
+    ['Pilzpfanne', ['ingredients']],
+    ['Pfifferlingscremesuppe', ['title', 'ingredients']]
+  ]
+  const ui = explorer({
+    recipeEntries: mushroomEntries,
+    pagefind: {
+      init: async () => {},
+      search: async () => ({
+        results: rows.map(([title, matchedMetaFields]) => ({
+          matchedMetaFields,
+          data: async () => ({
+            url: '/rezept/' + title.toLowerCase().replaceAll(' ', '-') + '/',
+            meta: { title, category: 'hauptgerichte' },
+            excerpt: 'Mit <mark>Pfifferlingen</mark>'
+          })
+        }))
+      })
+    }
+  })
+  await ui.search('Pfifferling')
+  assert.deepEqual(ui.groups().map(resultTitles), [
+    ['Rinderfilet mit Pfifferlingsrisotto', 'Pfifferlingscremesuppe'],
+    ['Pilzpfanne'],
+    ['Herbstgericht'],
+    ['Lachs']
+  ])
+  assert.equal(ui.ids['rezept-status'].textContent, '5 Treffer')
+  assert.match(ui.groups()[2].children[1].children[0].innerHTML, /<mark>Pfifferlingen<\/mark>/)
+  ui.groups().forEach((group, i) => {
+    group.getBoundingClientRect = () => ({ top: 16 + i * 400, bottom: 416 + i * 400 })
+  })
+  ui.scroll()
+  assert.equal(ui.searchLinks[0].attributes['aria-current'], 'location')
+  ui.groups()[0].getBoundingClientRect = () => ({ top: -400, bottom: 0 })
+  ui.groups()[1].getBoundingClientRect = () => ({ top: 16, bottom: 416 })
+  ui.scroll()
+  assert.equal(ui.searchLinks[1].attributes['aria-current'], 'location')
+})
+
+test('Pagefind failure still finds pairing-only recipes in the fallback', async () => {
+  const ui = explorer({
+    recipeEntries: mushroomEntries,
+    pagefind: {
+      init: async () => {},
+      search: async () => {
+        throw Error('offline')
+      }
+    }
+  })
+  await ui.search('Pfifferling')
+  assert.deepEqual(resultTitles(ui.groups().at(-1)), ['Lachs'])
+  assert.equal(ui.groups().at(-1).id, 'suche-passt-dazu')
+})
+
+test('copied search group anchors and legacy category anchors resolve after search', async () => {
+  for (const hash of ['#suche-titel', '#brot', '#suche-brot', '#suche-passt-dazu']) {
+    const ui = explorer({ query: '?q=Burger', hash })
+    await ui.settled()
+    assert.deepEqual(ui.scrollCalls, [{ top: 784, behavior: 'instant' }], hash)
+    assert.equal(ui.ids['rezept-suche'].value, 'Burger')
+    assert.deepEqual(
+      ui.groups().map((group) => group.id),
+      ['suche-titel']
+    )
+  }
+})
+
+test('late result data cannot replace a newer grouped search', async () => {
+  let finishOldData
+  const ui = explorer({
+    pagefind: {
+      init: async () => {},
+      search: async (query) => ({
+        results: [
+          {
+            matchedMetaFields: query === 'old' ? ['pairings'] : ['ingredients'],
+            data: () =>
+              query === 'old'
+                ? new Promise((resolve) => {
+                    finishOldData = resolve
+                  })
+                : Promise.resolve({ url: '/rezept/burger-buns/', meta: { title: 'Burger Buns' }, excerpt: '' })
+          }
+        ]
+      })
+    }
+  })
+  const old = ui.search('old')
+  await flush()
+  await ui.search('new')
+  finishOldData({ url: '/rezept/bouletten/', meta: { title: 'Bouletten' }, excerpt: '' })
+  await old
+  assert.deepEqual(
+    ui.groups().map((group) => group.id),
+    ['suche-zutaten']
+  )
+  assert.deepEqual(ui.groups().map(resultTitles), [['Burger Buns']])
+})
+
+test('typing and deleting update results without scrolling; Enter still scrolls explicitly', async (t) => {
+  const ui = explorer()
+  await ui.settled()
+  t.mock.timers.enable({ apis: ['setTimeout'] })
+  for (const query of ['B', 'Bu', 'Bur', 'Burger', 'Burgers', 'Burger', 'B', '']) {
+    ui.input(query)
+    t.mock.timers.tick(180)
+    await flush()
+    assert.equal(ui.scrollCalls.length, 0, `Typing ${JSON.stringify(query)} must not scroll`)
+  }
+  assert.equal(ui.ids['rezept-liste'].hidden, false)
+  ui.input('Burger')
+  t.mock.timers.tick(180)
+  await flush()
+  assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
+  assert.equal(ui.scrollCalls.length, 0)
+  await ui.enter()
+  assert.equal(ui.scrollCalls.length, 1)
+})
+
+test('asynchronous search retains the list and navigation until a complete replacement is ready', async (t) => {
+  const pending = []
+  const ui = explorer({
+    pagefind: {
+      init: async () => {},
+      search: () => new Promise((resolve) => pending.push(resolve))
+    }
+  })
+  await ui.settled()
+  t.mock.timers.enable({ apis: ['setTimeout'] })
+  ui.input('Bu')
+  t.mock.timers.tick(180)
+  await flush()
+  assert.equal(ui.ids['rezept-liste'].hidden, false, 'Keep the overview while the first query is loading')
+  assert.equal(ui.navigationLabel.textContent, 'Zu Kategorie')
+  pending.shift()({
+    results: [
+      {
+        id: 'buns',
+        matchedMetaFields: ['title'],
+        data: async () => ({
+          url: '/rezept/burger-buns/',
+          meta: { title: 'Burger Buns' },
+          excerpt: ''
+        })
+      }
+    ]
+  })
+  await flush()
+  assert.equal(ui.scrollCalls.length, 0)
+  const firstGroup = ui.groups()[0]
+  const replacements = t.mock.method(ui.ids['suche-liste'], 'replaceChildren')
+  ui.input('Bur')
+  t.mock.timers.tick(180)
+  await flush()
+  assert.equal(ui.ids['suche-bereich'].attributes['aria-busy'], 'true')
+  assert.equal(ui.groups()[0], firstGroup)
+  assert.equal(ui.searchLinks[0].hidden, false)
+  assert.equal(ui.ids['rezept-status'].textContent, '1 Treffer')
+  let finishData
+  pending.shift()({
+    results: [
+      {
+        id: 'buns',
+        matchedMetaFields: ['ingredients'],
+        data: () =>
+          new Promise((resolve) => {
+            finishData = resolve
+          })
+      }
+    ]
+  })
+  await flush()
+  assert.equal(ui.groups()[0], firstGroup, 'Keep the old list while result fragments load too')
+  assert.equal(replacements.mock.callCount(), 0)
+  finishData({ url: '/rezept/burger-buns/', meta: { title: 'Burger Buns' }, excerpt: '' })
+  await flush()
+  assert.equal(replacements.mock.callCount(), 1)
+  assert.deepEqual(
+    ui.groups().map((group) => group.id),
+    ['suche-zutaten']
+  )
+  assert.equal(ui.ids['suche-bereich'].attributes['aria-busy'], undefined)
+  assert.equal(ui.scrollCalls.length, 0)
+
+  ui.input('Burg')
+  t.mock.timers.tick(180)
+  await flush()
+  ui.input('')
+  t.mock.timers.tick(180)
+  await flush()
+  assert.equal(ui.ids['rezept-liste'].hidden, false)
+  assert.equal(ui.ids['suche-bereich'].attributes['aria-busy'], undefined)
+  pending.shift()({ results: [] })
+  await flush()
+  assert.equal(ui.ids['rezept-liste'].hidden, false, 'Cancelled search cannot replace the restored overview')
+  assert.equal(ui.scrollCalls.length, 0)
 })

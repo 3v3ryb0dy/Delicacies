@@ -4,6 +4,7 @@ import { categories, tagVocabulary } from '../config/taxonomy'
 import { withBase } from '../lib/url'
 import TagChip from './TagChip.astro'
 import CategoryIcon from './CategoryIcon.astro'
+import { recipeSearchGroups } from '../lib/recipe-search'
 
 type Props = {
   total: number
@@ -68,8 +69,12 @@ const chipClass =
       </div>
 
       <div class='flex min-w-0 flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3'>
-        <span class='shrink-0 text-[0.65rem] font-semibold tracking-widest text-ink-soft uppercase'>Zu Kategorie</span>
-        <div class='flex min-w-0 flex-1 items-center gap-1'>
+        <span
+          data-navigation-label
+          class='shrink-0 text-[0.65rem] font-semibold tracking-widest text-ink-soft uppercase'>
+          Zu Kategorie
+        </span>
+        <div class='flex min-h-8 min-w-0 flex-1 items-center gap-1'>
           <button
             type='button'
             data-category-previous
@@ -87,6 +92,11 @@ const chipClass =
                 class={chipClass}>
                 <CategoryIcon category={category.id} />
                 {category.short}
+              </a>
+            ))}
+            {recipeSearchGroups.map((group) => (
+              <a href='#suche-bereich' data-search-link={group.id} hidden class={chipClass}>
+                {group.label}
               </a>
             ))}
           </nav>
@@ -171,7 +181,7 @@ const chipClass =
 
   #rezepte [data-recipe],
   #rezepte [data-category-section],
-  #rezepte [data-search-category],
+  #rezepte [data-search-group],
   #rezepte [data-empty-category],
   #rezepte #noch-leer {
     scroll-margin-top: var(--recipe-anchor-margin, 7rem);

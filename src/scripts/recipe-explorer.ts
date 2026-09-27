@@ -14,6 +14,14 @@
 // resolves extensions, unlike Vite).
 import { showWipPreferenceKey, untestedHiddenAttribute } from '../config/preferences.ts'
 import {
+  matchRecipeSearch,
+  recipeSearchGroup,
+  recipeSearchGroups,
+  searchAllRecipeTerms,
+  type RecipeSearchFields,
+  type RecipeSearchGroup
+} from '../lib/recipe-search.ts'
+import {
   afterPageLayout,
   initRecipeNavigation,
   currentOverviewSnapshot,
@@ -32,7 +40,7 @@ export type PagefindAdapter = {
   search: (
     query: string,
     options?: { filters?: Record<string, string[]> }
-  ) => Promise<{ results: { data: () => Promise<PagefindResultData> }[] }>
+  ) => Promise<{ results: { id: string; matchedMetaFields?: string[]; data: () => Promise<PagefindResultData> }[] }>
 }
 
 export type RecipeExplorerOptions = {
@@ -53,9 +61,8 @@ type FallbackCard = {
   title: string
   category: string
   url: string
-  detail: string
   card: HTMLElement
-  haystack: string
+  fields: RecipeSearchFields
 }
 
 async function defaultLoadPagefind(url: string): Promise<PagefindAdapter | null> {
@@ -105,6 +112,10 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   const sections = Array.from(doc.querySelectorAll<HTMLElement>('[data-category-section]'))
   const cards = Array.from(doc.querySelectorAll<HTMLElement>('[data-recipe]'))
   const categoryLinks = Array.from(doc.querySelectorAll<HTMLAnchorElement>('[data-category-link]'))
+  const searchLinks = Array.from(doc.querySelectorAll<HTMLAnchorElement>('[data-search-link]'))
+  const navigationLinks = [...categoryLinks, ...searchLinks]
+  const navigationId = (link: HTMLAnchorElement) => link.dataset.searchLink ?? link.dataset.categoryLink ?? ''
+  const navigationLabel = required(doc.querySelector<HTMLElement>('[data-navigation-label]'), '[data-navigation-label]')
   const categoryNav = required(doc.querySelector<HTMLElement>('[data-category-nav]'), '[data-category-nav]')
   const tagButtons = Array.from(doc.querySelectorAll<HTMLButtonElement>('[data-filter-tag]'))
 
@@ -200,7 +211,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       const targets = searchArea.hidden ? categoryTargets : Array.from(searchGroups.values(), (group) => group.section)
       for (const section of targets) {
         if (!section.getClientRects().length) continue
-        const id = section.dataset.searchCategory ?? section.id
+        const id = section.id
         const top = section.getBoundingClientRect().top
         if (top > offset + 1) continue
         // Empty categories can share a row; retain the linked destination there.
@@ -212,8 +223,8 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     }
     const changed = current !== currentCategory
     currentCategory = current
-    categoryLinks.forEach((link) => {
-      const isActive = link.dataset.categoryLink === current
+    navigationLinks.forEach((link) => {
+      const isActive = !link.hidden && navigationId(link) === current
       link.className = chipBase + ' ' + (isActive ? chipActive : chipIdle)
       if (isActive) link.setAttribute('aria-current', 'location')
       else link.removeAttribute('aria-current')
@@ -285,10 +296,15 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     return true
   }
 
-  const syncCategories = (available: Set<string>) => {
-    categoryLinks.forEach((link) => {
-      link.hidden = !available.has(link.dataset.categoryLink ?? '')
+  const syncNavigation = (available: Set<string>) => {
+    const searching = !searchArea.hidden
+    navigationLinks.forEach((link) => {
+      link.hidden = Boolean(link.dataset.searchLink) !== searching || !available.has(navigationId(link))
     })
+    navigationLabel.textContent = searching ? 'Zu Fundstelle' : 'Zu Kategorie'
+    categoryNav.setAttribute('aria-label', searching ? 'Fundstellen der Suchergebnisse' : 'Rezeptkategorien')
+    categoryPrevious?.setAttribute('aria-label', searching ? 'Vorherige Fundstellen' : 'Vorherige Kategorien')
+    categoryNext?.setAttribute('aria-label', searching ? 'Weitere Fundstellen' : 'Weitere Kategorien')
     scheduleCategoryUpdate()
     updateCategoryOverflow()
   }
@@ -322,7 +338,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     if (emptyBlock) emptyBlock.hidden = activeTags.size > 0
     if (noResults) noResults.hidden = visible > 0
 
-    syncCategories(new Set(cards.filter(matches).map((card) => card.dataset.category ?? '')))
+    syncNavigation(new Set(cards.filter(matches).map((card) => card.dataset.category ?? '')))
 
     if (visible === total) status.textContent = total === 1 ? '1 Rezept' : total + ' Rezepte'
     else status.textContent = visible + ' von ' + total + ' Rezepten'
@@ -341,13 +357,17 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     title: card.dataset.title ?? 'Rezept',
     category: card.dataset.categoryLabel ?? '',
     url: card.querySelector('a')?.getAttribute('href') ?? '#',
-    detail: card.dataset.search ?? '',
     card,
-    haystack: fold(
-      [card.dataset.title, card.dataset.categoryLabel, card.dataset.category, card.dataset.tags, card.dataset.search]
-        .filter(Boolean)
-        .join(' · ')
-    )
+    fields: card.dataset.searchFields
+      ? (JSON.parse(card.dataset.searchFields) as RecipeSearchFields)
+      : {
+          title: card.dataset.title ?? '',
+          ingredients: '',
+          recipeText: [card.dataset.categoryLabel, card.dataset.category, card.dataset.tags]
+            .filter(Boolean)
+            .join(' · '),
+          pairings: ''
+        }
   }))
 
   const excerpt = (text: string, token: string) => {
@@ -369,10 +389,22 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   const showSections = () => {
     cardList.hidden = false
     searchArea.hidden = true
+    searchArea.removeAttribute('aria-busy')
     applyFilters()
   }
 
-  const appendResult = (url: string, title: string, meta: string, excerptHtml: string) => {
+  const appendResult = (
+    url: string,
+    title: string,
+    meta: string,
+    excerptHtml: string,
+    matchGroup: RecipeSearchGroup
+  ) => {
+    const path = new URL(url, win.location.href).pathname
+    const recipe = cards.find(
+      (card) => path === new URL(card.querySelector('a')?.getAttribute('href') ?? '', win.location.href).pathname
+    )
+    meta ||= recipe?.dataset.categoryLabel ?? ''
     const categoryIcon =
       categoryLinks.find((button) => button.dataset.categoryLabel === meta)?.querySelector('svg')?.outerHTML ?? ''
     const item = doc.createElement('li')
@@ -391,23 +423,14 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
         : '') +
       (excerptHtml ? '<span class="text-ink-soft text-sm leading-relaxed">' + excerptHtml + '</span>' : '') +
       '</a>'
-    const path = new URL(url, win.location.href).pathname
-    const recipe = cards.find(
-      (card) => path === new URL(card.querySelector('a')?.getAttribute('href') ?? '', win.location.href).pathname
-    )
-    const category =
-      recipe?.dataset.category ??
-      categoryLinks.find((link) => link.dataset.categoryLabel === meta)?.dataset.categoryLink
-    if (!category) return
-    let group = searchGroups.get(category)
+    let group = searchGroups.get(matchGroup.id)
     if (!group) {
       const section = doc.createElement('section')
-      section.dataset.searchCategory = category
-      section.id = 'suche-' + category
+      section.dataset.searchGroup = matchGroup.field
+      section.id = matchGroup.id
       const heading = doc.createElement('h3')
       heading.className = 'font-display text-2xl font-semibold'
-      heading.textContent =
-        categoryLinks.find((link) => link.dataset.categoryLink === category)?.dataset.categoryLabel ?? category
+      heading.textContent = matchGroup.label
       const count = doc.createElement('span')
       count.className = 'text-xs text-ink-soft tabular-nums'
       const header = doc.createElement('div')
@@ -419,31 +442,44 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       section.appendChild(header)
       section.appendChild(list)
       group = { section, list, count, total: 0 }
-      searchGroups.set(category, group)
+      searchGroups.set(matchGroup.id, group)
     }
     group.list.appendChild(item)
     group.total++
     group.count.textContent = group.total === 1 ? '1 Treffer' : group.total + ' Treffer'
   }
 
+  const beginSearchRender = () => {
+    // Build the next groups offscreen. Keep the current list and navigation in
+    // place until all asynchronous work has finished, so the page cannot shrink
+    // to an empty list and clamp the browser's scroll position between queries.
+    searchGroups.clear()
+    searchEmpty.hidden = true
+  }
+
   const finishSearch = () => {
-    // Cookbook order between categories, search relevance within each category.
-    categoryLinks.forEach((link) => {
-      const group = searchGroups.get(link.dataset.categoryLink ?? '')
-      if (group) searchList.appendChild(group.section)
+    // Fixed field priority between groups; engine relevance within each group.
+    const sections = recipeSearchGroups.flatMap(({ id }) => {
+      const group = searchGroups.get(id)
+      return group ? [group.section] : []
     })
-    syncCategories(new Set(searchGroups.keys()))
+    searchList.replaceChildren(...sections)
+    cardList.hidden = true
+    searchArea.hidden = false
+    searchArea.removeAttribute('aria-busy')
+    syncNavigation(new Set(searchGroups.keys()))
   }
 
   const runLocalSearch = (query: string) => {
+    beginSearchRender()
     const tokens = fold(query).split(/\s+/).filter(Boolean)
     const hits = fallbackCards
-      .filter((entry) => matches(entry.card) && tokens.every((token) => entry.haystack.indexOf(token) !== -1))
-      .sort((a, b) => {
-        const aTitle = fold(a.title).indexOf(tokens[0]) !== -1 ? 0 : 1
-        const bTitle = fold(b.title).indexOf(tokens[0]) !== -1 ? 0 : 1
-        return aTitle - bTitle || a.title.localeCompare(b.title, 'de')
+      .filter((entry) => matches(entry.card))
+      .flatMap((entry) => {
+        const group = matchRecipeSearch(entry.fields, query)
+        return group ? [{ ...entry, group }] : []
       })
+      .sort((a, b) => a.title.localeCompare(b.title, 'de'))
 
     if (hits.length === 0) {
       searchEmpty.hidden = false
@@ -452,7 +488,12 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     }
 
     hits.forEach((entry) => {
-      appendResult(entry.url, entry.title, entry.category, escapeHtml(excerpt(entry.detail, tokens[0])))
+      const detail =
+        entry.group.field === 'title'
+          ? entry.fields.ingredients || entry.fields.recipeText
+          : entry.fields[entry.group.field]
+      const term = tokens.find((token) => fold(detail).includes(token)) ?? tokens[0]
+      appendResult(entry.url, entry.title, entry.category, escapeHtml(excerpt(detail, term)), entry.group)
     })
 
     status.textContent = hits.length === 1 ? '1 Treffer' : hits.length + ' Treffer'
@@ -460,12 +501,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
 
   const runSearch = async (query: string, { scroll = true }: { scroll?: boolean } = {}) => {
     const token = ++searchToken
-    cardList.hidden = true
-    searchArea.hidden = false
-    searchEmpty.hidden = true
-    searchList.innerHTML = ''
-    searchGroups.clear()
-    scheduleCategoryUpdate()
+    searchArea.setAttribute('aria-busy', 'true')
 
     if (!pagefind && !pagefindFailed) {
       pagefind = pagefindUrl ? await loadPagefind(pagefindUrl) : null
@@ -481,11 +517,16 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     }
 
     const filters = activeFilters()
-    let results: PagefindResultData[]
+    let results: (PagefindResultData & { group: RecipeSearchGroup })[]
     try {
-      const search = await pagefind.search(query, Object.keys(filters).length ? { filters } : undefined)
+      const matches = await searchAllRecipeTerms(pagefind, query, Object.keys(filters).length ? { filters } : undefined)
       if (token !== searchToken) return
-      results = await Promise.all(search.results.map((result) => result.data()))
+      results = await Promise.all(
+        matches.map(async (result) => ({
+          ...(await result.data()),
+          group: recipeSearchGroup(result.matchedMetaFields)
+        }))
+      )
     } catch {
       if (token !== searchToken) return
       pagefindFailed = true
@@ -497,6 +538,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     }
     if (token !== searchToken) return
 
+    beginSearchRender()
     if (results.length === 0) {
       searchEmpty.hidden = false
       status.textContent = 'Keine Treffer'
@@ -509,7 +551,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       const url = resolveResultUrl(result.url)
       const meta = result.meta?.category ?? ''
       // Pagefind highlights matches, so its excerpt markup is inserted as is.
-      appendResult(url, result.meta?.title ?? 'Rezept', meta, result.excerpt)
+      appendResult(url, result.meta?.title ?? 'Rezept', meta, result.excerpt, result.group)
     })
 
     finishSearch()
@@ -547,9 +589,9 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
   const savedView = initRecipeNavigation({ overviewUrl, readOverview: (recipe) => readView(recipe) })
 
   const syncLinks = () => {
-    categoryLinks.forEach((link) => {
+    navigationLinks.forEach((link) => {
       const url = new URL(win.location.href)
-      url.hash = link.dataset.categoryLink ?? ''
+      url.hash = navigationId(link)
       link.href = url.href
     })
   }
@@ -619,7 +661,9 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     paintActiveFilters()
     debounce = setTimeout(() => {
       debounce = undefined
-      void updateFilteredResults()
+      // Typing updates the results in place. Only an explicit action such as
+      // Enter, a filter click or a group link requests a scroll to the results.
+      void updateFilteredResults({ scroll: false })
     }, 180)
   }
   input.addEventListener('input', onQueryChange)
@@ -642,6 +686,12 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
       return null
     }
     if (!searchArea.hidden && searchGroups.has(id)) return searchGroups.get(id)!.section
+    if (
+      !searchArea.hidden &&
+      (categoryLinks.some((link) => link.dataset.categoryLink === id || 'suche-' + link.dataset.categoryLink === id) ||
+        recipeSearchGroups.some((group) => group.id === id))
+    )
+      return searchArea
     return doc.getElementById(id)
   }
   const scrollToHash = (focus = false) => {
@@ -658,7 +708,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
     }
     scheduleCategoryUpdate()
   }
-  categoryLinks.forEach((link) => {
+  navigationLinks.forEach((link) => {
     link.addEventListener('click', async (event) => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
       event.preventDefault()
@@ -674,7 +724,7 @@ export function initRecipeExplorer(options: RecipeExplorerOptions = {}): RecipeE
         if (token !== restorationToken) return
         restoring = false
       }
-      writeUrl('push', link.dataset.categoryLink)
+      writeUrl('push', navigationId(link))
       scrollToHash(event.detail === 0)
       saveView()
     })
