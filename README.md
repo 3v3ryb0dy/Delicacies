@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-76 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+79 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -23,7 +23,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (19)
+### Hauptgerichte (20)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -34,6 +34,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Hähnchen mit karamellisierten Zwiebeln, Kardamom und Reis](recipes/haehnchen-mit-kardamomreis.md) _(Ungetestet)_
 - [Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat](recipes/halloumi-auf-ofengemuese.md)
 - [Jakobsmuscheln mit brauner Kapernbutter auf Spargelrisotto](recipes/jakobsmuscheln-mit-spargelrisotto.md) _(Ungetestet)_
+- [Käsefondue Moitié-Moitié](recipes/kaesefondue-moitie-moitie.md)
 - [Kurz gebeizter Lachs aus der Pfanne](recipes/kurz-gebeizter-lachs.md)
 - [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
@@ -45,9 +46,10 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(Ungetestet)_
 - [Zitronenhähnchen mit schneller Salzzitronenpaste](recipes/zitronenhaehnchen.md) _(Ungetestet)_
 
-### Desserts (3)
+### Desserts (4)
 
 - [Cheesecake im Glas](recipes/cheesecake-im-glas.md) _(Ungetestet)_
+- [Himbeertraum](recipes/himbeertraum.md) _(Ungetestet)_
 - [Pavlova-Roulade mit Pfirsichen und Brombeeren](recipes/pavlova-roulade.md) _(Ungetestet)_
 - [Zimt-Pavlova mit Pralinécreme und frischen Feigen](recipes/zimt-pavlova.md) _(Ungetestet)_
 
@@ -65,7 +67,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 - [Apfelrotkohl](recipes/rotkohl.md)
 - [Brokkoli (gebraten)](recipes/brokkoli.md)
-- [Butternut-Kürbis mit Chili-Joghurt und Koriandersauce](recipes/butternut-kuerbis-mit-chili-joghurt.md) _(Ungetestet)_
+- [Butternut-Kürbis mit Chili-Joghurt und Koriandersauce](recipes/butternut-kuerbis-mit-chili-joghurt.md)
 - [Karotten](recipes/karotten.md)
 - [Rosenkohl (gebacken)](recipes/rosenkohl.md)
 - [Spitzkohl mit Senfrahm und Butterbröseln](recipes/spitzkohl-mit-senfrahm.md) _(Ungetestet)_
@@ -83,7 +85,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Bohnensalat](recipes/bohnensalat.md)
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 
-### Saucen / Dips / Dressings (10)
+### Saucen / Dips / Dressings (11)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico-Honig-Dressing](recipes/balsamico-honig-dressing.md)
@@ -94,6 +96,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)
 - [Remoulade](recipes/remoulade.md)
+- [Schnelle Bratensauce](recipes/schnelle-bratensauce.md) _(Ungetestet)_
 - [Senfbutter](recipes/senfbutter.md) _(Ungetestet)_
 
 ### Brot / Brötchen (5)
@@ -118,7 +121,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Ovomaltine-Brownies](recipes/ovomaltine-brownies.md) _(Ungetestet)_
 - [Pistazien-Rosen-Grießkuchen](recipes/pistazien-rosen-griesskuchen.md) _(Ungetestet)_
 - [Rohrzuckerkuchen mit Creme und Sumach-Erdbeeren](recipes/brown-sugar-kuchen.md)
-- [Schokoladenkuchen (Take-Home Chocolate Cake)](recipes/schokoladenkuchen.md) _(Ungetestet)_
+- [Schokoladenkuchen mit Icing](recipes/schokoladenkuchen.md) _(Ungetestet)_
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
 - [Zitronen-Mohn-Kuchen](recipes/zitronen-mohn-kuchen.md) _(Ungetestet)_
 

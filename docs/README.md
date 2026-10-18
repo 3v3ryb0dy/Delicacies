@@ -32,7 +32,7 @@ When asked to add a recipe, complete the whole workflow:
   a remote branch runs nothing.
 
 Use `git commit --no-verify` or `git push --no-verify` only when a check is knowingly wrong; CI still runs the full
-gate on the pull request and on `master`.
+gate on the pull request and on `main`.
 
 ```md
 ---

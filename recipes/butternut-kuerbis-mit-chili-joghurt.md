@@ -6,7 +6,6 @@ image: images/butternut-kuerbis-mit-chili-joghurt
 imageAlt: Geröstete Butternut-Kürbisspalten mit Chili-Joghurt, Koriandersauce und Kürbiskernen
 servings: 4 Portionen
 tags: [vegetarisch, ofen]
-wip: true
 note: Nach Yotam Ottolenghi, Plenty More.
 ---
 
