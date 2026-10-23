@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-79 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+80 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -61,7 +61,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md)
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
 
-### Beilagen (10)
+### Beilagen (9)
 
 #### Gemüse
 
@@ -77,13 +77,13 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Kartoffelgratin](recipes/kartoffelgratin.md) _(Ungetestet)_
 - [Kretische Kartoffeln](recipes/kretische-kartoffeln.md) _(Ungetestet)_
 - [Mejadra](recipes/mejadra.md) _(Ungetestet)_
-- [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Salate (3)
+### Salate (4)
 
 - [Blumenkohlsalat mit Granatapfel und Pistazien](recipes/blumenkohlsalat-mit-granatapfel.md) _(Ungetestet)_
 - [Bohnensalat](recipes/bohnensalat.md)
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
+- [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
 ### Saucen / Dips / Dressings (11)
 
@@ -121,7 +121,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Ovomaltine-Brownies](recipes/ovomaltine-brownies.md) _(Ungetestet)_
 - [Pistazien-Rosen-Grießkuchen](recipes/pistazien-rosen-griesskuchen.md) _(Ungetestet)_
 - [Rohrzuckerkuchen mit Creme und Sumach-Erdbeeren](recipes/brown-sugar-kuchen.md)
-- [Schokoladenkuchen mit Icing](recipes/schokoladenkuchen.md) _(Ungetestet)_
+- [Schokoladenkuchen](recipes/schokoladenkuchen.md) _(Ungetestet)_
 - [Selterswasserkuchen](recipes/selterswasserkuchen.md)
 - [Zitronen-Mohn-Kuchen](recipes/zitronen-mohn-kuchen.md) _(Ungetestet)_
 
@@ -133,9 +133,10 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 - [Mango-Lassi](recipes/mango-lassi.md)
 
-### Sonstiges (1)
+### Sonstiges (2)
 
-- [Tempura-Teig (knusprig)](recipes/tempura-teig.md)
+- [Bierteig](recipes/bierteig.md) _(Ungetestet)_
+- [Tempura-Teig](recipes/tempura-teig.md)
 
 ## Rezept hinzufügen
 

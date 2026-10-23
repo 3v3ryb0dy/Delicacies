@@ -1,7 +1,6 @@
 ---
 title: Warmer Kartoffelsalat
-category: beilagen
-subcategory: saettigungsbeilagen
+category: salate
 image: images/warmer-kartoffelsalat.webp
 imageAlt: Warmer Kartoffelsalat mit Brühe, Zwiebeln und Essig-Öl-Dressing
 tags: [familienrezept]

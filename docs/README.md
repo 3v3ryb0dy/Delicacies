@@ -140,6 +140,14 @@ only the plain award label remains.
 
 Write in German, like a short personal cooking note.
 
+Balance effort and benefit when researching or adapting recipes. Prefer common ingredients and simple methods.
+Specialty ingredients, extra equipment and additional steps should offer a clear, worthwhile improvement.
+Preserve supplied recipes unless a change is requested.
+
+For researched recipes, prefer well-reviewed reader favorites that also fit this balance. Consider both the rating
+and the number of ratings. A recipe's title or publisher alone is not evidence of popularity. Preserve the source's
+ingredient ratios and method when converting units, and clearly attribute any substantive adaptations.
+
 Names, categories and tags:
 
 - Use consistent German spelling for compound names, e.g. `Bohnen-Hummus` and `Maracuja-Limetten-Dressing`. Keep existing slugs stable when correcting a display title.

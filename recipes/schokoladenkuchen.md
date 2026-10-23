@@ -1,5 +1,5 @@
 ---
-title: Schokoladenkuchen mit Icing
+title: Schokoladenkuchen
 category: kuchen
 image: images/schokoladenkuchen
 imageAlt: Schokoladenkuchen mit Schokoladenicing und lockerer dunkler Krume auf einer Keramikplatte
