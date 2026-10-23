@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-80 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+85 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -23,13 +23,15 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
 - [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
 
-### Hauptgerichte (20)
+### Hauptgerichte (22)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
 - [Dal Makhani](recipes/dal-makhani.md) _(Ungetestet)_
 - [Dicker Eierkuchen](recipes/dicker-eierkuchen.md)
+- [Dorade mit Zitronenthymian](recipes/dorade-mit-zitronenthymian.md) _(Ungetestet)_
 - [Flammkuchen](recipes/flammkuchen.md)
+- [Hähnchen in Estragonsauce](recipes/haehnchen-in-estragonsauce.md) _(Ungetestet)_
 - [Hähnchen in Metaxasauce](recipes/haehnchen-in-metaxasauce.md)
 - [Hähnchen mit karamellisierten Zwiebeln, Kardamom und Reis](recipes/haehnchen-mit-kardamomreis.md) _(Ungetestet)_
 - [Halloumi auf lauwarmem Süßkartoffel-Avocado-Salat](recipes/halloumi-auf-ofengemuese.md)
@@ -85,12 +87,14 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Saucen / Dips / Dressings (11)
+### Saucen / Dips / Dressings (13)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico-Honig-Dressing](recipes/balsamico-honig-dressing.md)
 - [Big-Mac-Sauce](recipes/big-mac-sauce.md)
 - [Bohnen-Hummus mit Süßkartoffel](recipes/bohnen-hummus.md)
+- [Chimichurri](recipes/chimichurri.md) _(Ungetestet)_
+- [Frankfurter Grüne Soße](recipes/frankfurter-gruene-sosse.md) _(Ungetestet)_
 - [Hummus](recipes/hummus.md) _(Ungetestet)_
 - [Maracuja-Limetten-Dressing](recipes/maracuja-limetten-dressing.md)
 - [Marinade (Grillfleisch)](recipes/marinade.md)
@@ -99,12 +103,13 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Schnelle Bratensauce](recipes/schnelle-bratensauce.md) _(Ungetestet)_
 - [Senfbutter](recipes/senfbutter.md) _(Ungetestet)_
 
-### Brot / Brötchen (5)
+### Brot / Brötchen (6)
 
 - [Bhatura (indisches Ballonbrot)](recipes/bhatura.md)
 - [Burger Buns](recipes/burger-buns.md)
 - [Cloud Burger Buns](recipes/cloud-burger-buns.md) _(Ungetestet)_
 - [Kürbisbrot](recipes/kuerbisbrot.md)
+- [Rosmarin-Focaccia](recipes/rosmarin-focaccia.md) _(Ungetestet)_
 - [Simit](recipes/simit.md)
 
 ### Gebäck (3)
