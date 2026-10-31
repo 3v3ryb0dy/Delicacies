@@ -24,4 +24,4 @@ note: Nach der schnellen Variante mit fertiger Mayonnaise von Namiko Hirasawa Ch
 
 > Mayonnaise mit Reisessig und Zucker glatt verrühren, bis sich der Zucker aufgelöst hat. Bei Verwendung von Weißweinessig nur ½ EL nehmen. Bis zum Servieren abgedeckt in den Kühlschrank stellen.
 
-Passt zu Sushi, Handrolls und Gemüse oder Garnelen im [Tempura-Teig](tempura-teig.md).
+Passt zu Sushi und Handrolls mit [Sushireis](sushireis.md) sowie Gemüse oder Garnelen im [Tempura-Teig](tempura-teig.md).

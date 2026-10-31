@@ -24,4 +24,4 @@ note: Annäherung an die liebliche Miso-Mayo bei Kōji in Berlin, auf Basis des 
 
 > Misopaste mit Honig und Mayonnaise glatt verrühren, bis keine Misoklümpchen mehr zu sehen sind. Abschmecken. Bis zum Servieren abgedeckt in den Kühlschrank stellen.
 
-Passt zu Handrolls, gebratenen Jakobsmuscheln und Gemüse oder Garnelen im [Tempura-Teig](tempura-teig.md).
+Passt zu Handrolls mit [Sushireis](sushireis.md), gebratenen Jakobsmuscheln und Gemüse oder Garnelen im [Tempura-Teig](tempura-teig.md).

@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-91 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+92 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -64,7 +64,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md)
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
 
-### Beilagen (9)
+### Beilagen (10)
 
 #### Gemüse
 
@@ -80,6 +80,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Kartoffelgratin](recipes/kartoffelgratin.md) _(Ungetestet)_
 - [Kretische Kartoffeln](recipes/kretische-kartoffeln.md) _(Ungetestet)_
 - [Mejadra](recipes/mejadra.md) _(Ungetestet)_
+- [Sushireis](recipes/sushireis.md) _(Ungetestet)_
 
 ### Salate (4)
 
