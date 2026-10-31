@@ -34,4 +34,4 @@ note: Nach Ali Martin, Gimme Some Oven.
 >
 > Etwa 20–25 Minuten backen, bis die Oberfläche goldbraun und die Unterseite gebacken ist. Aus der Form nehmen und auf einem Gitter kurz abkühlen lassen. Warm oder lauwarm anschneiden.
 
-Passende Dips: [Chimichurri](chimichurri.md), [Hummus](hummus.md).
+Passende Dips: [Chimichurri](chimichurri.md), [Hummus](hummus.md), [Romesco](romesco.md).

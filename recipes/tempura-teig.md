@@ -27,3 +27,5 @@ tags: [asiatisch, frittiert, vegan, vegetarisch, grundrezept]
 > Frittiergut trocken tupfen und leicht mit Stärke bestäuben. Durch den Teig ziehen und sofort frittieren. Nicht zu viel gleichzeitig ins Öl geben.
 >
 > Den Teig kalt halten und möglichst wenig rühren.
+
+Passende Saucen: [Süßliche Sushi-Mayo](sushi-mayo.md), [Liebliche Miso-Mayo](miso-mayo.md).

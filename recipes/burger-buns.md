@@ -36,3 +36,5 @@ servings: 10 Buns
 >
 > Ofen auf 185–190 °C Ober-/Unterhitze vorheizen. Ei mit etwas Milch vermischen.\
 > Brötchen damit bepinseln, mit Sesam bestreuen und ca. 17–20 Minuten backen.
+
+Passende Saucen: [American Burger Sauce](american-burger-sauce.md), [Big-Mac-Sauce](big-mac-sauce.md), [House Sauce](house-sauce.md).

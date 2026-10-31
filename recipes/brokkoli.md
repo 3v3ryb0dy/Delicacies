@@ -23,3 +23,5 @@ ingredientTips: [knoblauch-braten]
 > 1 TL Zitronensaft und gepressten Knoblauch hinzugeben. Mit einer Prise Zucker, Salz und Pfeffer abschmecken.
 
 Passende Hauptgerichte: [Bouletten](bouletten.md).
+
+Passende Sauce: [Romesco](romesco.md).

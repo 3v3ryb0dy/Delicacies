@@ -10,7 +10,7 @@ wip: true
 
 ## Tipp
 
-> Den Keksboden nur locker ins Glas drücken. Milch nach und nach zugeben, damit die Creme nicht zu flüssig wird.\
+> Den Keksboden nur locker ins Glas drücken. Für eine weniger mächtige Creme Magerquark verwenden. Die Sahne nur cremig-steif schlagen, solange sie noch glatt ist, und vorsichtig unterheben, damit die Creme luftig bleibt.\
 > Auch Erdbeerpüree oder Maracuja passen sehr gut als fruchtige Schicht.
 
 ## Zutaten
@@ -22,13 +22,13 @@ wip: true
 
 ### Cheesecake-Creme
 
-- 500 g Speisequark (20 % Fett)
-- 100 g Doppelrahm-Frischkäse
-- 150 g Schlagsahne (sehr kalt)
-- 100 g Milch
-- 65 g Zucker
+- 500 g Magerquark
+- 100 g Frischkäse natur
+- 200 g Schlagsahne (sehr kalt)
+- 50–60 g Zucker
 - 1 TL Vanillepaste oder 1 Pck. Vanillezucker
 - 1–2 TL Zitronensaft
+- etwas fein abgeriebene Bio-Zitronenschale
 - 1 Prise Salz
 - n.B. ½ Pck. Sahnesteif
 
@@ -48,9 +48,9 @@ wip: true
 
 ### Cheesecake-Creme
 
-> 150 g kalte Schlagsahne mit dem Handrührgerät cremig-steif schlagen. Nach Belieben ½ Pck. Sahnesteif dabei einrieseln lassen. Kalt stellen.
+> 200 g kalte Schlagsahne mit dem Handrührgerät cremig-steif schlagen. Nach Belieben ½ Pck. Sahnesteif dabei einrieseln lassen. Sobald die Sahne stabil steht und noch glatt aussieht, aufhören zu schlagen. Kalt stellen.
 >
-> Quark, Frischkäse, zunächst 100 g Milch, Zucker, Vanille, Zitronensaft und Salz glatt rühren. Falls die Masse zu kompakt ist, weitere 10–20 g Milch nach und nach zugeben.
+> Magerquark, Frischkäse, Zucker, Vanille, Zitronensaft, Zitronenschale und Salz glatt rühren.
 >
 > Die geschlagene Sahne mit einem Teigschaber vorsichtig unterheben. Nur kurz vermengen, damit die Creme luftig bleibt.
 >
@@ -72,9 +72,9 @@ wip: true
 
 ### Cheesecake-Creme
 
-> Rühraufsatz in den kühlen Mixtopf einsetzen. Kalte Sahne und nach Belieben Sahnesteif zugeben. Auf Stufe 3 ohne Zeiteinstellung unter Beobachtung cremig-steif schlagen. Umfüllen und kalt stellen.
+> Rühraufsatz in den kühlen Mixtopf einsetzen. 200 g kalte Sahne und nach Belieben Sahnesteif zugeben. Auf Stufe 3 ohne Zeiteinstellung unter Beobachtung cremig-steif schlagen. Sobald die Sahne stabil steht und noch glatt aussieht, aufhören zu schlagen. Umfüllen und kalt stellen.
 >
-> Rühraufsatz entfernen. Quark, Frischkäse, zunächst 100 g Milch, Zucker, Vanille, Zitronensaft und Salz in den Mixtopf geben und 20 Sek. / Stufe 4 verrühren. Falls die Masse zu kompakt ist, weitere 10–20 g Milch nach und nach mit dem Spatel einrühren.
+> Rühraufsatz entfernen. Magerquark, Frischkäse, Zucker, Vanille, Zitronensaft, Zitronenschale und Salz in den Mixtopf geben und 20 Sek. / Stufe 4 verrühren.
 >
 > Die Quarkcreme in eine Schüssel umfüllen. Die geschlagene Sahne mit einem Teigschaber vorsichtig von Hand unterheben. Nur kurz vermengen, damit die Creme luftig bleibt.
 >

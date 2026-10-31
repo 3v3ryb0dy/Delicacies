@@ -9,7 +9,7 @@ tags: [grundrezept, vegetarisch]
 
 ## Tipp
 
-> Für einen Geschmacksvergleich die fertige Sauce halbieren. Eine Hälfte mit ½ TL Worcestersauce verrühren und mit der anderen Hälfte vergleichen.
+> Für einen Geschmacksvergleich die fertige Sauce halbieren. Eine Hälfte mit ½ TL Worcestersauce verrühren und mit der anderen Hälfte vergleichen. Für die vegetarische Variante Worcestersauce ohne Sardellen verwenden.
 
 ## Zutaten
 
@@ -35,3 +35,5 @@ tags: [grundrezept, vegetarisch]
 > Abschmecken. Die Sauce sollte cremig, leicht säuerlich, dezent süß und klar gurkig schmecken. Bei Bedarf etwas Salz oder noch etwas Gurkensud zugeben.
 >
 > Vor dem Servieren idealerweise 30 Minuten im Kühlschrank durchziehen lassen.
+
+Passende Brötchen: [Burger Buns](burger-buns.md).

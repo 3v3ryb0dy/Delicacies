@@ -32,4 +32,4 @@ tags: [deutsch, vegetarisch]
 > Zugedeckt ca. 30 - 45 Minuten weich dünsten. Bei Bedarf heißes Wasser aufgießen.\
 > Nach Belieben mit 4 EL Rotwein abschmecken.
 
-Passende Hauptgerichte: [Ochsenbäckchen in Rotweinsauce](ochsenbaeckchen.md).
+Passende Hauptgerichte: [Ochsenbäckchen in Rotweinsauce](ochsenbaeckchen.md), [Rindfleisch in Zwiebel-Biersauce](rindfleisch-in-zwiebel-biersauce.md).
