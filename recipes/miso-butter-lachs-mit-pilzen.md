@@ -1,7 +1,10 @@
 ---
 title: Miso-Butter-Lachs mit Pilzen
 category: hauptgerichte
+image: images/miso-butter-lachs-mit-pilzen
+imageAlt: Gebratener Lachs mit braunen Pilzen in Miso-Buttersauce, Sesam und Frühlingszwiebeln auf einem hellen Keramikteller
 servings: 4 Portionen
+source: https://www.justonecookbook.com/miso-butter-salmon/
 tags: [fisch, asiatisch]
 wip: true
 note: Nach Namiko Hirasawa Chen, Just One Cookbook. Zubereitungszeit ca. 30 Minuten.
@@ -19,8 +22,8 @@ note: Nach Namiko Hirasawa Chen, Just One Cookbook. Zubereitungszeit ca. 30 Minu
 
 ### Lachs und Pilze
 
-- 4 Lachsfilets mit Haut (à ca. 150 bis 180 g)
-- 200 g Shiitake und Shimeji (alternativ braune Champignons)
+- 4 Lachsfilets (mit Haut, à ca. 150–180 g)
+- 200 g Shiitake und Shimeji (alt. braune Champignons)
 - 1 EL Weizenmehl Type 405
 - 2 EL Pflanzenöl (neutral)
 - 30 g Butter
@@ -49,8 +52,8 @@ note: Nach Namiko Hirasawa Chen, Just One Cookbook. Zubereitungszeit ca. 30 Minu
 >
 > Die vorbereitete Misosauce zugießen. Hitze reduzieren und den Lachs etwa 1 Minute wiederholt mit der Sauce übergießen.
 >
-> Lachs herausnehmen, sobald er innen gerade eben gar und noch saftig ist. Pilze und Sauce bei Bedarf noch 1 bis 2 Minuten sanft einkochen lassen, bis die Sauce leicht andickt. Darauf achten, dass sie nicht anbrennt.
+> Lachs herausnehmen, sobald er innen gerade eben gar und noch saftig ist. Pilze und Sauce bei Bedarf noch 1–2 Minuten sanft einkochen lassen, bis die Sauce leicht andickt. Darauf achten, dass sie nicht anbrennt.
 >
-> Lachs mit Pilzen und etwas Pfannensauce auf vier Tellern anrichten. Frühlingszwiebeln fein schneiden und zusammen mit 1 EL geröstetem Sesam darüberstreuen.
+> Frühlingszwiebeln oder 10 g Schnittlauch fein schneiden. Lachs mit Pilzen und etwas Pfannensauce auf vier Tellern anrichten. Mit den Frühlingszwiebeln oder dem Schnittlauch und 1 EL geröstetem Sesam bestreuen.
 
 Passende Beilagen: Jasminreis oder japanischer Rundkornreis sowie gedämpfter Brokkoli, Pak Choi oder grüne Bohnen.

@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-92 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+96 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -21,9 +21,9 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Mauritius-Garnelencocktail](recipes/mauritius-garnelencocktail.md) _(Ungetestet)_
 - [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(Ungetestet)_
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
-- [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md) _(Ungetestet)_
+- [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md)
 
-### Hauptgerichte (23)
+### Hauptgerichte (25)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -38,12 +38,14 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Jakobsmuscheln mit brauner Kapernbutter auf Spargelrisotto](recipes/jakobsmuscheln-mit-spargelrisotto.md) _(Ungetestet)_
 - [Käsefondue Moitié-Moitié](recipes/kaesefondue-moitie-moitie.md)
 - [Kurz gebeizter Lachs aus der Pfanne](recipes/kurz-gebeizter-lachs.md)
+- [Miso-Butter-Lachs mit Pilzen](recipes/miso-butter-lachs-mit-pilzen.md) _(Ungetestet)_
 - [Ochsenbäckchen in Rotweinsauce](recipes/ochsenbaeckchen.md)
 - [Pad Thai](recipes/pad-thai.md)
 - [Pizza (Basis)](recipes/pizza.md) _(Ungetestet)_
 - [Rinderfilet mit Pfifferlingsrisotto und Cognac-Thymian-Jus](recipes/rinderfilet-mit-pfifferlingsrisotto.md)
 - [Rindfleisch in Zwiebel-Biersauce](recipes/rindfleisch-in-zwiebel-biersauce.md) _(Ungetestet)_
 - [Shakshuka](recipes/shakshuka.md) _(Ungetestet)_
+- [Sticky Honey-Garlic-Wings aus dem Airfryer](recipes/sticky-honey-garlic-wings.md)
 - [Tarte mit karamellisiertem Knoblauch](recipes/tarte-mit-karamellisiertem-knoblauch.md) _(Ungetestet)_
 - [Tofu mit schwarzem Pfeffer](recipes/tofu-mit-schwarzem-pfeffer.md) _(Ungetestet)_
 - [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(Ungetestet)_
@@ -56,10 +58,11 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Pavlova-Roulade mit Pfirsichen und Brombeeren](recipes/pavlova-roulade.md) _(Ungetestet)_
 - [Zimt-Pavlova mit Pralinécreme und frischen Feigen](recipes/zimt-pavlova.md) _(Ungetestet)_
 
-### Suppen (5)
+### Suppen (6)
 
 - [Karottensüppchen](recipes/karottensueppchen.md) _(Ungetestet)_
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
+- [Knoblauchsuppe mit geröstetem Knoblauch und Parmesan](recipes/knoblauchsuppe-mit-parmesan.md) _(Ungetestet)_
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
 - [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md)
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
@@ -84,12 +87,12 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 ### Salate (4)
 
-- [Blumenkohlsalat mit Granatapfel und Pistazien](recipes/blumenkohlsalat-mit-granatapfel.md) _(Ungetestet)_
+- [Blumenkohlsalat mit Granatapfel und Pistazien](recipes/blumenkohlsalat-mit-granatapfel.md)
 - [Bohnensalat](recipes/bohnensalat.md)
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Saucen / Dips / Dressings (18)
+### Saucen / Dips / Dressings (19)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico-Honig-Dressing](recipes/balsamico-honig-dressing.md)
@@ -103,6 +106,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Maracuja-Limetten-Dressing](recipes/maracuja-limetten-dressing.md)
 - [Marinade (Grillfleisch)](recipes/marinade.md)
 - [Mayonnaise](recipes/mayonnaise.md)
+- [Nước chấm](recipes/nuoc-cham.md) _(Ungetestet)_
 - [Orangen-Ahorn-Sauce mit Whisky](recipes/orangen-ahorn-sauce-mit-whisky.md) _(Ungetestet)_
 - [Remoulade](recipes/remoulade.md)
 - [Romesco](recipes/romesco.md) _(Ungetestet)_

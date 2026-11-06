@@ -5,7 +5,6 @@ image: images/blumenkohlsalat-mit-granatapfel
 imageAlt: Blumenkohlsalat mit gerösteten Röschen, Granatapfel, Pistazien und Kräutern
 servings: 4 Portionen
 tags: [vegetarisch, vegan, ofen]
-wip: true
 note: Nach Yotam Ottolenghi, Simple.
 ---
 

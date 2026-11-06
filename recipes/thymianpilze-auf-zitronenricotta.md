@@ -5,7 +5,6 @@ image: images/thymianpilze-auf-zitronenricotta.webp
 imageAlt: Gebräunte Thymianpilze auf Zitronenricotta mit brauner Butter und geröstetem Brot
 servings: 4 Vorspeisenportionen
 tags: [vegetarisch]
-wip: true
 ingredientTips: [pilze-braten, knoblauch-braten, zitrusschale-abreiben]
 ---
 
