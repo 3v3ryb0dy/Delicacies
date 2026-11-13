@@ -1,5 +1,5 @@
 ---
-title: Cremige vietnamesische Kokosmilchsuppe
+title: Súp sữa dừa
 category: suppen
 image: images/sup-sua-dua
 imageAlt: Cremige hellorange Kokosmilchsuppe mit Hähnchenstreifen, Champignons, Kirschtomaten und frischen Kräutern

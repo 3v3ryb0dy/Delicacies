@@ -11,19 +11,19 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-98 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+101 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
 
-- [Auberginen mit Buttermilchsauce und Granatapfel](recipes/auberginen-mit-buttermilchsauce.md) _(Ungetestet)_
+- [Auberginen mit Buttermilchsauce und Granatapfel](recipes/auberginen-mit-buttermilchsauce.md)
 - [Kaltes Thunfisch-Tataki mit Grapefruit und rosa Beeren](recipes/thunfisch-tataki.md) _(Ungetestet)_
 - [Mauritius-Garnelencocktail](recipes/mauritius-garnelencocktail.md) _(Ungetestet)_
 - [Räucherforellencreme mit Apfel und Meerrettich](recipes/raeucherforellencreme.md) _(Ungetestet)_
 - [Rote-Bete-Carpaccio mit Apfel und Walnüssen](recipes/rote-bete-carpaccio.md) _(Ungetestet)_
-- [Thymianpilze auf Zitronenricotta mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md)
+- [Thymianpilze auf Zitronenjoghurt mit brauner Butter](recipes/thymianpilze-auf-zitronenricotta.md)
 
-### Hauptgerichte (25)
+### Hauptgerichte (26)
 
 - [Bouletten](recipes/bouletten.md)
 - [Bouletten (vegetarisch)](recipes/vegetarische-bouletten.md)
@@ -48,6 +48,7 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Sticky Honey-Garlic-Wings aus dem Airfryer](recipes/sticky-honey-garlic-wings.md)
 - [Tarte mit karamellisiertem Knoblauch](recipes/tarte-mit-karamellisiertem-knoblauch.md) _(Ungetestet)_
 - [Tofu mit schwarzem Pfeffer](recipes/tofu-mit-schwarzem-pfeffer.md) _(Ungetestet)_
+- [Wiener Saftgulasch](recipes/wiener-saftgulasch.md) _(Ungetestet)_
 - [Wurzeltaler mit Dip](recipes/wurzeltaler.md) _(Ungetestet)_
 - [Zitronenhähnchen mit schneller Salzzitronenpaste](recipes/zitronenhaehnchen.md) _(Ungetestet)_
 
@@ -60,13 +61,13 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 
 ### Suppen (8)
 
-- [Cremige vietnamesische Kokosmilchsuppe](recipes/sup-sua-dua.md) _(Ungetestet)_
 - [Karottensüppchen](recipes/karottensueppchen.md) _(Ungetestet)_
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
 - [Knoblauchsuppe mit geröstetem Knoblauch und Parmesan](recipes/knoblauchsuppe-mit-parmesan.md) _(Ungetestet)_
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
 - [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md)
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
+- [Súp sữa dừa](recipes/sup-sua-dua.md) _(Ungetestet)_
 - [Tom Kha Gai](recipes/tom-kha-gai.md)
 
 ### Beilagen (10)
@@ -94,10 +95,11 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Farfallesalat (italienisch)](recipes/farfallesalat.md) _(In Arbeit, Ungetestet)_
 - [Warmer Kartoffelsalat](recipes/warmer-kartoffelsalat.md)
 
-### Saucen / Dips / Dressings (19)
+### Saucen / Dips / Dressings (20)
 
 - [American Burger Sauce](recipes/american-burger-sauce.md)
 - [Balsamico-Honig-Dressing](recipes/balsamico-honig-dressing.md)
+- [Berliner Currysauce](recipes/berliner-currysauce.md) _(Ungetestet)_
 - [Big-Mac-Sauce](recipes/big-mac-sauce.md) _(Ungetestet)_
 - [Bohnen-Hummus mit Süßkartoffel](recipes/bohnen-hummus.md)
 - [Chimichurri](recipes/chimichurri.md) _(Ungetestet)_
@@ -125,8 +127,9 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Rosmarin-Focaccia](recipes/rosmarin-focaccia.md) _(Ungetestet)_
 - [Simit](recipes/simit.md)
 
-### Gebäck (3)
+### Gebäck (4)
 
+- [Erdnussbutter-Miso-Kekse](recipes/erdnussbutter-miso-cookies.md) _(Ungetestet)_
 - [Heidelbeer-Muffins mit Streuseln](recipes/heidelbeer-muffins-mit-streuseln.md) _(Ungetestet)_
 - [Schinkengipfeli](recipes/schinkengipfeli.md)
 - [Vanillekipferl](recipes/vanillekipferl.md)

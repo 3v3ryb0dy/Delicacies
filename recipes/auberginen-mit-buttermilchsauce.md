@@ -5,7 +5,6 @@ image: images/auberginen-mit-buttermilchsauce
 imageAlt: Geröstete Auberginenhälften mit Buttermilchsauce, Granatapfel und Za’atar
 servings: 4 Portionen als Vorspeise
 tags: [vegetarisch, ofen]
-wip: true
 note: Nach Yotam Ottolenghi, Plenty.
 ---
 
