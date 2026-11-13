@@ -7,7 +7,7 @@ export type BrandRecommendation = {
 /** Shared by the Marken page and automatic links in recipe ingredient lists. */
 export const brandRecommendations: readonly BrandRecommendation[] = [
   { id: 'austernsauce', ingredient: 'Austernsauce', brand: 'Lee Kum Kee' },
-  { id: 'fischsauce', ingredient: 'Fischsauce', brand: 'Red Boat' },
+  { id: 'fischsauce', ingredient: 'Fischsauce', brand: 'Squid Brand' },
   {
     id: 'reisbandnudeln',
     ingredient: 'Reisbandnudeln',

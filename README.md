@@ -11,7 +11,7 @@ Haben Sie Rezeptvorschläge, die unbedingt hier aufgenommen werden sollten, send
 
 ## Rezepte
 
-96 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
+98 Rezepte, jedes als eigene Markdown-Datei in [`recipes/`](recipes).
 Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von Hand bearbeiten.
 
 ### Vorspeisen (6)
@@ -58,14 +58,16 @@ Diese Übersicht wird beim Build aus den Rezeptdateien erzeugt. Bitte nicht von 
 - [Pavlova-Roulade mit Pfirsichen und Brombeeren](recipes/pavlova-roulade.md) _(Ungetestet)_
 - [Zimt-Pavlova mit Pralinécreme und frischen Feigen](recipes/zimt-pavlova.md) _(Ungetestet)_
 
-### Suppen (6)
+### Suppen (8)
 
+- [Cremige vietnamesische Kokosmilchsuppe](recipes/sup-sua-dua.md) _(Ungetestet)_
 - [Karottensüppchen](recipes/karottensueppchen.md) _(Ungetestet)_
 - [Käse-Lauch-Suppe](recipes/kaese-lauch-suppe.md)
 - [Knoblauchsuppe mit geröstetem Knoblauch und Parmesan](recipes/knoblauchsuppe-mit-parmesan.md) _(Ungetestet)_
 - [Pastinakensuppe](recipes/pastinakensuppe.md)
 - [Pfifferlingscremesuppe](recipes/pfifferlingscremesuppe.md)
 - [Rosmarin-Kartoffel-Senf-Süppchen](recipes/rosmarin-kartoffel-senf-sueppchen.md) _(Ungetestet)_
+- [Tom Kha Gai](recipes/tom-kha-gai.md)
 
 ### Beilagen (10)
 

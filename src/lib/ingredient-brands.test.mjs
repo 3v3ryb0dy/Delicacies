@@ -32,7 +32,7 @@ test('Tahini links to its registered brand while surrounding text stays literal'
 
 test('unregistered ingredients remain plain text', () => {
   const text = '3 EL Tahini und etwas Sojasauce'
-  const recommendations = [{ id: 'fischsauce', ingredient: 'Fischsauce', brand: 'Red Boat' }]
+  const recommendations = [{ id: 'fischsauce', ingredient: 'Fischsauce', brand: 'Squid Brand' }]
   assert.deepEqual(parseIngredientBrands(text, recommendations), [{ text }])
   assert.deepEqual(parseIngredientBrands('Fischsauce', []), [{ text: 'Fischsauce' }])
 })
